@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
     <title>Test Form</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
@@ -21,198 +22,156 @@
 
     <form action="#" method="post">
 
+     <!-- STEP 1 -->
     <fieldset id="step_1">
-    <legend>Step 1</legend>
-    Character name: <input type="text" name="ch_name"><br>
-    Age: <input type="text" name="ch_age">
-    Height: <input type="text" name="ch_height">
-    Weight: <input type="text" name="ch_weight"><br>
+      
+      <legend>Step 1</legend>
+      Character name: <input type="text" name="ch_name"><br>
+      Age: <input type="text" name="ch_age">
+      Height: <input type="text" name="ch_height">
+      Weight: <input type="text" name="ch_weight"><br>
 
-    Race: <input type="text" id="ch_race" placeholder="Choose Below" readonly>
-    Subrace: <input type="text" id="ch_subrace" value="None" readonly>
-    Size: <input type="text" id="ch_size" placeholder="Determined by Race" readonly>
-    Languages: <input type="text" id="ch_languages" readonly><br>
-    
-    <dl class="tabs" data-tab>
-    <dd class="active"><a href="#panel_hum" class="race_click">Human</a></dd>
-    <dd><a class="race_click" href="#panel_dwa">Dwarf</a></dd>
-    <dd><a class="race_click" href="#panel_elf">Elf</a></dd>
-    <dd><a class="race_click" href="#panel_hal">Halfling</a></dd>
-    </dl>
-    <div class="tabs-content">
-      <div class="content active" id="panel_hum">
-        <p>Human info</p>
+      Race: <input type="text" id="ch_race" placeholder="Choose Below" readonly>
+      Subrace: <input type="text" id="ch_subrace" value="None" readonly>
+      Size: <input type="text" id="ch_size" placeholder="Determined by Race" readonly>
+      Languages: <input type="text" id="ch_languages" readonly><br>
+
+      <dl class="tabs" data-tab>
+      <dd class="active"><a href="#panel_hum" class="race_click">Human</a></dd>
+      <dd><a class="race_click" href="#panel_dwa">Dwarf</a></dd>
+      <dd><a class="race_click" href="#panel_elf">Elf</a></dd>
+      <dd><a class="race_click" href="#panel_hal">Halfling</a></dd>
+      </dl>
+      <div class="tabs-content">
+        <div class="content active" id="panel_hum">
+          <p>Human info</p>
+        </div>
+        <div class="content" id="panel_dwa">
+          <p>Dwarf Info</p>
+        </div>
+        <div class="content" id="panel_elf">
+          <p>Elf Info</p>
+        </div>
+        <div class="content" id="panel_hal">
+          <p>Halfing info</p>
+        </div>
       </div>
-      <div class="content" id="panel_dwa">
-        <p>Dwarf Info</p>
-      </div>
-      <div class="content" id="panel_elf">
-        <p>Elf Info</p>
-      </div>
-      <div class="content" id="panel_hal">
-        <p>Halfing info</p>
-      </div>
-    </div>
-    
-    
-    
+
     </fieldset>
     
     
-   
-   
-   
-   
-   
-		
+   <!-- STEP 2 -->
 		<fieldset id="step_2">
-		<legend>Step 2</legend>
-  Class: <input id="ch_class" type="text" placeholder="Choose Below" readonly>
-  Hit Points: <input id="ch_hp" type="text" readonly>
-  Hit Die: <input id="ch_hd" type="text" readonly>
-  <br>
+      
+      <legend>Step 2</legend>
+      Class: <input id="ch_class" type="text" placeholder="Choose Below" readonly>
+      Hit Points: <input id="ch_hp" type="text" readonly>
+      Hit Die: <input id="ch_hd" type="text" readonly>
+      <br>
 
-	<dl class="tabs" data-tab>
-  <dd class="active"><a href="#panel_fig" class="class_click">Fighter</a></dd>
-  <dd><a class="class_click" href="#panel_wiz">Wizard</a></dd>
-  <dd><a class="class_click" href="#panel_rog">Rogue</a></dd>
-  <dd><a class="class_click" href="#panel_cle">Cleric</a></dd>
-</dl>
-<div class="tabs-content">
-  <div class="content active" id="panel_fig">
-    <p>Fighter info</p>
-  </div>
-  <div class="content" id="panel_wiz">
-    <p>Wizard info</p>
-  </div>
-  <div class="content" id="panel_rog">
-    <p>Rogue info</p>
-  </div>
-  <div class="content" id="panel_cle">
-    <p>Cleric info</p>
-  </div>
-</div>
+      <dl class="tabs" data-tab>
+      <dd class="active"><a href="#panel_fig" class="class_click">Fighter</a></dd>
+      <dd><a class="class_click" href="#panel_wiz">Wizard</a></dd>
+      <dd><a class="class_click" href="#panel_rog">Rogue</a></dd>
+      <dd><a class="class_click" href="#panel_cle">Cleric</a></dd>
+      </dl>
+      <div class="tabs-content">
+        <div class="content active" id="panel_fig">
+          <p>Fighter info</p>
+        </div>
+        <div class="content" id="panel_wiz">
+          <p>Wizard info</p>
+        </div>
+        <div class="content" id="panel_rog">
+          <p>Rogue info</p>
+        </div>
+        <div class="content" id="panel_cle">
+          <p>Cleric info</p>
+        </div>
+      </div>
+      
+		</fieldset>
+      
+      
+    <!-- STEP 3 -->
+		<fieldset id="step_3">
 			
-			</fieldset>
+      <legend>Step 3</legend>
 
-			<fieldset id="step_3">
-			
-				<legend>Step 3</legend>
-			
-				<label for="attr_type">
-					Attribute Assignment
-				</label>
-				<select id="attr_type">
-					<option id="opt_0" value="0">Please Choose</option>
-					<option id="opt_1" value="dice_roll">Dice Roll</option>
-					<option id="opt_2" value="standard_array">Standard Array</option>
-					<option id="opt_3" value="point_buy">Point Buy</option>
-				</select>
-			
-				<br />
-			
-				<div id="standard_array_wrap" class="name_wrap">
-<table>
-<tr>
-<td width="400">
-<ul>
-	<li>STRENGTH</li>
-	<li>DEXTERITY</li>
-	<li>INTELLIGENCE</li>
-	<li>WIDSOM</li>
-	<li>CHARISMA</li>
-	<li>CONSTITUTION</li>
-</ul>
-</td>
+      <label for="attr_type">
+        Attribute Assignment
+      </label>
+      <select id="attr_type">
+        <option id="opt_0" value="0">Please Choose</option>
+        <option id="opt_1" value="dice_roll">Dice Roll</option>
+        <option id="opt_2" value="standard_array">Standard Array</option>
+        <option id="opt_3" value="point_buy">Point Buy</option>
+      </select>
+      <br />
 
-<td>
-	<ul class="sortable">
-	  <li class="attr">15</li>
-	  <li class="attr">14</li>
-	  <li class="attr">13</li>
-	  <li class="attr">12</li>
-	  <li class="attr">10</li>
-	  <li class="attr">8</li>
-	</ul>
-	</td>
-	</tr>
-</table>
+      <div id="standard_array_wrap" class="name_wrap">
+        <table>
+          <tr>
+            <td width="400"><ul>
+            <li>STRENGTH</li><li>DEXTERITY</li><li>INTELLIGENCE</li>
+            <li>WIDSOM</li><li>CHARISMA</li><li>CONSTITUTION</li>
+            </ul></td>
 
-				</div>
-			
-				<div id="point_buy_wrap" class="name_wrap">
-							Point Buy <div id="pb_total">27</div>
-							
+          <td><ul class="sortable">
+              <li class="attr">15</li><li class="attr">14</li><li class="attr">13</li>
+              <li class="attr">12</li><li class="attr">10</li><li class="attr">8</li>
+            </ul></td>
+          </tr>
+        </table>
+      </div>
 
-<table>
-<tr>
- <td width="400">
- <ul>
-	<li>STRENGTH</li>
-	<li>DEXTERITY</li>
-	<li>INTELLIGENCE</li>
-	<li>WIDSOM</li>
-	<li>CHARISMA</li>
-	<li>CONSTITUTION</li>
- </ul>
- </td>
- <td>
- <ul>
-	<li class="pb_attr" id="pb_str">8</li>
-	<li class="pb_attr" id="pb_dex">8</li>
-	<li class="pb_attr" id="pb_int">8</li>
-	<li class="pb_attr" id="pb_wis">8</li>
-	<li class="pb_attr" id="pb_cha">8</li>
-	<li class="pb_attr" id="pb_con">8</li>
- </ul>
- </td>
- 
- <td>
- <ul>
- <li><a id="pb_str_plus" class="tiny button">+1</a> <a id="pb_str_min" class="tiny button secondary">-1</a></li>
- <li><a id="pb_dex_plus" class="tiny button">+1</a> <a id="pb_dex_min" class="tiny button secondary">-1</a></li>
- <li><a id="pb_int_plus" class="tiny button">+1</a> <a id="pb_int_min" class="tiny button secondary">-1</a></li>
- <li><a id="pb_wis_plus" class="tiny button">+1</a> <a id="pb_wis_min" class="tiny button secondary">-1</a></li>
- <li><a id="pb_cha_plus" class="tiny button">+1</a> <a id="pb_cha_min" class="tiny button secondary">-1</a></li>
- <li><a id="pb_con_plus" class="tiny button">+1</a> <a id="pb_con_min" class="tiny button secondary">-1</a></li>
- </ul>
- </td>
- 
-</tr>
-</table>
+      
+     <div id="point_buy_wrap" class="name_wrap">
+        Point Buy <div id="pb_total">27</div>
+       
+      <table>
+        <tr>
+         <td width="400"><ul>
+          <li>STRENGTH</li> <li>DEXTERITY</li> <li>INTELLIGENCE</li> 
+          <li>WIDSOM</li> <li>CHARISMA</li>   <li>CONSTITUTION</li>
+         </ul></td>
+          
+         <td><ul>
+          <li class="pb_attr" id="pb_str">8</li><li class="pb_attr" id="pb_dex">8</li>
+           <li class="pb_attr" id="pb_int">8</li><li class="pb_attr" id="pb_wis">8</li>
+          <li class="pb_attr" id="pb_cha">8</li><li class="pb_attr" id="pb_con">8</li>
+         </ul></td>
 
+         <td><ul>
+         <li><a id="pb_str_plus" class="tiny button">+1</a> <a id="pb_str_min" class="tiny button secondary">-1</a></li>
+         <li><a id="pb_dex_plus" class="tiny button">+1</a> <a id="pb_dex_min" class="tiny button secondary">-1</a></li>
+         <li><a id="pb_int_plus" class="tiny button">+1</a> <a id="pb_int_min" class="tiny button secondary">-1</a></li>
+         <li><a id="pb_wis_plus" class="tiny button">+1</a> <a id="pb_wis_min" class="tiny button secondary">-1</a></li>
+         <li><a id="pb_cha_plus" class="tiny button">+1</a> <a id="pb_cha_min" class="tiny button secondary">-1</a></li>
+         <li><a id="pb_con_plus" class="tiny button">+1</a> <a id="pb_con_min" class="tiny button secondary">-1</a></li>
+         </ul></td>
 
-				</div>
-			
-				<div id="dice_roll_wrap" class="name_wrap">
-<table>
-<tr>
-<td width="400">
-<ul>
-	<li>STRENGTH</li>
-	<li>DEXTERITY</li>
-	<li>INTELLIGENCE</li>
-	<li>WIDSOM</li>
-	<li>CHARISMA</li>
-	<li>CONSTITUTION</li>
-</ul>
-</td>
+        </tr>
+      </table>
+        
+     </div>
 
-<td>
-	<ul class="sortable">
-	  <li class="attr" id="liran1"></li>
-	  <li class="attr" id="liran2"></li>
-	  <li class="attr" id="liran3"></li></li>
-	  <li class="attr" id="liran4"></li></li>
-	  <li class="attr" id="liran5"></li></li>
-	  <li class="attr" id="liran6"></li></li>
-	</ul>
-	</td>
-	</tr>
-</table>
-				
-				
-				</div>
+     <div id="dice_roll_wrap" class="name_wrap">
+      <table>
+       <tr>
+        <td width="400"><ul>
+         <li>STRENGTH</li><li>DEXTERITY</li><li>INTELLIGENCE</li>
+         <li>WIDSOM</li><li>CHARISMA</li><li>CONSTITUTION</li>
+        </ul></td>
+
+        <td><ul class="sortable">
+         <li class="attr" id="liran1"></li><li class="attr" id="liran2"></li>
+         <li class="attr" id="liran3"></li></li><li class="attr" id="liran4"></li></li>
+         <li class="attr" id="liran5"></li></li><li class="attr" id="liran6"></li></li>
+        </ul></td>
+       </tr>
+      </table>
+     </div>
 			
 				<div id="attendee_5_wrap" class="name_wrap">
 					<label for="name_attendee_5">
@@ -226,49 +185,47 @@
       
       
       
-      
-      
-      
-      
-      
-      <fieldset id="step_4">
-        <legend>Step 4</legend>
+      <!-- STEP 4 -->
+    <fieldset id="step_4">
+      <legend>Step 4</legend>
 
 
-  <div class="small-2 medium-1 columns">
-    <span id="sliderOutput3"></span>
-  </div>
-Alignement:   
-<input type="text" id="ch_alignment" readonly></input>
+      <div class="small-2 medium-1 columns">
+        <span id="sliderOutput3"></span>
+      </div>
+      Alignement:   
+      <input type="text" id="ch_alignment" readonly></input>
 
-<div id = "alignslider" class="range-slider" data-slider data-options="step: 1;start: 1; end: 9;display_selector: #sliderOutput3;">
-  <span class="range-slider-handle" role="slider" tabindex="0"></span>
-  <span class="range-slider-active-segment"></span>
-  <input type="hidden">
-</div>
-<br><br>
-Background:
-<input type="text" id="ch_background"></input>
-PUT IN TABS WITH BACKGROUND SELECTORS<br><br>
-Personality Traits:
-<input type="text" id="ch_traits"></input>
-Ideals:
-<input type="text" id="ch_ideas"></input>
-Bonds:
-<input type="text" id="ch_bonds"></input>
-Flaws:
-<input type="text" id="ch-flaws"></input>
+      <div id = "alignslider" class="range-slider" data-slider data-options="step: 1;start: 1; end: 9; display_selector: #sliderOutput3;">
+        <span class="range-slider-handle" role="slider" tabindex="0"></span>
+        <span class="range-slider-active-segment"></span>
+        <input type="hidden">
+      </div>
+      <br><br>
+      Background:
+      <input type="text" id="ch_background"></input>
+      PUT IN TABS WITH BACKGROUND SELECTORS<br><br>
+      Personality Traits:
+      <input type="text" id="ch_traits"></input>
+      Ideals:
+      <input type="text" id="ch_ideas"></input>
+      Bonds:
+      <input type="text" id="ch_bonds"></input>
+      Flaws:
+      <input type="text" id="ch-flaws"></input>
 
 
-      </fieldset>
+    </fieldset>
 
-		</form>
+		
+
+   </form>
 	</div>
 	</div>
 
-  <script>
+ <script>
   $(document).foundation();
-</script>
-</body>
+ </script>
 
+</body>
 </html>
