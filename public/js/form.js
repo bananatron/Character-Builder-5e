@@ -4,6 +4,8 @@ $(document).ready(function(){
 //Sortable tutorial 
 //http://stackoverflow.com/questions/5131460/using-jqueryui-sortable-list-with-forms
 
+$("#dwarf_desc").load("dwarf.txt");
+$("#elf_desc").load("elf.txt");
 
 //Clickable tab links populate class field
 $("a.class_click").click(function(event){
