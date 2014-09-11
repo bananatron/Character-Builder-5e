@@ -1,21 +1,80 @@
+
 //When DOM is ready
 $(document).ready(function(){
 
-//Sortable tutorial 
-//http://stackoverflow.com/questions/5131460/using-jqueryui-sortable-list-with-forms
+ $("#dwarf_desc").load("dwarf.html");
+ $("#elf_desc").load("elf.html");
+  
+ //Sortable tutorial 
+ //http://stackoverflow.com/questions/5131460/using-jqueryui-sortable-list-with-forms
 
-$("#dwarf_desc").load("dwarf.txt");
-$("#elf_desc").load("elf.txt");
+ //Starting globals
+ var race_lang = 0;
+ var weapon_prof = [];
+ var skill_prof = [];
+ var race_features = [];
+ var class_features = [];
+ var race_selection = "";
+  
 
+
+
+  
+//Dwarf racial preloads
+$("#panel_dwa").click(function(event){
+  event.preventDefault();
+  race_selection = "dwarf";
+
+  $("input#ch_languages").val("Common & Dwarvish");
+  $("input#ch_size").val("Medium");
+  $("input#ch_speed").val("25 ft. (Not reduced by heavy armor.)");
+});
+  
+
+//Elf racial preloads
+$("#panel_elf").click(function(event){
+  event.preventDefault();
+  race_selection = "elf";
+  
+  $("input#ch_languages").val("Common & Elvish");
+  $("input#ch_size").val("Medium");
+  $("input#ch_speed").val("30 ft.");
+});
+
+//High Elf
+$("#panel_helf").click(function(event){
+
+  race_selection = "helf";
+  
+  //Helf gets 1 extra language
+  race_lang++
+  $("input#ch_extralang").val(race_lang);
+}); 
+
+  
+
+//When a race option is selected
+$(".race_click").click(function(event){
+
+  
+  race_features = [];
+  $(".feature_"+ race_selection ).each(function(  ) {
+   race_features.push( $(this).text());
+  });
+
+  $("input#ch_race_features").val(race_features);
+  $("input#ch_race").val($(this).html());
+});
+  
+  
+  
+  
+  
+  
 //Clickable tab links populate class field
 $("a.class_click").click(function(event){
   event.preventDefault();
   $("input#ch_class").val($(this).html());
-});
-
-$("a.race_click").click(function(event){
-  event.preventDefault();
-  $("input#ch_race").val($(this).html());
 });
 
 //Emulates 4d6 - dropping lowest
@@ -264,5 +323,7 @@ for (i=0; i <= 6; i++) {
   $("input#ch_alignment").val(translation);
 
 });
+  
+
   
 });
