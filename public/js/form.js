@@ -4,6 +4,7 @@ $(document).ready(function(){
 
   $("#dwarf_desc").load("dwarf.html");
   $("#elf_desc").load("elf.html");
+  $("#human_desc").load("human.html");
   
  //Sortable tutorial 
  //http://stackoverflow.com/questions/5131460/using-jqueryui-sortable-list-with-forms
@@ -15,27 +16,100 @@ $(document).ready(function(){
   var class_features = [];
   var race_selection = "";
  
- //Racial Attribut bonuses
-  var bonus_str = 0;
-  var bonus_int = 0;
-  var bonus_wis = 0;
-  var bonus_cha = 0;
-  var bonus_dex = 0;
-  var bonus_con = 0;
 
+  //Reset stats 
+  //Need to run on all main classes to clear bonuses from previous selections
+  function resetStats(){
+    var bonus_str = 0;
+    var bonus_int = 0;
+    var bonus_wis = 0;
+    var bonus_cha = 0;
+    var bonus_dex = 0;
+    var bonus_con = 0;
+    var bonus_hp = 0;
+    $("input#ch_race_armor_prof").val([]);
+    $("input#ch_race_skill_prof").val("");
+    $("input#ch_race_weapon_prof").val([]);
+    $("input#ch_race_langcount").val(0);
+  }
+  resetStats();
   
+  
+  
+//Human racial  
+$("#panel_hum").click(function(event){
+  resetStats();
+  event.preventDefault();
+  race_selection = "hum";
+  $("input#ch_race_langcount").val(1);
+  bonus_str = 1;
+  bonus_int = 1;
+  bonus_wis = 1;
+  bonus_cha = 1;
+  bonus_dex = 1;
+  bonus_con = 1;
+  bonus_hp = 1;
+  $("input#ch_race_languages").val("Common");
+  $("input#ch_size").val("Medium");
+  $("input#ch_speed").val("30 ft.");
+});
+  
+
 //Dwarf racial preloads
 $("#panel_dwa").click(function(event){
+  resetStats();
   event.preventDefault();
-  race_selection = "dwarf";
+  race_selection = "dwa";
   bonus_con = 2;
   $("input#ch_race_languages").val("Common & Dwarvish");
   $("input#ch_size").val("Medium");
   $("input#ch_speed").val("25 ft. (Not reduced by heavy armor.)");
+  $("input#ch_race_weapon_prof").val(["battleaxe","handaxe","throwing hammer","warhammer"]);
 });
+  
+//Mountain Dwarf
+$("#dwarf_desc").on("click","#panel_mdwa", function(){
+  race_selection = "mdwa";
+  resetStats();
+  bonus_str = 2;
+  bonus_con = 2;
+  $("input#ch_race_armor_prof").val(["light","medium"]);
+  //Add features for dwarf and mdwarf
+  race_features = [];
+  $(".feature_dwa").each(function(  ) {
+    race_features.push( $(this).text());
+  });
+  $(".feature_"+ race_selection ).each(function(  ) {
+    race_features.push( $(this).text());
+  });
+  $("input#ch_race_features").val(race_features); 
+});
+
+//Hill Dwarf
+$("#dwarf_desc").on("click","#panel_hdwa", function(){
+  race_selection = "hdwa";
+  resetStats();
+  bonus_wis = 1;
+  bonus_con = 2;
+  bonus_hp = 1;
+  $("input#ch_race_armor_prof").val(["light","medium"]);
+  //Add features for dwarf and mdwarf
+  race_features = [];
+  $(".feature_dwa").each(function(  ) {
+    race_features.push( $(this).text());
+  });
+  $(".feature_"+ race_selection ).each(function(  ) {
+    race_features.push( $(this).text());
+  });
+  //Note to add 1 each level
+  race_features.push("Dwarven Toughness. Your maximum HP increased by 1 each level.")
+  $("input#ch_race_features").val(race_features); 
+});
+  
 
 //Elf racial preloads
 $("#panel_elf").click(function(event){
+  resetStats();
   event.preventDefault();
   race_selection = "elf";
   
@@ -44,17 +118,19 @@ $("#panel_elf").click(function(event){
   $("input#ch_size").val("Medium");
   $("input#ch_speed").val("30 ft.");
   $("input#ch_race_skill_prof").val("Perception");
+  
 });
 
 //High Elf
 $("#elf_desc").on("click","#panel_helf", function(){
+  resetStats();
   race_selection = "helf";
   $("input#ch_race").val("Elf (High Elf)");
   //Helf gets 1 extra language & 2 int
   $("input#ch_race_langcount").val(1);
-  bonus_int = 2;
+  bonus_int = 3;
   //Helf weapon prof
-  $("input#ch_race_weapon_prof").val("longsword, shortsword, shortbow, longbow");
+  $("input#ch_race_weapon_prof").val(["longsword", "shortsword", "shortbow", "longbow"]);
   //Adds features for elf and helf
   race_features = [];
   $(".feature_elf").each(function(  ) {
@@ -70,16 +146,16 @@ $("#elf_desc").on("click","#panel_helf", function(){
 
 //Wood Elf
 $("#elf_desc").on("click","#panel_welf", function(){
+  resetStats();
   race_selection = "welf";
   $("input#ch_race").val("Elf (Wood Elf)");
   //Welf gets +1 wis
   bonus_wis = 1;
-  //Welf gets no extra language
-  $("input#ch_race_langcount").val(0);
+  bonus_int = 2;
   //Welf speed increase
   $("input#ch_speed").val("35 ft.");
   //Welf weapon prof
-  $("input#ch_race_weapon_prof").val("longsword, shortsword, shortbow, longbow");
+  $("input#ch_race_weapon_prof").val(["longsword", "shortsword", "shortbow", "longbow"]);
   //Adds features for elf and helf
   race_features = [];
   $(".feature_elf").each(function(  ) {
@@ -93,16 +169,16 @@ $("#elf_desc").on("click","#panel_welf", function(){
   
 //Dark Elf
 $("#elf_desc").on("click","#panel_delf", function(){
+  resetStats();
   race_selection = "delf";
   $("input#ch_race").val("Elf (Dark Elf)");
   //Delf gets +1 wis
+  bonus_int = 1;
   bonus_cha = 1;
-  //Delf gets no extra language
-  $("input#ch_race_langcount").val(0);
   //Delf no speed increase
   $("input#ch_speed").val("30 ft.");
   //Delf weapon prof
-  $("input#ch_race_weapon_prof").val("rapiers,shortswords,hand crossbows");
+  $("input#ch_race_weapon_prof").val(["rapiers","shortswords","hand crossbows"]);
   //Adds features for elf and helf
   race_features = [];
   $(".feature_elf").each(function(  ) {
@@ -114,10 +190,14 @@ $("#elf_desc").on("click","#panel_delf", function(){
   $("input#ch_race_features").val(race_features); 
 }); 
   
- 
+
+
   
 
-//When a race option is selected
+  
+  
+
+//When a race option is selected - May be not necssary
 $(".race_click").click(function(event){
   race_features = [];
   $(".feature_"+ race_selection ).each(function(  ) {
