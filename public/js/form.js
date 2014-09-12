@@ -9,7 +9,6 @@ $(document).ready(function(){
  //http://stackoverflow.com/questions/5131460/using-jqueryui-sortable-list-with-forms
 
  //Starting globals
- var race_lang = 0;
  var weapon_prof = [];
  var skill_prof = [];
  var race_features = [];
@@ -55,17 +54,21 @@ $("#panel_elf").click(function(event){
 //High Elf
 $("#elf_desc").on("click","#panel_helf", function(){
   race_selection = "helf";
+  $("input#ch_race").val("Elf (High Elf)");
 
   //Helf gets 1 extra language
-  race_lang++;
-  $("input#ch_extralang").val(race_lang);
-  alert(race_selection);
+  $("input#ch_racelang").val(1);
   
+  //Adds features for elf and helf
   race_features = [];
+  $(".feature_elf").each(function(  ) {
+   race_features.push( $(this).text());
+  });
   $(".feature_"+ race_selection ).each(function(  ) {
    race_features.push( $(this).text());
   });
-  
+  $("input#ch_race_features").val(race_features);
+ 
 }); 
   
  
