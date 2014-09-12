@@ -24,7 +24,7 @@ $("#panel_dwa").click(function(event){
   event.preventDefault();
   race_selection = "dwarf";
 
-  $("input#ch_languages").val("Common & Dwarvish");
+  $("input#ch_race_languages").val("Common & Dwarvish");
   $("input#ch_size").val("Medium");
   $("input#ch_speed").val("25 ft. (Not reduced by heavy armor.)");
 });
@@ -35,7 +35,7 @@ $("#panel_mdwarf").click(function(event){
   event.preventDefault();
   race_selection = "mdwarf";
 
-  $("input#ch_languages").val("Common & Dwarvish");
+  $("input#ch_race_languages").val("Common & Dwarvish");
   $("input#ch_size").val("Medium");
   $("input#ch_speed").val("25 ft. (Not reduced by heavy armor.)");
 });
@@ -45,7 +45,7 @@ $("#panel_elf").click(function(event){
   event.preventDefault();
   race_selection = "elf";
   
-  $("input#ch_languages").val("Common & Elvish");
+  $("input#ch_race_languages").val("Common & Elvish");
   $("input#ch_size").val("Medium");
   $("input#ch_speed").val("30 ft.");
 });
@@ -57,7 +57,7 @@ $("#elf_desc").on("click","#panel_helf", function(){
   $("input#ch_race").val("Elf (High Elf)");
 
   //Helf gets 1 extra language
-  $("input#ch_racelang").val(1);
+  $("input#ch_race_langcount").val(1);
   
   //Adds features for elf and helf
   race_features = [];
