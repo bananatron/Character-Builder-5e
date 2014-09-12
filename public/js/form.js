@@ -9,18 +9,26 @@ $(document).ready(function(){
  //http://stackoverflow.com/questions/5131460/using-jqueryui-sortable-list-with-forms
 
  //Starting globals
- var weapon_prof = [];
- var skill_prof = [];
- var race_features = [];
- var class_features = [];
- var race_selection = "";
-  
+  var weapon_prof = [];
+  var skill_prof = [];
+  var race_features = [];
+  var class_features = [];
+  var race_selection = "";
+ 
+ //Attributes
+  var bonus_str = 0;
+  var bonus_int = 0;
+  var bonus_wis = 0;
+  var bonus_cha = 0;
+  var bonus_dex = 0;
+  var bonus_con = 0;
+
   
 //Dwarf racial preloads
 $("#panel_dwa").click(function(event){
   event.preventDefault();
   race_selection = "dwarf";
-
+  bonus_con = 2;
   $("input#ch_race_languages").val("Common & Dwarvish");
   $("input#ch_size").val("Medium");
   $("input#ch_speed").val("25 ft. (Not reduced by heavy armor.)");
@@ -31,6 +39,7 @@ $("#panel_elf").click(function(event){
   event.preventDefault();
   race_selection = "elf";
   
+  bonus_int = 1;
   $("input#ch_race_languages").val("Common & Elvish");
   $("input#ch_size").val("Medium");
   $("input#ch_speed").val("30 ft.");
@@ -42,8 +51,9 @@ $("#panel_elf").click(function(event){
 $("#elf_desc").on("click","#panel_helf", function(){
   race_selection = "helf";
   $("input#ch_race").val("Elf (High Elf)");
-  //Helf gets 1 extra language
+  //Helf gets 1 extra language & 2 int
   $("input#ch_race_langcount").val(1);
+  bonus_int = 2;
   //Helf weapon prof
   $("input#ch_race_weapon_prof").val("longsword, shortsword, shortbow, longbow");
   //Adds features for elf and helf
@@ -61,6 +71,8 @@ $("#elf_desc").on("click","#panel_helf", function(){
 $("#elf_desc").on("click","#panel_welf", function(){
   race_selection = "welf";
   $("input#ch_race").val("Elf (Wood Elf)");
+  //Welf gets +1 wis
+  bonus_wis = 1;
   //Welf speed increase
   $("input#ch_speed").val("35 ft.");
   //Welf weapon prof
