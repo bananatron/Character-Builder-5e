@@ -30,15 +30,6 @@ $("#panel_dwa").click(function(event){
 });
   
   
-//Mountain dwarf racial preloads
-$("#panel_mdwarf").click(function(event){
-  event.preventDefault();
-  race_selection = "mdwarf";
-
-  $("input#ch_race_languages").val("Common & Dwarvish");
-  $("input#ch_size").val("Medium");
-  $("input#ch_speed").val("25 ft. (Not reduced by heavy armor.)");
-});
 
 //Elf racial preloads
 $("#panel_elf").click(function(event){
@@ -48,6 +39,7 @@ $("#panel_elf").click(function(event){
   $("input#ch_race_languages").val("Common & Elvish");
   $("input#ch_size").val("Medium");
   $("input#ch_speed").val("30 ft.");
+  $("input#ch_race_skill_prof").val("Perception");
 });
 
 
@@ -58,6 +50,9 @@ $("#elf_desc").on("click","#panel_helf", function(){
 
   //Helf gets 1 extra language
   $("input#ch_race_langcount").val(1);
+  
+  //Helf weapon prof
+  $("input#ch_race_weapon_prof").val("longsword, shortsword, shortbow, longbow");
   
   //Adds features for elf and helf
   race_features = [];
