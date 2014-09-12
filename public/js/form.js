@@ -15,7 +15,7 @@ $(document).ready(function(){
   var class_features = [];
   var race_selection = "";
  
- //Attributes
+ //Racial Attribut bonuses
   var bonus_str = 0;
   var bonus_int = 0;
   var bonus_wis = 0;
@@ -46,7 +46,6 @@ $("#panel_elf").click(function(event){
   $("input#ch_race_skill_prof").val("Perception");
 });
 
-
 //High Elf
 $("#elf_desc").on("click","#panel_helf", function(){
   race_selection = "helf";
@@ -65,6 +64,8 @@ $("#elf_desc").on("click","#panel_helf", function(){
    race_features.push( $(this).text());
   });
   $("input#ch_race_features").val(race_features); 
+  //Helf no speed increase
+  $("input#ch_speed").val("30 ft.");
 }); 
 
 //Wood Elf
@@ -73,10 +74,35 @@ $("#elf_desc").on("click","#panel_welf", function(){
   $("input#ch_race").val("Elf (Wood Elf)");
   //Welf gets +1 wis
   bonus_wis = 1;
+  //Welf gets no extra language
+  $("input#ch_race_langcount").val(0);
   //Welf speed increase
   $("input#ch_speed").val("35 ft.");
   //Welf weapon prof
   $("input#ch_race_weapon_prof").val("longsword, shortsword, shortbow, longbow");
+  //Adds features for elf and helf
+  race_features = [];
+  $(".feature_elf").each(function(  ) {
+   race_features.push( $(this).text());
+  });
+  $(".feature_"+ race_selection ).each(function(  ) {
+   race_features.push( $(this).text());
+  });
+  $("input#ch_race_features").val(race_features); 
+}); 
+  
+//Dark Elf
+$("#elf_desc").on("click","#panel_delf", function(){
+  race_selection = "delf";
+  $("input#ch_race").val("Elf (Dark Elf)");
+  //Delf gets +1 wis
+  bonus_cha = 1;
+  //Delf gets no extra language
+  $("input#ch_race_langcount").val(0);
+  //Delf no speed increase
+  $("input#ch_speed").val("30 ft.");
+  //Delf weapon prof
+  $("input#ch_race_weapon_prof").val("rapiers,shortswords,hand crossbows");
   //Adds features for elf and helf
   race_features = [];
   $(".feature_elf").each(function(  ) {
