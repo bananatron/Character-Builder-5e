@@ -15,9 +15,6 @@ $(document).ready(function(){
  var class_features = [];
  var race_selection = "";
   
-
-
-
   
 //Dwarf racial preloads
 $("#panel_dwa").click(function(event){
@@ -28,8 +25,6 @@ $("#panel_dwa").click(function(event){
   $("input#ch_size").val("Medium");
   $("input#ch_speed").val("25 ft. (Not reduced by heavy armor.)");
 });
-  
-  
 
 //Elf racial preloads
 $("#panel_elf").click(function(event){
@@ -47,13 +42,10 @@ $("#panel_elf").click(function(event){
 $("#elf_desc").on("click","#panel_helf", function(){
   race_selection = "helf";
   $("input#ch_race").val("Elf (High Elf)");
-
   //Helf gets 1 extra language
   $("input#ch_race_langcount").val(1);
-  
   //Helf weapon prof
   $("input#ch_race_weapon_prof").val("longsword, shortsword, shortbow, longbow");
-  
   //Adds features for elf and helf
   race_features = [];
   $(".feature_elf").each(function(  ) {
@@ -62,8 +54,26 @@ $("#elf_desc").on("click","#panel_helf", function(){
   $(".feature_"+ race_selection ).each(function(  ) {
    race_features.push( $(this).text());
   });
-  $("input#ch_race_features").val(race_features);
- 
+  $("input#ch_race_features").val(race_features); 
+}); 
+
+//Wood Elf
+$("#elf_desc").on("click","#panel_welf", function(){
+  race_selection = "welf";
+  $("input#ch_race").val("Elf (Wood Elf)");
+  //Welf speed increase
+  $("input#ch_speed").val("35 ft.");
+  //Welf weapon prof
+  $("input#ch_race_weapon_prof").val("longsword, shortsword, shortbow, longbow");
+  //Adds features for elf and helf
+  race_features = [];
+  $(".feature_elf").each(function(  ) {
+   race_features.push( $(this).text());
+  });
+  $(".feature_"+ race_selection ).each(function(  ) {
+   race_features.push( $(this).text());
+  });
+  $("input#ch_race_features").val(race_features); 
 }); 
   
  
