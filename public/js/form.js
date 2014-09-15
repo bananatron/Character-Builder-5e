@@ -36,7 +36,6 @@ $(document).ready(function(){
   resetStats();
   
   
-  
 //Human racial  
 $("#panel_hum").click(function(event){
   resetStats();
@@ -192,9 +191,55 @@ $("#elf_desc").on("click","#panel_delf", function(){
 }); 
   
 
-
+//Halfling racial preloads
+$("#panel_hal").click(function(event){
+  resetStats();
+  event.preventDefault();
+  race_selection = "hal";
   
-
+  bonus_dex = 2;
+  $("input#ch_race_languages").val("Common & Halfling");
+  $("input#ch_size").val("Small");
+  $("input#ch_speed").val("25 ft.");
+});
+  
+//Lightfood Halfling preloads
+$("#halfling_desc").on("click","#panel_lhal", function(){
+  resetStats();
+  event.preventDefault();
+  race_selection = "lhal";
+  
+  bonus_dex = 2;
+  bonus_cha = 1;
+ //Adds features for elf and helf
+  race_features = [];
+  $(".feature_hal").each(function(  ) {
+   race_features.push( $(this).text());
+  });
+  $(".feature_"+ race_selection ).each(function(  ) {
+   race_features.push( $(this).text());
+  });
+  $("input#ch_race_features").val(race_features); 
+});
+  
+//Stout Halfling preloads
+$("#halfling_desc").on("click","#panel_shal", function(){
+  resetStats();
+  event.preventDefault();
+  race_selection = "shal";
+  
+  bonus_dex = 2;
+  bonus_con = 1;
+ //Adds features for elf and helf
+  race_features = [];
+  $(".feature_hal").each(function(  ) {
+   race_features.push( $(this).text());
+  });
+  $(".feature_"+ race_selection ).each(function(  ) {
+   race_features.push( $(this).text());
+  });
+  $("input#ch_race_features").val(race_features); 
+});
   
   
 
