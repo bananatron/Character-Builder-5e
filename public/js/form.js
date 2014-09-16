@@ -2,10 +2,6 @@
 //When DOM is ready
 $(document).ready(function(){
 
-  $("#dwarf_desc").load("dwarf.html");
-  $("#elf_desc").load("elf.html");
-  $("#human_desc").load("human.html");
-  $("#halfling_desc").load("halfling.html");
   
  //Sortable tutorial 
  //http://stackoverflow.com/questions/5131460/using-jqueryui-sortable-list-with-forms
@@ -497,7 +493,7 @@ for (i=0; i <= 6; i++) {
 
   $("input#ch_alignment").val(translation);
 
-});
+  });
   
 
   
