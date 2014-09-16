@@ -32,6 +32,7 @@ $(document).ready(function(){
     $("input#ch_race_skill_prof").val("");
     $("input#ch_race_weapon_prof").val([]);
     $("input#ch_race_langcount").val(0);
+    $(".tool_click").attr('checked',false);
   }
   resetStats();
   
