@@ -239,6 +239,9 @@ $("#halfling_desc").on("click","#panel_shal", function(){
    race_features.push( $(this).text());
   });
   $("input#ch_race_features").val(race_features); 
+  var alt_button = "button secondary race_click"
+  
+  alt_button = $( "#panel_shal" ).css( "class" );
 });
   
   
@@ -253,11 +256,7 @@ $(".race_click").click(function(event){
   $("input#ch_race_features").val(race_features);
   $("input#ch_race").val($(this).html());
 });
-  
-  
-  
-  
-  
+
   
 //Clickable tab links populate class field
 $("a.class_click").click(function(event){
