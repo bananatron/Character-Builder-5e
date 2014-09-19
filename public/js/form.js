@@ -300,6 +300,7 @@ for (i=0; i <= 6; i++) {
             update: function () {
               var statArray = $(this).sortable('toArray');
               $("input#ch_stats").val(statArray);
+              $("input#ch_str").val(statArray[0].slice(2,4));
         }
     });
          
