@@ -374,7 +374,8 @@ for (i=0; i <= 6; i++) {
             $("input#ch_wis").val(statArray[4].slice(2,4));
             $("input#ch_cha").val(statArray[5].slice(2,4));
       });
-          $(".drsortable").trigger('sortupdate'); 
+            
+      $(".drsortable").trigger('sortupdate'); 
 			$( ".drsortable" ).disableSelection();
         }
         
@@ -394,10 +395,10 @@ for (i=0; i <= 6; i++) {
 	$("#pb_str_plus").click(function(){
 	  if ($("#pb_str").html() < 15 && $("#pb_total").html() > 0){
       $("#pb_str").html(function(i, val) { return val*1+1;});
-      if ($("#pb_str").html() > 8) {
+      if ($("#pb_str").html() > 8 ) {
         $("#pb_total").html(function(i, val) { return val*1-1;});
       }
-      if ($("#pb_str").html() > 13) {
+      if ($("#pb_str").html() > 13 &&  $("#pb_total").html() > 0 ) {
         $("#pb_total").html(function(i, val) { return val*1-1;});
       }
 	  }
