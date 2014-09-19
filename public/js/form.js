@@ -293,15 +293,17 @@ for (i=0; i <= 6; i++) {
 
 		$(".name_wrap").slideUp().find("input").removeClass("active_name_field");
         var numAttendees = $("#attr_type option:selected").text();
+    
+    
         
         if (numAttendees == "Standard Array") {
          $("#standard_array_wrap").slideDown();
           
-          $( '.sortable' ).sortable({
+          $( '.sasortable' ).sortable({
               create: function() {
                 var statArray = $(this).sortable('toArray');
                 $("input#ch_stats").val(statArray);
-                $("input#ch_str").val(statArray[1].slice(2,4));
+                $("input#ch_str").val(statArray[0].slice(2,4));
                 $("input#ch_dex").val(statArray[1].slice(2,4));
                 $("input#ch_con").val(statArray[2].slice(2,4));
                 $("input#ch_int").val(statArray[3].slice(2,4));
@@ -311,7 +313,7 @@ for (i=0; i <= 6; i++) {
               update: function () {
                 var statArray = $(this).sortable('toArray');
                 $("input#ch_stats").val(statArray);
-                $("input#ch_str").val(statArray[1].slice(2,4));
+                $("input#ch_str").val(statArray[0].slice(2,4));
                 $("input#ch_dex").val(statArray[1].slice(2,4));
                 $("input#ch_con").val(statArray[2].slice(2,4));
                 $("input#ch_int").val(statArray[3].slice(2,4));
@@ -319,26 +321,36 @@ for (i=0; i <= 6; i++) {
                 $("input#ch_cha").val(statArray[5].slice(2,4));
               }
           });
-         
-    
-          
-			$( ".sortable" ).disableSelection();
+      
+        //Refresh and apply values if seleted this option
+        $( ".sasortable" ).on('sortupdate', function(){
+            var statArray = $( ".sasortable" ).sortable('toArray');
+            $("input#ch_stats").val(statArray);
+            $("input#ch_str").val(statArray[0].slice(2,4));
+            $("input#ch_dex").val(statArray[1].slice(2,4));
+            $("input#ch_con").val(statArray[2].slice(2,4));
+            $("input#ch_int").val(statArray[3].slice(2,4));
+            $("input#ch_wis").val(statArray[4].slice(2,4));
+            $("input#ch_cha").val(statArray[5].slice(2,4));
+      });
+      $(".sasortable").trigger('sortupdate');    
+			$( ".sasortable" ).disableSelection();
         }
 		
         if (numAttendees == "Dice Roll") {
          $("#dice_roll_wrap").slideDown();
           
-        	$( '.sortable' ).sortable({
+        	$( '.drsortable' ).sortable({
             create: function() {
-                var statArray = $(this).sortable('toArray');
-                $("input#ch_stats").val(statArray);
-                $("input#ch_str").val(statArray[1].slice(2,4));
-                $("input#ch_dex").val(statArray[1].slice(2,4));
-                $("input#ch_con").val(statArray[2].slice(2,4));
-                $("input#ch_int").val(statArray[3].slice(2,4));
-                $("input#ch_wis").val(statArray[4].slice(2,4));
-                $("input#ch_cha").val(statArray[5].slice(2,4));
-              },
+              var statArray = $(this).sortable('toArray');
+              $("input#ch_stats").val(statArray);
+              $("input#ch_str").val(statArray[0].slice(2,4));
+              $("input#ch_dex").val(statArray[1].slice(2,4));
+              $("input#ch_con").val(statArray[2].slice(2,4));
+              $("input#ch_int").val(statArray[3].slice(2,4));
+              $("input#ch_wis").val(statArray[4].slice(2,4));
+              $("input#ch_cha").val(statArray[5].slice(2,4));
+            },
             update: function () {
               var statArray = $(this).sortable('toArray');
               $("input#ch_stats").val(statArray);
@@ -350,13 +362,28 @@ for (i=0; i <= 6; i++) {
               $("input#ch_cha").val(statArray[5].slice(2,4));
           }
       });
-			$( ".sortable" ).disableSelection();
+          
+      //Refresh and apply values if seleted this option
+        $( ".drsortable" ).on('sortupdate', function(){
+            var statArray = $( ".drsortable" ).sortable('toArray');
+            $("input#ch_stats").val(statArray);
+            $("input#ch_str").val(statArray[0].slice(2,4));
+            $("input#ch_dex").val(statArray[1].slice(2,4));
+            $("input#ch_con").val(statArray[2].slice(2,4));
+            $("input#ch_int").val(statArray[3].slice(2,4));
+            $("input#ch_wis").val(statArray[4].slice(2,4));
+            $("input#ch_cha").val(statArray[5].slice(2,4));
+      });
+          $(".drsortable").trigger('sortupdate'); 
+			$( ".drsortable" ).disableSelection();
         }
         
 		if (numAttendees == "Point Buy") {
 		  $("#point_buy_wrap").slideDown().find("input").addClass("active_name_field");
 		}
+    
 	});
+  
 	
 	
  
