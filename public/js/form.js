@@ -295,7 +295,16 @@ for (i=0; i <= 6; i++) {
         
         if (numAttendees == "Standard Array") {
          $("#standard_array_wrap").slideDown();
-        	$( ".sortable" ).sortable();
+          
+          $( '.sortable' ).sortable({
+            update: function () {
+              var statArray = $(this).sortable('toArray');
+              $("input#ch_stats").val(statArray);
+        }
+    });
+         
+          
+          
 			$( ".sortable" ).disableSelection();
         }
 		
