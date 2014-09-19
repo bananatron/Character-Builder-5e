@@ -301,6 +301,11 @@ for (i=0; i <= 6; i++) {
               var statArray = $(this).sortable('toArray');
               $("input#ch_stats").val(statArray);
               $("input#ch_str").val(statArray[0].slice(2,4));
+              $("input#ch_dex").val(statArray[1].slice(2,4));
+              $("input#ch_con").val(statArray[2].slice(2,4));
+              $("input#ch_int").val(statArray[3].slice(2,4));
+              $("input#ch_wis").val(statArray[4].slice(2,4));
+              $("input#ch_cha").val(statArray[5].slice(2,4));
         }
     });
          
