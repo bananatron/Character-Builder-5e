@@ -11,7 +11,9 @@ $(document).ready(function(){
   var skill_prof = [];
   var race_features = [];
   var class_features = [];
+  var class_savingthrows = [];
   var race_selection = "";
+  var class_equip = [];
  
 
   //Reset stats 
@@ -241,8 +243,34 @@ $("#halfling_desc").on("click","#panel_shal", function(){
   alt_button = $( "#panel_shal" ).css( "class" );
 });
   
+
+$(".class_click").click(function(event){
+
+  $("input#ch_class").val($(this).html());
+  
+  if ($("input#ch_class").val() == "Rogue") {
+    var total_hp = (8 + parseInt($("input#ch_con").val()) )
+    $("input#ch_hp").val(total_hp);
+    
+    $("input#ch_classtool").val("Thieves' Tools");
+    $("input#ch_armp").val("Light Armor");
+    $("input#ch_wepp").val("Simple weapons, hand crossbows, longswords, rapiers, shortswords");
+    $("input#ch_hd").val("1d8");
+    $("input#ch_stp").val("Dexterity, Intelligence");
+    $("input#ch_skillcount").val(4);
+    $("input#ch_spellcount").val(0);
+    var class_equip = ["Leather Armor", "Two Daggers", "Thieve's Tools"]
+  }
+  
+  
+  
+  
   
 
+});
+
+  
+  
 //When a race option is selected - May be not necssary
 $(".race_click").click(function(event){
   race_features = [];

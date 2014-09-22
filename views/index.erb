@@ -75,10 +75,11 @@
 
 
       <dl class="tabs" data-tab>
-      <dd class="active"><a href="#panel_fig" class="class_click">Fighter</a></dd>
-      <dd><a class="class_click" href="#panel_wiz">Wizard</a></dd>
-      <dd><a class="class_click" href="#panel_rog">Rogue</a></dd>
-      <dd><a class="class_click" href="#panel_cle">Cleric</a></dd>
+      <dd class="active">
+          <a href="#panel_fig" id="panel_fig" class="class_click">Fighter</a></dd>
+      <dd><a class="class_click" id="panel_wiz"href="#panel_wiz">Wizard</a></dd>
+      <dd><a class="class_click" id="panel_rog"href="#panel_rog">Rogue</a></dd>
+      <dd><a class="class_click" id="panel_cle" href="#panel_cle">Cleric</a></dd>
       </dl>
       <div class="tabs-content">
         <div class="content active" id="panel_fig">
@@ -95,12 +96,15 @@
         </div>
       </div>
       
-      
+      Class: <input id="ch_class" type="text" readonly>
       Hit Points: <input id="ch_hp" type="text" readonly>
       Hit Die: <input id="ch_hd" type="text" readonly>
       Saving Throw Prof.: <input id="ch_stp" type="text" readonly>
-      Armor and Weapon Prof.: <input id="ch_awp" type="text" readonly>
-      Class Tools: <input id="ch_classtool" type="text" readonly>
+      Armor Prof: <input id="ch_armp" type="text" readonly>
+      Weapon Prof: <input id="ch_wepp" type="text" readonly>
+      Class Tool Prof: <input id="ch_classtool" type="text" readonly>
+      Spells: <input id="ch_spellcount" type="text" readonly>
+      Skill Prof: <input id="ch_skillcount" type="text" readonly>
       <br>
       
       
