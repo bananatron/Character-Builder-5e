@@ -77,21 +77,21 @@
       <dl class="tabs" data-tab>
       <dd class="active">
           <a href="#panel_fig" id="panel_fig" class="class_click">Fighter</a></dd>
-      <dd><a class="class_click" id="panel_wiz"href="#panel_wiz">Wizard</a></dd>
-      <dd><a class="class_click" id="panel_rog"href="#panel_rog">Rogue</a></dd>
-      <dd><a class="class_click" id="panel_cle" href="#panel_cle">Cleric</a></dd>
+      <dd><a class="class_click" id="panel_wiz" href="#wizard_desc">Wizard</a></dd>
+      <dd><a class="class_click" id="panel_rog" href="#rogue_desc">Rogue</a></dd>
+      <dd><a class="class_click" id="panel_cle" href="#cleric_desc">Cleric</a></dd>
       </dl>
       <div class="tabs-content">
-        <div class="content active" id="panel_fig">
+        <div class="content active" id="fighter_desc">
           <p>Fighter info</p>
         </div>
-        <div class="content" id="panel_wiz">
+        <div class="content" id="wizard_desc">
           <p>Wizard info</p>
         </div>
-        <div class="content" id="panel_rog">
+        <div class="content" id="rogue_desc">
           <p>Rogue info</p>
         </div>
-        <div class="content" id="panel_cle">
+        <div class="content" id="cleric_desc">
           <p>Cleric info</p>
         </div>
       </div>
@@ -105,6 +105,8 @@
       Class Tool Prof: <input id="ch_classtool" type="text" readonly>
       Spells: <input id="ch_spellcount" type="text" readonly>
       Skill Prof: <input id="ch_skillcount" type="text" readonly>
+      Equip: <input id="ch_classequip" type="text" readonly>
+      Class Features: <input id="ch_classfeat" type="text" readonly>
       <br>
       
       
@@ -255,6 +257,7 @@
   $("#elf_desc").load("elf.html");
   $("#human_desc").load("human.html");
   $("#halfling_desc").load("halfling.html");
+  $("#rogue_desc").load("rogue.html");
   $(document).foundation();
  </script>
 
