@@ -264,14 +264,12 @@ $(".class_click").click(function(event){
     $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves., Sneak Attack: Once     per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage     on the attack roll.");
   }
   
-  
-  
-  
-  
+
 
 });
 
   
+
   
 //When a race option is selected - May be not necssary
 $(".race_click").click(function(event){
