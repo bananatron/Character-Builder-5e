@@ -264,6 +264,22 @@ $(".class_click").click(function(event){
     $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves., Sneak Attack: Once     per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage     on the attack roll.");
   }
   
+  if ($("input#ch_class").val() == "Fighter") {
+    var total_hp = (10 + parseInt($("input#ch_con").val()) )
+    $("input#ch_hp").val(total_hp);
+    
+    $("input#ch_classtool").val("");
+    $("input#ch_armp").val("All armor, shields");
+    $("input#ch_wepp").val("Simple weapons, martial weapons");
+    $("input#ch_hd").val("1d10");
+    $("input#ch_stp").val("Strength, Constitution");
+    $("input#ch_skillcount").val(2);
+    $("input#ch_spellcount").val(0);
+    var class_equip = [""]
+    $("input#ch_classequip").val(class_equip);
+    $("input#ch_classfeat").val("Second Wind: You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. (Daily)");
+  }
+  
 
 
 });
