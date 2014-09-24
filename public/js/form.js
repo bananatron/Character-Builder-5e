@@ -70,6 +70,8 @@ $("#panel_dwa").click(function(event){
 $("#dwarf_desc").on("click","#panel_mdwa", function(){
   race_selection = "mdwa";
   resetStats();
+  
+  $("input#ch_race").val("Dwarf (Mountain Dwarf)");
   bonus_str = 2;
   bonus_con = 2;
   $("input#ch_race_armor_prof").val(["light","medium"]);
@@ -88,6 +90,7 @@ $("#dwarf_desc").on("click","#panel_mdwa", function(){
 $("#dwarf_desc").on("click","#panel_hdwa", function(){
   race_selection = "hdwa";
   resetStats();
+  $("input#ch_race").val("Dwarf (Hill Dwarf)");
   bonus_wis = 1;
   bonus_con = 2;
   bonus_hp = 1;
@@ -207,10 +210,10 @@ $("#halfling_desc").on("click","#panel_lhal", function(){
   resetStats();
   event.preventDefault();
   race_selection = "lhal";
-  
+  $("input#ch_race").val("Halfling (Lightfoot)");
   bonus_dex = 2;
   bonus_cha = 1;
- //Adds features for elf and helf
+   //Adds features for normal half
   race_features = [];
   $(".feature_hal").each(function(  ) {
    race_features.push( $(this).text());
@@ -226,10 +229,11 @@ $("#halfling_desc").on("click","#panel_shal", function(){
   resetStats();
   event.preventDefault();
   race_selection = "shal";
+  $("input#ch_race").val("Halfling (Stout)");
   
   bonus_dex = 2;
   bonus_con = 1;
- //Adds features for elf and helf
+ //Adds features for normal half
   race_features = [];
   $(".feature_hal").each(function(  ) {
    race_features.push( $(this).text());
