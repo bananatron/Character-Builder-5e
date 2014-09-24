@@ -212,12 +212,14 @@
       
       
       <h4>Skills</h4>
-      <% @skilllist = ['Athletics', 'Acrobatics', 'Sleight of Hand', 'Stealth', 'Arcana', 'History', 'Investigation', 'Nature', 'Religion', 'Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival', 'Deception', 'Intimidation', 'Performance', 'Persuasion']%>
+      <% @skilllist = ['Athletics', 'Acrobatics', 'Sleight of Hand', 'Stealth', 'Arcana', 'History',   
+      'Investigation', 'Nature', 'Religion', 'Animal Handling', 'Insight', 'Medicine', 'Perception', 
+      'Survival', 'Deception', 'Intimidation', 'Performance', 'Persuasion']%>
       <%  @skilllist.sort_by!{ |m| m.downcase }  %>
       
-      
       <% @skilllist.each do |skill|  %>
-       <input class = "ch_skillprof" type="checkbox" value="<%= skill %>"><label><%= skill %></label> 
+        <input id="<%= skill.downcase %>_id" class = "ch_skillprof" type="checkbox" value="<%= skill %>">
+        <label for="<%= skill.downcase %>_id"><%= skill %></label> 
       <% end %>
       <br>
       
@@ -226,7 +228,8 @@
         'Thaumaturgy']%>
       
       <% @spelllist.each do |spell|  %>
-       <input class = "ch_spells" type="checkbox" value="<%= spell %>"><label><%= spell %></label> 
+       <input id='<%= spell.downcase %>_id' class = "ch_spells" type="checkbox" value="<%= spell %>">
+      <label for='<%= spell.downcase %>_id'><%= spell %></label> 
       <% end %>
       <br>
       
