@@ -283,8 +283,6 @@ $(".class_click").click(function(event){
     $("input#ch_classfeat").val(fighter_features);
   }
   
-
-
 });
 
 //Fighting style selection for fighter
@@ -292,7 +290,8 @@ $(".class_click").click(function(event){
     //alert($(this).val());
     $("input#ch_classfeat").val(fighter_features + "-" + $(this).val());
   });
-                   
+
+  
   
 //When a race option is selected
 $(".race_click").click(function(event){
@@ -360,6 +359,8 @@ for (i=0; i <= 6; i++) {
                 $("input#ch_int").val(statArray[3].slice(2,4));
                 $("input#ch_wis").val(statArray[4].slice(2,4));
                 $("input#ch_cha").val(statArray[5].slice(2,4));
+                var total_hp = (10 + parseInt($("input#ch_con").val()) )
+                $("input#ch_hp").val(total_hp);
               },
               update: function () {
                 var statArray = $(this).sortable('toArray');
@@ -370,6 +371,8 @@ for (i=0; i <= 6; i++) {
                 $("input#ch_int").val(statArray[3].slice(2,4));
                 $("input#ch_wis").val(statArray[4].slice(2,4));
                 $("input#ch_cha").val(statArray[5].slice(2,4));
+                var total_hp = (10 + parseInt($("input#ch_con").val()) );
+                $("input#ch_hp").val(total_hp);
               }
           });
       
@@ -383,6 +386,8 @@ for (i=0; i <= 6; i++) {
             $("input#ch_int").val(statArray[3].slice(2,4));
             $("input#ch_wis").val(statArray[4].slice(2,4));
             $("input#ch_cha").val(statArray[5].slice(2,4));
+            var total_hp = (10 + parseInt($("input#ch_con").val()) );
+            $("input#ch_hp").val(total_hp);
       });
       $(".sasortable").trigger('sortupdate');    
 			$( ".sasortable" ).disableSelection();
@@ -401,6 +406,8 @@ for (i=0; i <= 6; i++) {
               $("input#ch_int").val(statArray[3].slice(2,4));
               $("input#ch_wis").val(statArray[4].slice(2,4));
               $("input#ch_cha").val(statArray[5].slice(2,4));
+              var total_hp = (10 + parseInt($("input#ch_con").val()) );
+              $("input#ch_hp").val(total_hp);
             },
             update: function () {
               var statArray = $(this).sortable('toArray');
@@ -411,6 +418,8 @@ for (i=0; i <= 6; i++) {
               $("input#ch_int").val(statArray[3].slice(2,4));
               $("input#ch_wis").val(statArray[4].slice(2,4));
               $("input#ch_cha").val(statArray[5].slice(2,4));
+              var total_hp = (10 + parseInt($("input#ch_con").val()) );
+              $("input#ch_hp").val(total_hp);
           }
       });
           
@@ -424,6 +433,8 @@ for (i=0; i <= 6; i++) {
             $("input#ch_int").val(statArray[3].slice(2,4));
             $("input#ch_wis").val(statArray[4].slice(2,4));
             $("input#ch_cha").val(statArray[5].slice(2,4));
+            var total_hp = (10 + parseInt($("input#ch_con").val()) );
+            $("input#ch_hp").val(total_hp);
       });
             
       $(".drsortable").trigger('sortupdate'); 

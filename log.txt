@@ -4,3 +4,4 @@ PDF Convert
 IDs for tool label seletion for easier mobile use
 Rework skill options to where it pulls from class array on main page, not on html entry
 impl point buy update where stats update on change
+Validation and addition to equipment depending on what they have selected and what class is present.
