@@ -288,10 +288,14 @@ $(".class_click").click(function(event){
 
 });
 
-  
-
-  
-//When a race option is selected - May be not necssary
+//Fighting style selection for fighter
+  $("#fighter_desc").on("change",".ch_fighter_style[type='radio']", function(){
+    alert($(this).val());
+    var current_loaded = $("input#ch_classfeat").val();
+    $("input#ch_classfeat").val(current_loaded + "-" + $(this).val());
+  });
+                   
+//When a race option is selected
 $(".race_click").click(function(event){
   race_features = [];
   $(".feature_"+ race_selection ).each(function(  ) {
