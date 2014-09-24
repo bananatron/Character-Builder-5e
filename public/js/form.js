@@ -619,6 +619,38 @@ for (i=0; i <= 6; i++) {
 
   });
   
+//Limit # of  skills
+//$('input.ch_skillprof').hide();
+
+var prof_limit = 4;
+$('input.ch_skillprof').on('change', function(evt) {
+   if($(this).siblings(':checked').length >= prof_limit) {
+       this.checked = false;
+   }
+  
+    $('input.ch_rogue_skillprof').each(function() {
+      if ($(this).is(':checked')) {
+        
+          var checked_option = $(this).val()  
+          $('input.ch_rogue_expert').each(function() {
+            if ($(this).val() == checked_option) {
+              $(this).show();
+            }
+          });
+
+      }
+      else {
+        var unchecked_option = $(this).val() 
+        $('input.ch_rogue_expert').each(function() {
+            if ($(this).val() == unchecked_option) {
+              $(this).hide();
+            }
+          });
+      }
+  });
+});
+  
+  
 
   
 });

@@ -7,22 +7,9 @@
 <strong>Weapons:</strong> Simple weapons, hand crossbows, longswords, rapiers, shortswords<br>
 <strong>Tools:</strong> Thieves’ tools<br>
 <strong>Saving Throws:</strong> Dexterity, Intelligence<br>
-<strong>Skills:</strong> Choose four from <br><br>
-
-<input class = "ch_rogue_skillprof" type="checkbox" value="Acrobatics"><label>Acrobatics</label>
-<input class = "ch_rogue_skillprof" type="checkbox" value="Athletics"><label>Athletics</label>
-<input class = "ch_rogue_skillprof" type="checkbox" value="Deception"><label>Deception</label><br>
-<input class = "ch_rogue_skillprof" type="checkbox" value="Insight"><label>Insight</label>
-<input class = "ch_rogue_skillprof" type="checkbox" value="Intimidation"><label>Intimidation</label>
-<input class = "ch_rogue_skillprof" type="checkbox" value="Investigation"><label>Investigation</label><br>
-<input class = "ch_rogue_skillprof" type="checkbox" value="Perception"><label>Perception</label>
-<input class = "ch_rogue_skillprof" type="checkbox" value="Performance"><label>Performance</label>
-<input class = "ch_rogue_skillprof" type="checkbox" value="Persuasion"><label>Persuasion</label><br>
-<input class = "ch_rogue_skillprof" type="checkbox" value="Sleight of Hand"><label>Sleight of Hand</label>
-<input class = "ch_rogue_skillprof" type="checkbox" value="Stealth"><label>Stealth</label>
-
-
+<strong>Skills:</strong> You'll be able to choose four <b>(4)</b> from Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, and Stealth.
 <br><br>
+
 <h4>Equipment</h4>
 You start with the following equipment, in addition to
 the equipment granted by your background:<br><br>
@@ -55,64 +42,6 @@ At 1st level, choose two of your skill proficiencies, or
 one of your skill proficiencies and your proficiency with
 thieves’ tools. Your proficiency bonus is doubled for any
 ability check you make that uses either of the chosen
-proficiencies.<i>(Choose 2 below)</i>
+proficiencies.<i>(Instructions on this later?)</i>
 <br><br>
-<input class = "ch_rogue_expert" type="checkbox" value="Acrobatics"><label>Acrobatics</label>
-<input class = "ch_rogue_expert" type="checkbox" value="Athletics"><label>Athletics</label>
-<input class = "ch_rogue_expert" type="checkbox" value="Deception"><label>Deception</label><br>
-<input class = "ch_rogue_expert" type="checkbox" value="Insight"><label>Insight</label>
-<input class = "ch_rogue_expert" type="checkbox" value="Intimidation"><label>Intimidation</label>
-<input class = "ch_rogue_expert" type="checkbox" value="Investigation"><label>Investigation</label><br>
-<input class = "ch_rogue_expert" type="checkbox" value="Perception"><label>Perception</label>
-<input class = "ch_rogue_expert" type="checkbox" value="Performance"><label>Performance</label>
-<input class = "ch_rogue_expert" type="checkbox" value="Persuasion"><label>Persuasion</label><br>
-<input class = "ch_rogue_expert" type="checkbox" value="Sleight of Hand"><label>Sleight of Hand</label>
-<input class = "ch_rogue_expert" type="checkbox" value="Stealth"><label>Stealth</label>
-<input class = "ch_rogue_expert" type="checkbox" value="Thieves Tools"><label>Thieves Tools</label>
-
-<script>
-  
-
-  
-    //Limit # of Rogue skills
-$('input.ch_rogue_expert').hide();
-
-var prof_limit = 4;
-$('input.ch_rogue_skillprof').on('change', function(evt) {
-   if($(this).siblings(':checked').length >= prof_limit) {
-       this.checked = false;
-   }
-
-    $('input.ch_rogue_skillprof').each(function() {
-      if ($(this).is(':checked')) {
-          var checked_option = $(this).val()  
-
-          $('input.ch_rogue_expert').each(function() {
-            if ($(this).val() == checked_option) {
-              $(this).show();
-            }
-          });
-
-      }
-      else {
-        var unchecked_option = $(this).val() 
-        $('input.ch_rogue_expert').each(function() {
-            if ($(this).val() == unchecked_option) {
-              $(this).hide();
-            }
-          });
-      }
-  });
-});
-  
-//Limit # of Rogue expertise checks
-var exp_limit = 6;
-$('input.ch_rogue_expert').on('change', function(evt) {
-   if($(this).siblings(':checked').length >= exp_limit) {
-       this.checked = false;
-   }
-});
-  
-  //As profeciencies get seleted, they'll hide or show the exp options
-</script>
 
