@@ -103,12 +103,10 @@ $('input.ch_rogue_skillprof').on('change', function(evt) {
           });
       }
   });
-
-  
 });
   
-  //Limit # of Rogue expertise checks
-var exp_limit = 2;
+//Limit # of Rogue expertise checks
+var exp_limit = 6;
 $('input.ch_rogue_expert').on('change', function(evt) {
    if($(this).siblings(':checked').length >= exp_limit) {
        this.checked = false;
