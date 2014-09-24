@@ -247,9 +247,8 @@ $("#halfling_desc").on("click","#panel_shal", function(){
   alt_button = $( "#panel_shal" ).css( "class" );
 });
   
-
+var fighter_features = "Second Wind: You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. (Daily)"
 $(".class_click").click(function(event){
-
   $("input#ch_class").val($(this).html());
   
   if ($("input#ch_class").val() == "Rogue") {
@@ -281,7 +280,7 @@ $(".class_click").click(function(event){
     $("input#ch_spellcount").val(0);
     var class_equip = [""]
     $("input#ch_classequip").val(class_equip);
-    $("input#ch_classfeat").val("Second Wind: You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. (Daily)");
+    $("input#ch_classfeat").val(fighter_features);
   }
   
 
@@ -290,11 +289,11 @@ $(".class_click").click(function(event){
 
 //Fighting style selection for fighter
   $("#fighter_desc").on("change",".ch_fighter_style[type='radio']", function(){
-    alert($(this).val());
-    var current_loaded = $("input#ch_classfeat").val();
-    $("input#ch_classfeat").val(current_loaded + "-" + $(this).val());
+    //alert($(this).val());
+    $("input#ch_classfeat").val(fighter_features + "-" + $(this).val());
   });
                    
+  
 //When a race option is selected
 $(".race_click").click(function(event){
   race_features = [];
