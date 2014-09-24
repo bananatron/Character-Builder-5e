@@ -200,23 +200,36 @@
 		</fieldset>
       
       
-   
+
 
       
     <fieldset id="step_3.5">
-      <legend>Step 3.5</legend> (list incomplete)
-      <input class = "ch_skillprof" type="checkbox" value="Acrobatics"><label>Acrobatics</label>
-      <input class = "ch_skillprof" type="checkbox" value="Athletics"><label>Athletics</label>
-      <input class = "ch_skillprof" type="checkbox" value="Deception"><label>Deception</label><br>
-      <input class = "ch_skillprof" type="checkbox" value="Insight"><label>Insight</label>
-      <input class = "ch_skillprof" type="checkbox" value="Intimidation"><label>Intimidation</label>
-      <input class = "ch_skillprof" type="checkbox" value="Investigation"><label>Investigation</label><br>
-      <input class = "ch_skillprof" type="checkbox" value="Perception"><label>Perception</label>
-      <input class = "ch_skillprof" type="checkbox" value="Performance"><label>Performance</label>
-      <input class = "ch_skillprof" type="checkbox" value="Persuasion"><label>Persuasion</label><br>
-      <input class = "ch_skillprof" type="checkbox" value="Sleight of Hand"><label>Sleight of Hand</label>
-      <input class = "ch_skillprof" type="checkbox" value="Stealth"><label>Stealth</label>
-      <input class = "ch_skillprof" type="checkbox" value="Thieves Tools"><label>Thieves Tools</label>
+      <legend>Step 3.5 - Skills and Spells</legend> (list incomplete)
+      
+      
+      
+      <br>
+      
+      
+      <h4>Skills</h4>
+      <% @skilllist = ['Athletics', 'Acrobatics', 'Sleight of Hand', 'Stealth', 'Arcana', 'History', 'Investigation', 'Nature', 'Religion', 'Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival', 'Deception', 'Intimidation', 'Performance', 'Persuasion']%>
+      <%  @skilllist.sort_by!{ |m| m.downcase }  %>
+      
+      
+      <% @skilllist.each do |skill|  %>
+       <input class = "ch_skillprof" type="checkbox" value="<%= skill %>"><label><%= skill %></label> 
+      <% end %>
+      <br>
+      
+      <h4>Spells</h4>
+      <% @spelllist = ['Guidance', 'Light', 'Resistance', 'Sacred Flame', 'Spare the Dying',
+        'Thaumaturgy']%>
+      
+      <% @spelllist.each do |spell|  %>
+       <input class = "ch_spells" type="checkbox" value="<%= spell %>"><label><%= spell %></label> 
+      <% end %>
+      <br>
+      
     </fieldset>
 
       <!-- STEP 4 -->

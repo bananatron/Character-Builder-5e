@@ -265,7 +265,7 @@ $(".class_click").click(function(event){
     $("input#ch_spellcount").val(0);
     var class_equip = ["Leather Armor", "Two Daggers", "Thieve's Tools"]
     $("input#ch_classequip").val(class_equip);
-    $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves., Sneak Attack: Once     per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage     on the attack roll.");
+    $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves., Sneak Attack: Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.");
   }
   
   if ($("input#ch_class").val() == "Fighter") {
