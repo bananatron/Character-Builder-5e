@@ -14,7 +14,8 @@ $(document).ready(function(){
   var class_savingthrows = [];
   var race_selection = "";
   var class_equip = [];
- 
+  var class_skills = [];
+
 
   //Reset stats 
   //Need to run on all main classes to clear bonuses from previous selections
@@ -33,6 +34,9 @@ $(document).ready(function(){
     $(".tool_click").attr('checked',false);
   }
   resetStats();
+  
+//Hidden things
+$("input.ch_skillprof").hide();
   
   
 //Human racial  
@@ -247,7 +251,8 @@ $("#halfling_desc").on("click","#panel_shal", function(){
   alt_button = $( "#panel_shal" ).css( "class" );
 });
   
-var fighter_features = "Second Wind: You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. (Daily)"
+var fighter_features = "Second Wind: You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. (Daily)";
+
 $(".class_click").click(function(event){
   $("input#ch_class").val($(this).html());
   
@@ -265,6 +270,8 @@ $(".class_click").click(function(event){
     var class_equip = ["Leather Armor", "Two Daggers", "Thieve's Tools"]
     $("input#ch_classequip").val(class_equip);
     $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves., Sneak Attack: Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.");
+    class_skills = ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation",
+    "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"]
   }
   
   if ($("input#ch_class").val() == "Fighter") {
@@ -281,6 +288,8 @@ $(".class_click").click(function(event){
     var class_equip = [""]
     $("input#ch_classequip").val(class_equip);
     $("input#ch_classfeat").val(fighter_features);
+    class_skills = ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation",
+    "Perception", "Survival"]
   }
   
 });
@@ -291,7 +300,7 @@ $(".class_click").click(function(event){
     $("input#ch_classfeat").val(fighter_features + "-" + $(this).val());
   });
 
-  
+
   
 //When a race option is selected
 $(".race_click").click(function(event){
@@ -305,10 +314,23 @@ $(".race_click").click(function(event){
 });
 
   
-//Clickable tab links populate class field
+//When class is selected Clickable tab links populate class field
+//Also enable only those skill options applicable to that class
 $("a.class_click").click(function(event){
+  $("input.ch_skillprof").hide();
   event.preventDefault();
   $("input#ch_class").val($(this).html());
+  
+    $.each (class_skills, function( index, value ){
+      
+       //console.log("class_skills:" + value);     
+       $("input.ch_skillprof").each(function(i, obj) {
+          //console.log("input:" + $(this).val());
+          if (value == $(this).val()) {
+            $(this).toggle();
+          }
+      });
+    });
 });
 
 //Emulates 4d6 - dropping lowest
@@ -344,8 +366,6 @@ for (i=0; i <= 6; i++) {
 		$(".name_wrap").slideUp().find("input").removeClass("active_name_field");
         var numAttendees = $("#attr_type option:selected").text();
     
-    
-        
         if (numAttendees == "Standard Array") {
          $("#standard_array_wrap").slideDown();
           
