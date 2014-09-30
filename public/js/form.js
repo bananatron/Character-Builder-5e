@@ -294,7 +294,7 @@ $(".class_click").click(function(event){
     $("input#ch_stp").val("Strength, Constitution");
     $("input#ch_skillcount").val(2);
     $("input#ch_spellcount").val(0);
-    window.class_equip = [""];
+    window.class_equip = [];
     $("input#ch_classequip").val(window.class_equip);
     $("input#ch_classfeat").val(window.fighter_features);
     class_skills = ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"];
@@ -311,7 +311,7 @@ $(".class_click").click(function(event){
     $("input#ch_stp").val("Wisdom, Charisma");
     $("input#ch_skillcount").val(2);
     $("input#ch_spellcount").val(3);
-    window.class_equip = [""];
+    window.class_equip = [];
     $("input#ch_classequip").val(window.class_equip);
     $("input#ch_classfeat").val("Spellcasting: As a conduit for divine power, you can cast cleric spells. You have two, 1st level spell slots and know up to three cantrips.");
     class_skills = ["History", "Insight", "Medicine", "Persuasion", "Religion"];
@@ -324,29 +324,19 @@ $(".class_click").click(function(event){
     $("input#ch_classfeat").val(window.fighter_features + "," + $(this).val());
   });
 
-//Fighter equipment
-  $("#fighter_desc").on("change",".item_click[type='radio']", function(){
-    var equip_add = []
+  
+//Class Equipment adding
+$("#fighter_desc, #rogue_desc, #cleric_desc, #wizard_desc").on("change",".item_click[type='radio']", function(){
+  var equip_add = []
     
-    $("input.item_click").each(function(  ) {
+  $("input.item_click").each(function(  ) {
       if($(this).is(':checked')) {
         equip_add.push( $(this).val());
       }
-    });
-    $("input#ch_classequip").val(window.class_equip.concat(equip_add)); 
   });
   
-//Rogue equip
-  $("#rogue_desc").on("change",".item_click[type='radio']", function(){
-    var equip_add = []
-    
-    $("input.item_click").each(function(  ) {
-      if($(this).is(':checked')) {
-        equip_add.push( $(this).val());
-      }
-    });
-    $("input#ch_classequip").val(window.class_equip.concat(equip_add)); 
-  });  
+  $("input#ch_classequip").val(window.class_equip.concat(equip_add)); 
+});  
 
   
   
