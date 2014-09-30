@@ -39,6 +39,10 @@ $(document).ready(function(){
 $("input.ch_skillprof").hide();
   
   
+   ///////////////////////////////////
+  //  BEGIN RACE DEFENITIONS&LOGIC // 
+ ///////////////////////////////////
+  
 //Human racial  
 $("#panel_hum").click(function(event){
   resetStats();
@@ -251,6 +255,12 @@ $("#halfling_desc").on("click","#panel_shal", function(){
   alt_button = $( "#panel_shal" ).css( "class" );
 });
   
+  
+  
+   ///////////////////////////////////
+  // BEGIN CLASS DEFENITIONS&LOGIC // 
+ ///////////////////////////////////
+  
 var fighter_features = "Second Wind: You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. (Daily)";
 
 $(".class_click").click(function(event){
@@ -259,7 +269,6 @@ $(".class_click").click(function(event){
   if ($("input#ch_class").val() == "Rogue") {
     var total_hp = (8 + parseInt($("input#ch_con").val()) )
     $("input#ch_hp").val(total_hp);
-    
     $("input#ch_classtool").val("Thieves' Tools");
     $("input#ch_armp").val("Light Armor");
     $("input#ch_wepp").val("Simple weapons, hand crossbows, longswords, rapiers, shortswords");
@@ -267,16 +276,15 @@ $(".class_click").click(function(event){
     $("input#ch_stp").val("Dexterity, Intelligence");
     $("input#ch_skillcount").val(4);
     $("input#ch_spellcount").val(0);
-    var class_equip = ["Leather Armor", "Two Daggers", "Thieve's Tools"]
+    window.class_equip = ["Leather Armor", "Two Daggers", "Thieve's Tools"];
     $("input#ch_classequip").val(class_equip);
     $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves., Sneak Attack: Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.");
-    class_skills = ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation","Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"]
+    class_skills = ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation","Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"];
   }
   
   if ($("input#ch_class").val() == "Fighter") {
     var total_hp = (10 + parseInt($("input#ch_con").val()) )
     $("input#ch_hp").val(total_hp);
-    
     $("input#ch_classtool").val("");
     $("input#ch_armp").val("All armor, shields");
     $("input#ch_wepp").val("Simple weapons, martial weapons");
@@ -284,10 +292,10 @@ $(".class_click").click(function(event){
     $("input#ch_stp").val("Strength, Constitution");
     $("input#ch_skillcount").val(2);
     $("input#ch_spellcount").val(0);
-    var class_equip = [""]
+    window.class_equip = [""];
     $("input#ch_classequip").val(class_equip);
     $("input#ch_classfeat").val(fighter_features);
-    class_skills = ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"]
+    class_skills = ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"];
   }
 });
 
@@ -296,7 +304,7 @@ $(".class_click").click(function(event){
     //alert($(this).val());
     $("input#ch_classfeat").val(fighter_features + "," + $(this).val());
   });
-  
+
 //Fighter equipment
   $("#fighter_desc").on("change",".item_click[type='radio']", function(){
     var equip_add = []
@@ -306,12 +314,27 @@ $(".class_click").click(function(event){
         equip_add.push( $(this).val());
       }
     });
-    
-    $("input#ch_classequip").val(class_equip + equip_add);
-    
-    
+    $("input#ch_classequip").val(window.class_equip.concat(equip_add)); 
   });
+  
+//Rogue equip
+  $("#rogue_desc").on("change",".item_click[type='radio']", function(){
+    var equip_add = []
+    
+    $("input.item_click").each(function(  ) {
+      if($(this).is(':checked')) {
+        equip_add.push( $(this).val());
+      }
+    });
+    $("input#ch_classequip").val(window.class_equip.concat(equip_add)); 
+    alert(class_equip);
+  });  
 
+  
+  
+  
+  
+  
   
 //When a race option is selected
 $(".race_click").click(function(event){
@@ -332,9 +355,15 @@ $("a.class_click").click(function(event){
   event.preventDefault();
   $("input#ch_class").val($(this).html());
   
+  $("input.item_click").each(function(  ) {
+      $(this).attr('checked', false)
+  });
+  
+    
     $.each (class_skills, function( index, value ){
        //console.log("class_skills:" + value);     
        $("input.ch_skillprof").each(function(i, obj) {
+          //Uncheck all options to prevent hidden from being checked
           $(this).attr('checked', false);
           //console.log("input:" + $(this).val());
           if (value == $(this).val()) {
