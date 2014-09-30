@@ -291,9 +291,10 @@ $(".class_click").click(function(event){
     class_skills = ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation",
     "Perception", "Survival"]
   }
-  
 });
 
+
+  
 //Fighting style selection for fighter
   $("#fighter_desc").on("change",".ch_fighter_style[type='radio']", function(){
     //alert($(this).val());
@@ -322,9 +323,9 @@ $("a.class_click").click(function(event){
   $("input#ch_class").val($(this).html());
   
     $.each (class_skills, function( index, value ){
-      
        //console.log("class_skills:" + value);     
        $("input.ch_skillprof").each(function(i, obj) {
+          $(this).attr('checked', false);
           //console.log("input:" + $(this).val());
           if (value == $(this).val()) {
             $(this).toggle();
