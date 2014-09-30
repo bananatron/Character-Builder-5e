@@ -294,7 +294,7 @@ $(".class_click").click(function(event){
 //Fighting style selection for fighter
   $("#fighter_desc").on("change",".ch_fighter_style[type='radio']", function(){
     //alert($(this).val());
-    $("input#ch_classfeat").val(fighter_features + "-" + $(this).val());
+    $("input#ch_classfeat").val(fighter_features + "," + $(this).val());
   });
   
 //Fighter equipment
