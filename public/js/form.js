@@ -270,8 +270,7 @@ $(".class_click").click(function(event){
     var class_equip = ["Leather Armor", "Two Daggers", "Thieve's Tools"]
     $("input#ch_classequip").val(class_equip);
     $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves., Sneak Attack: Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.");
-    class_skills = ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation",
-    "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"]
+    class_skills = ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation","Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"]
   }
   
   if ($("input#ch_class").val() == "Fighter") {
@@ -288,19 +287,30 @@ $(".class_click").click(function(event){
     var class_equip = [""]
     $("input#ch_classequip").val(class_equip);
     $("input#ch_classfeat").val(fighter_features);
-    class_skills = ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation",
-    "Perception", "Survival"]
+    class_skills = ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"]
   }
 });
 
-
-  
 //Fighting style selection for fighter
   $("#fighter_desc").on("change",".ch_fighter_style[type='radio']", function(){
     //alert($(this).val());
     $("input#ch_classfeat").val(fighter_features + "-" + $(this).val());
   });
-
+  
+//Fighter equipment
+  $("#fighter_desc").on("change",".item_click[type='radio']", function(){
+    var equip_add = []
+    
+    $("input.item_click").each(function(  ) {
+      if($(this).is(':checked')) {
+        equip_add.push( $(this).val());
+      }
+    });
+    
+    $("input#ch_classequip").val(class_equip + equip_add);
+    
+    
+  });
 
   
 //When a race option is selected
