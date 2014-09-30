@@ -214,9 +214,7 @@
       <br>
 
       <h4>Skills</h4>
-      <% @skilllist = ['Athletics', 'Acrobatics', 'Sleight of Hand', 'Stealth', 'Arcana', 'History',   
-      'Investigation', 'Nature', 'Religion', 'Animal Handling', 'Insight', 'Medicine', 'Perception', 
-      'Survival', 'Deception', 'Intimidation', 'Performance', 'Persuasion']%>
+      <% @skilllist = ['Athletics', 'Acrobatics', 'Sleight of Hand', 'Stealth', 'Arcana', 'History', 'Investigation', 'Nature', 'Religion', 'Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival', 'Deception', 'Intimidation', 'Performance', 'Persuasion']%>
       <%  @skilllist.sort_by!{ |m| m.downcase }  %>
       
       <% @skilllist.each do |skill|  %>
@@ -226,14 +224,19 @@
       <br>
       
       <h4>Spells</h4>
-      <% @spelllist = ['Guidance', 'Light', 'Resistance', 'Sacred Flame', 'Spare the Dying',
-        'Thaumaturgy']%>
+      <% @spelllist_cleric0 = ['Guidance', 'Light', 'Resistance', 'Sacred Flame', 'Spare the Dying','Thaumaturgy']%>
+      <% @spelllist_wizard0 = ['Acid Splash', 'Dancing Lights', 'Fire Bolt', 'Light','Mage Hand', 'Minor Illusion', 'Poison Spray', 'Prestidigitation', 'Ray of Frost', 'Shocking Grasp']%>
+      <% @spelllist_wizard1 = ['Acid Splash', 'Dancing Lights', 'Fire Bolt', 'Light','Mage Hand', 'Minor Illusion', 'Poison Spray', 'Prestidigitation', 'Ray of Frost', 'Shocking Grasp']%>
       
-      <% @spelllist.each do |spell|  %>
-       <input id='<%= spell.downcase %>_id' class = "ch_spells" type="checkbox" value="<%= spell %>">
-      <label for='<%= spell.downcase %>_id'><%= spell %></label> 
+      <% @spelllist_wizard1.each do |spell|  %>
+        <input id='<%= spell.downcase %>_id' class = "ch_spells_wizard" type="checkbox" value="<%= spell %>">
+        <label for='<%= spell.downcase %>_id'><%= spell %></label> 
       <% end %>
       <br>
+      <% @spelllist_cleric0.each do |spell|  %>
+        <input id='<%= spell.downcase %>_id' class = "ch_spells_cleric" type="checkbox" value="<%= spell %>">
+        <label for='<%= spell.downcase %>_id'><%= spell %></label> 
+      <% end %>
       
     </fieldset>
 
@@ -284,7 +287,8 @@
   $("#human_desc").load("human.html");
   $("#halfling_desc").load("halfling.html");
   $("#rogue_desc").load("rogue.html");
-   $("#fighter_desc").load("fighter.html");
+  $("#fighter_desc").load("fighter.html");
+  $("#cleric_desc").load("cleric.html");
   $(document).foundation();
  </script>
 

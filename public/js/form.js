@@ -261,11 +261,12 @@ $("#halfling_desc").on("click","#panel_shal", function(){
   // BEGIN CLASS DEFENITIONS&LOGIC // 
  ///////////////////////////////////
   
-var fighter_features = "Second Wind: You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. (Daily)";
+
 
 $(".class_click").click(function(event){
   $("input#ch_class").val($(this).html());
   
+  //If rogue
   if ($("input#ch_class").val() == "Rogue") {
     var total_hp = (8 + parseInt($("input#ch_con").val()) )
     $("input#ch_hp").val(total_hp);
@@ -277,13 +278,14 @@ $(".class_click").click(function(event){
     $("input#ch_skillcount").val(4);
     $("input#ch_spellcount").val(0);
     window.class_equip = ["Leather Armor", "Two Daggers", "Thieve's Tools"];
-    $("input#ch_classequip").val(class_equip);
+    $("input#ch_classequip").val(window.class_equip);
     $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves., Sneak Attack: Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.");
     class_skills = ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation","Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"];
   }
-  
+  //If Fighter
   if ($("input#ch_class").val() == "Fighter") {
     var total_hp = (10 + parseInt($("input#ch_con").val()) )
+    window.fighter_features = "Second Wind: You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. (Daily)";
     $("input#ch_hp").val(total_hp);
     $("input#ch_classtool").val("");
     $("input#ch_armp").val("All armor, shields");
@@ -293,16 +295,33 @@ $(".class_click").click(function(event){
     $("input#ch_skillcount").val(2);
     $("input#ch_spellcount").val(0);
     window.class_equip = [""];
-    $("input#ch_classequip").val(class_equip);
-    $("input#ch_classfeat").val(fighter_features);
+    $("input#ch_classequip").val(window.class_equip);
+    $("input#ch_classfeat").val(window.fighter_features);
     class_skills = ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"];
+  }
+  
+  //If cleric
+  if ($("input#ch_class").val() == "Cleric") {
+    var total_hp = (8 + parseInt($("input#ch_con").val()) )
+    $("input#ch_hp").val(total_hp);
+    $("input#ch_classtool").val("");
+    $("input#ch_armp").val("Light Armor, Medium Armor, Shields");
+    $("input#ch_wepp").val("All Simple Weapons");
+    $("input#ch_hd").val("1d8");
+    $("input#ch_stp").val("Wisdom, Charisma");
+    $("input#ch_skillcount").val(2);
+    $("input#ch_spellcount").val(3);
+    window.class_equip = [""];
+    $("input#ch_classequip").val(window.class_equip);
+    $("input#ch_classfeat").val("Spellcasting: As a conduit for divine power, you can cast cleric spells. You have two, 1st level spell slots and know up to three cantrips.");
+    class_skills = ["History", "Insight", "Medicine", "Persuasion", "Religion"];
   }
 });
 
 //Fighting style selection for fighter
   $("#fighter_desc").on("change",".ch_fighter_style[type='radio']", function(){
     //alert($(this).val());
-    $("input#ch_classfeat").val(fighter_features + "," + $(this).val());
+    $("input#ch_classfeat").val(window.fighter_features + "," + $(this).val());
   });
 
 //Fighter equipment
@@ -327,7 +346,6 @@ $(".class_click").click(function(event){
       }
     });
     $("input#ch_classequip").val(window.class_equip.concat(equip_add)); 
-    alert(class_equip);
   });  
 
   
@@ -373,6 +391,8 @@ $("a.class_click").click(function(event){
     });
 });
 
+  
+//Roll / attribute logic  
 //Emulates 4d6 - dropping lowest
 function randomScore() {
   var rolls = [];
@@ -398,7 +418,7 @@ for (i=0; i <= 6; i++) {
 }
 
 	// Hide stuff with the JavaScript. If JS is disabled, the form will still be usable.
-	$(".name_wrap, #company_name_wrap, #special_accommodations_wrap").hide();
+	$(".name_wrap").hide();
 	
 	// When a dropdown selection is made
 	$("#attr_type").change(function() {
@@ -509,9 +529,6 @@ for (i=0; i <= 6; i++) {
   
 	
 	
- 
-  
-
   //Point buy logic
   //PB Strength Plus
 	$("#pb_str_plus").click(function(){
@@ -656,7 +673,7 @@ for (i=0; i <= 6; i++) {
 	  }
 	});  
   
-  //Aligned info
+  //Alignment info
   $('[data-slider]').on('change.fndtn.slider', function(){
   var current = $('#alignslider').attr('data-slider');
   var translation = "Neutral";
@@ -705,7 +722,7 @@ $('input.ch_skillprof').on('change', function(evt) {
     $('input.ch_rogue_skillprof').each(function() {
       if ($(this).is(':checked')) {
         
-          var checked_option = $(this).val()  
+          var checked_option = $(this).val();  
           $('input.ch_rogue_expert').each(function() {
             if ($(this).val() == checked_option) {
               $(this).show();
@@ -714,7 +731,7 @@ $('input.ch_skillprof').on('change', function(evt) {
 
       }
       else {
-        var unchecked_option = $(this).val() 
+        var unchecked_option = $(this).val(); 
         $('input.ch_rogue_expert').each(function() {
             if ($(this).val() == unchecked_option) {
               $(this).hide();
