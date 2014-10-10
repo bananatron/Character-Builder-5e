@@ -300,6 +300,24 @@ $(".class_click").click(function(event){
     class_skills = ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"];
   }
   
+  //If wizard
+  if ($("input#ch_class").val() == "Wizard") {
+    var total_hp = (6 + parseInt($("input#ch_con").val()) )
+    $("input#ch_hp").val(total_hp);
+    $("input#ch_classtool").val("");
+    $("input#ch_armp").val("");
+    $("input#ch_wepp").val("Daggers, Darts, Slings, Quarterstaffs, Light Crossbows");
+    $("input#ch_hd").val("1d6");
+    $("input#ch_stp").val("Wisdom, Intelligence");
+    $("input#ch_skillcount").val(2);
+    $("input#ch_spellcount").val(3);
+    window.class_equip = [];
+    $("input#ch_classequip").val(window.class_equip);
+    $("input#ch_classfeat").val("Spellcasting: You have a spellbook containing six, 1st-level wizard spells. You know three wizard cantrips and two 1st level wizard spells of your choice.");
+    class_skills = ["Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"];
+  }
+  
+  
   //If cleric
   if ($("input#ch_class").val() == "Cleric") {
     var total_hp = (8 + parseInt($("input#ch_con").val()) )
