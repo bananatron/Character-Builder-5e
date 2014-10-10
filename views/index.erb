@@ -293,10 +293,12 @@
 #    "bg_feature" => "",         #string
 #    "bg_characteristics" => ""  #string   *last section to be evaluated
 #
-#    }
+#    }       #remember the comma here if preceding another background
 #
 #
 #
+%>
+<%
 
   @master_hash = {
   
@@ -486,7 +488,77 @@
       origins as a virtue, not a shortcoming, and their home
       communities remain very important to them."
     
+    },
+
+   "Noble" => {
     
+     "bg_skills" => [ "History", "Persuasion" ],
+    "bg_lang" => 1,
+    "bg_equip" => ["A set of fine clothes", "a signet ring", "a scroll of pedigree", "a purse containing 25gp"],
+     "bg_tools" => ["One type of gaming set"],
+    "bg_desc" => "<p>You understand wealth, power, and privilege. You
+      carry a noble title, and your family owns land, collects
+      taxes, and wields significant political influence. You
+      might be a pampered aristocrat unfamiliar with
+      work or discomfort, a former merchant just elevated
+      to the nobility, or a disinherited scoundrel with a
+      disproportionate sense of entitlement. Or you could be
+      an honest, hard-working landowner who cares deeply
+      about the people who live and work on your land, keenly
+      aware of your responsibility to them.<br>
+      <p>Work with your DM to come up with an appropriate
+      title and determine how much authority that title
+      carries. A noble title doesn’t stand on its own—it’s
+      connected to an entire family, and whatever title you
+      hold, you will pass it down to your own children. Not
+      only do you need to determine your noble title, but you
+      should also work with the DM to describe your family
+      and their influence on you.",
+    "bg_traits" => ["My eloquent flattery makes everyone I talk to feel
+      like the most wonderful and important person
+      in the world.", "The common folk love me for my kindness
+      and generosity.", "No one could doubt by looking at my regal bearing that
+      I am a cut above the unwashed masses.", "I take great pains to always look my best and follow the
+      latest fashions.", "I don’t like to get my hands dirty, and I won’t be caught
+      dead in unsuitable accommodations.", "Despite my noble birth, I do not place myself above
+      other folk. We all have the same blood.", "My favor, once lost, is lost forever.", "If you do me an injury, 
+      I will crush you, ruin your name, and salt your fields."],
+    "bg_ideals" => ["Respect. Respect is due to me because of my position,
+      but all people regardless of station deserve to be
+      treated with dignity. (Good)", "Responsibility. It is my duty to respect the authority of
+      those above me, just as those below me must respect
+      mine. (Lawful)", "Independence. I must prove that I can handle myself
+      without the coddling of my family. (Chaotic)", "Power. If I can attain more power, no one will tell me
+      what to do. (Evil)", "Family. Blood runs thicker than water. (Any)", "Noble Obligation. 
+      It is my duty to protect and care for the people beneath me. (Good)"],
+    "bg_bonds" => ["I will face any challenge to win the approval
+      of my family.", "My house’s alliance with another noble family
+      must be sustained at all costs.", "Nothing is more important than the other members
+      of my family.", "I am in love with the heir of a family that my
+      family despises.", "My loyalty to my sovereign is unwavering.", 
+      "The common folk must see me as a hero of the people."],
+    "bg_flaws" => ["I secretly believe that everyone is beneath me.", 
+      "I hide a truly scandalous secret that could ruin my family forever.", "I too often hear veiled insults and threats       in every word addressed to me, and I’m quick to anger.", "I have an insatiable desire for carnal pleasures.",  
+      "In fact, the world does revolve around me.", "By my words and actions, I often bring shame
+      to my family."],
+    "bg_feature" => "<h4>Feature: Position of Privilege</h4>
+      <p>Thanks to your noble birth, people are inclined to
+      think the best of you. You are welcome in high society,
+      and people assume you have the right to be wherever
+      you are. The common folk make every effort to
+      accommodate you and avoid your displeasure, and other
+      people of high birth treat you as a member of the same
+      social sphere. You can secure an audience with a local
+      noble if you need to.",
+    "bg_characteristics" => "<h4>Suggested Characteristics</h4>
+      <p>Nobles are born and raised to a very different lifestyle
+      than most people ever experience, and their personalities
+      reflect that upbringing. A noble title comes with a
+      plethora of bonds—responsibilities to family, to other
+      nobles (including the sovereign), to the people entrusted
+      to the family’s care, or even to the title itself. But this
+      responsibility is often a good way to undermine a noble."
+
     },
   
   "Template" => {
@@ -504,7 +576,6 @@
     "bg_characteristics" => ""
 
     }
-
 
 }
 
