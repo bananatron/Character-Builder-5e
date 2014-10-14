@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  
+
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -486,7 +486,34 @@
       A folk hero is one of the common people, for better
       or for worse. Most folk heroes look on their humble
       origins as a virtue, not a shortcoming, and their home
-      communities remain very important to them."
+      communities remain very important to them.",
+    "bg_traits" => ["I judge people by their actions, not their words.", "If someone is in trouble, I’m always ready to 
+      lend help.", "When I set my mind to something, I follow through no
+      matter what gets in my way.", "I have a strong sense of fair play and always try to find
+      the most equitable solution to arguments.", "I’m confident in my own abilities and do what I can to
+      instill confidence in others.", "Thinking is for other people. I prefer action.", "I misuse long words in an 
+      attempt to sound smarter.", "I get bored easily. When am I going to get on
+      with my destiny?"],
+    "bg_ideals" => ["Respect. People deserve to be treated with dignity and
+      respect. (Good)", "Fairness. No one should get preferential treatment
+      before the law, and no one is above the law. (Lawful)", "Freedom. Tyrants must not be allowed to oppress the
+      people. (Chaotic)", "Might. If I become strong, I can take what I want—
+      what I deserve. (Evil)", "Sincerity. There’s no good in pretending to be
+      something I’m not. (Neutral)", "Destiny. Nothing and no one can steer me away from
+      my higher calling. (Any)"],
+    "bg_bonds" => ["I have a family, but I have no idea where they are. One
+      day, I hope to see them again.", "I worked the land, I love the land, and I will
+      protect the land.", "A proud noble once gave me a horrible beating, and I
+      will take my revenge on any bully I encounter.", "My tools are symbols of my past life, and I carry them
+      so that I will never forget my roots.", "I protect those who cannot protect themselves.", "I wish my childhood
+      sweetheart had come with me to
+      pursue my destiny."],
+    "bg_flaws" => ["The tyrant who rules my land will stop at nothing to
+      see me killed.", "I’m convinced of the significance of my destiny, and
+      blind to my shortcomings and the risk of failure.", "The people who knew me when I was young know my
+      shameful secret, so I can never go home again.", "I have a weakness for the vices of the city,
+      especially hard drink.", "Secretly, I believe that things would be better if I were a
+      tyrant lording over the land.", "I have trouble trusting in my allies."],
     
     },
 
@@ -542,14 +569,10 @@
       "In fact, the world does revolve around me.", "By my words and actions, I often bring shame
       to my family."],
     "bg_feature" => "<h4>Feature: Position of Privilege</h4>
-      <p>Thanks to your noble birth, people are inclined to
-      think the best of you. You are welcome in high society,
-      and people assume you have the right to be wherever
-      you are. The common folk make every effort to
-      accommodate you and avoid your displeasure, and other
-      people of high birth treat you as a member of the same
-      social sphere. You can secure an audience with a local
-      noble if you need to.",
+      <p>Thanks to your noble birth, people are inclined to think the best of you. You are welcome in high society,
+      and people assume you have the right to be wherever you are. The common folk make every effort to
+      accommodate you and avoid your displeasure, and other people of high birth treat you as a member of the same
+      social sphere. You can secure an audience with a local noble if you need to.",
     "bg_characteristics" => "<h4>Suggested Characteristics</h4>
       <p>Nobles are born and raised to a very different lifestyle
       than most people ever experience, and their personalities
@@ -558,6 +581,137 @@
       nobles (including the sovereign), to the people entrusted
       to the family’s care, or even to the title itself. But this
       responsibility is often a good way to undermine a noble."
+
+    },
+    
+    "Sage" => {
+    
+    "bg_skills" => [ "Arcana", "History" ],
+    "bg_lang" => 2,
+    "bg_equip" => ["A bottle of black ink", "a quill", "a small knife", "a letter from a dead colleague posing a
+      question you have not yet been able to answer", "a set of commong clothes", "a pouch containing 10 gp"],
+    "bg_tools" => nil,
+    "bg_desc" => "You spent years learning the lore of the multiverse. You scoured manuscripts, studied scrolls, and
+      listened to the greatest experts on the subjects that interest you. Your efforts have made you a master in your
+      fields of study.",
+    "bg_traits" => ["I use polysyllabic words that convey the impression of
+      great erudition.", "I’ve read every book in the world’s greatest libraries—
+      or I like to boast that I have.", "I’m used to helping out those who aren’t as smart
+      as I am, and I patiently explain anything and
+      everything to others.", "There’s nothing I like more than a good mystery.", "I’m willing to listen to every 
+      side of an argument before I make my own judgment.", 
+      "I . . . speak . . . slowly . . . when talking . . . to idiots, . . .
+      which . . . almost . . . everyone . . . is . . . compared . . .
+      to me.", "I am horribly, horribly awkward in social situations.", "I’m convinced that people are always trying to
+      steal my secrets."],
+    "bg_ideals" => ["Knowledge. The path to power and self-improvement
+      is through knowledge. (Neutral)", "Beauty. What is beautiful points us beyond itself
+      toward what is true. (Good)", "Logic. Emotions must not cloud our logical
+      thinking. (Lawful)", "No Limits. Nothing should fetter the infinite possibility
+      inherent in all existence. (Chaotic)", "Power. Knowledge is the path to power and
+      domination. (Evil)", "Self-Improvement. The goal of a life of study is the
+      betterment of oneself. (Any)"],
+    "bg_bonds" => ["It is my duty to protect my students.", "I have an ancient text that holds terrible secrets that
+      must not fall into the wrong hands.", "I work to preserve a library, university, scriptorium,
+      or monastery.", "My life’s work is a series of tomes related to a specific
+      field of lore.", "I’ve been searching my whole life for the answer to a
+      certain question.", "I sold my soul for knowledge. I hope to do great deeds
+      and win it back."],
+    "bg_flaws" => ["I am easily distracted by the promise of information.", "Most people scream and run when they see a
+      demon. I stop and take notes on its anatomy.", "Unlocking an ancient mystery is worth the price of a
+      civilization.", "I overlook obvious solutions in favor of complicated ones.", 
+      "I speak without really thinking through my words, invariably insulting others.", 
+      "I can’t keep a secret to save my life, or anyone else’s."],
+    "bg_feature" => "<h4>Feature: Researcher</h4>
+      When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and
+      from whom you can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage
+      or other learned person or creature. Your DM might rule that the knowledge you seek is secreted away in an
+      almost inaccessible place, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse
+      can require an adventure or even a whole campaign.",
+    "bg_characteristics" => "<h4>Suggested Characteristics</h4>
+      Sages are defined by their extensive studies, and their
+      characteristics reflect this life of study. Devoted to
+      scholarly pursuits, a sage values knowledge highly—
+      sometimes in its own right, sometimes as a means
+      toward other ideals."
+
+    },
+    
+  "Soldier" => {
+    
+    "bg_skills" => [ "Athletics", "Intimidation" ],
+    "bg_lang" => nil,
+    "bg_equip" => ["An insignia of rank", "a trophy taken from a fallen enemy", "a set of bone dice or deck of cards", 
+      "a set of common clothes", "a pouch containing 10gp"],
+    "bg_tools" => ["One type of gaming set", "vehicles (land)"],
+    "bg_desc" => "War has been your life for as long as you care to
+      remember. You trained as a youth, studied the use of weapons and armor, learned basic survival techniques,
+      including how to stay alive on the battlefield. You might have been part of a standing national army or a
+      mercenary company, or perhaps a member of a local militia who rose to prominence during a recent war.",
+    "bg_traits" => ["I’m always polite and respectful.", "I’m haunted by memories of war. I can’t get the images
+      of violence out of my mind.", "I’ve lost too many friends, and I’m slow to
+      make new ones.", "I’m full of inspiring and cautionary tales from my military experience relevant to almost every
+      combat situation.", "I can stare down a hell hound without flinching.", "I enjoy being strong and like breaking
+      things.", "I have a crude sense of humor.", "I face problems head-on. A simple, direct solution is
+      the best path to success."],
+    "bg_ideals" => ["Greater Good. Our lot is to lay down our lives in
+      defense of others. (Good)", "Responsibility. I do what I must and obey just
+      authority. (Lawful)", "Independence. When people follow orders blindly, they
+      embrace a kind of tyranny. (Chaotic)", "Might. In life as in war, the stronger force wins. (Evil)", 
+      "Live and Let Live. Ideals aren’t worth killing over or going to war for. (Neutral)", 
+      "Nation. My city, nation, or people are all that matter. (Any)"],
+    "bg_bonds" => ["I would still lay down my life for the people I
+      served with.", "Someone saved my life on the battlefield. To this day, I
+      will never leave a friend behind.", "My honor is my life.", "I’ll never forget the crushing defeat my company
+      suffered or the enemies who dealt it.", "Those who fight beside me are those worth dying for.", 
+      "I fight for those who cannot fight for themselves."],
+    "bg_flaws" => ["The monstrous enemy we faced in battle still leaves
+      me quivering with fear.", "I have little respect for anyone who is not a
+      proven warrior.", "I made a terrible mistake in battle that cost many
+      lives—and I would do anything to keep that
+      mistake secret.", "My hatred of my enemies is blind and unreasoning.", 
+      "I obey the law, even if the law causes misery.", "I’d rather eat my armor than admit when I’m wrong."],
+    "bg_feature" => "
+      <div class='row'>
+        <div class='large-6 columns'>
+          <h4>Specialty</h4>
+          During your time as a soldier, you had a specific role to
+          play in your unit or army. Roll a d8 or choose from the
+          options in the table to the right to determine your role.
+          <br><br>
+          <h4>Feature: Military Rank</h4>
+          You have a military rank from your career as a soldier.
+          Soldiers loyal to your former military organization
+          still recognize your authority and influence, and they
+          defer to you if they are of a lower rank. You can invoke
+          your rank to exert influence over other soldiers and
+          requisition simple equipment or horses for temporary
+          use. You can also usually gain access to friendly
+          military encampments and fortresses where your rank
+          is recognized.
+        </div>
+          <div class='large-6 columns'>
+          <br><br>
+            <table>
+              <tr><td width='30'>1</td><td>Officer</td></tr>
+              <tr><td width='30'>2</td><td>Scout</td> </tr>
+              <tr><td width='30'>3</td><td>Infantry</td> </tr>
+              <tr><td width='30'>4</td><td>Cavalry</td> </tr>
+              <tr><td width='30'>5</td><td>Healer</td> </tr>
+              <tr><td width='30'>6</td><td>Quartermaster</td> </tr>
+              <tr><td width='30'>7</td><td>Standard bearer</td> </tr>
+              <tr><td width='30'>8</td><td>Support staff (cook, blacksmith, etc.)</td> </tr>
+          </table>
+
+        </div>
+      </div>
+
+",
+    "bg_characteristics" => "<h4>Suggested Characteristics</h4>
+The horrors of war combined with the rigid discipline of
+military service leave their mark on all soldiers, shaping
+their ideals, creating strong bonds, and often leaving
+them scarred and vulnerable to fear, shame, and hatred."
 
     },
   
