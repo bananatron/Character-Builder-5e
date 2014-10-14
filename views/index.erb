@@ -638,7 +638,6 @@
     },
     
   "Soldier" => {
-    
     "bg_skills" => [ "Athletics", "Intimidation" ],
     "bg_lang" => nil,
     "bg_equip" => ["An insignia of rank", "a trophy taken from a fallen enemy", "a set of bone dice or deck of cards", 
@@ -702,33 +701,14 @@
               <tr><td width='30'>7</td><td>Standard bearer</td> </tr>
               <tr><td width='30'>8</td><td>Support staff (cook, blacksmith, etc.)</td> </tr>
           </table>
-
         </div>
       </div>
-
-",
+      ",
     "bg_characteristics" => "<h4>Suggested Characteristics</h4>
-The horrors of war combined with the rigid discipline of
-military service leave their mark on all soldiers, shaping
-their ideals, creating strong bonds, and often leaving
-them scarred and vulnerable to fear, shame, and hatred."
-
-    },
-  
-  "Template" => {
-    
-    "bg_skills" => [ "" ],
-    "bg_lang" => 0,
-    "bg_equip" => [""],
-    "bg_tools" => [""],
-    "bg_desc" => "",
-    "bg_traits" => [""],
-    "bg_ideals" => [""],
-    "bg_bonds" => ["", "", ""],
-    "bg_flaws" => ["", ""],
-    "bg_feature" => "",
-    "bg_characteristics" => ""
-
+      The horrors of war combined with the rigid discipline of
+      military service leave their mark on all soldiers, shaping
+      their ideals, creating strong bonds, and often leaving
+      them scarred and vulnerable to fear, shame, and hatred."
     }
 
 }
@@ -758,7 +738,7 @@ them scarred and vulnerable to fear, shame, and hatred."
           <div id='<%= k.downcase %>_desc'>
             <h4><%= k %></h4>
             <p><%= v["bg_desc"]  %>
-            <p><b>Skill Proficiencies:</b> <%= v["bg_skills"].join(", ")  %>
+            <p><b>Skill Proficiencies:</b><%= v["bg_skills"].join(", ")  %>
               
             <% if v["bg_tools"] %>
               <br><b>Tools:</b> <%= v["bg_tools"].join(", ")  %> 
@@ -835,17 +815,18 @@ them scarred and vulnerable to fear, shame, and hatred."
     
 
 
-
+      Ch Background:
       <input type="text" id="ch_background"></input>
-      PUT IN TABS WITH BACKGROUND SELECTORS<br><br>
+      <!-- .bg_click -->
       Personality Traits:
       <input type="text" id="ch_traits"></input>
+      <!-- .bg_click -->
       Ideals:
       <input type="text" id="ch_ideas"></input>
       Bonds:
       <input type="text" id="ch_bonds"></input>
       Flaws:
-      <input type="text" id="ch-flaws"></input>
+      <input type="text" id="ch_flaws"></input>
       <br>
       Bg Tools: <input type="text" name="ch_bg_tools">
       Age: <input type="text" name="ch_age">
