@@ -361,11 +361,15 @@ $("#fighter_desc, #rogue_desc, #cleric_desc, #wizard_desc").on("change",".item_c
   
 function resetBg(){
   $("input#ch_trait, input#ch_bond, input#ch_ideal, input#ch_flaw, input#ch_bg_tools, input#ch_bg_features").val("");
+  $("input#ch_bg_skills, input#ch_bg_equip").val("");
 }
   
 $(".bg_click").click(function(event){
-  $("input#ch_background").val($(this).text());
-  resetBg();
+  resetBg(); //Reset everything before replacement
+  $("input#ch_background").val($(this).text());  //Background name
+  $("input#ch_bg_skills").val( $('#' + $(this).text().toLowerCase() + '_bg_skills').text() ); //BG Skills
+  $("input#ch_bg_equip").val( $('#' + $(this).text().toLowerCase() + '_bg_equip').text() ); //Bg Equipment
+  $("input#ch_bg_features").val( $('#' + $(this).text().toLowerCase() + '_bg_features').text() ); //Bg Equipment
 });  
   
 $(".trait_click").click(function(event){

@@ -271,6 +271,10 @@
 ## for the background selection. Adding to this hash with additional backgrounds and properties will 
 ## autogenerate the appropriate tabs by the area directly underneath the hash.
 ## 
+## Any features that are to be automatically populated need to be highlighted with a div/span with the id of
+## (backgroundname)_bg_features. If the background has a space, you'll need to use &nbsp; (reference Folk Hero)
+## 
+##
 ## NOTE: Due to the unique characterstic of each background, the bg_characteristics and bg_feature keys are used often
 ## as a dumping ground for filler content and unique bg things that don't fit any other key, 
 ## as you can see in the exiting backgrounds.  Whatever string info is put in those keys are simply evaluated at 
@@ -345,16 +349,15 @@
       to serve your god in a different way? Perhaps you were the leader of a small cult outside of any established
       temple structure, or even an occult group that served a fiendish master that you now deny.",
     "bg_feature" => "<h4>Feature: Shelter of the Faithful</h4>
-      As an acolyte, you command the respect of those who share your faith, and you can perform the religious
-      ceremonies of your deity. You and your adventuring companions can expect to receive free healing and
-      care at a temple, shrine, or other established presence of your faith, though you must provide any material
-      components needed for spells. Those who share your religion will support you (but only you) at a
-      modest lifestyle.
+      <div id='acolyte_bg_features'>As an acolyte, you command the respect of those who share your faith, and you can   
+      perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free    
+      healing and care at a temple, shrine, or other established presence of your faith, though you must provide any    
+      material components needed for spells. Those who share your religion will support you (but only you) at a modest  
+      lifestyle.
       <p>You might also have ties to a specific temple dedicated
       to your chosen deity or pantheon, and you have a residence there. This could be the temple where you
       used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near
-      your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and
-      you remain in good standing with your temple.",
+      your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and       you remain in good standing with your temple.</div>",
     "bg_characteristics" => "<h4>Suggested Characteristics</h4>
       Acolytes are shaped by their experience in temples or other religious communities. Their study of the history
       and tenets of their faith and their relationships to temples, shrines, or hierarchies affect their mannerisms
@@ -409,12 +412,12 @@
         Choose the role you played in your criminal life. Some suggestions are: blackmailer, burgler, enforcer, 
         fence, highway robber, hired killer, pickpocket, and smuggler.<br><br>
         <h4>Feature: Criminal Contact</h4>
-        <p>You have a reliable and trustworthy contact who acts as
+        <p><div id='criminal_bg_features'>You have a reliable and trustworthy contact who acts as
         your liaison to a network of other criminals. You know
         how to get messages to and from your contact, even
         over great distances; specifically, you know the local
         messengers, corrupt caravan masters, and seedy sailors
-        who can deliver messages for you.<br>",
+        who can deliver messages for you.<br></div>",
       "bg_characteristics" => "<h4>Suggested Characteristics</h4>
         <p>Criminals might seem like villains on the surface,
         and many of them are villainous to the core. But some
@@ -475,13 +478,13 @@
       </table>
 
       <h4>Feature: Rustic Hospitality</h4>
-      <p>Since you come from the ranks of the common folk,
+      <p><div id='folk&nbsp;hero_bg_features'>Since you come from the ranks of the common folk,
       you fit in among them with ease. You can find a place
       to hide, rest, or recuperate among other commoners,
       unless you have shown yourself to be a danger to
       them. They will shield you from the law or anyone
       else searching for you, though they will not risk their
-      lives for you.",
+      lives for you.</div>",
     "bg_characteristics" => "Suggested Characteristics
       A folk hero is one of the common people, for better
       or for worse. Most folk heroes look on their humble
@@ -501,19 +504,19 @@
       what I deserve. (Evil)", "Sincerity. There’s no good in pretending to be
       something I’m not. (Neutral)", "Destiny. Nothing and no one can steer me away from
       my higher calling. (Any)"],
-    "bg_bonds" => ["I have a family, but I have no idea where they are. One
-      day, I hope to see them again.", "I worked the land, I love the land, and I will
-      protect the land.", "A proud noble once gave me a horrible beating, and I
-      will take my revenge on any bully I encounter.", "My tools are symbols of my past life, and I carry them
-      so that I will never forget my roots.", "I protect those who cannot protect themselves.", "I wish my childhood
-      sweetheart had come with me to
-      pursue my destiny."],
-    "bg_flaws" => ["The tyrant who rules my land will stop at nothing to
-      see me killed.", "I’m convinced of the significance of my destiny, and
-      blind to my shortcomings and the risk of failure.", "The people who knew me when I was young know my
-      shameful secret, so I can never go home again.", "I have a weakness for the vices of the city,
-      especially hard drink.", "Secretly, I believe that things would be better if I were a
-      tyrant lording over the land.", "I have trouble trusting in my allies."],
+    "bg_bonds" => [
+      "I have a family, but I have no idea where they are. One day, I hope to see them again.", 
+      "I worked the land, I love the land, and I will protect the land.", 
+      "A proud noble once gave me a horrible beating, and I will take my revenge on any bully I encounter.", 
+      "My tools are symbols of my past life, and I carry them so that I will never forget my roots.", 
+      "I protect those who cannot protect themselves.", "I wish my childhood sweetheart had come with me to pursue my destiny."],
+    "bg_flaws" => [
+      "The tyrant who rules my land will stop at nothing to see me killed.", 
+      "I’m convinced of the significance of my destiny, and blind to my shortcomings and the risk of failure.", 
+      "The people who knew me when I was young know my shameful secret, so I can never go home again.", 
+      "I have a weakness for the vices of the city, especially hard drink.", 
+      "Secretly, I believe that things would be better if I were a tyrant lording over the land.", 
+      "I have trouble trusting in my allies."],
     
     },
 
@@ -541,38 +544,33 @@
       only do you need to determine your noble title, but you
       should also work with the DM to describe your family
       and their influence on you.",
-    "bg_traits" => ["My eloquent flattery makes everyone I talk to feel
-      like the most wonderful and important person
-      in the world.", "The common folk love me for my kindness
-      and generosity.", "No one could doubt by looking at my regal bearing that
-      I am a cut above the unwashed masses.", "I take great pains to always look my best and follow the
-      latest fashions.", "I don’t like to get my hands dirty, and I won’t be caught
-      dead in unsuitable accommodations.", "Despite my noble birth, I do not place myself above
-      other folk. We all have the same blood.", "My favor, once lost, is lost forever.", "If you do me an injury, 
-      I will crush you, ruin your name, and salt your fields."],
-    "bg_ideals" => ["Respect. Respect is due to me because of my position,
-      but all people regardless of station deserve to be
-      treated with dignity. (Good)", "Responsibility. It is my duty to respect the authority of
-      those above me, just as those below me must respect
-      mine. (Lawful)", "Independence. I must prove that I can handle myself
-      without the coddling of my family. (Chaotic)", "Power. If I can attain more power, no one will tell me
-      what to do. (Evil)", "Family. Blood runs thicker than water. (Any)", "Noble Obligation. 
-      It is my duty to protect and care for the people beneath me. (Good)"],
-    "bg_bonds" => ["I will face any challenge to win the approval
-      of my family.", "My house’s alliance with another noble family
-      must be sustained at all costs.", "Nothing is more important than the other members
-      of my family.", "I am in love with the heir of a family that my
-      family despises.", "My loyalty to my sovereign is unwavering.", 
+    "bg_traits" => [
+      "My eloquent flattery makes everyone I talk to feel like the most wonderful and important person in the world.", 
+      "The common folk love me for my kindness and generosity.", 
+      "No one could doubt by looking at my regal bearing that I am a cut above the unwashed masses.", 
+      "I take great pains to always look my best and follow the latest fashions.", 
+      "I don’t like to get my hands dirty, and I won’t be caught dead in unsuitable accommodations.", 
+      "Despite my noble birth, I do not place myself above other folk. We all have the same blood.", 
+      "My favor, once lost, is lost forever.", "If you do me an injury, I will crush you, ruin your name, and salt your fields."],
+    "bg_ideals" => ["Respect. Respect is due to me because of my position, but all people regardless of station deserve to be treated with dignity. (Good)", 
+      "Responsibility. It is my duty to respect the authority of those above me, just as those below me must respect mine. (Lawful)", 
+      "Independence. I must prove that I can handle myself without the coddling of my family. (Chaotic)", 
+      "Power. If I can attain more power, no one will tell me what to do. (Evil)", 
+      "Family. Blood runs thicker than water. (Any)", "Noble Obligation. It is my duty to protect and care for the people beneath me. (Good)"],
+    "bg_bonds" => ["I will face any challenge to win the approval of my family.", 
+      "My house’s alliance with another noble family must be sustained at all costs.", 
+      "Nothing is more important than the other members of my family.", 
+      "I am in love with the heir of a family that my family despises.", 
+      "My loyalty to my sovereign is unwavering.", 
       "The common folk must see me as a hero of the people."],
     "bg_flaws" => ["I secretly believe that everyone is beneath me.", 
-      "I hide a truly scandalous secret that could ruin my family forever.", "I too often hear veiled insults and threats       in every word addressed to me, and I’m quick to anger.", "I have an insatiable desire for carnal pleasures.",  
-      "In fact, the world does revolve around me.", "By my words and actions, I often bring shame
-      to my family."],
+      "I hide a truly scandalous secret that could ruin my family forever.", 
+      "I too often hear veiled insults and threats in every word addressed to me, and I’m quick to anger.", 
+      "I have an insatiable desire for carnal pleasures.",  
+      "In fact, the world does revolve around me.", 
+      "By my words and actions, I often bring shame to my family."],
     "bg_feature" => "<h4>Feature: Position of Privilege</h4>
-      <p>Thanks to your noble birth, people are inclined to think the best of you. You are welcome in high society,
-      and people assume you have the right to be wherever you are. The common folk make every effort to
-      accommodate you and avoid your displeasure, and other people of high birth treat you as a member of the same
-      social sphere. You can secure an audience with a local noble if you need to.",
+    <p><div id='noble_bg_features'>Thanks to your noble birth, people are inclined to think the best of you. You are welcome in high society, and people assume you have the right to be wherever you are. The common folk make every effort to accommodate you and avoid your displeasure, and other people of high birth treat you as a member of the same social sphere. You can secure an audience with a local noble if you need to.</div>",
     "bg_characteristics" => "<h4>Suggested Characteristics</h4>
       <p>Nobles are born and raised to a very different lifestyle
       than most people ever experience, and their personalities
@@ -594,40 +592,33 @@
     "bg_desc" => "You spent years learning the lore of the multiverse. You scoured manuscripts, studied scrolls, and
       listened to the greatest experts on the subjects that interest you. Your efforts have made you a master in your
       fields of study.",
-    "bg_traits" => ["I use polysyllabic words that convey the impression of
-      great erudition.", "I’ve read every book in the world’s greatest libraries—
-      or I like to boast that I have.", "I’m used to helping out those who aren’t as smart
-      as I am, and I patiently explain anything and
-      everything to others.", "There’s nothing I like more than a good mystery.", "I’m willing to listen to every 
-      side of an argument before I make my own judgment.", 
-      "I . . . speak . . . slowly . . . when talking . . . to idiots, . . .
-      which . . . almost . . . everyone . . . is . . . compared . . .
-      to me.", "I am horribly, horribly awkward in social situations.", "I’m convinced that people are always trying to
-      steal my secrets."],
-    "bg_ideals" => ["Knowledge. The path to power and self-improvement
-      is through knowledge. (Neutral)", "Beauty. What is beautiful points us beyond itself
-      toward what is true. (Good)", "Logic. Emotions must not cloud our logical
-      thinking. (Lawful)", "No Limits. Nothing should fetter the infinite possibility
-      inherent in all existence. (Chaotic)", "Power. Knowledge is the path to power and
-      domination. (Evil)", "Self-Improvement. The goal of a life of study is the
-      betterment of oneself. (Any)"],
-    "bg_bonds" => ["It is my duty to protect my students.", "I have an ancient text that holds terrible secrets that
-      must not fall into the wrong hands.", "I work to preserve a library, university, scriptorium,
-      or monastery.", "My life’s work is a series of tomes related to a specific
-      field of lore.", "I’ve been searching my whole life for the answer to a
-      certain question.", "I sold my soul for knowledge. I hope to do great deeds
-      and win it back."],
-    "bg_flaws" => ["I am easily distracted by the promise of information.", "Most people scream and run when they see a
-      demon. I stop and take notes on its anatomy.", "Unlocking an ancient mystery is worth the price of a
-      civilization.", "I overlook obvious solutions in favor of complicated ones.", 
+    "bg_traits" => ["I use polysyllabic words that convey the impression of great erudition.", 
+      "I’ve read every book in the world’s greatest libraries-or I like to boast that I have.", 
+      "I’m used to helping out those who aren’t as smart as I am, and I patiently explain anything and everything to others.", 
+      "There’s nothing I like more than a good mystery.", 
+      "I’m willing to listen to every side of an argument before I make my own judgment.", 
+      "I . . . speak . . . slowly . . . when talking . . . to idiots, . . . which . . . almost . . . everyone . . . is . . . compared . . .to me.", 
+      "I am horribly, horribly awkward in social situations.", "I’m convinced that people are always trying to steal my secrets."],
+    "bg_ideals" => ["Knowledge. The path to power and self-improvement is through knowledge. (Neutral)", 
+      "Beauty. What is beautiful points us beyond itself toward what is true. (Good)", 
+      "Logic. Emotions must not cloud our logical thinking. (Lawful)", 
+      "No Limits. Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)", 
+      "Power. Knowledge is the path to power and domination. (Evil)", 
+      "Self-Improvement. The goal of a life of study is the betterment of oneself. (Any)"],
+    "bg_bonds" => ["It is my duty to protect my students.", 
+      "I have an ancient text that holds terrible secrets that must not fall into the wrong hands.", 
+      "I work to preserve a library, university, scriptorium, or monastery.", 
+      "My life’s work is a series of tomes related to a specific field of lore.", 
+      "I’ve been searching my whole life for the answer to a certain question.", 
+      "I sold my soul for knowledge. I hope to do great deeds and win it back."],
+    "bg_flaws" => ["I am easily distracted by the promise of information.", 
+      "Most people scream and run when they see a demon. I stop and take notes on its anatomy.", 
+      "Unlocking an ancient mystery is worth the price of a civilization.", 
+      "I overlook obvious solutions in favor of complicated ones.", 
       "I speak without really thinking through my words, invariably insulting others.", 
       "I can’t keep a secret to save my life, or anyone else’s."],
     "bg_feature" => "<h4>Feature: Researcher</h4>
-      When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and
-      from whom you can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage
-      or other learned person or creature. Your DM might rule that the knowledge you seek is secreted away in an
-      almost inaccessible place, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse
-      can require an adventure or even a whole campaign.",
+      <div id='sage_bg_features'>When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Your DM might rule that the knowledge you seek is secreted away in an almost inaccessible place, or that it simply cannot be found.</div> Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign.",
     "bg_characteristics" => "<h4>Suggested Characteristics</h4>
       Sages are defined by their extensive studies, and their
       characteristics reflect this life of study. Devoted to
@@ -679,15 +670,7 @@
           options in the table to the right to determine your role.
           <br><br>
           <h4>Feature: Military Rank</h4>
-          You have a military rank from your career as a soldier.
-          Soldiers loyal to your former military organization
-          still recognize your authority and influence, and they
-          defer to you if they are of a lower rank. You can invoke
-          your rank to exert influence over other soldiers and
-          requisition simple equipment or horses for temporary
-          use. You can also usually gain access to friendly
-          military encampments and fortresses where your rank
-          is recognized.
+          <div id='soldier_bg_features'>You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary use. You can also usually gain access to friendly military encampments and fortresses where your rank is recognized.</div>
         </div>
           <div class='large-6 columns'>
           <br><br>
@@ -738,7 +721,7 @@
           <div id='<%= k.downcase %>_desc'>
             <h4><%= k %></h4>
             <p><%= v["bg_desc"]  %>
-            <p><b>Skill Proficiencies:</b><%= v["bg_skills"].join(", ")  %>
+            <p><b>Skill Proficiencies: </b><span id="<%= k.downcase %>_bg_skills"><%= v["bg_skills"].join(", ")  %></span>
               
             <% if v["bg_tools"] %>
               <br><b>Tools:</b> <%= v["bg_tools"].join(", ")  %> 
@@ -746,7 +729,7 @@
             <% if  v["bg_lang"] %>
              <br><b>Languages:</b> <%= v["bg_lang"]  %> additional languages of your choice
             <% end %>
-            <br><b>Skill Proficiencies:</b> <%= v["bg_equip"].join(", ") %>
+              <br><b>Background Equipment:</b> <span id="<%= k.downcase %>_bg_equip"><%= v["bg_equip"].join(", ") %></span>
               
             <p><%= v["bg_feature"]  %>
             <p><%= v["bg_characteristics"]  %><br><br>
@@ -831,10 +814,14 @@
       <br>
       BG Tools: <input type="text" name="ch_bg_tools">
       BG Features: <input type="text" name="ch_bg_features">
+      BG Skills: <input type="text" id="ch_bg_skills" name="ch_bg_skills">
+      BG Equip: <input type="text" id="ch_bg_equip" name="ch_bg_equip">
+      BG Features: <input type="text" id="ch_bg_features" name="ch_bg_features">
+
+
       Age: <input type="text" name="ch_age">
       Height: <input type="text" name="ch_height">
       Weight: <input type="text" name="ch_weight"><br>
-      Sex: <input type="text" name="ch_sex"><br>
 
 
     </fieldset>
