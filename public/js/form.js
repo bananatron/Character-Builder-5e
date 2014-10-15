@@ -363,7 +363,7 @@ function resetBg(){
   $("input#ch_trait, input#ch_bond, input#ch_ideal, input#ch_flaw, input#ch_bg_tools, input#ch_bg_features").val("");
   $("input#ch_bg_skills, input#ch_bg_equip").val("");
 }
-  
+
 $(".bg_click").click(function(event){
   resetBg(); //Reset everything before replacement
   $("input#ch_background").val($(this).text());  //Background name
