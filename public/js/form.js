@@ -569,42 +569,50 @@ for (i=0; i <= 6; i++) {
 	});
   
 	
-	
   //Point buy logic
-  //PB Strength Plus
+  //PB Strength Plus THIS IS GOOD - FIX THE REST
 	$("#pb_str_plus").click(function(){
-	  if ($("#pb_str").html() < 15 && $("#pb_total").html() > 0){
-      $("#pb_str").html(function(i, val) { return val*1+1;});
-      if ($("#pb_str").html() > 8 ) {
-        $("#pb_total").html(function(i, val) { return val*1-1;});
+    if ($("#pb_str").html() < 15 && $("#pb_total").html() > 0){
+      
+      if ($("#pb_str").html() > 12 && $("#pb_total").html()-2 > 0) {
+        $("#pb_total").text($("#pb_total").text()-2);
+        $("#pb_str").text(parseInt($("#pb_str").text())+1);
       }
-      if ($("#pb_str").html() > 13 &&  $("#pb_total").html() > 0 ) {
-        $("#pb_total").html(function(i, val) { return val*1-1;});
+      else if ($("#pb_str").html() > 7 && $("#pb_total").html()-1 > 0 ) {
+        $("#pb_total").text($("#pb_total").text()-1);
+        $("#pb_str").text(parseInt($("#pb_str").text())+1);
       }
-	  }
+    }
 	});
-  //PB Strength Minus
+  //PB Strength Minus THIS IS GOOD - FIX THE REST
 	$("#pb_str_min").click(function(){
-	  if ($("#pb_str").html() > 8){
-      $("#pb_str").html(function(i, val) { return val*1-1;});
-      $("#pb_total").html(function(i, val) { return val*1+1;});
-
-      if ($("#pb_str").html() > 12) {
-        $("#pb_total").html(function(i, val) { return val*1+1;});
+    if ($("#pb_str").html() >= 9) {
+        $("#pb_str").text(parseInt($("#pb_str").text())-1);
+        $("#pb_total").text(parseInt($("#pb_total").text())+1);
       }
-	  }
+      if ($("#pb_str").html() >= 13) {
+        $("#pb_total").text(parseInt($("#pb_total").text())+1);
+        }
+
 	});
+  
+  
+  
   //PB Dex Plus
 	$("#pb_dex_plus").click(function(){
-	  if ($("#pb_dex").html() < 15 && $("#pb_total").html() > 0){
-      $("#pb_dex").html(function(i, val) { return val*1+1;});
-      if ($("#pb_dex").html() > 8) {
-        $("#pb_total").html(function(i, val) { return val*1-1;});
+    if ($("#pb_dex").html() < 15 && $("#pb_total").html() > 0){
+      
+      if ($("#pb_dex").html() > 13 && $("#pb_total").html()-2 > 0) {
+        $("#pb_total").text($("#pb_total").text()-2);
+        $("#pb_str").html(function(i, val) { return val*1+1;});
       }
-      if ($("#pb_dex").html() > 13) {
-        $("#pb_total").html(function(i, val) { return val*1-1;});
+      else if ($("#pb_dex").html() > 7 && $("#pb_total").html()-1 > 0 ) {
+        $("#pb_total").text($("#pb_total").text()-1);
+        $("#pb_dex").html(function(i, val) { return val*1+1;});
       }
-	  }
+      
+    }
+ 
 	});
   //PB Dex Minus
 	$("#pb_dex_min").click(function(){
