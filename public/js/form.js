@@ -357,7 +357,36 @@ $("#fighter_desc, #rogue_desc, #cleric_desc, #wizard_desc").on("change",".item_c
 });  
 
   
+//Background selections
   
+function resetBg(){
+  $("input#ch_trait, input#ch_bond, input#ch_ideal, input#ch_flaw, input#ch_bg_tools, input#ch_bg_features").val("");
+}
+  
+$(".bg_click").click(function(event){
+  $("input#ch_background").val($(this).text());
+  resetBg();
+});  
+  
+$(".trait_click").click(function(event){
+  click_id = $(this).attr('id');
+  $("input#ch_trait").val($('label[for=' + click_id + ']').text());
+});  
+  
+$(".ideal_click").click(function(event){
+  click_id = $(this).attr('id');
+  $("input#ch_ideal").val($('label[for=' + click_id + ']').text());
+});  
+  
+$(".flaw_click").click(function(event){
+  click_id = $(this).attr('id');
+  $("input#ch_flaw").val($('label[for=' + click_id + ']').text());
+});  
+  
+$(".bond_click").click(function(event){
+  click_id = $(this).attr('id');
+  $("input#ch_bond").val($('label[for=' + click_id + ']').text());
+});  
   
   
   

@@ -723,7 +723,7 @@
     
    <% @master_hash.each do |k, v| %>
     <% #Generates dd linkes for the background tabs %>
-    <%= '<dd><a href="#show_' + k.downcase + '" id="panel_' + k.downcase +  '" class="bg_click">' + k + '</a></dd>' %>
+    <%= '<dd><a href="#show_' +k.downcase+ '" id="panel_' +k.downcase+  '" class="bg_click">' +k+ '</a></dd>' %>
    <% end %>
   </dl>
 
@@ -758,8 +758,8 @@
                  <% i = 0 %>
                <% v["bg_traits"].each do |trait|  %>
                  <% i += 1 %>
-                 <tr><td width="30"><input type="radio" name="trait" id="trait_<%= i-1 %>">
-                   </div></td><td><%= trait %>
+                 <tr><td width="30"><input type="radio" name="trait" class="trait_click" id="<%= k.downcase %>_trait_<%= i-1 %>">
+                 </div></td><td><label for="<%= k.downcase %>_trait_<%= i-1 %>"><%= trait %></label>
                  </td></tr>
                <% end %>
                </table>
@@ -771,14 +771,15 @@
                  <% i = 0 %>
                  <% v["bg_ideals"].each do |ideal|  %>
                  <% i += 1 %>
-                 <tr><td width="30"><input type="radio" name="ideal" id="ideal_<%= i-1 %>">
-                   </div></td><td><%= ideal %>
+                 <tr><td width="30"><input type="radio" name="ideal" class="ideal_click" id="<%= k.downcase %>_ideal_<%= i-1 %>">
+                 </div></td><td><label for="<%= k.downcase %>_ideal_<%= i-1 %>"><%= ideal %></label>
                  </td></tr>
                <% end %>
                </table>
              </div>  
            </div>
 
+          <!-- bond ids are NOT unique and they need to be for labels to work -->
           <div class="row">
              <div class="large-6 columns">
                <h4>Bonds</h4>
@@ -786,8 +787,8 @@
                  <% i = 0 %>
                  <% v["bg_bonds"].each do |bond|  %>
                  <% i += 1 %>
-                 <tr><td width="30"><input type="radio" name="bond" id="bond_<%= i-1 %>">
-                   </div></td><td><%= bond %>
+                 <tr><td width="30"><input type="radio" name="bond" class="bond_click" id="<%= k.downcase %>_bond_<%= i-1 %>">
+                 </div></td><td><label for="<%= k.downcase %>_bond_<%= i-1 %>"><%= bond %></label>
                  </td></tr>
                <% end %>
                </table>
@@ -799,8 +800,8 @@
                  <% i = 0 %>
                  <% v["bg_flaws"].each do |flaw|  %>
                  <% i += 1 %>
-                 <tr><td width="30"><input type="radio" name="flaw" id="flaw_<%= i-1 %>">
-                   </div></td><td><%= flaw %>
+                 <tr><td width="30"><input type="radio" class="flaw_click" name="flaw" id="<%= k.downcase %>_flaw_<%= i-1 %>">
+                 </div></td><td><label for="<%= k.downcase %>_flaw_<%= i-1 %>"><%= flaw %></label>
                  </td></tr>
                <% end %>
                </table>
@@ -818,21 +819,23 @@
       Ch Background:
       <input type="text" id="ch_background"></input>
       <!-- .bg_click -->
-      Personality Traits:
-      <input type="text" id="ch_traits"></input>
+      Trait:
+      <input type="text" id="ch_trait"></input>
       <!-- .bg_click -->
-      Ideals:
-      <input type="text" id="ch_ideas"></input>
-      Bonds:
-      <input type="text" id="ch_bonds"></input>
-      Flaws:
-      <input type="text" id="ch_flaws"></input>
+      Ideal:
+      <input type="text" id="ch_ideal"></input>
+      Bond:
+      <input type="text" id="ch_bond"></input>
+      Flaw:
+      <input type="text" id="ch_flaw"></input>
       <br>
-      Bg Tools: <input type="text" name="ch_bg_tools">
+      BG Tools: <input type="text" name="ch_bg_tools">
+      BG Features: <input type="text" name="ch_bg_features">
       Age: <input type="text" name="ch_age">
       Height: <input type="text" name="ch_height">
       Weight: <input type="text" name="ch_weight"><br>
       Sex: <input type="text" name="ch_sex"><br>
+
 
     </fieldset>
 
