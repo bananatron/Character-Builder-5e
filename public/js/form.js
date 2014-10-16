@@ -568,9 +568,13 @@ for (i=0; i <= 6; i++) {
     
 	});
   
-	
-  //Point buy logic
-  //PB Strength Plus THIS IS GOOD - FIX THE REST
+
+  
+   ///////////////////////////
+  // BEGIN POINT-BUY STUFF // 
+ ///////////////////////////
+  
+  //PB Strength Plus 
 	$("#pb_str_plus").click(function(){
     if ($("#pb_str").html() < 15 && $("#pb_total").html() > 0){
       
@@ -584,7 +588,7 @@ for (i=0; i <= 6; i++) {
       }
     }
 	});
-  //PB Strength Minus THIS IS GOOD - FIX THE REST
+  //PB Strength Minus
 	$("#pb_str_min").click(function(){
     if ($("#pb_str").html() >= 9) {
         $("#pb_str").text(parseInt($("#pb_str").text())-1);
