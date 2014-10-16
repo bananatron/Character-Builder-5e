@@ -578,11 +578,11 @@ for (i=0; i <= 6; i++) {
 	$("#pb_str_plus").click(function(){
     if ($("#pb_str").html() < 15 && $("#pb_total").html() > 0){
       
-      if ($("#pb_str").html() > 12 && $("#pb_total").html()-2 > 0) {
+      if ($("#pb_str").html() > 12 && $("#pb_total").text()-2 >= 0) {
         $("#pb_total").text($("#pb_total").text()-2);
         $("#pb_str").text(parseInt($("#pb_str").text())+1);
       }
-      else if ($("#pb_str").html() > 7 && $("#pb_total").html()-1 > 0 ) {
+      else if ($("#pb_str").html() > 7 && $("#pb_total").text()-1 >= 0 ) {
         $("#pb_total").text($("#pb_total").text()-1);
         $("#pb_str").text(parseInt($("#pb_str").text())+1);
       }
@@ -597,134 +597,136 @@ for (i=0; i <= 6; i++) {
       if ($("#pb_str").html() >= 13) {
         $("#pb_total").text(parseInt($("#pb_total").text())+1);
         }
-
 	});
   
-  
-  
-  //PB Dex Plus
+   //PB Dexterity Plus 
 	$("#pb_dex_plus").click(function(){
     if ($("#pb_dex").html() < 15 && $("#pb_total").html() > 0){
       
-      if ($("#pb_dex").html() > 13 && $("#pb_total").html()-2 > 0) {
+      if ($("#pb_dex").html() > 12 && $("#pb_total").text()-2 >= 0) {
         $("#pb_total").text($("#pb_total").text()-2);
-        $("#pb_str").html(function(i, val) { return val*1+1;});
+        $("#pb_dex").text(parseInt($("#pb_dex").text())+1);
       }
-      else if ($("#pb_dex").html() > 7 && $("#pb_total").html()-1 > 0 ) {
+      else if ($("#pb_dex").html() > 7 && $("#pb_total").text()-1 >= 0 ) {
         $("#pb_total").text($("#pb_total").text()-1);
-        $("#pb_dex").html(function(i, val) { return val*1+1;});
+        $("#pb_dex").text(parseInt($("#pb_dex").text())+1);
       }
-      
     }
- 
 	});
-  //PB Dex Minus
+  //PB Dexterity Minus
 	$("#pb_dex_min").click(function(){
-	  if ($("#pb_dex").html() > 8){
-      $("#pb_dex").html(function(i, val) { return val*1-1;});
-      $("#pb_total").html(function(i, val) { return val*1+1;});
-
-      if ($("#pb_dex").html() > 12) {
-        $("#pb_total").html(function(i, val) { return val*1+1;});
+    if ($("#pb_dex").html() >= 9) {
+        $("#pb_dex").text(parseInt($("#pb_dex").text())-1);
+        $("#pb_total").text(parseInt($("#pb_total").text())+1);
       }
-	  }
+      if ($("#pb_dex").html() >= 13) {
+        $("#pb_total").text(parseInt($("#pb_total").text())+1);
+        }
 	});
-  
-    //PB Int Plus
+
+  //PB Intelligence Plus 
 	$("#pb_int_plus").click(function(){
-	  if ($("#pb_int").html() < 15 && $("#pb_total").html() > 0){
-      $("#pb_int").html(function(i, val) { return val*1+1;});
-      if ($("#pb_int").html() > 8) {
-        $("#pb_total").html(function(i, val) { return val*1-1;});
+    if ($("#pb_int").html() < 15 && $("#pb_total").html() > 0){
+      
+      if ($("#pb_int").html() > 12 && $("#pb_total").text()-2 >= 0) {
+        $("#pb_total").text($("#pb_total").text()-2);
+        $("#pb_int").text(parseInt($("#pb_int").text())+1);
       }
-      if ($("#pb_int").html() > 13) {
-        $("#pb_total").html(function(i, val) { return val*1-1;});
+      else if ($("#pb_int").html() > 7 && $("#pb_total").text()-1 >= 0 ) {
+        $("#pb_total").text($("#pb_total").text()-1);
+        $("#pb_int").text(parseInt($("#pb_int").text())+1);
       }
-	  }
+    }
 	});
-  //PB Int Minus
+  //PB Intelligence Minus
 	$("#pb_int_min").click(function(){
-	  if ($("#pb_int").html() > 8){
-      $("#pb_int").html(function(i, val) { return val*1-1;});
-      $("#pb_total").html(function(i, val) { return val*1+1;});
-
-      if ($("#pb_int").html() > 12) {
-        $("#pb_total").html(function(i, val) { return val*1+1;});
+    if ($("#pb_int").html() >= 9) {
+        $("#pb_int").text(parseInt($("#pb_int").text())-1);
+        $("#pb_total").text(parseInt($("#pb_total").text())+1);
       }
-	  }
-	});  
+      if ($("#pb_int").html() >= 13) {
+        $("#pb_total").text(parseInt($("#pb_total").text())+1);
+        }
+	});
   
-    //PB Wis Plus
+  //PB Wisdom Plus 
 	$("#pb_wis_plus").click(function(){
-	  if ($("#pb_wis").html() < 15 && $("#pb_total").html() > 0){
-      $("#pb_wis").html(function(i, val) { return val*1+1;});
-      if ($("#pb_wis").html() > 8) {
-        $("#pb_total").html(function(i, val) { return val*1-1;});
+    if ($("#pb_wis").html() < 15 && $("#pb_total").html() > 0){
+      
+      if ($("#pb_wis").html() > 12 && $("#pb_total").text()-2 >= 0) {
+        $("#pb_total").text($("#pb_total").text()-2);
+        $("#pb_wis").text(parseInt($("#pb_wis").text())+1);
       }
-      if ($("#pb_wis").html() > 13) {
-        $("#pb_total").html(function(i, val) { return val*1-1;});
+      else if ($("#pb_wis").html() > 7 && $("#pb_total").text()-1 >= 0 ) {
+        $("#pb_total").text($("#pb_total").text()-1);
+        $("#pb_wis").text(parseInt($("#pb_wis").text())+1);
       }
-	  }
+    }
 	});
-  //PB Wis Minus
+  //PB Widsom Minus
 	$("#pb_wis_min").click(function(){
-	  if ($("#pb_wis").html() > 8){
-      $("#pb_wis").html(function(i, val) { return val*1-1;});
-      $("#pb_total").html(function(i, val) { return val*1+1;});
-
-      if ($("#pb_wis").html() > 12) {
-        $("#pb_total").html(function(i, val) { return val*1+1;});
+    if ($("#pb_wis").html() >= 9) {
+        $("#pb_wis").text(parseInt($("#pb_wis").text())-1);
+        $("#pb_total").text(parseInt($("#pb_total").text())+1);
       }
-	  }
-	});  
+      if ($("#pb_wis").html() >= 13) {
+        $("#pb_total").text(parseInt($("#pb_total").text())+1);
+        }
+	});
   
-    //PB Cha Plus
+  //PB Charisma Plus 
 	$("#pb_cha_plus").click(function(){
-	  if ($("#pb_cha").html() < 15 && $("#pb_total").html() > 0){
-      $("#pb_cha").html(function(i, val) { return val*1+1;});
-      if ($("#pb_cha").html() > 8) {
-        $("#pb_total").html(function(i, val) { return val*1-1;});
+    if ($("#pb_cha").html() < 15 && $("#pb_total").html() > 0){
+      
+      if ($("#pb_cha").html() > 12 && $("#pb_total").text()-2 >= 0) {
+        $("#pb_total").text($("#pb_total").text()-2);
+        $("#pb_cha").text(parseInt($("#pb_cha").text())+1);
       }
-      if ($("#pb_cha").html() > 13) {
-        $("#pb_total").html(function(i, val) { return val*1-1;});
+      else if ($("#pb_cha").html() > 7 && $("#pb_total").text()-1 >= 0 ) {
+        $("#pb_total").text($("#pb_total").text()-1);
+        $("#pb_cha").text(parseInt($("#pb_cha").text())+1);
       }
-	  }
+    }
 	});
-  //PB cha Minus
+  //PB Charisma Minus
 	$("#pb_cha_min").click(function(){
-	  if ($("#pb_cha").html() > 8){
-      $("#pb_cha").html(function(i, val) { return val*1-1;});
-      $("#pb_total").html(function(i, val) { return val*1+1;});
-
-      if ($("#pb_cha").html() > 12) {
-        $("#pb_total").html(function(i, val) { return val*1+1;});
+    if ($("#pb_cha").html() >= 9) {
+        $("#pb_cha").text(parseInt($("#pb_cha").text())-1);
+        $("#pb_total").text(parseInt($("#pb_total").text())+1);
       }
-	  }
-	});  
-  
-    //PB con Plus
-	$("#pb_con_plus").click(function(){
-	  if ($("#pb_con").html() < 15 && $("#pb_total").html() > 0){
-      $("#pb_con").html(function(i, val) { return val*1+1;});
-      if ($("#pb_con").html() > 8) {
-        $("#pb_total").html(function(i, val) { return val*1-1;});
-      }
-      if ($("#pb_con").html() > 13) {
-        $("#pb_total").html(function(i, val) { return val*1-1;});
-      }
-	  }
+      if ($("#pb_cha").html() >= 13) {
+        $("#pb_total").text(parseInt($("#pb_total").text())+1);
+        }
 	});
-  //PB con Minus
-	$("#pb_con_min").click(function(){
-	  if ($("#pb_con").html() > 8){
-      $("#pb_con").html(function(i, val) { return val*1-1;});
-      $("#pb_total").html(function(i, val) { return val*1+1;});
-
-      if ($("#pb_con").html() > 12) {
-        $("#pb_total").html(function(i, val) { return val*1+1;});
+  
+  //PB Con Plus 
+	$("#pb_con_plus").click(function(){
+    if ($("#pb_con").html() < 15 && $("#pb_total").html() > 0){
+      console.log($("#pb_con").html());
+      console.log($("#pb_total").html());
+      console.log($("#pb_total").text());
+      
+      if ($("#pb_con").html() > 12 && $("#pb_total").text()-2 >= 0) {
+        $("#pb_total").text($("#pb_total").text()-2);
+        $("#pb_con").text(parseInt($("#pb_con").text())+1);
       }
-	  }
-	});  
+      else if ($("#pb_con").html() > 7 && $("#pb_total").text()-1 >= 0 ) {
+        $("#pb_total").text($("#pb_total").text()-1);
+        $("#pb_con").text(parseInt($("#pb_con").text())+1);
+      }
+    }
+	});
+  //PB Con Minus
+	$("#pb_con_min").click(function(){
+    if ($("#pb_con").html() >= 9) {
+        $("#pb_con").text(parseInt($("#pb_con").text())-1);
+        $("#pb_total").text(parseInt($("#pb_total").text())+1);
+      }
+      if ($("#pb_con").html() >= 13) {
+        $("#pb_total").text(parseInt($("#pb_total").text())+1);
+        }
+	});
+    
   
   //Alignment info
   $('[data-slider]').on('change.fndtn.slider', function(){
@@ -765,7 +767,6 @@ for (i=0; i <= 6; i++) {
   
 //Limit # of  skills
 //$('input.ch_skillprof').hide();
-
 var prof_limit = 4;
 $('input.ch_skillprof').on('change', function(evt) {
    if($(this).siblings(':checked').length >= prof_limit) {
