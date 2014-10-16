@@ -2,9 +2,6 @@
 //When DOM is ready
 $(document).ready(function(){
 
-  
- //Sortable tutorial 
- //http://stackoverflow.com/questions/5131460/using-jqueryui-sortable-list-with-forms
 
  //Starting globals
   var weapon_prof = [];
@@ -15,6 +12,15 @@ $(document).ready(function(){
   var race_selection = "";
   var class_equip = [];
   var class_skills = [];
+  
+  function updatepbStats(){
+    $("input#ch_str").val($("#pb_str").text());
+    $("input#ch_dex").val($("#pb_dex").text());
+    $("input#ch_con").val($("#pb_con").text());
+    $("input#ch_int").val($("#pb_int").text());
+    $("input#ch_wis").val($("#pb_wis").text());
+    $("input#ch_cha").val($("#pb_cha").text());
+  }
 
 
   //Reset stats 
@@ -39,9 +45,9 @@ $(document).ready(function(){
 $("input.ch_skillprof").hide();
   
   
-   ///////////////////////////////////
-  //  BEGIN RACE DEFENITIONS&LOGIC // 
- ///////////////////////////////////
+//////////////////////////////////////
+////  BEGIN RACE DEFENITIONS&LOGIC // 
+////////////////////////////////////
   
 //Human racial  
 $("#panel_hum").click(function(event){
@@ -257,11 +263,9 @@ $("#halfling_desc").on("click","#panel_shal", function(){
   
   
   
-   ///////////////////////////////////
-  // BEGIN CLASS DEFENITIONS&LOGIC // 
- ///////////////////////////////////
-  
-
+/////////////////////////////////////////
+//////  CLASS DEFENITIONS & LOGIC  ///// 
+///////////////////////////////////////
 
 $(".class_click").click(function(event){
   $("input#ch_class").val($(this).html());
@@ -357,7 +361,9 @@ $("#fighter_desc, #rogue_desc, #cleric_desc, #wizard_desc").on("change",".item_c
 });  
 
   
-//Background selections
+/////////////////////////////////
+////// BACKGROUND SELECTION  /// 
+///////////////////////////////
   
 function resetBg(){
   $("input#ch_trait, input#ch_bond, input#ch_ideal, input#ch_flaw, input#ch_bg_tools, input#ch_bg_features").val("");
@@ -433,7 +439,10 @@ $("a.class_click").click(function(event){
 });
 
   
-//Roll / attribute logic  
+//////////////////////////////////
+////// RANDOM ROLL GENERATION /// 
+//////////////////////////////// 
+  
 //Emulates 4d6 - dropping lowest
 function randomScore() {
   var rolls = [];
@@ -564,16 +573,17 @@ for (i=0; i <= 6; i++) {
         
 		if (numAttendees == "Point Buy") {
 		  $("#point_buy_wrap").slideDown().find("input").addClass("active_name_field");
+      updatepbStats();
 		}
     
 	});
   
 
   
-   ///////////////////////////
-  // BEGIN POINT-BUY STUFF // 
- ///////////////////////////
-  
+/////////////////////////////////
+////// BEGIN POINT-BUY STUFF /// 
+///////////////////////////////
+
   //PB Strength Plus 
 	$("#pb_str_plus").click(function(){
     if ($("#pb_str").html() < 15 && $("#pb_total").html() > 0){
@@ -726,9 +736,19 @@ for (i=0; i <= 6; i++) {
         $("#pb_total").text(parseInt($("#pb_total").text())+1);
         }
 	});
-    
   
-  //Alignment info
+  //Any time a pb button is clicked, it updates form
+  $(".pointbuy").click(function(){
+    updatepbStats();
+  });
+  
+  
+
+  
+/////////////////////////
+//// ALIGNMENT STUFF ///
+///////////////////////
+    
   $('[data-slider]').on('change.fndtn.slider', function(){
   var current = $('#alignslider').attr('data-slider');
   var translation = "Neutral";
@@ -765,35 +785,41 @@ for (i=0; i <= 6; i++) {
 
   });
   
-//Limit # of  skills
-//$('input.ch_skillprof').hide();
-var prof_limit = 4;
-$('input.ch_skillprof').on('change', function(evt) {
-   if($(this).siblings(':checked').length >= prof_limit) {
-       this.checked = false;
-   }
   
-    $('input.ch_rogue_skillprof').each(function() {
-      if ($(this).is(':checked')) {
-        
-          var checked_option = $(this).val();  
-          $('input.ch_rogue_expert').each(function() {
-            if ($(this).val() == checked_option) {
-              $(this).show();
-            }
-          });
+  
+//////////////////////////
+//// SKILL VALIDATION ///
+////////////////////////
 
-      }
-      else {
-        var unchecked_option = $(this).val(); 
-        $('input.ch_rogue_expert').each(function() {
-            if ($(this).val() == unchecked_option) {
-              $(this).hide();
-            }
-          });
-      }
+  //Limit # of  skills
+  //$('input.ch_skillprof').hide();
+  var prof_limit = 4;
+  $('input.ch_skillprof').on('change', function(evt) {
+     if($(this).siblings(':checked').length >= prof_limit) {
+         this.checked = false;
+     }
+
+      $('input.ch_rogue_skillprof').each(function() {
+        if ($(this).is(':checked')) {
+
+            var checked_option = $(this).val();  
+            $('input.ch_rogue_expert').each(function() {
+              if ($(this).val() == checked_option) {
+                $(this).show();
+              }
+            });
+
+        }
+        else {
+          var unchecked_option = $(this).val(); 
+          $('input.ch_rogue_expert').each(function() {
+              if ($(this).val() == unchecked_option) {
+                $(this).hide();
+              }
+            });
+        }
+    });
   });
-});
   
   
 
