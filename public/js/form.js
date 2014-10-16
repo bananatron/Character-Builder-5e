@@ -364,18 +364,19 @@ $("#fighter_desc, #rogue_desc, #cleric_desc, #wizard_desc").on("change",".item_c
 /////////////////////////////////
 ////// BACKGROUND SELECTION  /// 
 ///////////////////////////////
-  
+
 function resetBg(){
-  $("input#ch_trait, input#ch_bond, input#ch_ideal, input#ch_flaw, input#ch_bg_tools, input#ch_bg_features").val("");
-  $("input#ch_bg_skills, input#ch_bg_equip").val("");
+  $("input#ch_trait, input#ch_bond, input#ch_ideal, input#ch_flaw").val("");
+  $("input#ch_bg_skills, input#ch_bg_equip, input#ch_bg_tools, input#ch_bg_features").val("");
 }
 
 $(".bg_click").click(function(event){
-  resetBg(); //Reset everything before replacement
+  resetBg(); //Reset everything before form gets filled
   $("input#ch_background").val($(this).text());  //Background name
-  $("input#ch_bg_skills").val( $('#' + $(this).text().toLowerCase() + '_bg_skills').text() ); //BG Skills
+  $("input#ch_bg_skills").val( $('#' + $(this).text().toLowerCase() + '_bg_skills').text() ); //Bg Skills
   $("input#ch_bg_equip").val( $('#' + $(this).text().toLowerCase() + '_bg_equip').text() ); //Bg Equipment
-  $("input#ch_bg_features").val( $('#' + $(this).text().toLowerCase() + '_bg_features').text() ); //Bg Equipment
+  $("input#ch_bg_features").val( $('#' + $(this).text().toLowerCase() + '_bg_features').text() ); //Bg Features
+  $("input#ch_bg_tools").val( $('#' + $(this).text().toLowerCase() + '_bg_tools').text() ); //Bg Tools
 });  
   
 $(".trait_click").click(function(event){

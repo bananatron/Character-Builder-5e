@@ -704,12 +704,14 @@
             <p><b>Skill Proficiencies: </b><span id="<%= k.downcase %>_bg_skills"><%= v["bg_skills"].join(", ")  %></span>
               
             <% if v["bg_tools"] %>
-              <br><b>Tools:</b> <%= v["bg_tools"].join(", ")  %> 
+              <br><b>Tools:</b> <span id="<%= k.downcase %>_bg_tools"><%= v["bg_tools"].join(", ")  %>
+              </span>
             <% end %>
             <% if  v["bg_lang"] %>
              <br><b>Languages:</b> <%= v["bg_lang"]  %> additional languages of your choice
             <% end %>
-              <br><b>Background Equipment:</b> <span id="<%= k.downcase %>_bg_equip"><%= v["bg_equip"].join(", ") %></span>
+              <br><b>Background Equipment:</b> <span id="<%= k.downcase %>_bg_equip"><%= v["bg_equip"].join(", ") %>
+              </span>
               
             <p><%= v["bg_feature"]  %>
             <p><%= v["bg_characteristics"]  %><br><br>
@@ -791,8 +793,8 @@
       Flaw:
       <input type="text" id="ch_flaw"></input>
       <br>
-      BG Tools: <input type="text" name="ch_bg_tools">
-      BG Features: <input type="text" name="ch_bg_features">
+      BG Tools: <input type="text" name="ch_bg_tools" id="ch_bg_tools">
+      BG Features: <input type="text" name="ch_bg_features" id="ch_bg_features">
       BG Skills: <input type="text" id="ch_bg_skills" name="ch_bg_skills">
       BG Equip: <input type="text" id="ch_bg_equip" name="ch_bg_equip">
       BG Features: <input type="text" id="ch_bg_features" name="ch_bg_features">
