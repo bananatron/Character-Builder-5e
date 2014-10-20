@@ -1,0 +1,246 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DND Character Builder</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    <style>
+    .attr_container {
+      border: 0px;
+      border-style: solid;
+      border-color: #000;
+      text-align: center;
+    }
+    .attr_mod_mobile {
+      font-size: 20px;
+      text-align: center;
+    }
+    .attr_mod {
+      font-size: 40px;
+      text-align: center;
+    }
+    .attr_score {
+      font-style: italic;
+      font-size: 12px;
+      text-align: center;
+    }
+    .attr {
+      font-size: 12px;
+      color: #FFF;
+      background-color: #000;
+      padding: 2px;
+      text-align: center;
+    }
+    .skills {
+      font-size: 14px;
+    }
+    
+    </style>
+    
+    
+  </head>
+  <body>
+
+  <div class="fixed">
+  <nav class="top-bar" data-topbar role="navigation">
+
+    <section class="top-bar-section">
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <li class="hide-for-medium-up"><a href="#">Small Menu</a></li>
+        <li><a id="create" href="#">Create Another</a></li>
+        <li><a id="bottom" href="#">Bottom</a></li>
+      </ul>
+      <ul class="right">
+        <li><a href="#">About</a>
+        <li class="active"><a target="_blank" href="http://spensercoke.com">Author</a></li>
+      </ul>
+    </section>
+  </nav>
+  </div>
+  <br><br><br>
+  
+  <!-- First row -->
+  <div class="row">
+    <div class="medium-4 columns">
+      <h4>Character Name:</h4>
+    </div>
+    
+    <div class="medium-8 columns panel">
+     <div class="row">
+        <div class="small-4 columns">
+        <b>Level:</b> 2
+        </div>
+        <div class="small-4 columns">
+        <b>Background:</b> Acolyte
+        </div>
+        <div class="small-4 columns">
+        <b>Player Name:</b> Steve
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="small-4 columns">
+        <b>Race:</b> Dwarf
+        </div>
+        <div class="small-4 columns">
+        <b>Alignment:</b> Neutral
+        </div>
+        <div class="small-4 columns">
+        <b>XP:</b> 0
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+  <div class="medium-12 columns panel">
+    <!-- Stats -->
+    
+    <div class="small-2 columns">
+      <div class="attr_container">
+        <div class="attr">STR</div><br>
+        <span class="attr_mod">+2</span><br>
+        <span class="attr_score">(10)</span>
+      </div>
+    </div>
+    <div class="small-2 columns">
+      <div class="attr_container">
+        <div class="attr">DEX</div><br>
+        <span class="attr_mod">+1</span><br>
+        <span class="attr_score">(10)</span>
+      </div>
+    </div>
+    <div class="small-2 columns">
+      <div class="attr_container">
+        <div class="attr">CON</div><br>
+        <span class="attr_mod">+3</span><br>
+        <span class="attr_score">(10)</span>
+      </div>
+    </div>
+    <div class="small-2 columns">
+      <div class="attr_container">
+        <div class="attr">INT</div><br>
+        <span class="attr_mod">-1</span><br>
+        <span class="attr_score">(10)</span>
+      </div>
+    </div>
+    <div class="small-2 columns">
+      <div class="attr_container">
+        <div class="attr">WIS</div><br>
+        <span class="attr_mod">+0</span><br>
+        <span class="attr_score">(10)</span>
+      </div>
+    </div>
+    <div class="small-2 columns">
+      <div class="attr_container">
+        <div class="attr">CHA</div><br>
+        <span class="attr_mod">+0</span><br>
+        <span class="attr_score">(10)</span>
+      </div>
+    </div>
+    
+  </div>
+  </div>
+  
+  <div class="row">
+    <div class="medium-4 columns">
+      <div class="row">
+        <div class="small-6 columns">
+          <table>
+            <tr><th>Saving Throws</th></tr>
+            <tr><td>STR: 2</td> <td>DEX: 2</td></tr>
+            <tr><td>STR: 2</td> <td>DEX: 2</td></tr>
+            <tr><td>STR: 2</td> <td>DEX: 2</td></tr>
+          </table>
+          
+          <fieldset name="lol"><legend>Death Saves</legend>
+          <p>Success:<br> <input type="checkbox"></input> <input type="checkbox"></input> <input type="checkbox"></input><br>
+            Failure:<br> <input type="checkbox"></input> <input type="checkbox"></input> <input type="checkbox"></input></p></fieldset>
+            
+
+        </div>
+        
+        
+        <div class="small-6 columns">
+            <h4>Skills</h4>
+            <input type="checkbox"></input> Hide untrained 
+            <div class="skills">
+              <small>(DEX)</small> <b>Acrobatics</b> 2 <br>
+              <small>(WIS)</small> <b>Anml Handling</b> 2 <br>
+              <small>(INT)</small> <b>Arcana</b> +2 <br>
+              <small>(STR)</small> <b>Athletics</b> 2 <br>
+              <small>(CHA)</small> <b>Deception</b> 2 <br>
+              <small>(INT)</small> <b>History</b> 2 <br>
+              <small>(WIS)</small> <b>Insight</b> 2 <br>
+              <small>(CHA)</small> <b>Intimidation</b> 2 <br>
+              <small>(INT)</small> <b>Medicine</b> 2 <br>
+              <small>(INT)</small> <b>Nature</b> 2 <br>
+              <small>(WIS)</small> <b>Perception</b> 2 <br>
+              <small>(CHA)</small> <b>Performance</b> 2 <br>
+              <small>(CHA)</small> <b>Persuasion</b> 2 <br>
+              <small>(INT)</small> <b>Religion</b> 2 <br>
+              <small>(DEX)</small> <b>Slght of Hand</b> 2 <br>
+              <small>(DEX)</small> <b>Stealth</b> 2 <br>
+              <small>(WIS)</small> <b>Survival</b> 2 <br>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="medium-4 columns">
+      <div class="row">
+      <div class="small-12 columns">
+       <p><b>Hit Die:</b> d6<br>
+       <p><b>Maximum HP</b>:<input type="text" value="32" readonly></input>
+       <p><b>Current HP</b>: <input type="text"></input>
+       <p><b>Temp HP</b>: <input type="text"></input>
+       </div>
+      </div>
+    
+      <div class="row">
+        <div class="small-4 columns"><b>AC</b>: 8</div>
+        <div class="small-4 columns"><b>INIT</b>: 12 </div>
+        <div class="small-4 columns"><b>SPD</b>: 6</div>
+        <br><br>
+      </div>
+      
+      <div class="row">
+       <div class="small-12 columns panel"><strong>Attack Info:</strong></div>
+      </div>
+      <div class="row">
+       <div class="small-12 columns panel"><strong>Equipment:</strong></div>
+      </div>
+      
+    </div>
+    <div class="medium-4 columns">
+      Class Traits: <br><br><br>
+      Spells: <br><br><br>
+      Personality Traits:<br><br><br>
+      Ideals:<br><br><br>
+      Bonds:<br><br><br>
+      Flaws:<br><br><br>
+    </div>
+  </div>
+  <div id="bottom_d">f</div>
+      
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    
+    <script>
+      $(document).foundation();
+      $(document).ready(function() {
+        
+        $('#bottom').click(function() {
+          $('html, body').animate({
+              scrollTop: $('#bottom_d').offset().top-10
+          }, 200);
+          return false;
+        });
+      
+      });
+    </script>
+  </body>
+</html>

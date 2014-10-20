@@ -1,7 +1,5 @@
-
 //When DOM is ready
 $(document).ready(function(){
-
 
  //Starting globals
   var weapon_prof = [];
@@ -424,8 +422,8 @@ $("a.class_click").click(function(event){
   $("input.item_click").each(function(  ) {
       $(this).attr('checked', false)
   });
-  
-    
+
+
     $.each (class_skills, function( index, value ){
        //console.log("class_skills:" + value);     
        $("input.ch_skillprof").each(function(i, obj) {
@@ -437,6 +435,18 @@ $("a.class_click").click(function(event){
           }
       });
     });
+  
+  // Hide perception and add * to it if elf is selected
+  // they get perception as a class feature
+  if ($('input#ch_race').val().indexOf("Elf") != -1){
+    $("label[for='perception_id']").replaceWith("<label for='perception_id'>Perception*</label>")
+    $("input#perception_id").hide(); //Hide perception since elves already get it
+    //Add modal or something here describing the **
+  }
+  else {
+    $("label[for='perception_id']").replaceWith("<label for='perception_id'>Perception</label>")  
+  }
+  
 });
 
   
@@ -795,6 +805,10 @@ for (i=0; i <= 6; i++) {
   //Limit # of  skills
   //$('input.ch_skillprof').hide();
   var prof_limit = 4;
+  
+  
+ 
+  
   $('input.ch_skillprof').on('change', function(evt) {
      if($(this).siblings(':checked').length >= prof_limit) {
          this.checked = false;
