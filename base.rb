@@ -21,9 +21,17 @@ get '/' do
   erb :index
 end
 
-get '/sheet' do
+post '/sheet' do
+  #Defines all the variables to be used in the /sheet erb
+  @ch_background = params[:ch_background]
+  
   erb :sheet
 end
+
+#get '/sheet' do
+#  erb :sheet, :locals => {}
+#end
+
 
 get '/hello/:name' do
   # matches "GET /hello/foo" and "GET /hello/bar"
