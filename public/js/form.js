@@ -74,7 +74,7 @@ $("#panel_dwa").click(function(event){
   bonus_con = 2;
   $("input#ch_race_languages").val("Common & Dwarvish");
   $("input#ch_size").val("Medium");
-  $("input#ch_speed").val("25 ft. (Not reduced by heavy armor.)");
+  $("input#ch_speed").val("25 ft.*");
   $("input#ch_race_weapon_prof").val(["battleaxe","handaxe","throwing hammer","warhammer"]);
 });
   
@@ -116,7 +116,7 @@ $("#dwarf_desc").on("click","#panel_hdwa", function(){
     race_features.push( $(this).text());
   });
   //Note to add 1 each level
-  race_features.push("Dwarven Toughness. Your maximum HP increased by 1 each level.")
+  race_features.push("Dwarven Toughness. Your maximum HP increased by 1 each level (already added).")
   $("input#ch_race_features").val(race_features); 
 });
   
@@ -276,7 +276,7 @@ $(".class_click").click(function(event){
     $("input#ch_armp").val("Light Armor");
     $("input#ch_wepp").val("Simple weapons, hand crossbows, longswords, rapiers, shortswords");
     $("input#ch_hd").val("1d8");
-    $("input#ch_stp").val("Dexterity, Intelligence");
+    $("input#ch_stp").val(["Dexterity", "Intelligence"]);
     $("input#ch_skillcount").val(4);
     $("input#ch_spellcount").val(0);
     window.class_equip = ["Leather Armor", "Two Daggers", "Thieve's Tools"];
@@ -287,13 +287,13 @@ $(".class_click").click(function(event){
   //If Fighter
   if ($("input#ch_class").val() == "Fighter") {
     var total_hp = (10 + parseInt($("input#ch_con").val()) )
-    window.fighter_features = "Second Wind: You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. (Daily)";
+    window.fighter_features = "Second Wind: You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn you can use a bonus action to regain hit points equal to 1d10 + your fighter level. (Daily)";
     $("input#ch_hp").val(total_hp);
     $("input#ch_classtool").val("");
     $("input#ch_armp").val("All armor, shields");
     $("input#ch_wepp").val("Simple weapons, martial weapons");
     $("input#ch_hd").val("1d10");
-    $("input#ch_stp").val("Strength, Constitution");
+    $("input#ch_stp").val(["Strength", "Constitution"]);
     $("input#ch_skillcount").val(2);
     $("input#ch_spellcount").val(0);
     window.class_equip = [];
@@ -310,7 +310,7 @@ $(".class_click").click(function(event){
     $("input#ch_armp").val("");
     $("input#ch_wepp").val("Daggers, Darts, Slings, Quarterstaffs, Light Crossbows");
     $("input#ch_hd").val("1d6");
-    $("input#ch_stp").val("Wisdom, Intelligence");
+    $("input#ch_stp").val(["Wisdom", "Intelligence"]);
     $("input#ch_skillcount").val(2);
     $("input#ch_spellcount").val(3);
     window.class_equip = [];
@@ -328,7 +328,7 @@ $(".class_click").click(function(event){
     $("input#ch_armp").val("Light Armor, Medium Armor, Shields");
     $("input#ch_wepp").val("All Simple Weapons");
     $("input#ch_hd").val("1d8");
-    $("input#ch_stp").val("Wisdom, Charisma");
+    $("input#ch_stp").val(["Wisdom", "Charisma"]);
     $("input#ch_skillcount").val(2);
     $("input#ch_spellcount").val(3);
     window.class_equip = [];

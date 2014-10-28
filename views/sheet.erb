@@ -64,30 +64,31 @@
   <div class="row">
     <div class="medium-4 columns">
       <h4>Character Name:</h4>
+      <%= @ch_name %>
     </div>
     
     <div class="medium-8 columns panel">
      <div class="row">
         <div class="small-4 columns">
-        <b>Level:</b> 2
+        <b>Level:</b> 1
         </div>
         <div class="small-4 columns">
           <b>Background:</b> <%= @ch_background %>
         </div>
         <div class="small-4 columns">
-        <b>Player Name:</b> Steve
+        <b>Player Name:</b> <input name="player_name" type="text">
         </div>
       </div>
       <br>
       <div class="row">
         <div class="small-4 columns">
-        <b>Race:</b> Dwarf
+          <b>Race:</b> <%= @ch_race %>
         </div>
         <div class="small-4 columns">
-        <b>Alignment:</b> Neutral
+          <b>Alignment:</b> <%= @ch_alignment %>
         </div>
         <div class="small-4 columns">
-        <b>XP:</b> 0
+        <b>XP:</b> <input name="xp" type="text">
         </div>
       </div>
     </div>
@@ -100,43 +101,43 @@
     <div class="small-2 columns">
       <div class="attr_container">
         <div class="attr">STR</div><br>
-        <span class="attr_mod">+2</span><br>
-        <span class="attr_score">(10)</span>
+        <span class="attr_mod"><%= ((@ch_str.to_i-10)/2).to_i %></span><br>
+        <span class="attr_score">(<%= @ch_str %>)</span>
       </div>
     </div>
     <div class="small-2 columns">
       <div class="attr_container">
         <div class="attr">DEX</div><br>
-        <span class="attr_mod">+1</span><br>
-        <span class="attr_score">(10)</span>
+        <span class="attr_mod"><%= ((@ch_dex.to_i-10)/2).to_i %></span><br>
+        <span class="attr_score">(<%= @ch_dex %>)</span>
       </div>
     </div>
     <div class="small-2 columns">
       <div class="attr_container">
         <div class="attr">CON</div><br>
-        <span class="attr_mod">+3</span><br>
-        <span class="attr_score">(10)</span>
+        <span class="attr_mod"><%= ((@ch_con.to_i-10)/2).to_i %></span><br>
+        <span class="attr_score">(<%= @ch_con %>)</span>
       </div>
     </div>
     <div class="small-2 columns">
       <div class="attr_container">
         <div class="attr">INT</div><br>
-        <span class="attr_mod">-1</span><br>
-        <span class="attr_score">(10)</span>
+        <span class="attr_mod"><%= ((@ch_int.to_i-10)/2).to_i %></span><br>
+        <span class="attr_score">(<%= @ch_int %>)</span>
       </div>
     </div>
     <div class="small-2 columns">
       <div class="attr_container">
         <div class="attr">WIS</div><br>
-        <span class="attr_mod">+0</span><br>
-        <span class="attr_score">(10)</span>
+        <span class="attr_mod"><%= ((@ch_wis.to_i-10)/2).to_i %></span><br>
+        <span class="attr_score">(<%= @ch_wis %>)</span>
       </div>
     </div>
     <div class="small-2 columns">
       <div class="attr_container">
         <div class="attr">CHA</div><br>
-        <span class="attr_mod">+0</span><br>
-        <span class="attr_score">(10)</span>
+        <span class="attr_mod"><%= ((@ch_cha.to_i-10)/2).to_i %></span><br>
+        <span class="attr_score">(<%= @ch_cha %>)</span>
       </div>
     </div>
     
@@ -149,9 +150,10 @@
         <div class="small-6 columns">
           <table>
             <tr><th>Saving Throws</th></tr>
-            <tr><td>STR: 2</td> <td>DEX: 2</td></tr>
-            <tr><td>STR: 2</td> <td>DEX: 2</td></tr>
-            <tr><td>STR: 2</td> <td>DEX: 2</td></tr>
+            <% @ch_stp.split(",").each do |stp| %>
+            <tr><td><%= stp %> <i>(+2)</i></td></tr>
+            <% end %>
+
           </table>
           
           <fieldset name="lol"><legend>Death Saves</legend>
@@ -191,9 +193,9 @@
     <div class="medium-4 columns">
       <div class="row">
       <div class="small-12 columns">
-       <p><b>Hit Die:</b> d6<br>
-       <p><b>Maximum HP</b>:<input type="text" value="32" readonly></input>
-       <p><b>Current HP</b>: <input type="text"></input>
+       <p><b>Hit Die:</b> <%= @ch_hd %> <br>
+       <p><b>Maximum HP</b>:<input type="text" value="<%= @ch_hp %>" readonly></input>
+       <p><b>Current HP</b>: <input value="<%= @ch_hp %>" type="text"></input>
        <p><b>Temp HP</b>: <input type="text"></input>
        </div>
       </div>
@@ -201,7 +203,7 @@
       <div class="row">
         <div class="small-4 columns"><b>AC</b>: 8</div>
         <div class="small-4 columns"><b>INIT</b>: 12 </div>
-        <div class="small-4 columns"><b>SPD</b>: 6</div>
+        <div class="small-4 columns"><b>SPD</b>: <%= @ch_speed %></div>
         <br><br>
       </div>
       
@@ -209,17 +211,36 @@
        <div class="small-12 columns panel"><strong>Attack Info:</strong></div>
       </div>
       <div class="row">
-       <div class="small-12 columns panel"><strong>Equipment:</strong></div>
+       <div class="small-12 columns panel"><strong>Equipment:</strong>
+        <%= @ch_bg_equip %>
+        </div>
       </div>
       
     </div>
     <div class="medium-4 columns">
-      Class Traits: <br><br><br>
-      Spells: <br><br><br>
-      Personality Traits:<br><br><br>
-      Ideals:<br><br><br>
-      Bonds:<br><br><br>
-      Flaws:<br><br><br>
+      <strong>Class Traits</strong>: 
+      <ul>
+        <% @ch_classfeat.split(",").each do |trait| %>
+          <li><%= trait %></li>
+        <% end %>
+      </ul>
+      <br><br><br>
+      
+      <strong>Race Features</strong>: 
+      <ul>
+        <% @ch_race_features.split(",").each do |feat| %>
+        <li><%= feat %></li>
+        <% end %>
+      </ul>
+      
+      
+      
+      <br><br><br>
+      <strong>Spells</strong>:<br><br><br>
+      <strong>Personality Traits</strong>: <%= @ch_trait %><br><br><br>
+      <strong>Ideals</strong>: <%= @ch_ideal %><br><br><br>
+      <strong>Bonds</strong>: <%= @ch_bond %><br><br><br>
+      <strong>Flaws</strong>: <%= @ch_flaw %><br><br><br>
     </div>
   </div>
   <div id="bottom_d">f</div>

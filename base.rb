@@ -22,8 +22,76 @@ get '/' do
 end
 
 post '/sheet' do
-  #Defines all the variables to be used in the /sheet erb
+  #Defines all the variables to be used in the /sheet erb 
+  
+  #Basics
+  @ch_name = params[:ch_name]
+  @ch_age = params[:ch_age]
+  @ch_height = params[:ch_height]
+  @ch_weight = params[:ch_weight]
+  
+  #Race stuff
+  @ch_race = params[:ch_race]
+  @ch_size = params[:ch_size]
+  @ch_speed = params[:ch_speed]
+  @ch_race_languages = params[:ch_race_languages]
+  @ch_race_features = params[:ch_race_features]
+  @ch_race_armor_prof = params[:ch_race_armor_prof]
+  @ch_race_weapon_prof = params[:ch_race_weapon_prof]
+  @ch_race_skill_prof = params[:ch_race_skill_prof]
+  #ch_race_langcount?
+  
+  #Stats
+  @ch_str = params[:ch_str]
+  @ch_dex = params[:ch_dex]
+  @ch_con = params[:ch_con]
+  @ch_int = params[:ch_int]
+  @ch_cha = params[:ch_cha]
+  @ch_wis = params[:ch_wis]
+  
+  #Class stuff
+  @ch_class = params[:ch_class]
+  @ch_hp = params[:ch_hp] #Hit points
+  @ch_hd = params[:ch_hd] #Hit die
+  @ch_stp = params[:ch_stp] #Saving throw prof.
+  @ch_armp = params[:ch_armp] #Armor prof.
+  @ch_wepp = params[:ch_wepp] # Weapon prof.
+  @ch_classtool = params[:ch_classtool] #Class tool prof.
+  @ch_spellcount = params[:ch_spellcount]
+  @ch_skillcount = params[:ch_skillcount]
+  @ch_classequip = params[:ch_classequip]
+  @ch_classfeat = params[:ch_classfeat]
+  
+  #Alignemnt
+  @ch_alignment = params[:ch_alignment]
+  
+  #Skills and Spells
+  
+  #Background
   @ch_background = params[:ch_background]
+  @ch_trait = params[:ch_trait]
+  @ch_ideal = params[:ch_ideal]
+  @ch_bond = params[:ch_bond]
+  @ch_flaw = params[:ch_flaw]
+  @ch_bg_tools = params[:ch_bg_tools]
+  @ch_bg_features = params[:ch_bg_features]
+  @ch_bg_skills = params[:ch_bg_skills]
+  @ch_bg_equip = params[:ch_bg_equip]
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   erb :sheet
 end
