@@ -798,22 +798,26 @@ for (i=0; i <= 6; i++) {
   
   
   
-//////////////////////////
-//// SKILL VALIDATION ///
-////////////////////////
+//////////////////////////////////////
+//// SKILL VALIDATION / SELECTION ///
+////////////////////////////////////
 
-  //Limit # of  skills
+  //Limit # of  skills based on character class
   //$('input.ch_skillprof').hide();
   var prof_limit = 4;
+
+  //console.log($(".ch_skillprof[checked='true']").length)
   
   
- 
   
   $('input.ch_skillprof').on('change', function(evt) {
-     if($(this).siblings(':checked').length >= prof_limit) {
+    
+    
+     //Limit skill checks based on character class
+     if($('.ch_skillprof:checkbox:checked').length >= prof_limit) {
          this.checked = false;
      }
-
+      
       $('input.ch_rogue_skillprof').each(function() {
         if ($(this).is(':checked')) {
 
