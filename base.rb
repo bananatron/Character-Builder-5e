@@ -66,6 +66,7 @@ post '/sheet' do
   @ch_alignment = params[:ch_alignment]
   
   #Skills and Spells
+  @ch_class_skills = params[:ch_class_skills]
   
   #Background
   @ch_background = params[:ch_background]
@@ -78,8 +79,13 @@ post '/sheet' do
   @ch_bg_skills = params[:ch_bg_skills]
   @ch_bg_equip = params[:ch_bg_equip]
   
-  
-  
+  #Skill concat
+  @master_skill_list = []
+  @master_skill_list += @ch_bg_skills.split(",").reject(&:empty?) if @ch_bg_skills
+  @master_skill_list += @ch_race_skill_prof.split(",").reject(&:empty?) if @ch_race_skill_prof
+  @master_skill_list += @ch_class_skills.split(",").reject(&:empty?) if @ch_class_skills
+  @master_skill_list.delete(" ")
+  @master_skill_list.each { |skill| skill.strip! }
   
   
   

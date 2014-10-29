@@ -168,23 +168,24 @@
             <h4>Skills</h4>
             <input type="checkbox"></input> Hide untrained 
             <div class="skills">
-              <small>(DEX)</small> <b>Acrobatics</b> 2 <br>
-              <small>(WIS)</small> <b>Anml Handling</b> 2 <br>
-              <small>(INT)</small> <b>Arcana</b> +2 <br>
-              <small>(STR)</small> <b>Athletics</b> 2 <br>
-              <small>(CHA)</small> <b>Deception</b> 2 <br>
-              <small>(INT)</small> <b>History</b> 2 <br>
-              <small>(WIS)</small> <b>Insight</b> 2 <br>
-              <small>(CHA)</small> <b>Intimidation</b> 2 <br>
-              <small>(INT)</small> <b>Medicine</b> 2 <br>
-              <small>(INT)</small> <b>Nature</b> 2 <br>
-              <small>(WIS)</small> <b>Perception</b> 2 <br>
-              <small>(CHA)</small> <b>Performance</b> 2 <br>
-              <small>(CHA)</small> <b>Persuasion</b> 2 <br>
-              <small>(INT)</small> <b>Religion</b> 2 <br>
-              <small>(DEX)</small> <b>Slght of Hand</b> 2 <br>
-              <small>(DEX)</small> <b>Stealth</b> 2 <br>
-              <small>(WIS)</small> <b>Survival</b> 2 <br>
+              
+              <small>(DEX)</small> <% if @master_skill_list.include?('Acrobatics') %><b><i>(T)</i> <% end %>Acrobatics</b> <br>
+              <small>(WIS)</small> <% if @master_skill_list.include?('Animal Handling') %><b><i>(T)</i> <% end %>Animal Handling</b> <br>
+              <small>(INT)</small> <% if @master_skill_list.include?('Arcana') %><b><i>(T)</i> <% end %>Arcana</b><br>
+              <small>(STR)</small> <% if @master_skill_list.include?('Athletics') %><b><i>(T)</i> <% end %>Athletics</b> <br>
+              <small>(CHA)</small> <% if @master_skill_list.include?('Deception') %><b><i>(T)</i> <% end %>Deception</b> <br>
+              <small>(INT)</small> <% if @master_skill_list.include?('History') %><b><i>(T)</i> <% end %>History</b><br>
+              <small>(WIS)</small> <% if @master_skill_list.include?('Insight') %><b><i>(T)</i> <% end %>Insight</b><br>
+              <small>(CHA)</small> <% if @master_skill_list.include?('Intimidation') %><b><i>(T)</i> <% end %>Intimidation</b> <br>
+              <small>(INT)</small> <% if @master_skill_list.include?('Medicine') %><b><i>(T)</i> <% end %>Medicine</b><br>
+              <small>(INT)</small> <% if @master_skill_list.include?('Nature') %><b><i>(T)</i> <% end %>Nature</b> <br>
+              <small>(WIS)</small> <% if @master_skill_list.include?('Perception') %><b><i>(T)</i> <% end %>Perception</b> <br>
+              <small>(CHA)</small> <% if @master_skill_list.include?('Performance') %><b><i>(T)</i> <% end %>Performance</b><br>
+              <small>(CHA)</small> <% if @master_skill_list.include?('Persuasion') %><b><i>(T)</i> <% end %>Persuasion</b> <br>
+              <small>(INT)</small> <% if @master_skill_list.include?('Religion') %><b><i>(T)</i> <% end %>Religion</b> <br>
+              <small>(DEX)</small> <% if @master_skill_list.include?('Sleight of Hand') %><b><i>(T)</i> <% end %>Sleight of Hand</b> <br>
+              <small>(DEX)</small> <% if @master_skill_list.include?('Stealth') %><b><i>(T)</i> <% end %>Stealth</b> <br>
+              <small>(WIS)</small> <% if @master_skill_list.include?('Survival') %><b><i>(T)</i> <% end %>Survival</b> <br>
             </div>
           
         </div>

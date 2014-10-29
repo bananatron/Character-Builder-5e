@@ -64,22 +64,22 @@
       Extra Race Languages: <input type="text" name="ch_race_langcount" id="ch_race_langcount" value="0" readonly /><br>
       Race Feat: <input type="text" name="ch_race_features" id="ch_race_features" readonly />
       <!--Race Tools: <input type="text" name="ch_race_tools" readonly />-->
-      Race Armor Prof: <input type="text" id="ch_race_armor_prof" readonly />
-      Race Weapon Prof:<input type="text" id="ch_race_weapon_prof" readonly />
-      Race Skill Prof: <input type="text" id="ch_race_skill_prof" readonly />
+      Race Armor Prof: <input type="text" name="ch_race_armor_prof" id="ch_race_armor_prof" readonly />
+      Race Weapon Prof:<input type="text" name="ch_race_weapon_prof" id="ch_race_weapon_prof" readonly />
+      Race Skill Prof: <input type="text" name="ch_race_skill_prof" id="ch_race_skill_prof" readonly />
       
     </fieldset>
     
        <!-- STEP 2 -->
 		<fieldset id="step_2">
       <legend>Step 2: Stats</legend>
-      Stats: <input id="ch_stats" type="text" readonly>
-      Strength: <input name="ch_str" id="ch_str" type="text" readonly>
-      Dex: <input name="ch_dex" id="ch_dex" type="hidden" readonly>
-      Con: <input name="ch_con" id="ch_con" type="hidden" readonly>
-      Int: <input name="ch_int" id="ch_int" type="hidden" readonly>
-      Wis: <input name="ch_wis" id="ch_wis" type="hidden" readonly>
-      Cha: <input name="ch_cha" id="ch_cha" type="hidden" readonly>
+      <input id="ch_stats" type="hidden" readonly>
+      <input name="ch_str" id="ch_str" type="hidden" readonly>
+      <input name="ch_dex" id="ch_dex" type="hidden" readonly>
+      <input name="ch_con" id="ch_con" type="hidden" readonly>
+      <input name="ch_int" id="ch_int" type="hidden" readonly>
+      <input name="ch_wis" id="ch_wis" type="hidden" readonly>
+      <input name="ch_cha" id="ch_cha" type="hidden" readonly>
 
       <label for="attr_type">
         Attribute Assignment
@@ -217,6 +217,7 @@
       <br>
 
       <h4>Skills</h4>
+      <p>As a <b><span id="class_msg">CLASS</span></b>, you can choose <b><span id="skill_count_msg">X</span></b> more skill proficiencies from this list.</p>
       <% @skilllist = ['Athletics', 'Acrobatics', 'Sleight of Hand', 'Stealth', 'Arcana', 'History', 'Investigation', 'Nature', 'Religion', 'Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival', 'Deception', 'Intimidation', 'Performance', 'Persuasion']%>
       <%  @skilllist.sort_by!{ |m| m.downcase }  %>
       
@@ -240,6 +241,9 @@
         <input id='<%= spell.downcase %>_id' class = "ch_spells_cleric" type="checkbox" value="<%= spell %>">
         <label for='<%= spell.downcase %>_id'><%= spell %></label> 
       <% end %>
+      
+      <input type="text" id="ch_class_skills" name="ch_class_skills">
+      
     </fieldset>
 
       <!-- STEP 4 -->
@@ -247,9 +251,9 @@
       <legend>Step 4: Background</legend>
 
       <div class="small-2 medium-1 columns">
-        <span id="sliderOutput3"></span>
+        
       </div>
-      Alignement:   
+      <h4>Alignment</h4>
       <input type="text" name="ch_alignment" id="ch_alignment" readonly></input>
 
       <div id = "alignslider" class="range-slider" data-slider data-options="step: 1;start: 1; end: 9; display_selector: #sliderOutput3;">
@@ -257,8 +261,8 @@
         <span class="range-slider-active-segment"></span>
         <input type="hidden">
       </div>
-      <br><br>
-      Background:
+      <br>
+      <h4>Background</h4>
 
 
 <%

@@ -156,6 +156,7 @@ $("#elf_desc").on("click","#panel_helf", function(){
   $("input#ch_race_features").val(race_features); 
   //Helf no speed increase
   $("input#ch_speed").val("30 ft.");
+  $("input#ch_race_skill_prof").val("Perception");
 }); 
 
 //Wood Elf
@@ -179,6 +180,7 @@ $("#elf_desc").on("click","#panel_welf", function(){
    race_features.push( $(this).text());
   });
   $("input#ch_race_features").val(race_features); 
+  $("input#ch_race_skill_prof").val("Perception");
 }); 
   
 //Dark Elf
@@ -201,7 +203,8 @@ $("#elf_desc").on("click","#panel_delf", function(){
   $(".feature_"+ race_selection ).each(function(  ) {
    race_features.push( $(this).text());
   });
-  $("input#ch_race_features").val(race_features); 
+  $("input#ch_race_features").val(race_features);
+  $("input#ch_race_skill_prof").val("Perception");
 }); 
   
 
@@ -267,6 +270,9 @@ $("#halfling_desc").on("click","#panel_shal", function(){
 
 $(".class_click").click(function(event){
   $("input#ch_class").val($(this).html());
+  $("#class_msg").empty();
+  $("#class_msg").append($(this).html());
+  
   
   //If rogue
   if ($("input#ch_class").val() == "Rogue") {
@@ -281,7 +287,7 @@ $(".class_click").click(function(event){
     $("input#ch_spellcount").val(0);
     window.class_equip = ["Leather Armor", "Two Daggers", "Thieve's Tools"];
     $("input#ch_classequip").val(window.class_equip);
-    $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves., Sneak Attack: Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.");
+    $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves., Sneak Attack: Once per turn you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.");
     class_skills = ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation","Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"];
   }
   //If Fighter
@@ -336,6 +342,11 @@ $(".class_click").click(function(event){
     $("input#ch_classfeat").val("Spellcasting: As a conduit for divine power, you can cast cleric spells. You have two, 1st level spell slots and know up to three cantrips.");
     class_skills = ["History", "Insight", "Medicine", "Persuasion", "Religion"];
   }
+  
+  //Append the notice for the skill list
+  $("#skill_count_msg").empty();
+  $("#skill_count_msg").append( $("input#ch_skillcount").val() );
+  
 });
 
 //Fighting style selection for fighter
@@ -804,19 +815,34 @@ for (i=0; i <= 6; i++) {
 
   //Limit # of  skills based on character class
   //$('input.ch_skillprof').hide();
-  var prof_limit = 4;
-
-  //console.log($(".ch_skillprof[checked='true']").length)
-  
-  
   
   $('input.ch_skillprof').on('change', function(evt) {
     
     
-     //Limit skill checks based on character class
-     if($('.ch_skillprof:checkbox:checked').length >= prof_limit) {
+    //Define skill limit based on class selection
+    var prof_limit = $('#ch_skillcount').val();
+    //Limit skill checks based on character class
+     if($('.ch_skillprof:checkbox:checked').length > prof_limit) {
          this.checked = false;
      }
+    
+    //Append skill prompt letting user know how many skills they have left
+    $('#skill_count_msg').empty();
+    if ($('#ch_skillcount').val()-$('.ch_skillprof:checkbox:checked').length > 0){
+      $("#skill_count_msg").append( $('#ch_skillcount').val()-$('.ch_skillprof:checkbox:checked').length );
+    }
+    else {
+      $("#skill_count_msg").append( "0" );
+    }
+    
+    //Add all checked to input field
+    //$('#ch_class_skills').val($('.ch_skillprof:checkbox:checked'));
+
+    $('#ch_class_skills').val("");
+    $('.ch_skillprof:checkbox:checked').each(function( index ) {
+      $('#ch_class_skills').val( $('#ch_class_skills').val() + $("label[for='"+$(this).attr("id")+"']").text() + ", " );
+    });
+    
       
       $('input.ch_rogue_skillprof').each(function() {
         if ($(this).is(':checked')) {
