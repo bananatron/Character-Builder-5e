@@ -73,13 +73,13 @@
        <!-- STEP 2 -->
 		<fieldset id="step_2">
       <legend>Step 2: Stats</legend>
-      <input id="ch_stats" type="hidden" readonly>
-      <input name="ch_str" id="ch_str" type="hidden" readonly>
-      <input name="ch_dex" id="ch_dex" type="hidden" readonly>
-      <input name="ch_con" id="ch_con" type="hidden" readonly>
-      <input name="ch_int" id="ch_int" type="hidden" readonly>
-      <input name="ch_wis" id="ch_wis" type="hidden" readonly>
-      <input name="ch_cha" id="ch_cha" type="hidden" readonly>
+      <input id="ch_stats" type="text" readonly>
+      STR:<input name="ch_str" id="ch_str" type="text" readonly>
+      DEX<input name="ch_dex" id="ch_dex" type="text" readonly>
+      CON<input name="ch_con" id="ch_con" type="text" readonly>
+      INT<input name="ch_int" id="ch_int" type="text" readonly>
+      WIS<input name="ch_wis" id="ch_wis" type="text" readonly>
+      CHA<input name="ch_cha" id="ch_cha" type="text" readonly>
 
       <label for="attr_type">
         Attribute Assignment
@@ -116,8 +116,8 @@
       <table>
         <tr>
          <td><ul>
-           <li>STRENGTH</li><li>DEXTERITY</li><li>CONSTITUTION</li>
-           <li>INTELLIGENCE</li><li>WISOM</li><li>CHARISMA</li>
+           <li>Strength</li><li>Dexterity</li><li>Intelligence</li>
+           <li>Wisdom</li><li>Charisma</li><li>Constitution</li>
          </ul></td>
           
          <td><ul>
@@ -193,7 +193,7 @@
       </div>
       
       Class: <input name="ch_class" id="ch_class" type="hidden" readonly>
-      Hit Points: <input name="ch_hp" id="ch_hp" type="hidden" readonly>
+      Hit Points: <input name="ch_hp" id="ch_hp" type="text" readonly>
       Hit Die: <input name="ch_hd" id="ch_hd" type="hidden" readonly>
       Saving Throw Prof.: <input name="ch_stp" id="ch_stp" type="text" readonly>
       Armor Prof: <input name="ch_armp" id="ch_armp" type="text" readonly>
@@ -223,7 +223,7 @@
       
       <% @skilllist.each do |skill|  %>
         <input id="<%= skill.downcase %>_id" class = "ch_skillprof" type="checkbox" value="<%= skill %>">
-        <label for="<%= skill.downcase %>_id"><%= skill %></label> 
+        <label class="skill_label" for="<%= skill.downcase %>_id"><%= skill %></label> 
       <% end %>
       <br>
       
@@ -234,12 +234,12 @@
       
       <% @spelllist_wizard1.each do |spell|  %>
         <input id='<%= spell.downcase %>_id' class = "ch_spells_wizard" type="checkbox" value="<%= spell %>">
-        <label for='<%= spell.downcase %>_id'><%= spell %></label> 
+        <label class="spell_wiz_label" for='<%= spell.downcase %>_id'><%= spell %></label> 
       <% end %>
       <br>
       <% @spelllist_cleric0.each do |spell|  %>
         <input id='<%= spell.downcase %>_id' class = "ch_spells_cleric" type="checkbox" value="<%= spell %>">
-        <label for='<%= spell.downcase %>_id'><%= spell %></label> 
+        <label class="spell_cle_label" for='<%= spell.downcase %>_id'><%= spell %></label> 
       <% end %>
       
       <input type="text" id="ch_class_skills" name="ch_class_skills">
