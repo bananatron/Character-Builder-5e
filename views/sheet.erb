@@ -213,7 +213,7 @@
       </div>
       <div class="row">
        <div class="small-12 columns panel"><strong>Equipment:</strong>
-        <%= @ch_bg_equip %>
+         <textarea id="equip"><%= @master_equip_list %></textarea>
         </div>
       </div>
       
@@ -221,15 +221,15 @@
     <div class="medium-4 columns">
       <strong>Class Traits</strong>: 
       <ul>
-        <% @ch_classfeat.split(",").each do |trait| %>
+        <% @ch_classfeat.split("^").each do |trait| %>
           <li><%= trait %></li>
         <% end %>
       </ul>
-      <br><br><br>
+      <br>
       
       <strong>Race Features</strong>: 
       <ul>
-        <% @ch_race_features.split(",").each do |feat| %>
+        <% @ch_race_features.split("^").each do |feat| %>
         <li><%= feat %></li>
         <% end %>
       </ul>
@@ -238,10 +238,10 @@
       
       <br><br><br>
       <strong>Spells</strong>:<br><br><br>
-      <strong>Personality Traits</strong>: <%= @ch_trait %><br><br><br>
-      <strong>Ideals</strong>: <%= @ch_ideal %><br><br><br>
-      <strong>Bonds</strong>: <%= @ch_bond %><br><br><br>
-      <strong>Flaws</strong>: <%= @ch_flaw %><br><br><br>
+      <strong>Personality Traits</strong>: <%= @ch_trait %><br><br>
+      <strong>Ideals</strong>: <%= @ch_ideal %><br><br>
+      <strong>Bonds</strong>: <%= @ch_bond %><br><br>
+      <strong>Flaws</strong>: <%= @ch_flaw %><br><br>
     </div>
   </div>
   <div id="bottom_d"> </div>

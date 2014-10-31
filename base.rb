@@ -79,6 +79,10 @@ post '/sheet' do
   @ch_bg_skills = params[:ch_bg_skills]
   @ch_bg_equip = params[:ch_bg_equip]
   
+  #Equip concat
+  @master_equip_list = @ch_bg_equip + @ch_classequip
+  
+  
   #Skill concat
   @master_skill_list = []
   @master_skill_list += @ch_bg_skills.split(",").reject(&:empty?) if @ch_bg_skills

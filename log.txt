@@ -1,7 +1,38 @@
-#Add:
-scrollability
-pointbut form implementation
-Validation to form to not let submit with -1 on pb_total for pointbuy
-Extra language
-Spell validations and descriptions
-PDF Convert
+##Add:
+subrace selection buttons change
+
+Extra race languages / extra bg languages
+
+Labels on class equipment
+
+hide portions before selection is made
+
+background unique properties
+
+draggable outside of range on mobile
+
+spells
+
+ac calulation
+
+age/height/weight default numbers on mobile?
+
+
+##Low Prior
+- Tooltip on sheet for how it was calculated
+
+
+##Problems:
+changing race after class/stat selection won't update hp/stats accurately
+
+
+
+
+
+
+##!DONE!
+hp bonus (look for total_hp) - DONE
+put update in function for statArray bullshit DONE
+skill label hide DONE
+add bonus_str, bonus_atr to sheet DONE
+convert , to ^ for split DONE
