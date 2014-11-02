@@ -91,18 +91,7 @@ post '/sheet' do
   @master_skill_list.delete(" ")
   @master_skill_list.each { |skill| skill.strip! }
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   erb :sheet
 end
 

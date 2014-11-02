@@ -1,6 +1,4 @@
 ##Add:
-subrace selection buttons change
-
 Extra race languages / extra bg languages
 
 Labels on class equipment
@@ -31,6 +29,7 @@ changing race after class/stat selection won't update hp/stats accurately
 
 
 ##!DONE!
+subrace selection buttons change - DONE
 hp bonus (look for total_hp) - DONE
 put update in function for statArray bullshit DONE
 skill label hide DONE

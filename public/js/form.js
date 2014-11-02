@@ -1,7 +1,6 @@
 //When DOM is ready
 $(document).ready(function(){
 
-  
  //Starting globals
   var weapon_prof = [];
   var skill_prof = [];
@@ -146,6 +145,29 @@ $(document).ready(function(){
     assignRaceFeatures();
     getTotalHp();
   });
+  
+  //Race-click change color
+  function lightClassButton(panel) {
+    $(panel).on("click",".race_click", function(){
+      if ( $(this).text().toLowerCase().lastIndexOf(  $.trim($(this).data("subrace")) ) != -1 ){
+        //$("this").attr("class", "button secondary race_click");
+        $(".race_click" ).removeClass( "secondary" );
+        $(this).addClass( "secondary" );
+        }
+      else {
+        $(this).removeClass( "secondary" );
+      }
+    });
+  }
+ 
+  //Each race panel added in the future will need to call the lightClassButton
+  // function on it in order for the buttons to work
+  lightClassButton("#dwarf_desc");
+  lightClassButton("#elf_desc");
+  lightClassButton("#human_desc");
+  lightClassButton("#halfling_desc");
+  
+  
 
 
   //Elf racial preloads
@@ -295,6 +317,7 @@ $(document).ready(function(){
 
   //When a race option is selected
   $(".race_click").click(function(event){
+    $(".race_click" ).removeClass( "secondary" ); //Clear button highlights
     race_features = [];
     $(".feature_"+ race_selection ).each(function(  ) {
      race_features.push( $(this).text());
