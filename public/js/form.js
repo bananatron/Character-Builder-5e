@@ -747,7 +747,7 @@ $(document).ready(function(){
 
 function resetBg(){
   $("input#ch_trait, input#ch_bond, input#ch_ideal, input#ch_flaw").val("");
-  $("input#ch_bg_skills, input#ch_bg_equip, input#ch_bg_tools, input#ch_bg_features").val("");
+  $("input#ch_bg_skills, input#ch_bg_equip, input#ch_bg_tools, input#ch_bg_features, input#ch_bg_lang").val("");
 }
 
 $(".bg_click").click(function(event){
@@ -757,6 +757,7 @@ $(".bg_click").click(function(event){
   $("input#ch_bg_equip").val( $('#' + $(this).text().toLowerCase() + '_bg_equip').text() ); //Bg Equipment
   $("input#ch_bg_features").val( $('#' + $(this).text().toLowerCase() + '_bg_features').text() ); //Bg Features
   $("input#ch_bg_tools").val( $('#' + $(this).text().toLowerCase() + '_bg_tools').text() ); //Bg Tools
+  $("input#ch_bg_lang").val( $('#' + $(this).text().toLowerCase() + '_bg_lang').text() ); //Bg Lang
 });  
   
 $(".trait_click").click(function(event){

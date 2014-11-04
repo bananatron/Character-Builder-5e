@@ -712,7 +712,7 @@
               </span>
             <% end %>
             <% if  v["bg_lang"] %>
-             <br><b>Languages:</b> <%= v["bg_lang"]  %> additional languages of your choice
+              <br><b>Languages:</b> <span id="<%= k.downcase %>_bg_lang"><%= v["bg_lang"]  %></span> additional languages of your choice
             <% end %>
               <br><b>Background Equipment:</b> <span id="<%= k.downcase %>_bg_equip"><%= v["bg_equip"].join(", ") %>
               </span>
@@ -748,7 +748,6 @@
              </div>  
            </div>
 
-          <!-- bond ids are NOT unique and they need to be for labels to work -->
           <div class="row">
              <div class="large-6 columns">
                <h4>Bonds</h4>
@@ -797,11 +796,11 @@
       Flaw:
       <input type="text" name="ch_flaw" id="ch_flaw"></input>
       <br>
+      BG Extra Languages: <input type="text" id="ch_bg_lang" name="ch_bg_lang">
       BG Tools: <input type="text" name="ch_bg_tools" id="ch_bg_tools">
       BG Features: <input type="text" name="ch_bg_features" id="ch_bg_features">
       BG Skills: <input type="text" id="ch_bg_skills" name="ch_bg_skills">
       BG Equip: <input type="text" id="ch_bg_equip" name="ch_bg_equip">
-      BG Features: <input type="text" id="ch_bg_features" name="ch_bg_features">
 
 
     </fieldset>

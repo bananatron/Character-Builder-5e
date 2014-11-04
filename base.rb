@@ -39,7 +39,7 @@ post '/sheet' do
   @ch_race_armor_prof = params[:ch_race_armor_prof]
   @ch_race_weapon_prof = params[:ch_race_weapon_prof]
   @ch_race_skill_prof = params[:ch_race_skill_prof]
-  #ch_race_langcount?
+  @ch_race_langcount = params[:ch_race_langcount]
   
   #Stats
   @ch_str = params[:ch_str]
@@ -78,10 +78,13 @@ post '/sheet' do
   @ch_bg_features = params[:ch_bg_features]
   @ch_bg_skills = params[:ch_bg_skills]
   @ch_bg_equip = params[:ch_bg_equip]
+  @ch_bg_lang = params[:ch_bg_lang] #extra bg languages
   
   #Equip concat
   @master_equip_list = @ch_bg_equip + @ch_classequip
   
+  #Extra Languages
+  @master_lang_count = @ch_race_langcount.to_i + @ch_bg_lang.to_i
   
   #Skill concat
   @master_skill_list = []

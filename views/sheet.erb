@@ -187,6 +187,11 @@
               <small>(DEX)</small> <% if @master_skill_list.include?('Stealth') %><b><i>(T)</i> <% end %>Stealth</b> <br>
               <small>(WIS)</small> <% if @master_skill_list.include?('Survival') %><b><i>(T)</i> <% end %>Survival</b> <br>
             </div>
+
+        <h4>Languages</h4>
+          <div class="languages">
+            <textarea id="ch_lang"><%= @ch_race_languages %>, and <%= @master_lang_count %> extra languages of your choice.</textarea>
+          </div>
           
         </div>
       </div>
@@ -237,7 +242,9 @@
       
       
       <br><br><br>
-      <strong>Spells</strong>:<br><br><br>
+      
+      <% if @spells %><strong>Spells</strong>:<br><br><br><% end %>
+      
       <strong>Personality Traits</strong>: <%= @ch_trait %><br><br>
       <strong>Ideals</strong>: <%= @ch_ideal %><br><br>
       <strong>Bonds</strong>: <%= @ch_bond %><br><br>
