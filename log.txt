@@ -1,18 +1,15 @@
 ##Add:
 Extra race languages / extra bg languages
-
 Labels on class equipment
 
-hide portions before selection is made
-
-background unique properties
+hide parts of the form before selection is made
+background unique properties (specialty, etc.)
 
 draggable outside of range on mobile
 
 spells
 
 ac calulation
-
 age/height/weight default numbers on mobile?
 
 

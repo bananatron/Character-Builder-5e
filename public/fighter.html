@@ -13,19 +13,19 @@
 <h4>Equipment</h4>
 You start with the following equipment, in addition to
 the equipment granted by your background:<br><br>
-  One of the following: <input class ="item_click" type="radio" name="ch_fighter_item1" value="Chain mail"><label>Chain Mail</label>
-  <input class = "item_click" type="radio" name="ch_fighter_item1" value="Leather armor, Longbow and 20 arrows"><label>Leather armor, Longbow and 20 arrows</label>
+  One of the following: <input class ="item_click" type="radio" id="ch_fi1a" name="ch_fighter_item1" value="Chain mail"><label for="ch_fi1a">Chain Mail</label>
+  <input class = "item_click" type="radio" name="ch_fighter_item1" id="ch_fi1b" value="Leather armor, Longbow and 20 arrows"><label for="ch_fi1b">Leather armor, Longbow and 20 arrows</label>
   <br><br>
-   One of the following: <input class = "item_click" type="radio" name="ch_fighter_item2" value="a martial weapon and a shield"><label>a martial weapon and a shield</label>
+   One of the following: <input class = "item_click" type="radio" name="ch_fighter_item2" value="a martial weapon and a shield" id="ch_fi2a"><label for="ch_fi2a">a martial weapon and a shield</label>
   <input class = "item_click" type="radio" name="ch_fighter_item2" value="two
-martial weapons"><label>two
+martial weapons" id="ch_fi2b"><label for="ch_fi2b">two
 martial weapons</label>
   <br><br>
-  One of the following: <input class = "item_click" type="radio" name="ch_fighter_item3" value="A light crossbow and 20 bolts"><label>A light crossbow and 20 bolts</label>
-  <input class = "item_click" type="radio" name="ch_fighter_item3" value="two handaxes"><label>Two handaxes</label>
+  One of the following: <input class = "item_click" type="radio" name="ch_fighter_item3" value="A light crossbow and 20 bolts" id="ch_fi3a"><label for="ch_fi3a">A light crossbow and 20 bolts</label>
+  <input class = "item_click" type="radio" name="ch_fighter_item3" value="two handaxes" id="ch_fi3b"><label for="ch_fi3b">Two handaxes</label>
     <br><br>
-  One of the following: <input class = "item_click" type="radio" name="ch_fighter_item4" value="a dungeoneer’s pack"><label>a dungeoneer’s pack</label>
-  <input class = "item_click" type="radio" name="ch_fighter_item4" value="an explorer’s pack"><label>an explorer’s pack</label>
+  One of the following: <input class = "item_click" type="radio" name="ch_fighter_item4" value="a dungeoneer’s pack" id="ch_fi4a"><label for="ch_fi4a">a dungeoneer’s pack</label>
+  <input class = "item_click" type="radio" name="ch_fighter_item4" value="an explorer’s pack" id="ch_fi4b"><label for="ch_fi4b">an explorer’s pack</label>
 
 <br><br>
 
@@ -44,21 +44,21 @@ Choose one of the following options. You can’t take a
 Fighting Style option more than once, even if you later
 get to choose again.<i>(Choose 1 below)</i>
 <br><br>
-<input name="ch_fighter_style" class = "ch_fighter_style" type="radio" value="Archery: You gain a +2 bonus to attack rolls you make with ranged weapons.">
-<label>Archery</label>
+<input name="ch_fighter_style" class="ch_fighter_style" id="ch_style_archery" type="radio" value="Archery: You gain a +2 bonus to attack rolls you make with ranged weapons.">
+<label for="ch_style_archery">Archery</label>
 <br>You gain a +2 bonus to attack rolls you make with ranged weapons.
 
 <br><br>
-<input name="ch_fighter_style" class = "ch_fighter_style" type="radio" value="Defense: While you are wearing armor, you gain a +1 bonus to AC."><label>Defense</label>
+<input name="ch_fighter_style" class="ch_fighter_style" id="ch_style_defense" type="radio" value="Defense: While you are wearing armor, you gain a +1 bonus to AC."><label for="ch_style_defense">Defense</label>
 <br>While you are wearing armor, you gain a +1 bonus to AC.
 
 <br><br>
-<input name="ch_fighter_style" class = "ch_fighter_style" type="radio" value="Dueling: When you are wielding a melee weapon in one hand andno other weapons, you gain a +2 bonus to damage rolls with that weapon."><label>Dueling</label>
+<input name="ch_fighter_style" class = "ch_fighter_style" id="ch_style_dueling"type="radio" value="Dueling: When you are wielding a melee weapon in one hand andno other weapons, you gain a +2 bonus to damage rolls with that weapon."><label for="ch_style_dueling">Dueling</label>
 <br>When you are wielding a melee weapon in one hand andno other weapons, you gain a +2 bonus to damage rolls with that weapon.
 
 <br><br>
-<input name="ch_fighter_style" class = "ch_fighter_style" type="radio" value="Great Weapon Fighting:  When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.">
-<label>Great Weapon Fighting</label>
+<input name="ch_fighter_style" class = "ch_fighter_style" id="ch_style_greatweap" type="radio" value="Great Weapon Fighting:  When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.">
+<label for="ch_style_greatweap">Great Weapon Fighting</label>
 <br>When you roll a 1 or 2 on a damage die for an attack you
 make with a melee weapon that you are wielding with
 two hands, you can reroll the die and must use the new
@@ -67,15 +67,15 @@ have the two-handed or versatile property for you to gain
 this benefit.
 
 <br><br>
-<input name="ch_fighter_style" class = "ch_fighter_style" type="radio" value="Protection: When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.">
-<label>Protection</label>
+<input name="ch_fighter_style" class = "ch_fighter_style" id="ch_style_protection" type="radio" value="Protection: When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.">
+<label for="ch_style_protection">Protection</label>
 <br>When a creature you can see attacks a target other
 than you that is within 5 feet of you, you can use your
 reaction to impose disadvantage on the attack roll. You
 must be wielding a shield.
 
 <br><br>
-<input name="ch_fighter_style" class = "ch_fighter_style" type="radio" value="Two-Weapon Fighting: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack."><label>Two-Weapon Fighting</label>
+<input name="ch_fighter_style" class = "ch_fighter_style" id="ch_style_twoweap" type="radio" value="Two-Weapon Fighting: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack."><label for="ch_style_twoweap">Two-Weapon Fighting</label>
 <br>
 When you engage in two-weapon fighting, you can add
 your ability modifier to the damage of the second attack.
