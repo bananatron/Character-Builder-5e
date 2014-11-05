@@ -96,10 +96,11 @@ $(document).ready(function(){
     event.preventDefault();
     race_selection = "dwa";
     window.bonus_con = 2;
-    $("input#ch_race_languages").val("Common & Dwarvish");
+    $("input#ch_race_languages").val("Common^Dwarvish");
     $("input#ch_size").val("Medium");
     $("input#ch_speed").val("25 ft.*");
     $("input#ch_race_weapon_prof").val("battleaxe^handaxe^throwing hammer^warhammer");
+
   });
 
   //Mountain Dwarf
@@ -116,11 +117,16 @@ $(document).ready(function(){
     $(".feature_dwa").each(function(  ) {
       race_features.push( $(this).text());
     });
+    $("#attr_type").val(0); //Reset attr selection dropdown
+    $(".name_wrap").hide(); //Hide attr so user knows to repick
     $(".feature_"+ race_selection ).each(function(  ) {
       race_features.push( $(this).text());
     });
     assignRaceFeatures(); 
     getTotalHp();
+    $('html, body').animate({
+      scrollTop: $('#attr_type').offset().top
+    }, 500);
   });
 
   //Hill Dwarf
@@ -137,6 +143,8 @@ $(document).ready(function(){
     $(".feature_dwa").each(function(  ) {
       race_features.push( $(this).text());
     });
+    $("#attr_type").val(0); //Reset attr selection dropdown
+    $(".name_wrap").hide(); //Hide attr so user knows to repick
     $(".feature_"+ race_selection ).each(function(  ) {
       race_features.push( $(this).text());
     });
@@ -144,6 +152,9 @@ $(document).ready(function(){
     race_features.push("Dwarven Toughness. Your maximum HP increased by 1 each level (already added).")
     assignRaceFeatures();
     getTotalHp();
+    $('html, body').animate({
+      scrollTop: $('#attr_type').offset().top
+    }, 500);
   });
   
   //Race-click change color
@@ -202,11 +213,16 @@ $(document).ready(function(){
     $(".feature_"+ race_selection ).each(function(  ) {
      race_features.push( $(this).text());
     });
+    $("#attr_type").val(0); //Reset attr selection dropdown
+    $(".name_wrap").hide(); //Hide attr so user knows to repick
     assignRaceFeatures(); 
     //Helf no speed increase
     $("input#ch_speed").val("30 ft.");
     $("input#ch_race_skill_prof").val("Perception");
     getTotalHp();
+    $('html, body').animate({
+      scrollTop: $('#attr_type').offset().top
+    }, 500);
   }); 
 
   //Wood Elf
@@ -229,9 +245,14 @@ $(document).ready(function(){
     $(".feature_"+ race_selection ).each(function(  ) {
      race_features.push( $(this).text());
     });
+    $("#attr_type").val(0); //Reset attr selection dropdown
+    $(".name_wrap").hide(); //Hide attr so user knows to repick
     assignRaceFeatures(); 
     $("input#ch_race_skill_prof").val("Perception");
     getTotalHp();
+    $('html, body').animate({
+      scrollTop: $('#attr_type').offset().top
+    }, 500);
   }); 
 
   //Dark Elf
@@ -254,9 +275,14 @@ $(document).ready(function(){
     $(".feature_"+ race_selection ).each(function(  ) {
      race_features.push( $(this).text());
     });
+    $("#attr_type").val(0); //Reset attr selection dropdown
+    $(".name_wrap").hide(); //Hide attr so user knows to repick
     assignRaceFeatures();
     $("input#ch_race_skill_prof").val("Perception");
     getTotalHp();
+    $('html, body').animate({
+      scrollTop: $('#attr_type').offset().top
+    }, 500);
   }); 
 
 
@@ -288,8 +314,13 @@ $(document).ready(function(){
     $(".feature_"+ race_selection ).each(function(  ) {
      race_features.push( $(this).text());
     });
+    $("#attr_type").val(0); //Reset attr selection dropdown
+    $(".name_wrap").hide(); //Hide attr so user knows to repick
     assignRaceFeatures(); 
     getTotalHp();
+    $('html, body').animate({
+      scrollTop: $('#attr_type').offset().top
+    }, 500);
   });
 
   //Stout Halfling preloads
@@ -311,21 +342,33 @@ $(document).ready(function(){
     });
     assignRaceFeatures(); 
     var alt_button = "button secondary race_click"
+    $("#attr_type").val(0); //Reset attr selection dropdown
+    $(".name_wrap").hide(); //Hide attr so user knows to repick
     alt_button = $( "#panel_shal" ).css( "class" );
     getTotalHp();
+    $('html, body').animate({
+      scrollTop: $('#attr_type').offset().top
+    }, 500);
   });
 
   //When a race option is selected
+  //Note that although subraces are race_click class, they don't conform to this function due
+  //to be being embeded in another file - note how jquery requires to call them above
   $(".race_click").click(function(event){
     $(".race_click" ).removeClass( "secondary" ); //Clear button highlights
     race_features = [];
     $(".feature_"+ race_selection ).each(function(  ) {
      race_features.push( $(this).text());
     });
+    
+    $("#attr_type").val(0); //Reset attr selection dropdown
+    $(".name_wrap").hide(); //Hide attr so user knows to repick
 
     assignRaceFeatures();
-    $("input#ch_race").val($(this).html());
-    getTotalHp();
+    $("input#ch_race").val($(this).html()); //Fill in race value
+    getTotalHp(); //Recalculate HP based on current stats - somewhat depreciated
+
+    
   });
 
 
