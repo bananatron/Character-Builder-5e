@@ -884,7 +884,7 @@ $("a.class_click").click(function(event){
     });
   });
   
-  
+  //swal({   title: "Error!",   text: "Here's my error message!",   type: "error",   confirmButtonText: "Cool" });
 
   
 });

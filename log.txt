@@ -1,17 +1,22 @@
 ##Add:
-Extra race languages / extra bg languages
-Labels on class equipment
+Labels on class equipment - done w/ fighter
+
+alert validations
 
 hide parts of the form before selection is made
 background unique properties (specialty, etc.)
 
-draggable outside of range on mobile
+attack calculation
 
 spells
 
 ac calulation
 age/height/weight default numbers on mobile?
 
+editable sheet
+tooltips for things (kits, skills, etc.)
+
+draggable outside of range on mobile / reskin
 
 ##Low Prior
 - Tooltip on sheet for how it was calculated
@@ -26,6 +31,7 @@ changing race after class/stat selection won't update hp/stats accurately
 
 
 ##!DONE!
+Extra race languages / extra bg languages - DONE
 subrace selection buttons change - DONE
 hp bonus (look for total_hp) - DONE
 put update in function for statArray bullshit DONE

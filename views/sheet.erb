@@ -156,11 +156,14 @@
 
           </table>
           
-          <fieldset name="lol"><legend>Death Saves</legend>
+          <fieldset name="death saves"><legend>Death Saves</legend>
           <p>Success:<br> <input type="checkbox"></input> <input type="checkbox"></input> <input type="checkbox"></input><br>
-            Failure:<br> <input type="checkbox"></input> <input type="checkbox"></input> <input type="checkbox"></input></p></fieldset>
+            Failure:<br> <input type="checkbox"></input> <input type="checkbox"></input> <input type="checkbox"></input></p>          </fieldset>
             
-
+          <h4>Languages</h4>
+          <div class="languages">
+            <textarea id="ch_lang"><%= @ch_race_languages %>, and <%= @master_lang_count %> extra languages of your choice.              </textarea>
+          </div>
         </div>
         
         
@@ -188,10 +191,7 @@
               <small>(WIS)</small> <% if @master_skill_list.include?('Survival') %><b><i>(T)</i> <% end %>Survival</b> <br>
             </div>
 
-        <h4>Languages</h4>
-          <div class="languages">
-            <textarea id="ch_lang"><%= @ch_race_languages %>, and <%= @master_lang_count %> extra languages of your choice.</textarea>
-          </div>
+        
           
         </div>
       </div>

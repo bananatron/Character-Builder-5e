@@ -4792,24 +4792,25 @@ ul {
   font-size: 28px;
 }
 li.attr{
-width:80px;
-border-style: solid;
-border-width: 0px;
-cursor: pointer;
-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-font-weight: normal;
-line-height: normal;
-text-decoration: none;
-text-align: center;
--webkit-appearance: none;
--webkit-border-radius: 0;
-padding-top: 0.5rem;
-padding-right: 1rem;
-padding-bottom: 0.5rem;
-padding-left: 1rem;
-font-size: 1.5rem;
-background-color: #4c0000;
-border-color: #3d0000;
-color: white;
-margin:2px;
+  width:80px;
+  border-style: solid;
+  border-width: 0px;
+  cursor: pointer;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  text-decoration: none;
+  text-align: center;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  padding-top: 0.5rem;
+  padding-right: 1rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  background-color: #4c0000;
+  border-color: #3d0000;
+  color: white;
+  margin:2px;
 }
+
