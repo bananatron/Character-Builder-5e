@@ -71,6 +71,33 @@ $(document).ready(function(){
 //////////////////////////////////////
 ////  BEGIN RACE DEFENITIONS&LOGIC // 
 ////////////////////////////////////
+  
+  //Race-click change color
+  function lightClassButton(panel) {
+    $(panel).on("click",".race_click", function(){
+      if ( $(this).text().toLowerCase().lastIndexOf(  $.trim($(this).data("subrace")) ) != -1 ){
+        //$("this").attr("class", "button secondary race_click");
+        $(".race_click" ).removeClass( "secondary" );
+        $(this).addClass( "secondary" );
+        }
+      else {
+        $(this).removeClass( "secondary" );
+      }
+    });
+  }
+  //Each race panel added in the future will need to call the lightClassButton
+  // function on it in order for the buttons to work
+  lightClassButton("#dwarf_desc");
+  lightClassButton("#elf_desc");
+  lightClassButton("#human_desc");
+  lightClassButton("#halfling_desc");
+  
+  
+  function scrollToStats() {
+    $('html, body').animate({
+      scrollTop: $('#attr_type').offset().top-60
+    }, 500);
+  };
 
   //Human racial  
   $("#panel_hum").click(function(event){
@@ -124,9 +151,7 @@ $(document).ready(function(){
     });
     assignRaceFeatures(); 
     getTotalHp();
-    $('html, body').animate({
-      scrollTop: $('#attr_type').offset().top
-    }, 500);
+    scrollToStats();
   });
 
   //Hill Dwarf
@@ -152,34 +177,8 @@ $(document).ready(function(){
     race_features.push("Dwarven Toughness. Your maximum HP increased by 1 each level (already added).")
     assignRaceFeatures();
     getTotalHp();
-    $('html, body').animate({
-      scrollTop: $('#attr_type').offset().top
-    }, 500);
+    scrollToStats();
   });
-  
-  //Race-click change color
-  function lightClassButton(panel) {
-    $(panel).on("click",".race_click", function(){
-      if ( $(this).text().toLowerCase().lastIndexOf(  $.trim($(this).data("subrace")) ) != -1 ){
-        //$("this").attr("class", "button secondary race_click");
-        $(".race_click" ).removeClass( "secondary" );
-        $(this).addClass( "secondary" );
-        }
-      else {
-        $(this).removeClass( "secondary" );
-      }
-    });
-  }
- 
-  //Each race panel added in the future will need to call the lightClassButton
-  // function on it in order for the buttons to work
-  lightClassButton("#dwarf_desc");
-  lightClassButton("#elf_desc");
-  lightClassButton("#human_desc");
-  lightClassButton("#halfling_desc");
-  
-  
-
 
   //Elf racial preloads
   $("#panel_elf").click(function(event){
@@ -220,9 +219,7 @@ $(document).ready(function(){
     $("input#ch_speed").val("30 ft.");
     $("input#ch_race_skill_prof").val("Perception");
     getTotalHp();
-    $('html, body').animate({
-      scrollTop: $('#attr_type').offset().top
-    }, 500);
+    scrollToStats();
   }); 
 
   //Wood Elf
@@ -250,9 +247,7 @@ $(document).ready(function(){
     assignRaceFeatures(); 
     $("input#ch_race_skill_prof").val("Perception");
     getTotalHp();
-    $('html, body').animate({
-      scrollTop: $('#attr_type').offset().top
-    }, 500);
+    scrollToStats();
   }); 
 
   //Dark Elf
@@ -280,9 +275,7 @@ $(document).ready(function(){
     assignRaceFeatures();
     $("input#ch_race_skill_prof").val("Perception");
     getTotalHp();
-    $('html, body').animate({
-      scrollTop: $('#attr_type').offset().top
-    }, 500);
+    scrollToStats();
   }); 
 
 
@@ -318,9 +311,7 @@ $(document).ready(function(){
     $(".name_wrap").hide(); //Hide attr so user knows to repick
     assignRaceFeatures(); 
     getTotalHp();
-    $('html, body').animate({
-      scrollTop: $('#attr_type').offset().top
-    }, 500);
+    scrollToStats();
   });
 
   //Stout Halfling preloads
@@ -346,9 +337,7 @@ $(document).ready(function(){
     $(".name_wrap").hide(); //Hide attr so user knows to repick
     alt_button = $( "#panel_shal" ).css( "class" );
     getTotalHp();
-    $('html, body').animate({
-      scrollTop: $('#attr_type').offset().top
-    }, 500);
+    scrollToStats();
   });
 
   //When a race option is selected

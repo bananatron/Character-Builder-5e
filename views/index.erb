@@ -23,9 +23,9 @@
       
       <legend>Step 1: The Basics</legend>
       Character name: <input type="text" name="ch_name"><br>
-      Age: <input type="text" name="ch_age">
-      Height: <input type="text" name="ch_height">
-      Weight: <input type="text" name="ch_weight"><br>
+      Age: <input type="number" name="ch_age">
+      Height: <input type="number" name="ch_height">
+      Weight: <input type="number" name="ch_weight"><br>
 
       Race: <input type="text" id="ch_race" name="ch_race" placeholder="Choose Below" readonly>
 
@@ -67,13 +67,13 @@
        <!-- STEP 2 -->
 		<fieldset id="step_2">
       <legend>Step 2: Stats</legend>
-      <input id="ch_stats" type="text" readonly>
-      STR:<input name="ch_str" id="ch_str" type="text" readonly>
-      DEX<input name="ch_dex" id="ch_dex" type="text" readonly>
-      CON<input name="ch_con" id="ch_con" type="text" readonly>
-      INT<input name="ch_int" id="ch_int" type="text" readonly>
-      WIS<input name="ch_wis" id="ch_wis" type="text" readonly>
-      CHA<input name="ch_cha" id="ch_cha" type="text" readonly>
+      <input id="ch_stats" type="hidden" readonly />
+      <input name="ch_str" id="ch_str" type="hidden" readonly />
+      <input name="ch_dex" id="ch_dex" type="hidden" readonly />
+      <input name="ch_con" id="ch_con" type="hidden" readonly />
+      <input name="ch_int" id="ch_int" type="hidden" readonly />
+      <input name="ch_wis" id="ch_wis" type="hidden" readonly />
+      <input name="ch_cha" id="ch_cha" type="hidden" readonly />
 
       <label for="attr_type">
         Attribute Assignment
@@ -799,7 +799,7 @@
 
     </fieldset>
 
-	  <input type="submit"/>
+	  <input type="submit" class="large button" value="Generate" />
 	</form>
 
 

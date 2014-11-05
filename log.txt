@@ -2,8 +2,6 @@
 Labels on class equipment - done w/ fighter
 
 alert validations
-
-hide parts of the form before selection is made
 background unique properties (specialty, etc.)
 
 attack calculation
@@ -11,7 +9,7 @@ attack calculation
 spells
 
 ac calulation
-age/height/weight default numbers on mobile?
+age/height/weight default numbers vs. text on mobile?
 
 editable sheet
 tooltips for things (kits, skills, etc.)
@@ -31,6 +29,7 @@ changing race after class/stat selection won't update hp/stats accurately
 
 
 ##!DONE!
+hide parts of the form before selection is made - SOLVED/SKIPPED
 Extra race languages / extra bg languages - DONE
 subrace selection buttons change - DONE
 hp bonus (look for total_hp) - DONE
