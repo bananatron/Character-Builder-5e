@@ -442,8 +442,23 @@ $(document).ready(function(){
     $("#skill_count_msg").empty();
     $("#skill_count_msg").append( $("input#ch_skillcount").val() );
 
+    //Spell hider
+
+      $("#cleric_spell_select, #wizard_spell_select").hide();
+      if ($("input#ch_class").val() == "Cleric") {
+        $("#cleric_spell_select").show();
+      }
+      else if ($("input#ch_class").val() == "Wizard") {
+        $("#wizard_spell_select").show();
+      }
+    
+    
   });
 
+  
+  
+  
+  
   //Fighting style selection for fighter
     $("#fighter_desc").on("change",".ch_fighter_style[type='radio']", function(){
       //alert($(this).val());

@@ -204,12 +204,12 @@
       
 
 
-      
+      <% @amz_link = "http://www.amazon.com/gp/product/0786965606/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0786965606&linkCode=as2&tag=s0432c-20&linkId=DVQNDEKTCOBCER77" %>
+<% @buy_text = "Not avilable in the basic rules. Buy the PHB <a href='#{@amz_link}'><u>here</u></a>. <i>(PG 259)</i>" %>
+
     <fieldset id="step_3.5">
       <legend>Step 3.5: Skills and Spells</legend>
-
       <br>
-
       <h4>Skills</h4>
       <p>As a <b><span id="class_msg">CLASS</span></b>, you can choose <b><span id="skill_count_msg">X</span></b> more skill proficiencies from this list.</p>
       <% @skilllist = ['Athletics', 'Acrobatics', 'Sleight of Hand', 'Stealth', 'Arcana', 'History', 'Investigation', 'Nature', 'Religion', 'Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival', 'Deception', 'Intimidation', 'Performance', 'Persuasion']%>
@@ -221,21 +221,111 @@
       <% end %>
       <br>
       
-      <h4>Spells</h4>
-      <% @spelllist_cleric0 = ['Guidance', 'Light', 'Resistance', 'Sacred Flame', 'Spare the Dying','Thaumaturgy']%>
-      <% @spelllist_wizard0 = ['Acid Splash', 'Dancing Lights', 'Fire Bolt', 'Light','Mage Hand', 'Minor Illusion', 'Poison Spray', 'Prestidigitation', 'Ray of Frost', 'Shocking Grasp']%>
-      <% @spelllist_wizard1 = ['Acid Splash', 'Dancing Lights', 'Fire Bolt', 'Light','Mage Hand', 'Minor Illusion', 'Poison Spray', 'Prestidigitation', 'Ray of Frost', 'Shocking Grasp']%>
+        <h4>Spells</h4>
+      <% @spelllist_cleric0 = [
+  {name:"Guidance", ct:"1 Action", range:"Touch", comp:"v, s", dur:"Concentration, up to 1 minute", school:"Divination", text:"You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one ability check of its choice. It can roll the die before or after making the ability check. The spell then ends."},
+  {name:"Light",ct:"1 Action", range:"Touch", comp:"v, m, (a firefly or phosphorescent moss)", dur:"1 Hour", school:"Evocation", text:"You touch one object that is no larger than 10 feet in any dimension. Until the spell ends, the object sheds bright light in a 20-foot radius and dim light for an additional 20 feet. The light can be colored as you like. Completely covering the object with something opaque blocks the light. The spell ends if you cast it again or dismiss it
+as an action.<br><br>
+<i>If you target an object held or worn by a hostile creature, that creature must succeed on a Dexterity saving throw to avoid the spell.</i>"},
+  {name:"Mending",ct:"1 Minute", range:"Touch", comp:"v, s, m, (two lodestones)", dur:"Instantaneous", school:"Transmutation", text:"Not avilable in the basic rules. Buy the PHB <a href='#{@amz_link}'><u>here</u></a>. <i>(PG 259)</i>"},
+  {name:"Resistance",ct:"1 Action", range:"Touch", comp:"v, s, m, (a minature cloak)", dur:"Concentration, up to 1 minute", school:"Abjuration", text:"You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one saving throw of its choice. It can roll
+the die before or after making the saving throw. The spell then ends."},
+  {name:"Sacred Flame",ct:"1 Action", range:"Touch", comp:"v, s, m, (a minature cloak)", dur:"Concentration, up to 1 minute", school:"Abjuration", text:"Flame-like radiance descends on a creature that you can see within range. The target must succeed on a Dexterity saving throw or take 1d8 radiant damage. The target gains no benefit from cover for this saving throw.<br>
+<i>The spell’s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</i>"},
+  {name:"Spare the Dying",ct:"1 Action", range:"Touch", comp:"v, s", dur:"Instantaneous", school:"Necromancy", text:"You touch a living creature that has 0 hit points. The creature becomes stable. <i>This spell has no effect on undead or constructs.</i>"},
+  {name:"Thaumaturgy",ct:"1 Action", range:"Touch", comp:"v, s", dur:"Instantaneous", school:"Transmutation", text:"You manifest a minor wonder, a sign of supernatural power, within range. You create one of the following magical effects within range:<br>
+• Your voice booms up to three times as loud as normal for 1 minute.<br>
+• You cause flames to flicker, brighten, dim, or change color for 1 minute.<br>
+• You cause harmless tremors in the ground for 1 minute.<br>
+• You create an instantaneous sound that originates from a point of your choice within range, such as a rumble of thunder, the cry of a raven, or omi- nous whispers.<br>
+• You instantaneously cause an unlocked door or win- dow to fly open or slam shut.<br>
+• You alter the appearance of your eyes for 1 minute.<br>
+If you cast this spell multiple times, you can have up to three of its 1-minute effects active at a time, and you can dismiss such an effect as an action."} ]%>
+        <% @spelllist_cleric1 = [
+    {name:"Bane", ct:"1 Action", range:"30 ft.", comp:"v, s, m (a drop of blood)", dur:"Concentration, up to 1 minute", school:"Enchanment", text:"Not avilable in the basic rules. Buy the PHB <a href='#{@amz_link}'><u>here</u></a>. <i>(PG 259)</i>"},
+    {name:"Bless",ct:"1 Action", range:"30 ft.", comp:"v, s, m, (a sprinkling of holy water)", dur:"Concentration, up to 1 minute", school:"Enchantment", text:"You bless up to three creatures of your choice within range. Whenever a target makes an attack roll or a saving throw before the spell ends, the target can roll a d4 and add the number rolled to the attack roll or saving throw.<br>
+<b>At Higher Levels.</b> When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st."},
+  {name:"Command",ct:"1 Action", range:"60 ft.", comp:"v", dur:"1 Round", school:"Enchantment", text:"You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead, if it doesn’t understand your language, or if your command is directly harmful to it.
+Some typical commands and their effects follow. You might issue a command other than one described here. If you do so, the DM determines how the target behaves. If the target can’t follow your command, the spell ends.
+Approach. The target moves toward you by the shortest and most direct route, ending its turn if it moves within 5 feet of you.<br>
+<b>Drop</b>. The target drops whatever it is holding and then ends its turn.<br>
+<b>Flee</b>. The target spends its turn moving away from you by the fastest available means.<br>
+<b>Grovel</b>. The target falls prone and then ends its turn.<br>
+<b>Halt</b>. The target doesn’t move and takes no actions. A flying creature stays aloft, provided that it is able to do so. If it must move to stay aloft, it flies the minimum distance needed to remain in the air.<br>
+<b>At Higher Levels.</b> When you cast this spell using
+a spell slot of 2nd level or higher, you can affect one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them."},
+    {name:"Create or Destroy Water",ct:"1 Action", range:"30 ft.", comp:"s, m (a drop of water or a few grains of sand)", dur:"Instantaneous", school:"Transmutation", text:@buy_text},
+    {name:"Cure Wounds",ct:"1 Action", range:"Touch", comp:"v, s", dur:"Instantaneous", school:"Evocation", text:"A creature you touch regains a number of hit points equal to 1d8 + your spellcasting ability modifier. This spell has no effect on undead or constructs.<br>
+<b>At Higher Levels.</b> When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d8 for each slot level above 1st."},
+    {name:"Detect Good and Evil",ct:"1 Action", range:"Self", comp:"v, s", dur:"Concentration, up to 10 minutes", school:"Divination", text:@buy_text},
+    {name:"Detect Magic",ct:"1 Action", range:"Self", comp:"v, s", dur:"Concentration, up to 10 minutes", school:"Divination", text:"For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any.<br>
+The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt."},
+    {name:"Detect Poison and Disease",ct:"1 Action", range:"Self", comp:"v, s, m (a yew leaf)", dur:"Concentration, up to 10 minutes", school:"Divination", text:@buy_text},
+    {name:"Guiding Bolt",ct:"1 Action", range:"120 ft.", comp:"v, s", dur:"1 Round", school:"Evocation", text:"A flash of light streaks toward a creature of your choice within range. Make a ranged spell attack against the target. On a hit, the target takes 4d6 radiant damage, and the next attack roll made against this target before the end of your next turn has advantage, thanks to the mystical dim light glittering on the target until then.<br>
+<b>At Higher Levels.</b> When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st."},
+    {name:"Healing Word",ct:"1 Bonus Action", range:"60 ft.", comp:"v", dur:"Instantaneous", school:"Evocation", text:"A creature of your choice that you can see within range regains hit points equal to 1d4 + your spellcasting ability modifier. This spell has no effect on undead
+or constructs.<br><b>At Higher Levels.</b> When you cast this spell using a spell slot of 2nd level or higher, the healing increases by 1d4 for each slot level above 1st."},
+    {name:"Inflict Wounds",ct:"1 Action", range:"Touch", comp:"v, s", dur:"Instantaneous", school:"Necromancy", text:"Make a melee spell attack against a creature you can reach. On a hit, the target takes 3d10 necrotic damage.<br>
+At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d10 for each slot level above 1st."},
+    {name:"Purify Food and Drink",ct:"1 Action", range:"10 ft.", comp:"v, s", dur:"Instantaneous", school:"Transmutation", text:@buy_text},
+    {name:"Sanctuary",ct:"1 Bonus Action", range:"30 ft.", comp:"v, s, m (a small silver mirror)", dur:"1 Minute", school:"Abjuration", text:"You ward a creature within range against attack. Until the spell ends, any creature who targets the warded creature with an attack or a harmful spell must first make a Wisdom saving throw. On a failed save, the creature must choose a new target or lose the attack or spell. This spell doesn’t protect the warded creature from area effects, such as the explosion of a fireball.<br>
+If the warded creature makes an attack or casts a spell that affects an enemy creature, this spell ends."},
+    {name:"Shield of Faith",ct:"1 Bonus Action", range:"60 ft.", comp:"v, s, m (a small parchment with a bit of holy text)", dur:"Concentration, up to 10 minutes", school:"Abjuration", text:"A shimmering field appears and surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration."}
+    ]%>
       
-      <% @spelllist_wizard1.each do |spell|  %>
-        <input id='<%= spell.downcase %>_id' class = "ch_spells_wizard" type="checkbox" value="<%= spell %>">
-        <label class="spell_wiz_label" for='<%= spell.downcase %>_id'><%= spell %></label> 
-      <% end %>
-      <br>
-      <% @spelllist_cleric0.each do |spell|  %>
-        <input id='<%= spell.downcase %>_id' class = "ch_spells_cleric" type="checkbox" value="<%= spell %>">
-        <label class="spell_cle_label" for='<%= spell.downcase %>_id'><%= spell %></label> 
-      <% end %>
+        <% @spelllist_wizard0 = ['Acid Splash', 'Dancing Lights', 'Fire Bolt', 'Light','Mage Hand', 'Minor Illusion', 'Poison Spray', 'Prestidigitation', 'Ray of Frost', 'Shocking Grasp']%>
+        <% @spelllist_wizard1 = ['Acid Splash', 'Dancing Lights', 'Fire Bolt', 'Light','Mage Hand', 'Minor Illusion', 'Poison Spray', 'Prestidigitation', 'Ray of Frost', 'Shocking Grasp']%>
+        <div id="wizard_spell_select">
+          <% @spelllist_wizard1.each do |spell|  %>
+            <input id='<%= spell.downcase %>_id' class = "ch_spells_wizard" type="checkbox" value="<%= spell %>">
+            <label class="spell_wiz_label" for='<%= spell.downcase %>_id'><%= spell %></label> 
+          <% end %>
+          <br>
+        </div>
+        
       
+      
+      
+      
+        <div id="cleric_spell_select">
+          <h4>Cantrips:</h4>
+          <% tinc = 0 #variable to increment tool_tip ids%>
+          <% @spelllist_cleric0.each do |spell|  %>
+            <% tinc += 1 %>
+            <input id='<%= spell[:name].downcase %>_id' class = "ch_spells_cleric" type="checkbox" value="<%= spell[:name] %>">
+            <label class="spell_cle_label" for='<%= spell[:name].downcase %>_id'>
+            <%= spell[:name] %></label><a data-dropdown="drop2_<%=tinc%>" aria-controls="drop2" aria-expanded="false" href="#">
+          ?</a>&nbsp;&nbsp;&nbsp;
+          <div id="drop2_<%=tinc%>" aria-hidden="true" data-dropdown-content class="medium content f-dropdown">
+            <h3><%= spell[:name] %></h3><i><%= spell[:school] %></i><br>
+            <b>Casting Time: </b><%= spell[:ct] %><br>
+            <b>Range: </b><%= spell[:range] %><br>
+            <b>Components:</b> <%= spell[:comp] %><br>
+            <b>Duration:</b> <%= spell[:dur] %><br>
+            <b>Effect:</b> <%= spell[:text] if spell[:text] %>
+          </div>
+          <% end %>
+          <h4>Level 1 Spells:</h4>
+          <% @spelllist_cleric1.each do |spell|  %>
+            <% tinc += 1 %>
+            <input id='<%= spell[:name].downcase %>_id' class = "ch_spells_cleric" type="checkbox" value="<%= spell[:name] %>">
+            <label class="spell_cle_label" for='<%= spell[:name].downcase %>_id'>
+            <%= spell[:name] %></label><a data-dropdown="drop2_<%=tinc%>" aria-controls="drop2" aria-expanded="false" href="#">
+          ?</a>&nbsp;&nbsp;&nbsp;
+          <div id="drop2_<%=tinc%>" aria-hidden="true" data-dropdown-content class="medium content f-dropdown">
+            <h3><%= spell[:name] %></h3><i><%= spell[:school] %></i><br>
+            <b>Casting Time: </b><%= spell[:ct] %><br>
+            <b>Range: </b><%= spell[:range] %></b><br>
+            <b>Components: </b><%= spell[:comp] %><br>
+            <b>Duration: </b><%= spell[:dur] %><br>
+            <b>Effect:</b> <%= spell[:text] if spell[:text] %>
+          </div>
+          <% end %>
+          
+          
+          
+        </div>
+
       <input type="text" id="ch_class_skills" name="ch_class_skills">
       
     </fieldset>
@@ -792,7 +882,7 @@
 
     </fieldset>
 
-	  <input type="submit" class="large button" value="Generate" />
+	  <input type="submit" class="large button" value="Generate" /><br/><br/>
 	</form>
 
 

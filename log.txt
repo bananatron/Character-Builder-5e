@@ -1,9 +1,13 @@
 ##Add:
+
+check on mending on phb!
 Labels on class equipment - done w/ fighter - required
 
 background unique properties (specialty, etc.)
 
 spells
+
+cleric divine domain
 
 ac calulation
 

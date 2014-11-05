@@ -162,7 +162,11 @@
             
           <h4>Languages</h4>
           <div class="languages">
-            <textarea id="ch_lang"><%= @ch_race_languages.gsub('^', ', ') %>, and <%= @master_lang_count %> extra language(s) of your choice.</textarea>
+            <div id="ch_lang"><%= @ch_race_languages.gsub('^', ', ') %>
+              <% if @master_lang_count > 0 %>
+              , and <%= @master_lang_count %> extra language(s) of your choice.
+              <% end %>
+            </div>
           </div>
         </div>
         
@@ -212,12 +216,9 @@
         <div class="small-4 columns"><b>SPD</b>: <%= @ch_speed %></div>
         <br><br>
       </div>
-      
+
       <div class="row">
-       <div class="small-12 columns panel"><strong>Attack Info:</strong></div>
-      </div>
-      <div class="row">
-       <div class="small-12 columns panel"><strong>Equipment:</strong>
+       <div class="small-12 columns"><strong>Equipment:</strong>
          <textarea id="equip"><%= @master_equip_list %></textarea>
         </div>
       </div>
