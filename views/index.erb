@@ -678,7 +678,6 @@
 %>
 
   <!-- BACKGROUND Content and generation -->
-
   <dl class="tabs" data-tab>
     
     <!-- <a href="#show_custom" id="panel_custom" class="bg_click">Custom Background</a></dd>-->
@@ -692,7 +691,7 @@
   <% #Generates content for each background in @master_hash %>
   <div class="tabs-content">
         <div class="content active" id="show_custom">
-            <div id="custom_desc">Choose a background.</div>
+            <div id="custom_desc">Choose a background from the tabs above.</div>
         </div>
     
     <% @master_hash.each do |k, v| %>
@@ -778,23 +777,17 @@
     
 
 
-      Ch Background:
+      <!-- Ch Background: -->
       <input type="hidden" name="ch_background" id="ch_background" readonly />
-      <!-- .bg_click -->
-      Trait:
       <input type="hidden" name="ch_trait" id="ch_trait" readonly />
-      <!-- .bg_click -->
-      Ideal:
       <input type="hidden" name="ch_ideal" id="ch_ideal" readonly />
-      Bond:
       <input type="hidden" name="ch_bond" id="ch_bond" readonly />
-      Flaw:
       <input type="hidden" name="ch_flaw" id="ch_flaw" readonly />
-      BG Extra Languages: <input type="hidden" id="ch_bg_lang" name="ch_bg_lang" readonly />
-      BG Tools: <input type="hidden" name="ch_bg_tools" id="ch_bg_tools" readonly />
-      BG Features: <input type="hidden" name="ch_bg_features" id="ch_bg_features" readonly />
-      BG Skills: <input type="hidden" id="ch_bg_skills" name="ch_bg_skills" readonly />
-      BG Equip: <input type="hidden" id="ch_bg_equip" name="ch_bg_equip" readonly />
+      <input type="hidden" id="ch_bg_lang" name="ch_bg_lang" readonly />
+      <input type="hidden" name="ch_bg_tools" id="ch_bg_tools" readonly />
+      BG Feat: <input type="text" name="ch_bg_features" id="ch_bg_features" readonly />
+      <input type="hidden" id="ch_bg_skills" name="ch_bg_skills" readonly />
+      <input type="hidden" id="ch_bg_equip" name="ch_bg_equip" readonly />
 
 
     </fieldset>

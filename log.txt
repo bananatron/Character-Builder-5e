@@ -1,19 +1,16 @@
 ##Add:
-Labels on class equipment - done w/ fighter
+Labels on class equipment - done w/ fighter - required
 
-alert validations
 background unique properties (specialty, etc.)
-
-attack calculation
 
 spells
 
 ac calulation
-age/height/weight default numbers vs. text on mobile?
 
-editable sheet
+hideable/editable sheet
 tooltips for things (kits, skills, etc.)
 
+alert validations
 draggable outside of range on mobile / reskin
 
 ##Low Prior
@@ -29,6 +26,8 @@ changing race after class/stat selection won't update hp/stats accurately
 
 
 ##!DONE!
+attack calculation - not necessary
+age/height/weight/xp number display on mobile - DONE
 hide parts of the form before selection is made - SOLVED/SKIPPED
 Extra race languages / extra bg languages - DONE
 subrace selection buttons change - DONE

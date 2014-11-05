@@ -162,7 +162,7 @@
             
           <h4>Languages</h4>
           <div class="languages">
-            <textarea id="ch_lang"><%= @ch_race_languages %>, and <%= @master_lang_count %> extra languages of your choice.              </textarea>
+            <textarea id="ch_lang"><%= @ch_race_languages.gsub('^', ', ') %>, and <%= @master_lang_count %> extra language(s) of your choice.</textarea>
           </div>
         </div>
         
@@ -244,7 +244,7 @@
       <br><br><br>
       
       <% if @spells %><strong>Spells</strong>:<br><br><br><% end %>
-      
+      <strong>Background Features</strong>: <%= @ch_bg_features %><br><br>
       <strong>Personality Traits</strong>: <%= @ch_trait %><br><br>
       <strong>Ideals</strong>: <%= @ch_ideal %><br><br>
       <strong>Bonds</strong>: <%= @ch_bond %><br><br>
