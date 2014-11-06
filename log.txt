@@ -1,21 +1,20 @@
 ##Add:
 
-check on mending on phb!
-Labels on class equipment - done w/ fighter - required
+rogue expertises
+
+check on mending & other spells on phb!
+Labels on class equipment - done w/ fighter, cleric - required
 
 background unique properties (specialty, etc.)
 
 spells
 
-cleric divine domain
-
-ac calulation
-
 hideable/editable sheet
 tooltips for things (kits, skills, etc.)
-
-alert validations
 draggable outside of range on mobile / reskin
+
+>alert validations
+Equipment validations (mandatory)
 
 ##Low Prior
 - Tooltip on sheet for how it was calculated
@@ -30,6 +29,8 @@ changing race after class/stat selection won't update hp/stats accurately
 
 
 ##!DONE!
+cleric divine domain - DONE
+ac calulation - Not needed
 attack calculation - not necessary
 age/height/weight/xp number display on mobile - DONE
 hide parts of the form before selection is made - SOLVED/SKIPPED

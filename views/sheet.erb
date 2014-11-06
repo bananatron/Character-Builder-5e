@@ -211,15 +211,14 @@
       </div>
     
       <div class="row">
-        <div class="small-4 columns"><b>AC</b>: 8</div>
-        <div class="small-4 columns"><b>INIT</b>: 12 </div>
-        <div class="small-4 columns"><b>SPD</b>: <%= @ch_speed %></div>
+        <div class="small-6 columns"><b>AC</b>: <span contentEditable="true">?</span></div>
+        <div class="small-6 columns"><b>SPD</b>: <span contentEditable="true"><%= @ch_speed %></span></div>
         <br><br>
       </div>
 
       <div class="row">
        <div class="small-12 columns"><strong>Equipment:</strong>
-         <textarea id="equip"><%= @master_equip_list %></textarea>
+         <div contentEditable="true" id="equip"><%= @master_equip_list %></div>
         </div>
       </div>
       

@@ -356,7 +356,6 @@ $(document).ready(function(){
     assignRaceFeatures();
     $("input#ch_race").val($(this).html()); //Fill in race value
     getTotalHp(); //Recalculate HP based on current stats - somewhat depreciated
-
     
   });
 
@@ -375,7 +374,6 @@ $(document).ready(function(){
     //If rogue
     if ($("input#ch_class").val() == "Rogue") {
       getTotalHp();
-      
       $("input#ch_classtool").val("Thieves' Tools");
       $("input#ch_armp").val("Light Armor");
       $("input#ch_wepp").val("Simple weapons^hand crossbows^longswords^rapiers^shortswords");
@@ -388,6 +386,7 @@ $(document).ready(function(){
       $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves.^ Sneak Attack: Once per turn you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.");
       class_skills = ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation","Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"];
     }
+    
     //If Fighter
     if ($("input#ch_class").val() == "Fighter") {
       getTotalHp();
@@ -403,6 +402,7 @@ $(document).ready(function(){
       $("input#ch_classequip").val(window.class_equip);
       $("input#ch_classfeat").val(window.fighter_features);
       class_skills = ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"];
+      $(".ch_fighter_style").prop('checked', false); //Uncheck fighter style
     }
 
     //If wizard
@@ -425,6 +425,7 @@ $(document).ready(function(){
     //If cleric
     if ($("input#ch_class").val() == "Cleric") {
       getTotalHp();
+      window.cleric_features = "Spellcasting: As a conduit for divine power, you can cast cleric spells.^Ritual Casting: You can cast a cleric spell as a ritual if that spell has the ritual tag and you have the spell prepared.^Spellcasting Focus:You can use a holy symbol as a spellcasting focus";
       $("input#ch_classtool").val("");
       $("input#ch_armp").val("Light Armor^Medium Armor^Shields");
       $("input#ch_wepp").val("All Simple Weapons");
@@ -434,8 +435,9 @@ $(document).ready(function(){
       $("input#ch_spellcount").val(3);
       window.class_equip = [];
       $("input#ch_classequip").val(window.class_equip);
-      $("input#ch_classfeat").val("Spellcasting: As a conduit for divine power, you can cast cleric spells. You have two, 1st level spell slots and know up to three cantrips.");
+      $("input#ch_classfeat").val(window.cleric_features);
       class_skills = ["History", "Insight", "Medicine", "Persuasion", "Religion"];
+      $(".ch_cleric_style").prop('checked', false); //Uncheck cleric domain
     }
 
     //Append the notice for the skill list based on class
@@ -443,25 +445,25 @@ $(document).ready(function(){
     $("#skill_count_msg").append( $("input#ch_skillcount").val() );
 
     //Spell hider
-
-      $("#cleric_spell_select, #wizard_spell_select").hide();
-      if ($("input#ch_class").val() == "Cleric") {
-        $("#cleric_spell_select").show();
-      }
-      else if ($("input#ch_class").val() == "Wizard") {
-        $("#wizard_spell_select").show();
-      }
+    $("#cleric_spell_select, #wizard_spell_select").hide();
+    if ($("input#ch_class").val() == "Cleric") {
+      $("#cleric_spell_select").show();
+    }
+    else if ($("input#ch_class").val() == "Wizard") {
+      $("#wizard_spell_select").show();
+    }
     
     
   });
 
   
-  
-  
+  //Cleric domain selection
+  $("#cleric_desc").on("change",".ch_cleric_style[type='radio']", function(){
+      $("input#ch_classfeat").val(window.cleric_features + "^" + $(this).val());
+    });
   
   //Fighting style selection for fighter
     $("#fighter_desc").on("change",".ch_fighter_style[type='radio']", function(){
-      //alert($(this).val());
       $("input#ch_classfeat").val(window.fighter_features + "^" + $(this).val());
     });
 
