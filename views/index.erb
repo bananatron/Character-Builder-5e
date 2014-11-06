@@ -286,9 +286,9 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
       
       
       
-      
+        <br><br>
         <div id="cleric_spell_select">
-          <h4>Cantrips:</h4>
+          <h4>Cleric Cantrips:</h4>
           <% tinc = 0 #variable to increment tool_tip ids%>
           <% @spelllist_cleric0.each do |spell|  %>
             <% tinc += 1 %>
@@ -304,8 +304,8 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
             <b>Duration:</b> <%= spell[:dur] %><br>
             <b>Effect:</b> <%= spell[:text] if spell[:text] %>
           </div>
-          <% end %>
-          <h4>Level 1 Spells:</h4>
+          <% end %><br><br>
+          <h4>Cleric Spells (Level 1):</h4>
           <% @spelllist_cleric1.each do |spell|  %>
             <% tinc += 1 %>
             <input id='<%= spell[:name].downcase %>_id' class = "ch_spells_cleric" type="checkbox" value="<%= spell[:name] %>">
