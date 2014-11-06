@@ -3,7 +3,6 @@
 rogue expertises
 
 check on mending & other spells on phb!
-Labels on class equipment - done w/ fighter, cleric - required
 
 background unique properties (specialty, etc.)
 
@@ -18,7 +17,8 @@ Equipment validations (mandatory)
 
 ##Low Prior
 - Tooltip on sheet for how it was calculated
-
+- Spreadsheet export
+- Save html (instructions?)
 
 ##Problems:
 changing race after class/stat selection won't update hp/stats accurately
@@ -29,6 +29,8 @@ changing race after class/stat selection won't update hp/stats accurately
 
 
 ##!DONE!
+Labels on class equipment - DONE
+changed pack values with pack contents - DONE
 cleric divine domain - DONE
 ac calulation - Not needed
 attack calculation - not necessary
