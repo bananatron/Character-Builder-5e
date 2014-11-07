@@ -913,6 +913,7 @@ $("a.class_click").click(function(event){
     //Rogue expertise enable inputs and labels
     $(".rogue_skill_label").hide(); //hide before iteration
     $(".ch_rogue_skillprof").hide(); //hide before iteration
+    $("#rogue_thtools_id").show();
     //Iterate and show only the skill inputs for skills which have been selected
     $.each (selected_skills, function( index, value ){
       $('label[for='+'"rogue_'+ value.toLowerCase() +'_id"'+']').show();
