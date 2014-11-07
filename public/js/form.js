@@ -881,8 +881,6 @@ $("a.class_click").click(function(event){
 });
 
   //Limit # of  skills based on character class
-  //$('input.ch_skillprof').hide();
-  
   $('input.ch_skillprof').on('change', function(evt) {
     var selected_skills = []; //Needed for rogue expertise
     //Define skill limit based on class selection
@@ -913,13 +911,28 @@ $("a.class_click").click(function(event){
     //Rogue expertise enable inputs and labels
     $(".rogue_skill_label").hide(); //hide before iteration
     $(".ch_rogue_skillprof").hide(); //hide before iteration
-    $("#rogue_thtools_id").show();
+    $("#rogue_thtools_id").show(); //Thieves tools are unique
     //Iterate and show only the skill inputs for selected skills
     $.each (selected_skills, function( index, value ){
       $('label[for='+'"rogue_'+ value.toLowerCase() +'_id"'+']').show();
       $('input[id='+'"rogue_'+ value.toLowerCase() +'_id"'+']').show();
       //Had to use attribute selector becuase one or more ids had spaces in them
     });
+    
+    //Rogue expertise form functionality
+    
+    $('input.ch_rogue_skillprof').on('change', function(evt) {
+      //Can only choose 2 skills for expertise 
+      if($('.ch_rogue_skillprof:checkbox:checked').length > 2) {
+        this.checked = false;
+       }
+      //Add selections to hidden form field
+      $('#ch_rogue_expertise').val("");
+      $('input.ch_rogue_skillprof:checkbox:checked').each(function( index ) {
+        $('#ch_rogue_expertise').val( $('#ch_rogue_expertise').val() + $("label[for='"+$(this).attr("id")+"']").text() + "^" );
+      });
+    });
+    
       
   });
   

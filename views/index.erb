@@ -54,13 +54,13 @@
       <br>
       Size: <input type="hidden" name="ch_size" id="ch_size" placeholder="Choose a Race" readonly />
       Speed: <input type="hidden" name="ch_speed" id="ch_speed" placeholder="Choose a Race" readonly />
-      Race Languages: <input type="text" name="ch_race_languages" id="ch_race_languages" readonly> <br>
-      Extra Race Languages: <input type="text" name="ch_race_langcount" id="ch_race_langcount" value="0" readonly /><br>
-      Race Feat: <input type="text" name="ch_race_features" id="ch_race_features" readonly />
+      Race Languages: <input type="hidden" name="ch_race_languages" id="ch_race_languages" readonly> <br>
+      Extra Race Languages: <input type="hidden" name="ch_race_langcount" id="ch_race_langcount" value="0" readonly /><br>
+      Race Feat: <input type="hidden" name="ch_race_features" id="ch_race_features" readonly />
       <!--Race Tools: <input type="text" name="ch_race_tools" readonly />-->
-      Race Armor Prof: <input type="text" name="ch_race_armor_prof" id="ch_race_armor_prof" readonly />
-      Race Weapon Prof:<input type="text" name="ch_race_weapon_prof" id="ch_race_weapon_prof" readonly />
-      Race Skill Prof: <input type="text" name="ch_race_skill_prof" id="ch_race_skill_prof" readonly />
+      Race Armor Prof: <input type="hidden" name="ch_race_armor_prof" id="ch_race_armor_prof" readonly />
+      Race Weapon Prof:<input type="hidden" name="ch_race_weapon_prof" id="ch_race_weapon_prof" readonly />
+      Race Skill Prof: <input type="hidden" name="ch_race_skill_prof" id="ch_race_skill_prof" readonly />
       
     </fieldset>
     
@@ -187,16 +187,16 @@
       </div>
       
       Class: <input name="ch_class" id="ch_class" type="hidden" readonly>
-      Hit Points: <input name="ch_hp" id="ch_hp" type="text" readonly>
+      Hit Points: <input name="ch_hp" id="ch_hp" type="hidden" readonly>
       Hit Die: <input name="ch_hd" id="ch_hd" type="hidden" readonly>
-      Saving Throw Prof.: <input name="ch_stp" id="ch_stp" type="text" readonly>
-      Armor Prof: <input name="ch_armp" id="ch_armp" type="text" readonly>
-      Weapon Prof: <input name="ch_wepp" id="ch_wepp" type="text" readonly>
-      Class Tool Prof: <input name="ch_classtool" id="ch_classtool" type="text" readonly>
-      Spells: <input name="ch_spellcount" id="ch_spellcount" type="text" readonly>
-      Skill Prof: <input name="ch_skillcount" id="ch_skillcount" type="text" readonly>
-      Equip: <input name="ch_classequip" id="ch_classequip" type="text" readonly>
-      Class Features: <input name="ch_classfeat" id="ch_classfeat" type="text" readonly>
+      Saving Throw Prof.: <input name="ch_stp" id="ch_stp" type="hidden" readonly>
+      Armor Prof: <input name="ch_armp" id="ch_armp" type="hidden" readonly>
+      Weapon Prof: <input name="ch_wepp" id="ch_wepp" type="hidden" readonly>
+      Class Tool Prof: <input name="ch_classtool" id="ch_classtool" type="hidden" readonly>
+      Spells: <input name="ch_spellcount" id="ch_spellcount" type="hidden" readonly>
+      Skill Prof: <input name="ch_skillcount" id="ch_skillcount" type="hidden" readonly>
+      Equip: <input name="ch_classequip" id="ch_classequip" type="hidden" readonly>
+      Class Features: <input name="ch_classfeat" id="ch_classfeat" type="hidden" readonly>
       <br>
 
 		</fieldset>
@@ -335,13 +335,11 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
             <b>Effect:</b> <%= spell[:text] if spell[:text] %>
           </div>
           <% end %>
-          
-          
-          
         </div>
 
-      <input type="text" id="ch_class_skills" name="ch_class_skills">
-      
+      Class Skills: <input type="text" id="ch_class_skills" name="ch_class_skills">
+      Rogue Exp: <input type="text" id="ch_rogue_expertise" name="ch_rogue_expertise">      
+
     </fieldset>
 
       <!-- STEP 4 -->

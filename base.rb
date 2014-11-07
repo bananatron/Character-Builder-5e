@@ -67,6 +67,7 @@ post '/sheet' do
   
   #Skills and Spells
   @ch_class_skills = params[:ch_class_skills]
+  @ch_rogue_exp = params[:ch_rogue_expertise]
   
   #Background
   @ch_background = params[:ch_background]
