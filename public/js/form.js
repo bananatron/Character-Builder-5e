@@ -876,7 +876,6 @@ $("a.class_click").click(function(event){
     $("label[for='perception_id']").hide();
     $("input#perception_id").hide(); //Hide perception since elves already get it
   }
-
   
 });
 
