@@ -219,8 +219,20 @@
         <input id="<%= skill.downcase %>_id" class = "ch_skillprof" type="checkbox" value="<%= skill %>">
         <label class="skill_label" for="<%= skill.downcase %>_id"><%= skill %></label> 
       <% end %>
-      <br>
       
+        
+      <div id="rogue_exp">
+        <h4>Rogue Expertise</h4>
+        <% @skilllist = ['Athletics', 'Acrobatics', 'Sleight of Hand', 'Stealth', 'Arcana', 'History', 'Investigation', 'Nature', 'Religion', 'Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival', 'Deception', 'Intimidation', 'Performance', 'Persuasion']%>
+      <%  @skilllist.sort_by!{ |m| m.downcase }  %>
+      
+      <% @skilllist.each do |skill|  %>
+        <input id="rogue_<%= skill.downcase %>_id" class="ch_rogue_skillprof" type="checkbox" value="<%= skill %>">
+        <label class="rogue_skill_label" for="rogue_<%= skill.downcase %>_id"><%= skill %></label> 
+        <% end %>
+      </div>
+      
+
         <h4>Spells</h4>
       <% @spelllist_cleric0 = [
   {name:"Guidance", ct:"1 Action", range:"Touch", comp:"v, s", dur:"Concentration, up to 1 minute", school:"Divination", text:"You touch one willing creature. Once before the spell ends, the target can roll a d4 and add the number rolled to one ability check of its choice. It can roll the die before or after making the ability check. The spell then ends."},

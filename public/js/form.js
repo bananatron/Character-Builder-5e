@@ -369,7 +369,7 @@ $(document).ready(function(){
     $("input#ch_class").val($(this).html());
     $("#class_msg").empty();
     $("#class_msg").append($(this).html());
-
+    $("#rogue_exp").hide(); //Hide rogue expertise skill div
 
     //If rogue
     if ($("input#ch_class").val() == "Rogue") {
@@ -385,6 +385,7 @@ $(document).ready(function(){
       $("input#ch_classequip").val(window.class_equip);
       $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves.^ Sneak Attack: Once per turn you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.");
       class_skills = ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation","Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"];
+      $("#rogue_exp").show(); //Show   rogue expertise skill div
     }
     
     //If Fighter
@@ -837,41 +838,39 @@ $(".bond_click").click(function(event){
 //When class is selected Clickable tab links populate class field
 //Also enable only those skill options applicable to that class
 $("a.class_click").click(function(event){
+  
+  $("input.ch_rogue_skillprof").hide();
   $("input.ch_skillprof").hide();
   event.preventDefault();
   $("input#ch_class").val($(this).html());
   $(".skill_label").hide(); //Hide all labels for skills
-  
-  
-  
+  $(".rogue_skill_label").hide(); //Hide rogue labels
   
   //Uncheck item selections on class tab
   $("input.item_click").each(function(  ) {
       $(this).attr('checked', false)
   });
-    
-    //Iterate over class skills and hide/show appropriate skills for selection
-    $.each (class_skills, function( index, value ){
-       
-       //Show all labels for applicable class skills
-       $('label[for='+'"'+String(value).toLowerCase()+'_id"'+']').show();
-      
-       $("input.ch_skillprof").each(function(i, obj) {
-          //Uncheck all options to prevent hidden from being checked
-          $(this).attr('checked', false);
-          
-          //Show checkbox if skill is on class_skills    
-          if (value == $(this).val()) {
-            $(this).toggle();
-            //$('label[for='+'"'+$(this).attr('id')+'"'+']').show();
-            
-            //console.log($('label[for='+'"'+$(this).attr('id')+'"'+']'));
-            //console.log(class_skills);
-          }
-      });
-    });
-
   
+  //Iterate over class skills and hide/show appropriate skills for selection
+  $.each (class_skills, function( index, value ){
+
+    //Show all labels for applicable class skills
+    $('label[for='+'"'+String(value).toLowerCase()+'_id"'+']').show();
+    $("input.ch_skillprof").each(function(i, obj) {
+      //Uncheck all options to prevent hidden from being checked
+      $(this).attr('checked', false);
+
+      //Show checkbox if skill is on class_skills    
+      if (value == $(this).val()) {
+        $(this).toggle();
+        //$('label[for='+'"'+$(this).attr('id')+'"'+']').show();
+
+        //console.log($('label[for='+'"'+$(this).attr('id')+'"'+']'));
+        //console.log(class_skills);
+      }
+    });
+  });
+
   // Hide perception if they're an elf
   if ($('input#ch_race').val().indexOf("Elf") != -1){
     $("label[for='perception_id']").hide();
@@ -885,7 +884,7 @@ $("a.class_click").click(function(event){
   //$('input.ch_skillprof').hide();
   
   $('input.ch_skillprof').on('change', function(evt) {
-
+    var selected_skills = []; //Needed for rogue expertise
     //Define skill limit based on class selection
     var prof_limit = $('#ch_skillcount').val();
     //Limit skill checks based on character class
@@ -904,33 +903,23 @@ $("a.class_click").click(function(event){
     
     //Add all checked to input field
     //$('#ch_class_skills').val($('.ch_skillprof:checkbox:checked'));
-
     $('#ch_class_skills').val("");
+    
     $('.ch_skillprof:checkbox:checked').each(function( index ) {
       $('#ch_class_skills').val( $('#ch_class_skills').val() + $("label[for='"+$(this).attr("id")+"']").text() + "^" );
+      selected_skills.push( $(this).val() ); //Push all selected skills to array for rogue expertise to iterate through below
     });
     
-      //Not sure why I added this
-      $('input.ch_rogue_skillprof').each(function() {
-        if ($(this).is(':checked')) {
-
-            var checked_option = $(this).val();  
-            $('input.ch_rogue_expert').each(function() {
-              if ($(this).val() == checked_option) {
-                $(this).show();
-              }
-            });
-
-        }
-        else {
-          var unchecked_option = $(this).val(); 
-          $('input.ch_rogue_expert').each(function() {
-              if ($(this).val() == unchecked_option) {
-                $(this).hide();
-              }
-            });
-        }
+    //Rogue expertise enable inputs and labels
+    $(".rogue_skill_label").hide(); //hide before iteration
+    $(".ch_rogue_skillprof").hide(); //hide before iteration
+    //Iterate and show only the skill inputs for skills which have been selected
+    $.each (selected_skills, function( index, value ){
+      $('label[for='+'"rogue_'+ value.toLowerCase() +'_id"'+']').show();
+      $('input[id='+'"rogue_'+ value.toLowerCase() +'_id"'+']').show();
+      //Had to use attribute selector becuase one or more ids had spaces in them
     });
+      
   });
   
   //swal({   title: "Error!",   text: "Here's my error message!",   type: "error",   confirmButtonText: "Cool" });
