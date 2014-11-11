@@ -381,6 +381,7 @@ $(document).ready(function(){
       $("input#ch_stp").val("Dexterity^Intelligence");
       $("input#ch_skillcount").val(4);
       $("input#ch_spellcount").val(0);
+      $("input#ch_cantripcount").val(0);
       window.class_equip = "Leather Armor^Two Daggers^Thieve's Tools";
       $("input#ch_classequip").val(window.class_equip);
       $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves.^ Sneak Attack: Once per turn you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.");
@@ -399,6 +400,7 @@ $(document).ready(function(){
       $("input#ch_stp").val(["Strength", "Constitution"]);
       $("input#ch_skillcount").val(2);
       $("input#ch_spellcount").val(0);
+      $("input#ch_cantripcount").val(0);
       window.class_equip = [];
       $("input#ch_classequip").val(window.class_equip);
       $("input#ch_classfeat").val(window.fighter_features);
@@ -415,7 +417,8 @@ $(document).ready(function(){
       $("input#ch_hd").val("1d6");
       $("input#ch_stp").val(["Wisdom", "Intelligence"]);
       $("input#ch_skillcount").val(2);
-      $("input#ch_spellcount").val(3);
+      $("input#ch_spellcount").val(6);
+      $("input#ch_cantripcount").val(3);
       window.class_equip = [];
       $("input#ch_classequip").val(window.class_equip);
       $("input#ch_classfeat").val("Spellcasting: You have a spellbook containing six, 1st-level wizard spells. You know three wizard cantrips and two 1st level wizard spells of your choice.");
@@ -433,7 +436,14 @@ $(document).ready(function(){
       $("input#ch_hd").val("1d8");
       $("input#ch_stp").val(["Wisdom", "Charisma"]);
       $("input#ch_skillcount").val(2);
-      $("input#ch_spellcount").val(3);
+      //Cleric spell count is based on wisdom
+      if (Math.floor((parseInt($("input#ch_wis").val())-10)/2) > 0) {
+        $("input#ch_spellcount").val( Math.floor((parseInt($("input#ch_wis").val())-10)/2) + 1 );
+      }
+      else {
+        $("input#ch_spellcount").val(1)
+      }
+      $("input#ch_cantripcount").val(3);
       window.class_equip = [];
       $("input#ch_classequip").val(window.class_equip);
       $("input#ch_classfeat").val(window.cleric_features);
@@ -453,8 +463,6 @@ $(document).ready(function(){
     else if ($("input#ch_class").val() == "Wizard") {
       $("#wizard_spell_select").show();
     }
-    
-    
   });
 
   
@@ -515,7 +523,6 @@ $(document).ready(function(){
 	$(".name_wrap").hide();
 	
 	// When a dropdown selection is made
-
   function updateStats(sa) {
     $("input#ch_stats").val(sa);
     $("input#ch_str").val( parseInt(sa[0].slice(2,4)) + window.bonus_str );
@@ -525,6 +532,15 @@ $(document).ready(function(){
     $("input#ch_wis").val( parseInt(sa[4].slice(2,4)) + window.bonus_wis );
     $("input#ch_cha").val( parseInt(sa[5].slice(2,4)) + window.bonus_cha );
     getTotalHp();
+    //If cleric is selected, recalculates spellcount based on new wisdom
+    if ($("input#ch_class").val() == "Cleric") {
+      if (Math.floor((parseInt($("input#ch_wis").val())-10)/2) > 0) {
+        $("input#ch_spellcount").val( Math.floor((parseInt($("input#ch_wis").val())-10)/2) + 1 );
+      }
+      else {
+        $("input#ch_spellcount").val(1)
+      }
+    }
   }
   
 	$("#attr_type").change(function() {

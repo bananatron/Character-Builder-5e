@@ -57,7 +57,7 @@ post '/sheet' do
   @ch_armp = params[:ch_armp] #Armor prof.
   @ch_wepp = params[:ch_wepp] # Weapon prof.
   @ch_classtool = params[:ch_classtool] #Class tool prof.
-  @ch_spellcount = params[:ch_spellcount]
+  #@ch_spellcount = params[:ch_spellcount]
   @ch_skillcount = params[:ch_skillcount]
   @ch_classequip = params[:ch_classequip].gsub!(",",", ")
   @ch_classfeat = params[:ch_classfeat]
