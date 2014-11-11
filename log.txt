@@ -4,6 +4,7 @@ rogue expertises
 background unique properties (specialty, etc.)
 spells
 
+remove drow elf
 
 >alert validations
 Equipment validations (mandatory)

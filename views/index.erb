@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Test Form</title>
+    <title>D5B</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" type="text/css" href="lib/sweet-alert.css">
 </head>
@@ -196,8 +196,8 @@
       1st level spells: <input name="ch_spellcount" id="ch_spellcount" type="text" readonly>
       cantrips: <input name="ch_cantripcount" id="ch_cantripcount" type="text" readonly>
       Skill Prof: <input name="ch_skillcount" id="ch_skillcount" type="hidden" readonly>
-      Equip: <input name="ch_classequip" id="ch_classequip" type="hidden" readonly>
-      Class Features: <input name="ch_classfeat" id="ch_classfeat" type="hidden" readonly>
+      Equip: <input name="ch_classequip" id="ch_classequip" type="text" readonly>
+      Class Features: <input name="ch_classfeat" id="ch_classfeat" type="text" readonly>
       <br>
 
 		</fieldset>
@@ -477,9 +477,8 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
 ##############################
 ##!! Adding a background !!##
 ############################
-## The backgrounds were the last of this projet, and as a result, were implemented much better than classes/races,
-## making it fairly easy to add content to down the road.
-##
+## The backgrounds were towards the end of this project, and as a result, were implemented much better than classes/races, making it fairly easy to add content to down the road.
+## 
 ## The @master_hash is a hash(colletion) of hashes and is iterated through to generate the tabs and content 
 ## for the background selection. Adding to this hash with additional backgrounds and properties will 
 ## autogenerate the appropriate tabs by the area directly underneath the hash.
@@ -487,7 +486,6 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
 ## Any features that are to be automatically populated need to be highlighted with a div/span with the id of
 ## (backgroundname)_bg_features. If the background has a space, you'll need to use &nbsp; (reference Folk Hero)
 ## 
-##
 ## NOTE: Due to the unique characterstic of each background, the bg_characteristics and bg_feature keys are used often
 ## as a dumping ground for filler content and unique bg things that don't fit any other key, 
 ## as you can see in the exiting backgrounds.  Whatever string info is put in those keys are simply evaluated at 

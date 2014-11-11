@@ -24,11 +24,25 @@ $(document).ready(function(){
     if ($("input#ch_class").val() == "Rogue") { base = 8; }
     if ($("input#ch_class").val() == "Cleric") { base = 8; }
     if ($("input#ch_class").val() == "Wizard") { base = 6; }
-    //console.log( $("input#ch_class").val() );
     
     var total_hp = (base + parseInt($("input#ch_con").val()) + window.bonus_hp);
     $("input#ch_hp").val(total_hp);
-    //console.log(window.bonus_hp);
+  }
+  
+  //Reset class features before defining new features on class selection
+  function resetClass() {
+    $("input#ch_classtool").val(""); //Default class tools
+    $("input#ch_armp").val(""); //Armor  proficiency
+    $("input#ch_wepp").val(""); //Weapon proficiency
+    $("input#ch_hd").val(""); //Hit die
+    $("input#ch_stp").val(""); //Saving throw proficiency
+    $("input#ch_skillcount").val(0); //# of skills class can choose
+    $("input#ch_spellcount").val(0); //# of 1st level spells
+    $("input#ch_cantripcount").val(0); //# of cantraips @ 1st level
+    window.class_equip = ""; //Default class equipment
+    $("input#ch_classequip").val(window.class_equip); //Set class equipment
+    $("input#ch_classfeat").val("");  //Class features
+    class_skills = [""]; //Skills this class has available to them
   }
   
   function updatepbStats(){
@@ -366,6 +380,7 @@ $(document).ready(function(){
 ///////////////////////////////////////
 
   $(".class_click").click(function(event){
+    resetClass();
     $("input#ch_class").val($(this).html());
     $("#class_msg").empty();
     $("#class_msg").append($(this).html());
@@ -380,8 +395,6 @@ $(document).ready(function(){
       $("input#ch_hd").val("1d8");
       $("input#ch_stp").val("Dexterity^Intelligence");
       $("input#ch_skillcount").val(4);
-      $("input#ch_spellcount").val(0);
-      $("input#ch_cantripcount").val(0);
       window.class_equip = "Leather Armor^Two Daggers^Thieve's Tools";
       $("input#ch_classequip").val(window.class_equip);
       $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves.^ Sneak Attack: Once per turn you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.");
@@ -393,16 +406,11 @@ $(document).ready(function(){
     if ($("input#ch_class").val() == "Fighter") {
       getTotalHp();
       window.fighter_features = "Second Wind: You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn you can use a bonus action to regain hit points equal to 1d10 + your fighter level. (Daily)";
-      $("input#ch_classtool").val("");
       $("input#ch_armp").val("All armor, shields");
       $("input#ch_wepp").val("Simple weapons, martial weapons");
       $("input#ch_hd").val("1d10");
       $("input#ch_stp").val(["Strength", "Constitution"]);
       $("input#ch_skillcount").val(2);
-      $("input#ch_spellcount").val(0);
-      $("input#ch_cantripcount").val(0);
-      window.class_equip = [];
-      $("input#ch_classequip").val(window.class_equip);
       $("input#ch_classfeat").val(window.fighter_features);
       class_skills = ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"];
       $(".ch_fighter_style").prop('checked', false); //Uncheck fighter style
@@ -411,16 +419,12 @@ $(document).ready(function(){
     //If wizard
     if ($("input#ch_class").val() == "Wizard") {
       getTotalHp();
-      $("input#ch_classtool").val("");
-      $("input#ch_armp").val("");
-      $("input#ch_wepp").val("Daggers^Darts^Slings^Quarterstaffs^Light Crossbows");
-      $("input#ch_hd").val("1d6");
-      $("input#ch_stp").val(["Wisdom", "Intelligence"]);
-      $("input#ch_skillcount").val(2);
-      $("input#ch_spellcount").val(6);
-      $("input#ch_cantripcount").val(3);
-      window.class_equip = [];
-      $("input#ch_classequip").val(window.class_equip);
+      $("input#ch_wepp").val("Daggers^Darts^Slings^Quarterstaffs^Light Crossbows"); //Weapon proficiencies
+      $("input#ch_hd").val("1d6"); //Hit die
+      $("input#ch_stp").val(["Wisdom", "Intelligence"]); //Saving throw proficiencies
+      $("input#ch_skillcount").val(2); //Skills allowed
+      $("input#ch_spellcount").val(6); //1st level spells
+      $("input#ch_cantripcount").val(3); //Cantrips @ 1st level
       $("input#ch_classfeat").val("Spellcasting: You have a spellbook containing six, 1st-level wizard spells. You know three wizard cantrips and two 1st level wizard spells of your choice.");
       class_skills = ["Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"];
     }
@@ -443,7 +447,8 @@ $(document).ready(function(){
       else {
         $("input#ch_spellcount").val(1)
       }
-      $("input#ch_cantripcount").val(3);
+      //end cleric spell count
+      $("input#ch_cantripcount").val(3); //Cantrip count
       window.class_equip = [];
       $("input#ch_classequip").val(window.class_equip);
       $("input#ch_classfeat").val(window.cleric_features);
