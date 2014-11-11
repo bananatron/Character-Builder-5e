@@ -394,6 +394,20 @@ $(document).ready(function(){
 /////////////////////////////////////////
 //////  CLASS DEFENITIONS & LOGIC  ///// 
 ///////////////////////////////////////
+  
+  //Cleric spellcount recalculate
+  function clericSpellcount(){
+    //If cleric is selected, recalculates spellcount based on new wisdom
+    if ($("input#ch_class").val() == "Cleric") {
+      if (Math.floor((parseInt($("input#ch_wis").val())-10)/2) > 0) {
+        $("input#ch_spellcount").val( Math.floor((parseInt($("input#ch_wis").val())-10)/2) + 1 );
+      }
+      else {
+        $("input#ch_spellcount").val(1)
+      }
+    }
+  }
+  
 
   $(".class_click").click(function(event){
     resetClass();
@@ -456,13 +470,7 @@ $(document).ready(function(){
       $("input#ch_hd").val("1d8");
       $("input#ch_stp").val(["Wisdom", "Charisma"]);
       $("input#ch_skillcount").val(2);
-      //Cleric spell count is based on wisdom
-      if (Math.floor((parseInt($("input#ch_wis").val())-10)/2) > 0) {
-        $("input#ch_spellcount").val( Math.floor((parseInt($("input#ch_wis").val())-10)/2) + 1 );
-      }
-      else {
-        $("input#ch_spellcount").val(1)
-      }
+      clericSpellcount();
       //end cleric spell count
       $("input#ch_cantripcount").val(3); //Cantrip count
       window.class_equip = [];
@@ -542,7 +550,9 @@ $(document).ready(function(){
 
 	// Hide stuff with the JavaScript. If JS is disabled, the form will still be usable.
 	$(".name_wrap").hide();
-	
+  
+  
+  
 	// When a dropdown selection is made
   function updateStats(sa) {
     $("input#ch_stats").val(sa);
@@ -553,15 +563,7 @@ $(document).ready(function(){
     $("input#ch_wis").val( parseInt(sa[4].slice(2,4)) + window.bonus_wis );
     $("input#ch_cha").val( parseInt(sa[5].slice(2,4)) + window.bonus_cha );
     getTotalHp();
-    //If cleric is selected, recalculates spellcount based on new wisdom
-    if ($("input#ch_class").val() == "Cleric") {
-      if (Math.floor((parseInt($("input#ch_wis").val())-10)/2) > 0) {
-        $("input#ch_spellcount").val( Math.floor((parseInt($("input#ch_wis").val())-10)/2) + 1 );
-      }
-      else {
-        $("input#ch_spellcount").val(1)
-      }
-    }
+    clericSpellcount();
   }
   
 	$("#attr_type").change(function() {
@@ -632,7 +634,6 @@ $(document).ready(function(){
   //PB Strength Plus 
 	$("#pb_str_plus").click(function(){
     if ($("#pb_str").html() < 15 && $("#pb_total").html() > 0){
-      
       if ($("#pb_str").html() > 12 && $("#pb_total").text()-2 >= 0) {
         $("#pb_total").text($("#pb_total").text()-2);
         $("#pb_str").text(parseInt($("#pb_str").text())+1);
@@ -707,7 +708,6 @@ $(document).ready(function(){
   //PB Wisdom Plus 
 	$("#pb_wis_plus").click(function(){
     if ($("#pb_wis").html() < 15 && $("#pb_total").html() > 0){
-      
       if ($("#pb_wis").html() > 12 && $("#pb_total").text()-2 >= 0) {
         $("#pb_total").text($("#pb_total").text()-2);
         $("#pb_wis").text(parseInt($("#pb_wis").text())+1);
@@ -717,6 +717,7 @@ $(document).ready(function(){
         $("#pb_wis").text(parseInt($("#pb_wis").text())+1);
       }
     }
+    clericSpellcount();
 	});
   //PB Widsom Minus
 	$("#pb_wis_min").click(function(){
@@ -727,6 +728,7 @@ $(document).ready(function(){
       if ($("#pb_wis").html() >= 13) {
         $("#pb_total").text(parseInt($("#pb_total").text())+1);
         }
+    clericSpellcount();
 	});
   
   //PB Charisma Plus 

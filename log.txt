@@ -17,7 +17,6 @@ check on mending & other spells on phb!
 
 styling
 
-
 ##Low Prior
 - Tooltip on sheet for how it was calculated
 - tooltips for things (kits, skills, etc.)
@@ -31,9 +30,8 @@ changing race after class/stat selection won't update hp/stats accurately
 
 
 
-
-
 ##!DONE!
+Issue: Point buy won't update cleric spellcountm - FIXED
 Labels on class equipment - DONE
 changed pack values with pack contents - DONE
 cleric divine domain - DONE
