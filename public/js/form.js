@@ -397,18 +397,22 @@ $(document).ready(function(){
   
   //Cleric spellcount recalculate
   function clericSpellcount(){
-    //If cleric is selected, recalculates spellcount based on new wisdom
-    if ($("input#ch_class").val() == "Cleric") {
-      if (Math.floor((parseInt($("input#ch_wis").val())-10)/2) > 0) {
-        $("input#ch_spellcount").val( Math.floor((parseInt($("input#ch_wis").val())-10)/2) + 1 );
+      //If cleric is selected, recalculates spellcount based on new wisdom
+      if ($("input#ch_class").val() == "Cleric") {
+        if (Math.floor((parseInt($("input#ch_wis").val())-10)/2) > 0) {
+          $("input#ch_spellcount").val( Math.floor((parseInt($("input#ch_wis").val())-10)/2) + 1 );
+        }
+        else {
+          $("input#ch_spellcount").val(1);
+        }
       }
-      else {
-        $("input#ch_spellcount").val(1)
-      }
-    }
+      //Uncheck any existing spell/cantrip selections
+      $("input.ch_spells_cleric").each(function(  ) {
+        $(this).attr('checked', false);
+      });
+      $("#cleric_spellcount_msg").html( $("input#ch_spellcount").val() ); //Set message notice to current spell limit
   }
-  
-
+ 
   $(".class_click").click(function(event){
     resetClass();
     $("input#ch_class").val($(this).html());
@@ -874,20 +878,23 @@ $(".bond_click").click(function(event){
 //// SKILL VALIDATION / SELECTION ///
 ////////////////////////////////////
   
-//When class is selected Clickable tab links populate class field
 //Also enable only those skill options applicable to that class
 $("a.class_click").click(function(event){
   
+  event.preventDefault();
   $("input.ch_rogue_skillprof").hide();
   $("input.ch_skillprof").hide();
-  event.preventDefault();
-  $("input#ch_class").val($(this).html());
   $(".skill_label").hide(); //Hide all labels for skills
   $(".rogue_skill_label").hide(); //Hide rogue labels
   
+  //Uncheck all spells
+  $("input.ch_spells_wizard, input.ch_cantrips_wizard, input.ch_cantrips_cleric, input.ch_spells_cleric").each(function(  ) {
+    $(this).attr('checked', false);
+  });
+  
   //Uncheck item selections on class tab
   $("input.item_click").each(function(  ) {
-      $(this).attr('checked', false)
+      $(this).attr('checked', false);
   });
   
   //Iterate over class skills and hide/show appropriate skills for selection
@@ -972,6 +979,39 @@ $("a.class_click").click(function(event){
     });
     
       
+  });
+  
+//////////////////////////////////////
+//// SPELL VALIDATION / SELECTION ///
+////////////////////////////////////
+
+  //Spell limitations
+  $('input.ch_spells_wizard').on('change', function(evt) {
+    var spell_limit = $('#ch_spellcount').val();
+    if($('.ch_spells_wizard:checkbox:checked').length > spell_limit) {
+         this.checked = false;
+     }
+  });
+  
+  $('input.ch_cantrips_wizard').on('change', function(evt) {
+    var cantrip_limit = $('#ch_cantripcount').val();
+    if($('.ch_cantrips_wizard:checkbox:checked').length > cantrip_limit) {
+         this.checked = false;
+     }
+  });
+  
+  $('input.ch_spells_cleric').on('change', function(evt) {
+    var spell_limit = $('#ch_spellcount').val();
+    if($('.ch_spells_cleric:checkbox:checked').length > spell_limit) {
+         this.checked = false;
+     }
+  });
+  
+  $('input.ch_cantrips_cleric').on('change', function(evt) {
+    var cantrip_limit = $('#ch_cantripcount').val();
+    if($('.ch_cantrips_cleric:checkbox:checked').length > cantrip_limit) {
+         this.checked = false;
+     }
   });
   
   //swal({   title: "Error!",   text: "Here's my error message!",   type: "error",   confirmButtonText: "Cool" });

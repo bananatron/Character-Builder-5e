@@ -186,7 +186,7 @@
         </div>
       </div>
       
-      Class: <input name="ch_class" id="ch_class" type="hidden" readonly>
+      <!--Class: <input name="ch_class" id="ch_class" type="hidden" readonly>-->
       Hit Points: <input name="ch_hp" id="ch_hp" type="hidden" readonly>
       Hit Die: <input name="ch_hd" id="ch_hd" type="hidden" readonly>
       Saving Throw Prof.: <input name="ch_stp" id="ch_stp" type="hidden" readonly>
@@ -224,6 +224,7 @@
         
       <div class="skill_container" id="rogue_exp">
         <h4>Rogue Expertise</h4>
+        Choose <b>2</b> of the skills below which represent your expertise. <i>(+2 to each skill selected)</i><br><br>
         <% @skilllist = ['Athletics', 'Acrobatics', 'Sleight of Hand', 'Stealth', 'Arcana', 'History', 'Investigation', 'Nature', 'Religion', 'Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival', 'Deception', 'Intimidation', 'Performance', 'Persuasion']%>
       <%  @skilllist.sort_by!{ |m| m.downcase }  %>
       
@@ -371,11 +372,12 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
     ]%>
       
         <div class="skill_container" id="wizard_spell_select">
-          <h4>Wizard Cantrips:</h4>
+          <h4>Wizard Cantrips</h4>
+          As a level one wizard, you can choose <b>3</b> cantrips of your choice below.<br><br>
           <% tincw = 100 #variable to increment tool_tip ids%>
             <% @spelllist_wizard0.each do |spell|  %>
             <% tincw += 1 %>
-            <input id='<%= spell[:name].downcase %>_id' class = "ch_spells_wizard" type="checkbox" value="<%= spell[:name] %>">
+            <input id='<%= spell[:name].downcase %>_id' class = "ch_cantrips_wizard" type="checkbox" value="<%= spell[:name] %>">
             <label class="spell_wiz_label" for='<%= spell[:name].downcase %>_id'>
             <%= spell[:name] %></label><a data-dropdown="drop2_<%=tincw%>" aria-controls="drop2" aria-expanded="false" href="#">
             ?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -390,6 +392,7 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
           <% end %>
           <div class="skill_container">
             <h4>Wizard Spells (Level 1):</h4>
+            As a level one wizard, you can choose <b>6</b> spells of your choice below.<br><br>
             <% @spelllist_wizard1.each do |spell|  %>
               <% tincw += 1 %>
               <input id='<%= spell[:name].downcase %>_id' class = "ch_spells_wizard" type="checkbox" value="<%= spell[:name] %>">
@@ -412,10 +415,11 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
       
         <div class="skill_container" id="cleric_spell_select">
           <h4>Cleric Cantrips:</h4>
+          As a level one Cleric, you can choose <b>3</b> cantrips of your choice below.<br><br>
           <% tinc = 0 #variable to increment tool_tip ids%>
           <% @spelllist_cleric0.each do |spell|  %>
             <% tinc += 1 %>
-            <input id='<%= spell[:name].downcase %>_id' class = "ch_spells_cleric" type="checkbox" value="<%= spell[:name] %>">
+            <input id='<%= spell[:name].downcase %>_id' class = "ch_cantrips_cleric" type="checkbox" value="<%= spell[:name] %>">
             <label class="spell_cle_label" for='<%= spell[:name].downcase %>_id'>
             <%= spell[:name] %></label><a data-dropdown="drop2_<%=tinc%>" aria-controls="drop2" aria-expanded="false" href="#">
           ?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -431,6 +435,7 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
           <div class="skill_container">
             <% tinc = 20 %>
             <h4>Cleric Spells (Level 1):</h4>
+            As a level one Cleric, you can choose <b><span id="cleric_spellcount_msg">X</span></b> spells of your choice below.<br><br>
             <% @spelllist_cleric1.each do |spell|  %>
               <% tinc += 1 %>
               <input id='<%= spell[:name].downcase %>_id' class = "ch_spells_cleric" type="checkbox" value="<%= spell[:name] %>">

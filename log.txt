@@ -23,6 +23,7 @@ styling
 - Spreadsheet export
 - Save html (instructions?)
 - pluses on stat mods
+- hide spells not available in basic (based on * probably)
 
 ##Problems:
 changing race after class/stat selection won't update hp/stats accurately
