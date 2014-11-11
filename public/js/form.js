@@ -55,9 +55,9 @@ $(document).ready(function(){
     getTotalHp();
   }
 
-  //Reset stats 
+  //Reset stats for race selection 
   //Need to run on all main classes to clear bonuses from previous selections
-  function resetStats(){
+  function resetRace(){
     window.bonus_str = 0;
     window.bonus_int = 0;
     window.bonus_wis = 0;
@@ -71,7 +71,7 @@ $(document).ready(function(){
     $("input#ch_race_langcount").val(0);
     $(".tool_click").attr('checked',false);
   }
-  resetStats();
+  resetRace();
   
   //Assign race features with delimeter of ^
   function assignRaceFeatures() {
@@ -115,7 +115,7 @@ $(document).ready(function(){
 
   //Human racial  
   $("#panel_hum").click(function(event){
-    resetStats();
+    resetRace();
     event.preventDefault();
     race_selection = "hum";
     $("input#ch_race_langcount").val(1);
@@ -133,7 +133,7 @@ $(document).ready(function(){
 
   //Dwarf racial preloads
   $("#panel_dwa").click(function(event){
-    resetStats();
+    resetRace();
     event.preventDefault();
     race_selection = "dwa";
     window.bonus_con = 2;
@@ -147,7 +147,7 @@ $(document).ready(function(){
   //Mountain Dwarf
   $("#dwarf_desc").on("click","#panel_mdwa", function(){
     race_selection = "mdwa";
-    resetStats();
+    resetRace();
     $("input#ch_race").val("Dwarf (Mountain Dwarf)");
     window.bonus_str = 2;
     window.bonus_con = 2;
@@ -171,7 +171,7 @@ $(document).ready(function(){
   //Hill Dwarf
   $("#dwarf_desc").on("click","#panel_hdwa", function(){
     race_selection = "hdwa";
-    resetStats();
+    resetRace();
     $("input#ch_race").val("Dwarf (Hill Dwarf)");
     window.bonus_wis = 1;
     window.bonus_con = 2;
@@ -196,7 +196,7 @@ $(document).ready(function(){
 
   //Elf racial preloads
   $("#panel_elf").click(function(event){
-    resetStats();
+    resetRace();
     event.preventDefault();
     race_selection = "elf";
 
@@ -210,7 +210,7 @@ $(document).ready(function(){
 
   //High Elf
   $("#elf_desc").on("click","#panel_helf", function(){
-    resetStats();
+    resetRace();
     race_selection = "helf";
     $("input#ch_race").val("Elf (High Elf)");
     //Helf gets 1 extra language & 2 int
@@ -238,7 +238,7 @@ $(document).ready(function(){
 
   //Wood Elf
   $("#elf_desc").on("click","#panel_welf", function(){
-    resetStats();
+    resetRace();
     race_selection = "welf";
     $("input#ch_race").val("Elf (Wood Elf)");
     //Welf gets +1 wis
@@ -266,7 +266,7 @@ $(document).ready(function(){
 
   //Dark Elf
   $("#elf_desc").on("click","#panel_delf", function(){
-    resetStats();
+    resetRace();
     race_selection = "delf";
     $("input#ch_race").val("Elf (Dark Elf)");
     //Delf gets +1 wis
@@ -295,7 +295,7 @@ $(document).ready(function(){
 
   //Halfling racial preloads
   $("#panel_hal").click(function(event){
-    resetStats();
+    resetRace();
     event.preventDefault();
     race_selection = "hal";
 
@@ -307,7 +307,7 @@ $(document).ready(function(){
 
   //Lightfood Halfling preloads
   $("#halfling_desc").on("click","#panel_lhal", function(){
-    resetStats();
+    resetRace();
     event.preventDefault();
     race_selection = "lhal";
     $("input#ch_race").val("Halfling (Lightfoot)");
@@ -330,7 +330,7 @@ $(document).ready(function(){
 
   //Stout Halfling preloads
   $("#halfling_desc").on("click","#panel_shal", function(){
-    resetStats();
+    resetRace();
     event.preventDefault();
     race_selection = "shal";
     $("input#ch_race").val("Halfling (Stout)");
