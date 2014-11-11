@@ -1,3 +1,18 @@
+///////////////////////////////////////////////////
+//                                               //
+//    .sSSSSs.     SSSSSSSSSs.  .sSSSSs.         //
+//    SSSSSSSSSs.  SSSSS SSSS'  SSSSSSSSSs.      //
+//    S SSS SSSSS  S SSS        S SSS SSSSS      //
+//    S  SS SSSSS  SSSSSsSSSs.  S  SS SSSS'      //
+//    S..SS SSSSS        SSSSS  S..SSsSSSa.      //
+//    S:::S SSSSS  .sSSS SSSSS  S:::S SSSSS      //
+//    S;;;S SSSSS  S;;;S SSSSS  S;;;S SSSSS      //
+//    S%%%S SSSS'  S%%%S SSSSS  S%%%S SSSSS      //
+//    SSSSSsS;:'   `:;SSsSS;:'  SSSSSsSSSS'      //
+//                                               //
+//         DND 5E Character Builder              //
+///////////////////////////////////////////////////
+
 //When DOM is ready
 $(document).ready(function(){
 
@@ -265,6 +280,7 @@ $(document).ready(function(){
   }); 
 
   //Dark Elf
+  //Oops, not in basic rules
   $("#elf_desc").on("click","#panel_delf", function(){
     resetRace();
     race_selection = "delf";
