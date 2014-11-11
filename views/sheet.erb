@@ -64,7 +64,7 @@
   <div class="row">
     <div class="medium-4 columns">
       <h4>Character Name:</h4>
-      <%= @ch_name %>
+      <span contenteditable="true"><%= @ch_name %></span>
     </div>
     
     <div class="medium-8 columns panel">
@@ -162,7 +162,7 @@
             
           <h4>Languages</h4>
           <div class="languages">
-            <div id="ch_lang"><%= @ch_race_languages.gsub('^', ', ') %>
+            <div contenteditable="true" id="ch_lang"><%= @ch_race_languages.gsub('^', ', ') %>
               <% if @master_lang_count > 0 %>
               , and <%= @master_lang_count %> extra language(s) of your choice.
               <% end %>
@@ -228,7 +228,7 @@
       <strong>Class Traits</strong>: 
       <ul>
         <% @ch_classfeat.split("^").each do |trait| %>
-          <li><%= trait %></li>
+          <li contenteditable="true"><%= trait %></li>
         <% end %>
       </ul>
       <br>
@@ -236,7 +236,7 @@
       <strong>Race Features</strong>: 
       <ul>
         <% @ch_race_features.split("^").each do |feat| %>
-        <li><%= feat %></li>
+        <li contenteditable="true"><%= feat %></li>
         <% end %>
       </ul>
       
@@ -245,8 +245,8 @@
       <br><br><br>
       
       <% if @spells %><strong>Spells</strong>:<br><br><br><% end %>
-      <strong>Background Features</strong>: <%= @ch_bg_features %><br><br>
-      <strong>Personality Traits</strong>: <%= @ch_trait %><br><br>
+      <strong>Background Features</strong>: <div contenteditable="true"><%= @ch_bg_features %></div><br><br>
+      <strong>Personality Traits</strong>: <div contenteditable="true"><%= @ch_trait %><br><br>
       <strong>Ideals</strong>: <%= @ch_ideal %><br><br>
       <strong>Bonds</strong>: <%= @ch_bond %><br><br>
       <strong>Flaws</strong>: <%= @ch_flaw %><br><br>

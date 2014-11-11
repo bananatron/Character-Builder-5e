@@ -205,7 +205,7 @@
 
 
       <% @amz_link = "http://www.amazon.com/gp/product/0786965606/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0786965606&linkCode=as2&tag=s0432c-20&linkId=DVQNDEKTCOBCER77" %>
-<% @buy_text = "Not avilable in the basic rules. Buy the PHB <a href='#{@amz_link}'><u>here</u></a>. <i>(PG 259)</i>" %>
+<% @buy_text = "Not avilable in the basic rules. Buy the PHB <a href='#{@amz_link}'><u>here</u></a>." %>
 
     <fieldset id="step_3.5">
       <legend>Step 3.5: Skills and Spells</legend>
@@ -236,7 +236,7 @@
       
   
       <% @spelllist_wizard0 = [
-  {name:"Acid Splash", ct:"1 Action", range:"60 ft.", comp:"v, s", dur:"Instantaneous", school:"Conjuration", text:"You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage. <br><br><i>This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."},
+  {name:"Acid Splash", ct:"1 Action", range:"60 ft.", comp:"v, s", dur:"Instantaneous", school:"Conjuration", text:"You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage. <br><br><i>This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</i>"},
   {name:"Blade Ward", ct:"1 Action", range:"Self", comp:"v, s", dur:"1 Round", school:"Abjuration", text:@buy_text},
   {name:"Chill Touch", ct:"1 Action", range:"120 ft.", comp:"v, s", dur:"1 Round", school:"Necromancy", text:@buy_text},
   {name:"Dancing Lights", ct:"1 Round", range:"120 ft.", comp:"v, s, m (a bit of phosphorus or wychwood or a glowworm)", dur:"Concentration, up to 1 minute", school:"Evocation", text:"You create up to four torch-sized lights within range, making them appear as torches, lanterns, or glowing orbs that hover in the air for the duration. You can also combine the four lights into one glowing vaguely humanoid form of Medium size. Whichever form you choose, each light sheds dim light in a 10-foot radius.<br>
@@ -371,7 +371,7 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
       
         <div class="skill_container" id="wizard_spell_select">
           <h4>Wizard Cantrips:</h4>
-          <% tincw = 0 #variable to increment tool_tip ids%>
+          <% tincw = 100 #variable to increment tool_tip ids%>
             <% @spelllist_wizard0.each do |spell|  %>
             <% tincw += 1 %>
             <input id='<%= spell[:name].downcase %>_id' class = "ch_spells_wizard" type="checkbox" value="<%= spell[:name] %>">
