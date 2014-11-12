@@ -57,6 +57,8 @@ $(document).ready(function(){
     window.class_equip = ""; //Default class equipment
     $("input#ch_classequip").val(window.class_equip); //Set class equipment
     $("input#ch_classfeat").val("");  //Class features
+    $('#ch_cantrips_selected').val(""); //Cantrips selected
+    $('#ch_spells_selected').val(""); //Spells selected
     class_skills = [""]; //Skills this class has available to them
   }
   
@@ -985,12 +987,17 @@ $("a.class_click").click(function(event){
 //// SPELL VALIDATION / SELECTION ///
 ////////////////////////////////////
 
-  //Spell limitations
+
+  //WIZARD LVL 1 SPELLS
   $('input.ch_spells_wizard').on('change', function(evt) {
     var spell_limit = $('#ch_spellcount').val();
     if($('.ch_spells_wizard:checkbox:checked').length > spell_limit) {
          this.checked = false;
      }
+    $('#ch_spells_selected').val(""); //Empty field
+    $('.ch_spells_wizard:checkbox:checked').each(function( index ) {
+      $('#ch_spells_selected').val( $('#ch_spells_selected').val() + $("label[for='"+$(this).attr("id")+"']").text() + "^" ); 
+    }); //Add selections to hidden form field
   });
   
   $('input.ch_cantrips_wizard').on('change', function(evt) {
@@ -998,20 +1005,32 @@ $("a.class_click").click(function(event){
     if($('.ch_cantrips_wizard:checkbox:checked').length > cantrip_limit) {
          this.checked = false;
      }
+    $('#ch_cantrips_selected').val(""); //Empty field
+    $('.ch_cantrips_wizard:checkbox:checked').each(function( index ) {
+      $('#ch_cantrips_selected').val( $('#ch_cantrips_selected').val() + $("label[for='"+$(this).attr("id")+"']").text() + "^" ); 
+    }); //Add selections to hidden form field
   });
-  
+  //CLERIC LVL 1 SPELLS
   $('input.ch_spells_cleric').on('change', function(evt) {
     var spell_limit = $('#ch_spellcount').val();
     if($('.ch_spells_cleric:checkbox:checked').length > spell_limit) {
          this.checked = false;
      }
+    $('#ch_spells_selected').val(""); //Empty field
+    $('.ch_spells_cleric:checkbox:checked').each(function( index ) {
+      $('#ch_spells_selected').val( $('#ch_spells_selected').val() + $("label[for='"+$(this).attr("id")+"']").text() + "^" ); 
+    }); //Add selections to hidden form field
   });
-  
+  //CLERIC CANTRIPS
   $('input.ch_cantrips_cleric').on('change', function(evt) {
     var cantrip_limit = $('#ch_cantripcount').val();
     if($('.ch_cantrips_cleric:checkbox:checked').length > cantrip_limit) {
          this.checked = false;
      }
+    $('#ch_cantrips_selected').val(""); //Empty field
+    $('.ch_cantrips_cleric:checkbox:checked').each(function( index ) {
+      $('#ch_cantrips_selected').val( $('#ch_cantrips_selected').val() + $("label[for='"+$(this).attr("id")+"']").text() + "^" ); 
+    }); //Add selections to hidden form field
   });
   
   //swal({   title: "Error!",   text: "Here's my error message!",   type: "error",   confirmButtonText: "Cool" });

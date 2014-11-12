@@ -161,15 +161,12 @@
             Failure:<br> <input type="checkbox"></input> <input type="checkbox"></input> <input type="checkbox"></input></p>          </fieldset>
             
           <h4>Languages</h4>
-          <div class="languages">
             <div contenteditable="true" id="ch_lang"><%= @ch_race_languages.gsub('^', ', ') %>
               <% if @master_lang_count > 0 %>
               , and <%= @master_lang_count %> extra language(s) of your choice.
               <% end %>
-            </div>
           </div>
         </div>
-        
         
         <div class="small-6 columns">
             <h4>Skills</h4>
@@ -193,21 +190,41 @@
               <small>(DEX)</small> <% if @master_skill_list.include?('Sleight of Hand') %><b><i>(T)</i> <% end %>Sleight of Hand</b> <br>
               <small>(DEX)</small> <% if @master_skill_list.include?('Stealth') %><b><i>(T)</i> <% end %>Stealth</b> <br>
               <small>(WIS)</small> <% if @master_skill_list.include?('Survival') %><b><i>(T)</i> <% end %>Survival</b> <br>
-              <br>If rogue, expert in: <%= @ch_rogue_exp %>
+              <% if @ch_rogue_exp %><br>If rogue, expert in: <%= @ch_rogue_exp %><% end %>
             </div>
-
-        
-          
         </div>
       </div>
+    <% if @ch_spells_selected %>
+    <br>
+    <div class="row">
+      <div class="small-6 columns">
+        <h4>Spells</h4>
+        <% @ch_spells_selected.strip.tr('*','').split("^").each do |spell| %>
+        <%= spell %> <br>
+        <% end %>
+      </div>
+     <div class="small-6 columns">
+       <h4>Cantrips</h4>
+        <% @ch_cantrips_selected.strip.tr('*','').split("^").each do |cantrip| %>
+        <%= cantrip %> <br>
+        <% end %>
+      </div>
     </div>
+  <% end %>
+  </div>
+
     <div class="medium-4 columns">
       <div class="row">
       <div class="small-12 columns">
+        <br>
        <p><b>Hit Die:</b> <%= @ch_hd %> <br>
-       <p><b>Maximum HP</b>:<input type="text" value="<%= @ch_hp %>" readonly></input>
-       <p><b>Current HP</b>: <input value="<%= @ch_hp %>" type="text"></input>
-       <p><b>Temp HP</b>: <input type="text"></input>
+        <div class="row">
+          <div class="small-4 columns">
+           <p><b>Max HP</b>:<input type="text" value="<%= @ch_hp %>" readonly></input></div>
+         <div class="small-4 columns">
+           <p><b>Current HP</b>: <input value="<%= @ch_hp %>" type="text"></input></div>
+        <div class="small-4 columns"><p><b>Temp HP</b>: <input type="text"></input></div>
+       </div>
        </div>
       </div>
     
@@ -240,11 +257,8 @@
         <% end %>
       </ul>
       
+      <br>
       
-      
-      <br><br><br>
-      
-      <% if @spells %><strong>Spells</strong>:<br><br><br><% end %>
       <strong>Background Features</strong>: <div contenteditable="true"><%= @ch_bg_features %></div><br><br>
       <strong>Personality Traits</strong>: <div contenteditable="true"><%= @ch_trait %><br><br>
       <strong>Ideals</strong>: <%= @ch_ideal %><br><br>
@@ -252,6 +266,8 @@
       <strong>Flaws</strong>: <%= @ch_flaw %><br><br>
     </div>
   </div>
+
+
   <div id="bottom_d"> </div>
       
     <script src="js/vendor/jquery.js"></script>

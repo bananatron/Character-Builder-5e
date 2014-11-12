@@ -1,21 +1,15 @@
 ##Add:
 
-rogue expertises
 background unique properties (specialty, etc.)
-spells
-
-remove drow elf
 
 >alert validations
 Equipment validations (mandatory)
 
 draggable outside of range on mobile / reskin
-
 hideable/editable sheet
-
 check on mending & other spells on phb!
-
 styling
+fix light/detect magic (any duplicates) that (id is duplicated on wizard)
 
 ##Low Prior
 - Tooltip on sheet for how it was calculated
@@ -32,6 +26,9 @@ changing race after class/stat selection won't update hp/stats accurately
 
 
 ##!DONE!
+rogue expertises - DONE
+spell limiations - DONE
+remove drow elf - DONE
 Issue: Point buy won't update cleric spellcountm - FIXED
 Labels on class equipment - DONE
 changed pack values with pack contents - DONE
