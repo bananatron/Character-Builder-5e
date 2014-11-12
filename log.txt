@@ -5,6 +5,8 @@ background unique properties (specialty, etc.)
 >alert validations
 Equipment validations (mandatory)
 
+spells on sheet
+
 draggable outside of range on mobile / reskin
 hideable/editable sheet
 check on mending & other spells on phb!

@@ -28,9 +28,7 @@
     }
     .attr {
       font-size: 12px;
-      color: #FFF;
-      background-color: #000;
-      padding: 2px;
+      margin: 0 0 -10px 0;
       text-align: center;
     }
     .skills {
@@ -63,8 +61,12 @@
   <!-- First row -->
   <div class="row">
     <div class="medium-4 columns">
-      <h4>Character Name:</h4>
+      <strong>Character Name</strong><br>
       <span contenteditable="true"><%= @ch_name %></span>
+      
+      <br><br>
+      <strong>Bio</strong><br> 
+      <div contenteditable="true">Put some useful info here.</div><br>
     </div>
     
     <div class="medium-8 columns panel">
@@ -160,7 +162,7 @@
           <p>Success:<br> <input type="checkbox"></input> <input type="checkbox"></input> <input type="checkbox"></input><br>
             Failure:<br> <input type="checkbox"></input> <input type="checkbox"></input> <input type="checkbox"></input></p>          </fieldset>
             
-          <h4>Languages</h4>
+          <strong>Languages</strong><br>
             <div contenteditable="true" id="ch_lang"><%= @ch_race_languages.gsub('^', ', ') %>
               <% if @master_lang_count > 0 %>
               , and <%= @master_lang_count %> extra language(s) of your choice.
@@ -169,7 +171,7 @@
         </div>
         
         <div class="small-6 columns">
-            <h4>Skills</h4>
+            <strong>Skills</strong><br>
             <input type="checkbox"></input> Hide untrained 
             <div class="skills">
               
@@ -190,7 +192,7 @@
               <small>(DEX)</small> <% if @master_skill_list.include?('Sleight of Hand') %><b><i>(T)</i> <% end %>Sleight of Hand</b> <br>
               <small>(DEX)</small> <% if @master_skill_list.include?('Stealth') %><b><i>(T)</i> <% end %>Stealth</b> <br>
               <small>(WIS)</small> <% if @master_skill_list.include?('Survival') %><b><i>(T)</i> <% end %>Survival</b> <br>
-              <% if @ch_rogue_exp %><br>If rogue, expert in: <%= @ch_rogue_exp %><% end %>
+              <% if @ch_rogue_exp.length != 0 %><br>If rogue, expert in: <%= @ch_rogue_exp %><% end %>
             </div>
         </div>
       </div>
@@ -198,13 +200,13 @@
     <br>
     <div class="row">
       <div class="small-6 columns">
-        <h4>Spells</h4>
+        <strong>Spells</strong><br>
         <% @ch_spells_selected.strip.tr('*','').split("^").each do |spell| %>
         <%= spell %> <br>
         <% end %>
       </div>
      <div class="small-6 columns">
-       <h4>Cantrips</h4>
+       <strong>Cantrips</strong><br>
         <% @ch_cantrips_selected.strip.tr('*','').split("^").each do |cantrip| %>
         <%= cantrip %> <br>
         <% end %>
@@ -217,13 +219,15 @@
       <div class="row">
       <div class="small-12 columns">
         <br>
-       <p><b>Hit Die:</b> <%= @ch_hd %> <br>
         <div class="row">
-          <div class="small-4 columns">
-           <p><b>Max HP</b>:<input type="text" value="<%= @ch_hp %>" readonly></input></div>
-         <div class="small-4 columns">
-           <p><b>Current HP</b>: <input value="<%= @ch_hp %>" type="text"></input></div>
-        <div class="small-4 columns"><p><b>Temp HP</b>: <input type="text"></input></div>
+          <div class="small-6 columns"><b>Hit Die:</b> <%= @ch_hd %> </div>
+          <div class="small-6 columns"><b>Max HP</b>: <span contenteditable="true"><%= @ch_hp %></span></div>
+        </div>
+        <br> 
+        <div class="row">
+         <div class="small-6 columns">
+           <p><b>HP</b>: <input value="<%= @ch_hp %>" type="text"></input></div>
+        <div class="small-6 columns"><p><b>Temp HP</b>: <input type="text"></input></div>
        </div>
        </div>
       </div>
@@ -235,35 +239,33 @@
       </div>
 
       <div class="row">
-       <div class="small-12 columns"><strong>Equipment:</strong>
+       <div class="small-12 columns">
+         <strong>Equipment</strong>
          <div contentEditable="true" id="equip"><%= @master_equip_list %></div>
+          <br>
+         <strong>Race Features</strong>
+        <ul>
+          <% @ch_race_features.split("^").each do |feat| %>
+          <li contenteditable="true"><%= feat %></li>
+          <% end %>
+        </ul>
         </div>
       </div>
-      
     </div>
     <div class="medium-4 columns">
-      <strong>Class Traits</strong>: 
-      <ul>
-        <% @ch_classfeat.split("^").each do |trait| %>
-          <li contenteditable="true"><%= trait %></li>
-        <% end %>
-      </ul>
-      <br>
+      <div class="show-for-small-only"><br></div>
+      <strong>Class Traits</strong> 
+         <ul>
+           <% @ch_classfeat.split("^").each do |feature| %>
+           <li><%= feature %></li>
+           <% end %>
+         </ul>
       
-      <strong>Race Features</strong>: 
-      <ul>
-        <% @ch_race_features.split("^").each do |feat| %>
-        <li contenteditable="true"><%= feat %></li>
-        <% end %>
-      </ul>
-      
-      <br>
-      
-      <strong>Background Features</strong>: <div contenteditable="true"><%= @ch_bg_features %></div><br><br>
-      <strong>Personality Traits</strong>: <div contenteditable="true"><%= @ch_trait %><br><br>
-      <strong>Ideals</strong>: <%= @ch_ideal %><br><br>
-      <strong>Bonds</strong>: <%= @ch_bond %><br><br>
-      <strong>Flaws</strong>: <%= @ch_flaw %><br><br>
+      <strong>Background Features</strong> <div contenteditable="true"><%= @ch_bg_features %></div><br>
+      <strong>Personality Traits</strong> <div contenteditable="true"><%= @ch_trait %></div><br>
+      <strong>Ideals</strong> <div contenteditable="true"><%= @ch_ideal %></div><br>
+      <strong>Bonds</strong> <div contenteditable="true"><%= @ch_bond %></div><br>
+      <strong>Flaws</strong> <div contenteditable="true"><%= @ch_flaw %></div><br>
     </div>
   </div>
 
@@ -279,7 +281,7 @@
         
         $('#bottom').click(function() {
           $('html, body').animate({
-              scrollTop: $('#bottom_d').offset().top-10
+              scrollTop: $('#bottom_d').offset().top+1000
           }, 500);
           return false;
         });
