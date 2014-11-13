@@ -1,19 +1,18 @@
 ##Add:
 
+Top nav bar on sheet and some info on front page
+class not displayed on sheet
 background unique properties (specialty, etc.)
 
+spells & descriptions on sheet
 
+editable jquery stats on sheet (STR DEX, etc)
 
-alignment doesn't work with show() (works on mobile thought)
-
-spells on sheet
-
-editable jquery stats (STR DEX, etc)
-
-draggable outside of range on mobile / reskin
+styling
 hideable/editable sheet
 check on mending & other spells on phb!
-styling
+age / weight / height dont go on sheet
+
 fix light/detect magic (any duplicates) that (id is duplicated on wizard)
 
 ##Low Prior
@@ -25,12 +24,14 @@ fix light/detect magic (any duplicates) that (id is duplicated on wizard)
 - hide spells not available in basic (based on * probably)
 
 ##Problems:
-changing race after class/stat selection won't update hp/stats accurately
 
 
 
 
 ##!DONE!
+changing race after class/stat selection won't update hp/stats accurately - FIXED
+draggable outside of range on mobile - FIXED
+alignment doesn't work with show() (works on mobile thought) - FIXED
 alert validations - DONE
 rogue expertises - DONE
 spell limiations - DONE

@@ -22,9 +22,9 @@
       
       <legend>Step 1: The Basics</legend>
       Character Name: <input id="ch_name" type="text" name="ch_name"><br>
-      Age: <input type="number" name="ch_age">
-      Height: <input type="text" name="ch_height">
-      Weight: <input type="number" name="ch_weight"><br>
+      Age: <input type="number" name="ch_age" />
+      Height: <input type="text" name="ch_height" />
+      Weight: <input type="number" name="ch_weight" /><br>
 
       Race: <input type="text" id="ch_race" name="ch_race" placeholder="Choose Below" readonly>
 
@@ -49,14 +49,11 @@
           <div id="halfling_desc"></div>
         </div>
       </div>
-
-      <br>
       <input type="hidden" name="ch_size" id="ch_size" placeholder="Choose a Race" readonly />
       <input type="hidden" name="ch_speed" id="ch_speed" placeholder="Choose a Race" readonly />
       <input type="hidden" name="ch_race_languages" id="ch_race_languages" readonly> <br>
       <input type="hidden" name="ch_race_langcount" id="ch_race_langcount" value="0" readonly /><br>
       <input type="hidden" name="ch_race_features" id="ch_race_features" readonly />
-      <!--Race Tools: <input type="text" name="ch_race_tools" readonly />-->
       <input type="hidden" name="ch_race_armor_prof" id="ch_race_armor_prof" readonly />
       <input type="hidden" name="ch_race_weapon_prof" id="ch_race_weapon_prof" readonly />
       <input type="hidden" name="ch_race_skill_prof" id="ch_race_skill_prof" readonly />
@@ -374,8 +371,8 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
           <% tincw = 100 #variable to increment tool_tip ids%>
             <% @spelllist_wizard0.each do |spell|  %>
             <% tincw += 1 %>
-            <input id='<%= spell[:name].downcase %>_id' class = "ch_cantrips_wizard" type="checkbox" value="<%= spell[:name] %>">
-            <label class="spell_wiz_label" for='<%= spell[:name].downcase %>_id'>
+            <input id='<%= spell[:name].downcase %>_wid' class = "ch_cantrips_wizard" type="checkbox" value="<%= spell[:name] %>">
+            <label class="spell_wiz_label" for='<%= spell[:name].downcase %>_wid'>
             <%= spell[:name] %></label><a data-dropdown="drop2_<%=tincw%>" aria-controls="drop2" aria-expanded="false" href="#">
             ?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div id="drop2_<%=tincw%>" aria-hidden="true" data-dropdown-content class="medium content f-dropdown">
@@ -392,8 +389,8 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
             As a level one wizard, you can choose <b>6</b> spells of your choice below.<br><br>
             <% @spelllist_wizard1.each do |spell|  %>
               <% tincw += 1 %>
-              <input id='<%= spell[:name].downcase %>_id' class = "ch_spells_wizard" type="checkbox" value="<%= spell[:name] %>">
-              <label class="spell_wiz_label" for='<%= spell[:name].downcase %>_id'>
+              <input id='<%= spell[:name].downcase %>_wid' class = "ch_spells_wizard" type="checkbox" value="<%= spell[:name] %>">
+              <label class="spell_wiz_label" for='<%= spell[:name].downcase %>_wid'>
               <%= spell[:name] %></label><a data-dropdown="drop2_<%=tincw%>" aria-controls="drop2" aria-expanded="false" href="#">
             ?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div id="drop2_<%=tincw%>" aria-hidden="true" data-dropdown-content class="medium content f-dropdown">
@@ -416,8 +413,8 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
           <% tinc = 0 #variable to increment tool_tip ids%>
           <% @spelllist_cleric0.each do |spell|  %>
             <% tinc += 1 %>
-            <input id='<%= spell[:name].downcase %>_id' class = "ch_cantrips_cleric" type="checkbox" value="<%= spell[:name] %>">
-            <label class="spell_cle_label" for='<%= spell[:name].downcase %>_id'>
+            <input id='<%= spell[:name].downcase %>_cid' class = "ch_cantrips_cleric" type="checkbox" value="<%= spell[:name] %>">
+            <label class="spell_cle_label" for='<%= spell[:name].downcase %>_cid'>
             <%= spell[:name] %></label><a data-dropdown="drop2_<%=tinc%>" aria-controls="drop2" aria-expanded="false" href="#">
           ?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <div id="drop2_<%=tinc%>" aria-hidden="true" data-dropdown-content class="medium content f-dropdown">
@@ -435,8 +432,8 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
             As a level one Cleric, you can choose <b><span id="cleric_spellcount_msg">X</span></b> spells of your choice below.<br><br>
             <% @spelllist_cleric1.each do |spell|  %>
               <% tinc += 1 %>
-              <input id='<%= spell[:name].downcase %>_id' class = "ch_spells_cleric" type="checkbox" value="<%= spell[:name] %>">
-              <label class="spell_cle_label" for='<%= spell[:name].downcase %>_id'>
+              <input id='<%= spell[:name].downcase %>_cid' class = "ch_spells_cleric" type="checkbox" value="<%= spell[:name] %>">
+              <label class="spell_cle_label" for='<%= spell[:name].downcase %>_cid'>
               <%= spell[:name] %></label><a data-dropdown="drop2_<%=tinc%>" aria-controls="drop2" aria-expanded="false" href="#">
             ?</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div id="drop2_<%=tinc%>" aria-hidden="true" data-dropdown-content class="medium content f-dropdown">
@@ -1006,9 +1003,8 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
 
 
     </fieldset>
-
-	  <!--<input type="submit" class="large button" value="Generate" />-->
-  <div id="submit_button" class="button">Submit</div><br/><br/>
+  <center>
+    <div id="submit_button" class="button">Submit</div></center><br/><br/>
 	</form>
 
 
