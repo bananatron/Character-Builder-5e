@@ -15,6 +15,7 @@
 
 //When DOM is ready
 $(document).ready(function(){
+  
 
  //Starting globals
   var weapon_prof = [];
@@ -97,6 +98,9 @@ $(document).ready(function(){
   
   //Hidden things
   $("input.ch_skillprof").hide();
+  $("#step_3").hide();
+  $("#step_35").hide();
+  $("#step_4").hide();
 
 
 //////////////////////////////////////
@@ -392,7 +396,6 @@ $(document).ready(function(){
   });
 
 
-
 /////////////////////////////////////////
 //////  CLASS DEFENITIONS & LOGIC  ///// 
 ///////////////////////////////////////
@@ -573,7 +576,7 @@ $(document).ready(function(){
   }
   
 	$("#attr_type").change(function() {
-
+    $("#step_3").show();
 		$(".name_wrap").slideUp().find("input").removeClass("active_name_field");
         var numAttendees = $("#attr_type option:selected").text();
     
@@ -882,8 +885,10 @@ $(".bond_click").click(function(event){
   
 //Also enable only those skill options applicable to that class
 $("a.class_click").click(function(event){
-  
   event.preventDefault();
+  $("#step_35").show();
+  $("#step_4").show();
+  $(window).trigger('resize'); //Force resize so alignment slider isn't broken for big screens
   $("input.ch_rogue_skillprof").hide();
   $("input.ch_skillprof").hide();
   $(".skill_label").hide(); //Hide all labels for skills
@@ -987,7 +992,6 @@ $("a.class_click").click(function(event){
 //// SPELL VALIDATION / SELECTION ///
 ////////////////////////////////////
 
-
   //WIZARD LVL 1 SPELLS
   $('input.ch_spells_wizard').on('change', function(evt) {
     var spell_limit = $('#ch_spellcount').val();
@@ -1034,6 +1038,82 @@ $("a.class_click").click(function(event){
   });
   
   //swal({   title: "Error!",   text: "Here's my error message!",   type: "error",   confirmButtonText: "Cool" });
-
+  
+//////////////////////////////////////
+////   SUBMIT FINAL VALIDATIONS   ///
+////////////////////////////////////  
+  
+  $('#submit_button').click(function(e) {
+    console.log($('#ch_classequip').val());
+    
+    //Name validation
+    if ( $('#ch_name').val() === "" ){
+      swal({   title: "Whoah there!",   
+               text: "Your character needs a name first!", 
+               type: "error",confirmButtonText: "Ok" });
+      $('html, body').animate({
+              scrollTop: $('#ch_name').offset().top-100
+          }, 500);
+    }
+    //Race validation
+    else if ( $('#ch_race').val() === "" ){
+      swal({   title: "Whoah there!",   
+               text: "You need to pick a race first!", 
+               type: "error",confirmButtonText: "Ok" });
+      $('html, body').animate({
+              scrollTop: $('#ch_race').offset().top-100
+          }, 500);
+    }
+    //Stat validation
+    else if ( $('#attr_type').val() == 0 ){
+      swal({   title: "Whoah there!",   
+               text: "You need some stats!", 
+               type: "error",confirmButtonText: "Ok" });
+      $('html, body').animate({
+              scrollTop: $('#attr_type').offset().top-100
+          }, 500);
+    }
+    //Class validation
+    else if ( $('.item_click').val() === "" ){
+      swal({   title: "Whoah there!",   
+               text: "You need to pick a class first!", 
+               type: "error",confirmButtonText: "Ok" });
+      $('html, body').animate({
+              scrollTop: $('#ch_class').offset().top-100
+          }, 500);
+    }
+    //Class Equip validation
+    else if ( $('#ch_classequip').val() === "" ){
+      swal({   title: "Whoah there!",   
+               text: "You need to get some gear first!", 
+               type: "error",confirmButtonText: "Ok" });
+      $('html, body').animate({
+              scrollTop: $('#ch_class').offset().top-100
+          }, 500);
+    }
+    //Skills validation
+    else if ( $('#ch_class_skills').val() === "" ){
+      swal({   title: "Whoah there!",   
+               text: "You need to pick some skills first!", 
+               type: "error",confirmButtonText: "Ok" });
+      $('html, body').animate({
+              scrollTop: $('#ch_class_skills').offset().top-100
+          }, 500);
+    }
+    //Background validation
+    else if ( $('#ch_background').val() === "" ){
+      swal({   title: "Whoah there!",   
+               text: "You need to pick a background!", 
+               type: "error",confirmButtonText: "Ok" });
+      $('html, body').animate({
+              scrollTop: $('#ch_background').offset().top-100
+          }, 500);
+    }
+    else {
+      $("#character_form").submit();
+    }
+    
+  });
+  
   
 });

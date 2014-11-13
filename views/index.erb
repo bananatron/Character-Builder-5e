@@ -13,18 +13,17 @@
 <body>
 <div class="row">
   <div class="large-12 columns">
+    <div id="logo"><img src="img/D5B.png" /></div>
 
-    <h2>@</h2>
-
-    <form action="/sheet" method="post">
+    <form id="character_form" action="/sheet" method="post">
 
      <!-- STEP 1 -->
     <fieldset id="step_1">
       
       <legend>Step 1: The Basics</legend>
-      Character name: <input type="text" name="ch_name"><br>
+      Character Name: <input id="ch_name" type="text" name="ch_name"><br>
       Age: <input type="number" name="ch_age">
-      Height: <input type="number" name="ch_height">
+      Height: <input type="text" name="ch_height">
       Weight: <input type="number" name="ch_weight"><br>
 
       Race: <input type="text" id="ch_race" name="ch_race" placeholder="Choose Below" readonly>
@@ -52,15 +51,15 @@
       </div>
 
       <br>
-      Size: <input type="hidden" name="ch_size" id="ch_size" placeholder="Choose a Race" readonly />
-      Speed: <input type="hidden" name="ch_speed" id="ch_speed" placeholder="Choose a Race" readonly />
-      Race Languages: <input type="hidden" name="ch_race_languages" id="ch_race_languages" readonly> <br>
-      Extra Race Languages: <input type="hidden" name="ch_race_langcount" id="ch_race_langcount" value="0" readonly /><br>
-      Race Feat: <input type="hidden" name="ch_race_features" id="ch_race_features" readonly />
+      <input type="hidden" name="ch_size" id="ch_size" placeholder="Choose a Race" readonly />
+      <input type="hidden" name="ch_speed" id="ch_speed" placeholder="Choose a Race" readonly />
+      <input type="hidden" name="ch_race_languages" id="ch_race_languages" readonly> <br>
+      <input type="hidden" name="ch_race_langcount" id="ch_race_langcount" value="0" readonly /><br>
+      <input type="hidden" name="ch_race_features" id="ch_race_features" readonly />
       <!--Race Tools: <input type="text" name="ch_race_tools" readonly />-->
-      Race Armor Prof: <input type="hidden" name="ch_race_armor_prof" id="ch_race_armor_prof" readonly />
-      Race Weapon Prof:<input type="hidden" name="ch_race_weapon_prof" id="ch_race_weapon_prof" readonly />
-      Race Skill Prof: <input type="hidden" name="ch_race_skill_prof" id="ch_race_skill_prof" readonly />
+      <input type="hidden" name="ch_race_armor_prof" id="ch_race_armor_prof" readonly />
+      <input type="hidden" name="ch_race_weapon_prof" id="ch_race_weapon_prof" readonly />
+      <input type="hidden" name="ch_race_skill_prof" id="ch_race_skill_prof" readonly />
       
     </fieldset>
     
@@ -85,15 +84,15 @@
         <option id="opt_3" value="point_buy">Point Buy</option>
       </select>
       <br />
-
       <div id="standard_array_wrap" class="name_wrap">
-        <table>
+        <div class="panel">Below, drag the values to match the desired attribute.</div>
+        <table width="100%">
           <tr>
-            <td width="400"><ul>
-            <li>STRENGTH</li><li>DEXTERITY</li><li>CONSTITUTION</li>
-            <li>INTELLIGENCE</li><li>WISOM</li><li>CHARISMA</li>
+            <td><ul>
+            <li class="statlist">Strength </li><li class="statlist">Dexterity</li><li class="statlist">Constitution</li>
+            <li class="statlist">Intelligence</li><li class="statlist">Wisdom</li><li class="statlist">Charisma</li>
             </ul></td>
-
+          </div>
           <td><ul id ="standard" class="sasortable">
               <li id="sa15" class="attr">15</li><li id="sa14" class="attr">14</li>
               <li id="sa13" class="attr">13</li><li id = "sa12" class="attr">12</li>
@@ -105,41 +104,43 @@
 
       
      <div id="point_buy_wrap" class="name_wrap">
-        Point Buy <div id="pb_total">27</div>
-       
-      <table>
-        <tr>
-         <td><ul>
-           <li>Strength</li><li>Dexterity</li><li>Intelligence</li>
-           <li>Wisdom</li><li>Charisma</li><li>Constitution</li>
-         </ul></td>
-          
-         <td><ul>
-          <li class="pb_attr" id="pb_str">8</li><li class="pb_attr" id="pb_dex">8</li>
-           <li class="pb_attr" id="pb_int">8</li><li class="pb_attr" id="pb_wis">8</li>
-          <li class="pb_attr" id="pb_cha">8</li><li class="pb_attr" id="pb_con">8</li>
-         </ul></td>
-
-         <td><ul>
-         <li><a id="pb_str_plus" class="tiny button pointbuy">+1</a> <a id="pb_str_min" class="tiny button secondary pointbuy">-1</a></li>
-         <li><a id="pb_dex_plus" class="tiny button pointbuy">+1</a> <a id="pb_dex_min" class="tiny button secondary pointbuy">-1</a></li>
-         <li><a id="pb_int_plus" class="tiny button pointbuy">+1</a> <a id="pb_int_min" class="tiny button secondary pointbuy">-1</a></li>
-         <li><a id="pb_wis_plus" class="tiny button pointbuy">+1</a> <a id="pb_wis_min" class="tiny button secondary pointbuy">-1</a></li>
-         <li><a id="pb_cha_plus" class="tiny button pointbuy">+1</a> <a id="pb_cha_min" class="tiny button secondary pointbuy">-1</a></li>
-         <li><a id="pb_con_plus" class="tiny button pointbuy">+1</a> <a id="pb_con_min" class="tiny button secondary pointbuy">-1</a></li>
-         </ul></td>
-
-        </tr>
-      </table>
-        
+       <div class="panel">You have 27 points to spend on your attributes.</div>
+       Points left: <b><span id="pb_total">27</span></b>
+       <table>
+         <tr><td class="pb_statlist">Strength</td><td class="pb_attr pb_statlist" id="pb_str">8</td>
+           <td class="buy_buttons"><a id="pb_str_plus" class="tiny button pointbuy">+1</a><br>
+             <a id="pb_str_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
+         </tr>
+         <tr><td class="pb_statlist">Dexterity</td><td class="pb_attr pb_statlist" id="pb_dex">8</td>
+           <td class="buy_buttons"><a id="pb_dex_plus" class="tiny button pointbuy">+1</a><br>
+             <a id="pb_dex_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
+         </tr>
+         <tr><td class="pb_statlist">Constitution</td><td class="pb_attr pb_statlist" id="pb_con">8</td>
+           <td class="buy_buttons"><a id="pb_con_plus" class="tiny button pointbuy">+1</a><br>
+             <a id="pb_con_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
+         </tr>
+         <tr><td class="pb_statlist">Intelligence</td><td class="pb_attr pb_statlist" id="pb_int">8</td>
+           <td class="buy_buttons"><a id="pb_int_plus" class="tiny button pointbuy">+1</a><br>
+             <a id="pb_int_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
+         </tr>
+         <tr><td class="pb_statlist">Wisdom</td><td class="pb_attr pb_statlist" id="pb_wis">8</td>
+           <td class="buy_buttons"><a id="pb_wis_plus" class="tiny button pointbuy">+1</a><br>
+             <a id="pb_wis_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
+         </tr>
+         <tr><td class="pb_statlist">Charisma</td><td class="pb_attr pb_statlist" id="pb_cha">8</td>
+           <td class="buy_buttons"><a id="pb_cha_plus" class="tiny button pointbuy">+1</a><br>
+             <a id="pb_cha_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
+         </tr>
+       </table>
      </div>
 
      <div id="dice_roll_wrap" class="name_wrap">
-      <table>
+      <table width="100%">
+       <div class="panel">Below, drag the values to match the desired attribute.</div>
        <tr>
-        <td width="400"><ul>
-          <li>STRENGTH</li><li>DEXTERITY</li><li>CONSTITUTION</li>
-          <li>INTELLIGENCE</li><li>WISOM</li><li>CHARISMA</li>
+        <td><ul>
+          <li class="statlist">Strength</li><li class="statlist">Dexterity</li><li class="statlist">Constitution</li>
+          <li class="statlist">Intelligence</li><li class="statlist">Wisdom</li><li class="statlist">Charisma</li>
         </ul></td>
 
         <td><ul class="drsortable">
@@ -186,31 +187,27 @@
         </div>
       </div>
       
-      <!--Class: <input name="ch_class" id="ch_class" type="hidden" readonly>-->
-      Hit Points: <input name="ch_hp" id="ch_hp" type="hidden" readonly>
-      Hit Die: <input name="ch_hd" id="ch_hd" type="hidden" readonly>
-      Saving Throw Prof.: <input name="ch_stp" id="ch_stp" type="hidden" readonly>
-      Armor Prof: <input name="ch_armp" id="ch_armp" type="hidden" readonly>
-      Weapon Prof: <input name="ch_wepp" id="ch_wepp" type="hidden" readonly>
-      Class Tool Prof: <input name="ch_classtool" id="ch_classtool" type="hidden" readonly>
-      1st level spells: <input name="ch_spellcount" id="ch_spellcount" type="text" readonly>
-      cantrips: <input name="ch_cantripcount" id="ch_cantripcount" type="text" readonly>
-      Skill Prof: <input name="ch_skillcount" id="ch_skillcount" type="hidden" readonly>
-      Equip: <input name="ch_classequip" id="ch_classequip" type="text" readonly>
-      Class Features: <input name="ch_classfeat" id="ch_classfeat" type="text" readonly>
+      
+      <input name="ch_hp" id="ch_hp" type="hidden" readonly>
+      <input name="ch_hd" id="ch_hd" type="hidden" readonly>
+      <input name="ch_stp" id="ch_stp" type="hidden" readonly>
+      <input name="ch_armp" id="ch_armp" type="hidden" readonly>
+      <input name="ch_wepp" id="ch_wepp" type="hidden" readonly>
+      <input name="ch_classtool" id="ch_classtool" type="hidden" readonly>
+      <input name="ch_spellcount" id="ch_spellcount" type="hidden" readonly>
+      <input name="ch_cantripcount" id="ch_cantripcount" type="hidden" readonly>
+      <input name="ch_skillcount" id="ch_skillcount" type="hidden" readonly>
+      <input name="ch_classequip" id="ch_classequip" type="hidden" readonly>
+      <input name="ch_classfeat" id="ch_classfeat" type="hidden" readonly>
       <br>
-
 		</fieldset>
       
-      
-
 
       <% @amz_link = "http://www.amazon.com/gp/product/0786965606/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0786965606&linkCode=as2&tag=s0432c-20&linkId=DVQNDEKTCOBCER77" %>
 <% @buy_text = "Not avilable in the basic rules. Buy the PHB <a href='#{@amz_link}'><u>here</u></a>." %>
 
-    <fieldset id="step_3.5">
+    <fieldset id="step_35">
       <legend>Step 3.5: Skills and Spells</legend>
-      <br>
       <h4>Skills</h4>
       <p>As a <b><span id="class_msg">CLASS</span></b>, you can choose <b><span id="skill_count_msg">X</span></b> more skill proficiencies from this list.</p>
       <% @skilllist = ['Athletics', 'Acrobatics', 'Sleight of Hand', 'Stealth', 'Arcana', 'History', 'Investigation', 'Nature', 'Religion', 'Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival', 'Deception', 'Intimidation', 'Performance', 'Persuasion']%>
@@ -471,7 +468,7 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
       <h4>Alignment</h4>
       <input type="text" name="ch_alignment" id="ch_alignment" readonly></input>
 
-      <div id = "alignslider" class="range-slider" data-slider data-options="step: 1;start: 1; end: 9; display_selector: #sliderOutput3;">
+      <div id="alignslider" class="range-slider" data-slider data-options="step: 1;start: 1; end: 9; display_selector: #sliderOutput3;">
         <span class="range-slider-handle" role="slider" tabindex="0"></span>
         <span class="range-slider-active-segment"></span>
         <input type="hidden">
@@ -1003,14 +1000,15 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
       <input type="hidden" name="ch_flaw" id="ch_flaw" readonly />
       <input type="hidden" id="ch_bg_lang" name="ch_bg_lang" readonly />
       <input type="hidden" name="ch_bg_tools" id="ch_bg_tools" readonly />
-      BG Feat: <input type="text" name="ch_bg_features" id="ch_bg_features" readonly />
+      <input type="hidden" name="ch_bg_features" id="ch_bg_features" readonly />
       <input type="hidden" id="ch_bg_skills" name="ch_bg_skills" readonly />
       <input type="hidden" id="ch_bg_equip" name="ch_bg_equip" readonly />
 
 
     </fieldset>
 
-	  <input type="submit" class="large button" value="Generate" /><br/><br/>
+	  <!--<input type="submit" class="large button" value="Generate" />-->
+  <div id="submit_button" class="button">Submit</div><br/><br/>
 	</form>
 
 

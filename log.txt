@@ -2,10 +2,13 @@
 
 background unique properties (specialty, etc.)
 
->alert validations
-Equipment validations (mandatory)
+
+
+alignment doesn't work with show() (works on mobile thought)
 
 spells on sheet
+
+editable jquery stats (STR DEX, etc)
 
 draggable outside of range on mobile / reskin
 hideable/editable sheet
@@ -28,6 +31,7 @@ changing race after class/stat selection won't update hp/stats accurately
 
 
 ##!DONE!
+alert validations - DONE
 rogue expertises - DONE
 spell limiations - DONE
 remove drow elf - DONE

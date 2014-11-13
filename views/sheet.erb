@@ -220,14 +220,14 @@
       <div class="small-12 columns">
         <br>
         <div class="row">
-          <div class="small-6 columns"><b>Hit Die:</b> <%= @ch_hd %> </div>
+          <div class="small-6 columns"><b>Hit Die:</b> <span contenteditable="true"><%= @ch_hd %></span> </div>
           <div class="small-6 columns"><b>Max HP</b>: <span contenteditable="true"><%= @ch_hp %></span></div>
         </div>
         <br> 
         <div class="row">
          <div class="small-6 columns">
-           <p><b>HP</b>: <input value="<%= @ch_hp %>" type="text"></input></div>
-        <div class="small-6 columns"><p><b>Temp HP</b>: <input type="text"></input></div>
+           <p><b>HP</b>: <input value="<%= @ch_hp %>" type="number"></input></div>
+        <div class="small-6 columns"><p><b>Temp HP</b>: <input type="number"></input></div>
        </div>
        </div>
       </div>
@@ -260,7 +260,6 @@
            <li><%= feature %></li>
            <% end %>
          </ul>
-      
       <strong>Background Features</strong> <div contenteditable="true"><%= @ch_bg_features %></div><br>
       <strong>Personality Traits</strong> <div contenteditable="true"><%= @ch_trait %></div><br>
       <strong>Ideals</strong> <div contenteditable="true"><%= @ch_ideal %></div><br>
