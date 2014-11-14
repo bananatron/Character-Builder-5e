@@ -237,7 +237,7 @@ $(document).ready(function(){
     event.preventDefault();
     race_selection = "elf";
 
-    window.bonus_int = 1;
+    window.bonus_dex = 1;
     $("input#ch_race_languages").val("Common^Elvish");
     $("input#ch_size").val("Medium");
     $("input#ch_speed").val("30 ft.");
