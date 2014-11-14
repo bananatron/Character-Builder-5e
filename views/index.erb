@@ -11,227 +11,7 @@
 </head>
 
 <body>
-<div class="row">
-  <div class="large-12 columns">
-    <div id="logo"><img src="img/D5B.png" /></div>
-
-    <form id="character_form" action="/sheet" method="post">
-
-     <!-- STEP 1 -->
-    <fieldset id="step_1">
-      
-      <legend>Step 1: The Basics</legend>
-      Character Name: <input id="ch_name" type="text" name="ch_name"><br>
-      Age: <input type="number" name="ch_age" />
-      Height: <input type="text" name="ch_height" />
-      Weight: <input type="number" name="ch_weight" /><br>
-
-      Race: <input type="text" id="ch_race" name="ch_race" placeholder="Choose Below" readonly>
-
-      <dl class="tabs" data-tab>
-      <dd class="active">
-          <a href="#show_hum" id="panel_hum" class="race_click">Human</a></dd>
-      <dd><a class="race_click" id="panel_dwa" href="#show_dwa">Dwarf</a></dd>
-      <dd><a class="race_click" id="panel_elf" href="#show_elf">Elf</a></dd>
-      <dd><a class="race_click" id="panel_hal" href="#show_hal">Halfling</a></dd>
-      </dl>
-      <div class="tabs-content">
-        <div class="content active" id="show_hum">
-          <div id="human_desc"></div>
-        </div>
-        <div class="content" id="show_dwa">
-          <div id="dwarf_desc"></div>
-          </div>
-        <div class="content" id="show_elf">
-          <div id="elf_desc"></div>
-        </div>
-        <div class="content" id="show_hal">
-          <div id="halfling_desc"></div>
-        </div>
-      </div>
-      <input type="hidden" name="ch_size" id="ch_size" placeholder="Choose a Race" readonly />
-      <input type="hidden" name="ch_speed" id="ch_speed" placeholder="Choose a Race" readonly />
-      <input type="hidden" name="ch_race_languages" id="ch_race_languages" readonly> <br>
-      <input type="hidden" name="ch_race_langcount" id="ch_race_langcount" value="0" readonly /><br>
-      <input type="hidden" name="ch_race_features" id="ch_race_features" readonly />
-      <input type="hidden" name="ch_race_armor_prof" id="ch_race_armor_prof" readonly />
-      <input type="hidden" name="ch_race_weapon_prof" id="ch_race_weapon_prof" readonly />
-      <input type="hidden" name="ch_race_skill_prof" id="ch_race_skill_prof" readonly />
-      
-    </fieldset>
-    
-       <!-- STEP 2 -->
-		<fieldset id="step_2">
-      <legend>Step 2: Stats</legend>
-      <input id="ch_stats" type="hidden" readonly />
-      <input name="ch_str" id="ch_str" type="hidden" readonly />
-      <input name="ch_dex" id="ch_dex" type="hidden" readonly />
-      <input name="ch_con" id="ch_con" type="hidden" readonly />
-      <input name="ch_int" id="ch_int" type="hidden" readonly />
-      <input name="ch_wis" id="ch_wis" type="hidden" readonly />
-      <input name="ch_cha" id="ch_cha" type="hidden" readonly />
-
-      <label for="attr_type">
-        Attribute Assignment
-      </label>
-      <select id="attr_type">
-        <option id="opt_0" value="0">Please Choose</option>
-        <option id="opt_1" value="dice_roll">Dice Roll</option>
-        <option id="opt_2" value="standard_array">Standard Array</option>
-        <option id="opt_3" value="point_buy">Point Buy</option>
-      </select>
-      <br />
-      <div id="standard_array_wrap" class="name_wrap">
-        <div class="panel">Below, drag the values to match the desired attribute.</div>
-        <table width="100%">
-          <tr>
-            <td><ul>
-            <li class="statlist">Strength </li><li class="statlist">Dexterity</li><li class="statlist">Constitution</li>
-            <li class="statlist">Intelligence</li><li class="statlist">Wisdom</li><li class="statlist">Charisma</li>
-            </ul></td>
-          </div>
-          <td><ul id ="standard" class="sasortable">
-              <li id="sa15" class="attr">15</li><li id="sa14" class="attr">14</li>
-              <li id="sa13" class="attr">13</li><li id = "sa12" class="attr">12</li>
-              <li id="sa10" class="attr">10</li><li id="sa8" class="attr">8</li>
-            </ul></td>
-          </tr>
-        </table>
-      </div>
-
-      
-     <div id="point_buy_wrap" class="name_wrap">
-       <div class="panel">You have 27 points to spend on your attributes.</div>
-       Points left: <b><span id="pb_total">27</span></b>
-       <table>
-         <tr><td class="pb_statlist">Strength</td><td class="pb_attr pb_statlist" id="pb_str">8</td>
-           <td class="buy_buttons"><a id="pb_str_plus" class="tiny button pointbuy">+1</a><br>
-             <a id="pb_str_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
-         </tr>
-         <tr><td class="pb_statlist">Dexterity</td><td class="pb_attr pb_statlist" id="pb_dex">8</td>
-           <td class="buy_buttons"><a id="pb_dex_plus" class="tiny button pointbuy">+1</a><br>
-             <a id="pb_dex_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
-         </tr>
-         <tr><td class="pb_statlist">Constitution</td><td class="pb_attr pb_statlist" id="pb_con">8</td>
-           <td class="buy_buttons"><a id="pb_con_plus" class="tiny button pointbuy">+1</a><br>
-             <a id="pb_con_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
-         </tr>
-         <tr><td class="pb_statlist">Intelligence</td><td class="pb_attr pb_statlist" id="pb_int">8</td>
-           <td class="buy_buttons"><a id="pb_int_plus" class="tiny button pointbuy">+1</a><br>
-             <a id="pb_int_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
-         </tr>
-         <tr><td class="pb_statlist">Wisdom</td><td class="pb_attr pb_statlist" id="pb_wis">8</td>
-           <td class="buy_buttons"><a id="pb_wis_plus" class="tiny button pointbuy">+1</a><br>
-             <a id="pb_wis_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
-         </tr>
-         <tr><td class="pb_statlist">Charisma</td><td class="pb_attr pb_statlist" id="pb_cha">8</td>
-           <td class="buy_buttons"><a id="pb_cha_plus" class="tiny button pointbuy">+1</a><br>
-             <a id="pb_cha_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
-         </tr>
-       </table>
-     </div>
-
-     <div id="dice_roll_wrap" class="name_wrap">
-      <table width="100%">
-       <div class="panel">Below, drag the values to match the desired attribute.</div>
-       <tr>
-        <td><ul>
-          <li class="statlist">Strength</li><li class="statlist">Dexterity</li><li class="statlist">Constitution</li>
-          <li class="statlist">Intelligence</li><li class="statlist">Wisdom</li><li class="statlist">Charisma</li>
-        </ul></td>
-
-        <td><ul class="drsortable">
-         <li class="attr" id="liran1"></li><li class="attr" id="liran2"></li>
-         <li class="attr" id="liran3"></li></li><li class="attr" id="liran4"></li></li>
-         <li class="attr" id="liran5"></li></li><li class="attr" id="liran6"></li></li>
-        </ul></td>
-       </tr>
-      </table>
-     </div>
-			
-			</fieldset>
-    
-   <!-- STEP 3 -->
-		<fieldset id="step_3">
-      
-      <legend>Step 3: Class</legend>
-      Class: <input id="ch_class" name="ch_class" type="text" placeholder="Choose Below" readonly>
-      
-      <dl class="tabs" data-tab>
-      
-      <dd class="active">
-          <a href="#choose_desc" id="panel_choose">Choose a Class</a></dd>  
-      <dd><a href="#fighter_desc" id="panel_fig" class="class_click">Fighter</a></dd>  
-      <dd><a class="class_click" id="panel_wiz" href="#wizard_desc">Wizard</a></dd>
-      <dd><a class="class_click" id="panel_rog" href="#rogue_desc">Rogue</a></dd>
-      <dd><a class="class_click" id="panel_cle" href="#cleric_desc">Cleric</a></dd>
-      </dl>
-      <div class="tabs-content">
-        <div class="content active" id="choose_desc">
-          <p>Choose a class above.</p>
-        </div>
-        <div class ="content" id="fighter_desc">
-          <p>Fighter info</p>
-        </div>
-        <div class="content" id="wizard_desc">
-          <p>Wizard info</p>
-        </div>
-        <div class="content" id="rogue_desc">
-          <p>Rogue info</p>
-        </div>
-        <div class="content" id="cleric_desc">
-          <p>Cleric info</p>
-        </div>
-      </div>
-      
-      
-      <input name="ch_hp" id="ch_hp" type="hidden" readonly>
-      <input name="ch_hd" id="ch_hd" type="hidden" readonly>
-      <input name="ch_stp" id="ch_stp" type="hidden" readonly>
-      <input name="ch_armp" id="ch_armp" type="hidden" readonly>
-      <input name="ch_wepp" id="ch_wepp" type="hidden" readonly>
-      <input name="ch_classtool" id="ch_classtool" type="hidden" readonly>
-      <input name="ch_spellcount" id="ch_spellcount" type="hidden" readonly>
-      <input name="ch_cantripcount" id="ch_cantripcount" type="hidden" readonly>
-      <input name="ch_skillcount" id="ch_skillcount" type="hidden" readonly>
-      <input name="ch_classequip" id="ch_classequip" type="hidden" readonly>
-      <input name="ch_classfeat" id="ch_classfeat" type="hidden" readonly>
-      <br>
-		</fieldset>
-      
-
-      <% @amz_link = "http://www.amazon.com/gp/product/0786965606/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0786965606&linkCode=as2&tag=s0432c-20&linkId=DVQNDEKTCOBCER77" %>
-<% @buy_text = "Not avilable in the basic rules. Buy the PHB <a target='_blank' href='#{@amz_link}'><u>here</u></a>." %>
-
-    <fieldset id="step_35">
-      <legend>Step 3.5: Skills and Spells</legend>
-      <h4>Skills</h4>
-      <p>As a <b><span id="class_msg">CLASS</span></b>, you can choose <b><span id="skill_count_msg">X</span></b> more skill proficiencies from this list.</p>
-      <% @skilllist = ['Athletics', 'Acrobatics', 'Sleight of Hand', 'Stealth', 'Arcana', 'History', 'Investigation', 'Nature', 'Religion', 'Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival', 'Deception', 'Intimidation', 'Performance', 'Persuasion']%>
-      <%  @skilllist.sort_by!{ |m| m.downcase }  %>
-      
-      <% @skilllist.each do |skill|  %>
-        <input id="<%= skill.downcase %>_id" class = "ch_skillprof" type="checkbox" value="<%= skill %>">
-        <label class="skill_label" for="<%= skill.downcase %>_id"><%= skill %></label> 
-      <% end %>
-      
-        
-      <div class="skill_container" id="rogue_exp">
-        <h4>Rogue Expertise</h4>
-        Choose <b>2</b> of the skills below which represent your expertise. <i>(+2 to each skill selected)</i><br><br>
-        <% @skilllist = ['Athletics', 'Acrobatics', 'Sleight of Hand', 'Stealth', 'Arcana', 'History', 'Investigation', 'Nature', 'Religion', 'Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival', 'Deception', 'Intimidation', 'Performance', 'Persuasion']%>
-      <%  @skilllist.sort_by!{ |m| m.downcase }  %>
-      
-      <% @skilllist.each do |skill|  %>
-        <input id="rogue_<%= skill.downcase %>_id" class="ch_rogue_skillprof" type="checkbox" value="<%= skill %>">
-        <label class="rogue_skill_label" for="rogue_<%= skill.downcase %>_id"><%= skill %></label> 
-        <% end %>
-        <input id="rogue_thtools_id" class="ch_rogue_skillprof" type="checkbox" value="Thieves Tools">
-        <label for="rogue_thtools_id">Thieves Tools</label>
-      </div>
-      
-  
-      <% @spelllist_wizard0 = [
+  <% @spelllist_wizard0 = [
   {name:"Acid Splash", ct:"1 Action", range:"60 ft.", comp:"v, s", dur:"Instantaneous", school:"Conjuration", text:"You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage. <br><br><i>This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</i>"},
   {name:"Blade Ward", ct:"1 Action", range:"Self", comp:"v, s", dur:"1 Round", school:"Abjuration", text:@buy_text},
   {name:"Chill Touch", ct:"1 Action", range:"120 ft.", comp:"v, s", dur:"1 Round", school:"Necromancy", text:@buy_text},
@@ -364,7 +144,232 @@ At Higher Levels. When you cast this spell using a spell slot of 2nd level or hi
 If the warded creature makes an attack or casts a spell that affects an enemy creature, this spell ends."},
     {name:"Shield of Faith",ct:"1 Bonus Action", range:"60 ft.", comp:"v, s, m (a small parchment with a bit of holy text)", dur:"Concentration, up to 10 minutes", school:"Abjuration", text:"A shimmering field appears and surrounds a creature of your choice within range, granting it a +2 bonus to AC for the duration."}
     ]%>
+  <ul class="breadcrumbs">
+    <li><b>D5B</b></li>
+    <li><a target="_blank" href="http://d5b.herokuapp.com">Create Another</a></li>
+    <li><a data-reveal-id="aboutBuilder" href="#">About</a>
+    <li><a data-reveal-id="faq" href="#">FAQ</a>
+    <li class="unavailable right"><a target="_blank" href="http://www.spensercoke.com">Author</a></li>
+  </ul>
+<div class="row">
+  <div class="large-12 columns">
+    <div id="logo"><img src="img/D5B.png" /></div>
+
+    <form id="character_form" action="/sheet" method="post">
+
+     <!-- STEP 1 -->
+    <fieldset id="step_1">
       
+      <legend>Step 1: The Basics</legend>
+      Character Name: <input id="ch_name" type="text" name="ch_name"><br>
+      Age: <input type="number" name="ch_age" />
+      Height: <input type="text" name="ch_height" />
+      Weight: <input type="number" name="ch_weight" /><br>
+
+      Race: <input type="text" id="ch_race" name="ch_race" placeholder="Choose Below" readonly>
+
+      <dl class="tabs" data-tab>
+      <dd class="active">
+          <a href="#show_hum" id="panel_hum" class="race_click">Human</a></dd>
+      <dd><a class="race_click" id="panel_dwa" href="#show_dwa">Dwarf</a></dd>
+      <dd><a class="race_click" id="panel_elf" href="#show_elf">Elf</a></dd>
+      <dd><a class="race_click" id="panel_hal" href="#show_hal">Halfling</a></dd>
+      </dl>
+      <div class="tabs-content">
+        <div class="content active" id="show_hum">
+          <div id="human_desc"></div>
+        </div>
+        <div class="content" id="show_dwa">
+          <div id="dwarf_desc"></div>
+          </div>
+        <div class="content" id="show_elf">
+          <div id="elf_desc"></div>
+        </div>
+        <div class="content" id="show_hal">
+          <div id="halfling_desc"></div>
+        </div>
+      </div>
+      <input type="hidden" name="ch_size" id="ch_size" placeholder="Choose a Race" readonly />
+      <input type="hidden" name="ch_speed" id="ch_speed" placeholder="Choose a Race" readonly />
+      <input type="hidden" name="ch_race_languages" id="ch_race_languages" readonly> <br>
+      <input type="hidden" name="ch_race_langcount" id="ch_race_langcount" value="0" readonly /><br>
+      <input type="hidden" name="ch_race_features" id="ch_race_features" readonly />
+      <input type="hidden" name="ch_race_armor_prof" id="ch_race_armor_prof" readonly />
+      <input type="hidden" name="ch_race_weapon_prof" id="ch_race_weapon_prof" readonly />
+      <input type="hidden" name="ch_race_skill_prof" id="ch_race_skill_prof" readonly />
+      
+    </fieldset>
+    
+       <!-- STEP 2 -->
+		<fieldset id="step_2">
+      <legend>Step 2: Stats</legend>
+      <input id="ch_stats" type="hidden" readonly />
+      <input name="ch_str" id="ch_str" type="hidden" readonly />
+      <input name="ch_dex" id="ch_dex" type="hidden" readonly />
+      <input name="ch_con" id="ch_con" type="hidden" readonly />
+      <input name="ch_int" id="ch_int" type="hidden" readonly />
+      <input name="ch_wis" id="ch_wis" type="hidden" readonly />
+      <input name="ch_cha" id="ch_cha" type="hidden" readonly />
+
+      <label for="attr_type">
+        Attribute Assignment
+      </label>
+      <select id="attr_type">
+        <option id="opt_0" value="0">Please Choose</option>
+        <option id="opt_1" value="dice_roll">Dice Roll</option>
+        <option id="opt_2" value="standard_array">Standard Array</option>
+        <option id="opt_3" value="point_buy">Point Buy</option>
+      </select>
+      <br />
+      <div id="standard_array_wrap" class="name_wrap">
+        <div class="panel">Below, drag the values to match the desired attribute.</div>
+        <table width="100%">
+          <tr>
+            <td><ul class="statlist">
+            <li class="statlist">Strength </li><li class="statlist">Dexterity</li><li class="statlist">Constitution</li>
+            <li class="statlist">Intelligence</li><li class="statlist">Wisdom</li><li class="statlist">Charisma</li>
+            </ul></td>
+          </div>
+          <td><ul id ="standard" class="sasortable statlist">
+              <li id="sa15" class="attr">15</li><li id="sa14" class="attr">14</li>
+              <li id="sa13" class="attr">13</li><li id = "sa12" class="attr">12</li>
+              <li id="sa10" class="attr">10</li><li id="sa8" class="attr">8</li>
+            </ul></td>
+          </tr>
+        </table>
+      </div>
+
+      
+     <div id="point_buy_wrap" class="name_wrap">
+       <div class="panel">You have 27 points to spend on your attributes.</div>
+       Points left: <b><span id="pb_total">27</span></b>
+       <table>
+         <tr><td class="pb_statlist">Strength</td><td class="pb_attr pb_statlist" id="pb_str">8</td>
+           <td class="buy_buttons"><a id="pb_str_plus" class="tiny button pointbuy">+1</a><br>
+             <a id="pb_str_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
+         </tr>
+         <tr><td class="pb_statlist">Dexterity</td><td class="pb_attr pb_statlist" id="pb_dex">8</td>
+           <td class="buy_buttons"><a id="pb_dex_plus" class="tiny button pointbuy">+1</a><br>
+             <a id="pb_dex_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
+         </tr>
+         <tr><td class="pb_statlist">Constitution</td><td class="pb_attr pb_statlist" id="pb_con">8</td>
+           <td class="buy_buttons"><a id="pb_con_plus" class="tiny button pointbuy">+1</a><br>
+             <a id="pb_con_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
+         </tr>
+         <tr><td class="pb_statlist">Intelligence</td><td class="pb_attr pb_statlist" id="pb_int">8</td>
+           <td class="buy_buttons"><a id="pb_int_plus" class="tiny button pointbuy">+1</a><br>
+             <a id="pb_int_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
+         </tr>
+         <tr><td class="pb_statlist">Wisdom</td><td class="pb_attr pb_statlist" id="pb_wis">8</td>
+           <td class="buy_buttons"><a id="pb_wis_plus" class="tiny button pointbuy">+1</a><br>
+             <a id="pb_wis_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
+         </tr>
+         <tr><td class="pb_statlist">Charisma</td><td class="pb_attr pb_statlist" id="pb_cha">8</td>
+           <td class="buy_buttons"><a id="pb_cha_plus" class="tiny button pointbuy">+1</a><br>
+             <a id="pb_cha_min" class="tiny button secondary pointbuy">&nbsp;-1</a></td>
+         </tr>
+       </table>
+     </div>
+
+     <div id="dice_roll_wrap" class="name_wrap">
+      <table width="100%">
+       <div class="panel">Below, drag the values to match the desired attribute.</div>
+       <tr>
+        <td><ul class="statlist">
+          <li class="statlist">Strength</li><li class="statlist">Dexterity</li><li class="statlist">Constitution</li>
+          <li class="statlist">Intelligence</li><li class="statlist">Wisdom</li><li class="statlist">Charisma</li>
+        </ul></td>
+
+        <td><ul class="drsortable statlist">
+         <li class="attr" id="liran1"></li><li class="attr" id="liran2"></li>
+         <li class="attr" id="liran3"></li></li><li class="attr" id="liran4"></li></li>
+         <li class="attr" id="liran5"></li></li><li class="attr" id="liran6"></li></li>
+        </ul></td>
+       </tr>
+      </table>
+     </div>
+			
+			</fieldset>
+    
+   <!-- STEP 3 -->
+		<fieldset id="step_3">
+      
+      <legend>Step 3: Class</legend>
+      Class: <input id="ch_class" name="ch_class" type="text" placeholder="Choose Below" readonly>
+      
+      <dl class="tabs" data-tab>
+      
+      <dd class="active">
+          <a href="#choose_desc" id="panel_choose">Choose a Class</a></dd>  
+      <dd><a href="#fighter_desc" id="panel_fig" class="class_click">Fighter</a></dd>  
+      <dd><a class="class_click" id="panel_wiz" href="#wizard_desc">Wizard</a></dd>
+      <dd><a class="class_click" id="panel_rog" href="#rogue_desc">Rogue</a></dd>
+      <dd><a class="class_click" id="panel_cle" href="#cleric_desc">Cleric</a></dd>
+      </dl>
+      <div class="tabs-content">
+        <div class="content active" id="choose_desc">
+          <p>Choose a class above.</p>
+        </div>
+        <div class ="content" id="fighter_desc">
+          <p>Fighter info</p>
+        </div>
+        <div class="content" id="wizard_desc">
+          <p>Wizard info</p>
+        </div>
+        <div class="content" id="rogue_desc">
+          <p>Rogue info</p>
+        </div>
+        <div class="content" id="cleric_desc">
+          <p>Cleric info</p>
+        </div>
+      </div>
+      
+      
+      <input name="ch_hp" id="ch_hp" type="hidden" readonly>
+      <input name="ch_hd" id="ch_hd" type="hidden" readonly>
+      <input name="ch_stp" id="ch_stp" type="hidden" readonly>
+      <input name="ch_armp" id="ch_armp" type="hidden" readonly>
+      <input name="ch_wepp" id="ch_wepp" type="hidden" readonly>
+      <input name="ch_classtool" id="ch_classtool" type="hidden" readonly>
+      <input name="ch_spellcount" id="ch_spellcount" type="hidden" readonly>
+      <input name="ch_cantripcount" id="ch_cantripcount" type="hidden" readonly>
+      <input name="ch_skillcount" id="ch_skillcount" type="hidden" readonly>
+      <input name="ch_classequip" id="ch_classequip" type="hidden" readonly>
+      <input name="ch_classfeat" id="ch_classfeat" type="hidden" readonly>
+      <br>
+		</fieldset>
+      
+
+      <% @amz_link = "http://www.amazon.com/gp/product/0786965606/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0786965606&linkCode=as2&tag=s0432c-20&linkId=DVQNDEKTCOBCER77" %>
+<% @buy_text = "Not avilable in the basic rules. Buy the PHB <a target='_blank' href='#{@amz_link}'><u>here</u></a>." %>
+
+    <fieldset id="step_35">
+      <legend>Step 3.5: Skills and Spells</legend>
+      <h4>Skills</h4>
+      <p>As a <b><span id="class_msg">CLASS</span></b>, you can choose <b><span id="skill_count_msg">X</span></b> more skill proficiencies from this list.</p>
+      <% @skilllist = ['Athletics', 'Acrobatics', 'Sleight of Hand', 'Stealth', 'Arcana', 'History', 'Investigation', 'Nature', 'Religion', 'Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival', 'Deception', 'Intimidation', 'Performance', 'Persuasion']%>
+      <%  @skilllist.sort_by!{ |m| m.downcase }  %>
+      
+      <% @skilllist.each do |skill|  %>
+        <input id="<%= skill.downcase %>_id" class = "ch_skillprof" type="checkbox" value="<%= skill %>">
+        <label class="skill_label" for="<%= skill.downcase %>_id"><%= skill %></label> 
+      <% end %>
+      
+        
+      <div class="skill_container" id="rogue_exp">
+        <h4>Rogue Expertise</h4>
+        Choose <b>2</b> of the skills below which represent your expertise. <i>(+2 to each skill selected)</i><br><br>
+        <% @skilllist = ['Athletics', 'Acrobatics', 'Sleight of Hand', 'Stealth', 'Arcana', 'History', 'Investigation', 'Nature', 'Religion', 'Animal Handling', 'Insight', 'Medicine', 'Perception', 'Survival', 'Deception', 'Intimidation', 'Performance', 'Persuasion']%>
+      <%  @skilllist.sort_by!{ |m| m.downcase }  %>
+      
+      <% @skilllist.each do |skill|  %>
+        <input id="rogue_<%= skill.downcase %>_id" class="ch_rogue_skillprof" type="checkbox" value="<%= skill %>">
+        <label class="rogue_skill_label" for="rogue_<%= skill.downcase %>_id"><%= skill %></label> 
+        <% end %>
+        <input id="rogue_thtools_id" class="ch_rogue_skillprof" type="checkbox" value="Thieves Tools">
+        <label for="rogue_thtools_id">Thieves Tools</label>
+      </div>
+
         <div class="skill_container" id="wizard_spell_select">
           <h4>Wizard Cantrips</h4>
           As a level one wizard, you can choose <b>3</b> cantrips of your choice below.<br><br>
@@ -1001,15 +1006,31 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
       <input type="hidden" id="ch_bg_skills" name="ch_bg_skills" readonly />
       <input type="hidden" id="ch_bg_equip" name="ch_bg_equip" readonly />
 
-
     </fieldset>
   <center>
     <div id="submit_button" class="button">Submit</div></center><br/><br/>
 	</form>
-
-
 	</div>
-	</div>
+</div>
+
+<div id="aboutBuilder" class="reveal-modal" data-reveal>
+  <center><img src="img/D5B.png" /></center><br>
+  <p>Everything available in this builder is available in the DND 5E Basic rules PDF, which can be found for free, <a href="http://dnd.wizards.com/articles/features/basicrules">here</a>. The text used was written and is maintained by Wizards of the Coast. For more rules and information, you can purchase the DND 5E Players Handbook from <a href="<%=@amz_link%>">amazon</a> or your friendly local book/game store.
+  <p>The source for this project can be found <a href="https://github.com/bananatron/Character-Builder-5e">on github</a>.
+</div>
+<div id="faq" class="reveal-modal" data-reveal>
+  <h2>FAQ</h2><br>
+   <p><strong>Why?</strong><br>
+   I think 5E is pretty nifty, but I couldn't find a good, responsive, 5E generator that I liked (and I wanted to learn jQuery). I wanted something I could link to friends and have them get a character made in minutes, with or without their phone. If you're a developer and you have functionality you want to add, grab <a href="https://github.com/bananatron/Character-Builder-5e">the source</a> and get going.
+  <p><strong>How do I save my character?</strong><br>
+   D5B is not currently connected to any database. As a result, there is no online storage of character data at this time. You can save the file from your browser and (if your browser gets all the dependancies) it should be viewable and editable locally.
+  <p><strong>What browsers are supported?</strong><br>
+    D5B is not being <i>supported</i>, but your best bet is to use a modern, non-IE, browser like Firefox or Chrome.
+  <p><strong>What tech was used to make D5B?</strong><br>
+  D5B's core front-end functionality comes from JS/jQuery on top of Foundation CSS. It uses Ruby and Sinatra to quickly generate HTML data with embedded Ruby and is hosted on Heroku.
+  <p><strong>How can I help?  </strong><br>
+  You can help by taking the source and making something better (or just making something better, in general), or by buying the PHB through my <a href=<%= @amz_link %>>amazon referral link</a>.<br><br>
+</div>
   <script src="js/vendor/modernizr.js"></script>
   <script src="js/vendor/jquery.js"></script>
   <script src="js/vendor/jquery-ui.js"></script>

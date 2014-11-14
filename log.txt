@@ -1,33 +1,29 @@
 ##Add:
 
-saving throw delimiter standardization ^
 equipment delimiter standardization ^ (check rogue equip)
-
-Top nav bar on sheet and some info on front page
-
 background unique properties (specialty, etc.)
 spells & descriptions on sheet (cleric, etc)
 
 styling
 check on mending & other spells on phb!
 
-
-
-
+make sure all fields are ediable without entry (height, weight,etc.)
 
 ##Low Prior
 - Tooltip on sheet for how it was calculated
 - tooltips for things (kits, skills, etc.)
 - Spreadsheet export
 - Save html (instructions?)
-- pluses on stat mods
 - hide spells not available in basic (based on * probably)
+- labels on sheet skill checkbox
 
 ##Problems:
 
 
 
 ##!DONE!
+saving throw delimiter standardization ^ - DONE
+Top nav bar on sheet and some info on front page - DONE
 fix light/detect magic (any duplicates) that (id is duplicated on wizard) - DONE
 add/remove list elements - DONE
 test rogue expertise - DONE

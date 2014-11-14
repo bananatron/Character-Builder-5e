@@ -1806,64 +1806,6 @@ button::-moz-focus-inner {
   .dropdown.button.secondary:after, button.dropdown.secondary:after {
     border-color: #333333 transparent transparent transparent; }
 
-/* Image Thumbnails */
-.th {
-  line-height: 0;
-  display: inline-block;
-  border: solid 4px white;
-  max-width: 100%;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
-  transition: all 200ms ease-out; }
-  .th:hover, .th:focus {
-    box-shadow: 0 0 6px 1px rgba(76, 0, 0, 0.5); }
-  .th.radius {
-    border-radius: 3px; }
-
-/* Pricing Tables */
-.pricing-table {
-  border: solid 1px #dddddd;
-  margin-left: 0;
-  margin-bottom: 1.25rem; }
-  .pricing-table * {
-    list-style: none;
-    line-height: 1; }
-  .pricing-table .title {
-    background-color: #333333;
-    padding: 0.9375rem 1.25rem;
-    text-align: center;
-    color: #eeeeee;
-    font-weight: normal;
-    font-size: 1rem;
-    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
-  .pricing-table .price {
-    background-color: #f6f6f6;
-    padding: 0.9375rem 1.25rem;
-    text-align: center;
-    color: #333333;
-    font-weight: normal;
-    font-size: 2rem;
-    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
-  .pricing-table .description {
-    background-color: white;
-    padding: 0.9375rem;
-    text-align: center;
-    color: #777777;
-    font-size: 0.75rem;
-    font-weight: normal;
-    line-height: 1.4;
-    border-bottom: dotted 1px #dddddd; }
-  .pricing-table .bullet-item {
-    background-color: white;
-    padding: 0.9375rem;
-    text-align: center;
-    color: #333333;
-    font-size: 0.875rem;
-    font-weight: normal;
-    border-bottom: dotted 1px #dddddd; }
-  .pricing-table .cta-button {
-    background-color: white;
-    text-align: center;
-    padding: 1.25rem 1.25rem 0; }
 
 .text-left {
   text-align: left !important; }
@@ -4787,10 +4729,7 @@ th.hide-for-touch {
   th.show-for-print {
     display: table-cell !important; } }
     
-ul {
-  list-style-type:none;
-  font-size: 26px;
-}
+
 li.attr{
   width:70px;
   border-style: solid;
@@ -4830,6 +4769,9 @@ li.statlist {
   text-decoration: none;
   font-size: 1.6rem;
   margin:2px;
+}
+ul.statlist {
+    list-style-type: none;
 }
 .pb_statlist {
   padding-top: 0.5rem;

@@ -56,9 +56,7 @@ $(document).ready(function(){
   $(".li_adder").click(function(){
     var ul = $(this).attr('id').replace("_add", "")
    console.log( ul );
-    $('#'+ul).append("<span contenteditable='true'><li class='list'>Erase all text to remove.</li>")
+    $('#'+ul).append("<span contenteditable='true'><li class='list'>Erase, then backspace to remove.</li>")
   });
-  
-  //$(".list").parent().parent().append("<span contenteditable='true'><li class='list'>test list item</li>")
   
 });

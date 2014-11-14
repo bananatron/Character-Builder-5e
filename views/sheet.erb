@@ -4,8 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DND Character Builder</title>
-    <link rel="stylesheet" href="css/foundation.min.css" />
-    <script src="js/vendor/modernizr.js"></script>
+    <link rel="stylesheet" href="css/foundation.css" />
     <style>
     .attr_container {
       border: 0px;
@@ -210,7 +209,7 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
       <div class="row">
         <div class="small-4 columns">
           <b>Race:</b> <span id="ch_race"><%= @ch_race %></span><br>
-          <b>Height:</b> <span contenteditable="true"><span id="ch_height"><%= @ch_height %></span></span><br>
+          <b>Height:</b> <span contenteditable="true"><span id="ch_height"><% if @ch_height.length>0 %><%= @ch_height %><% else %> X <% end %></span></span><br>
           <b>Weight:</b> <span contenteditable="true"><span id="ch_weight"><% if @ch_weight.length>0 %><%= @ch_weight %><% else %> X <% end %></span> 
           lbs.</span><br>
         </div>
@@ -280,10 +279,15 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
         <div class="small-6 columns">
           <table>
             <tr><th>Saving Throws</th></tr>
-            <% @ch_stp.split("^").each do |stp| %>
+            <% @ch_stp.each do |stp| %>
             <tr><td><span contenteditable="true"><%= stp %> <i>(+2)</i></span></td></tr>
             <% end %>
-
+          </table>
+          <table>
+            <tr><th>Weapon Proficiencies</th></tr>
+            <% @ch_race_weapon_prof.each do |wp| %>
+            <tr><td><span contenteditable="true"><%= wp.capitalize %> <i>(+2)</i></span></td></tr>
+            <% end %>
           </table>
           
           <fieldset name="death saves"><legend>Death Saves</legend>
@@ -296,9 +300,6 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
               , and <%= @master_lang_count %> extra language(s) of your choice.
               <% end %>
             </div>
-          <% if @ch_rogue_exp.length != 0 %><br><b>Rogue Expertise</b><br>
-           As a rogue, you double your proficiency bonus when using <%= @ch_rogue_exp.split("^").join(" and ") %>.
-          <% end %>
         </div>
         
         <div class="small-6 columns">
@@ -323,39 +324,94 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
               <input type="checkbox"<% if @master_skill_list.include?('Survival')%>checked<% end %>/> <small>(WIS)</small> Survival <br>
             </div>
         </div>
-      </div>
-    <% if @ch_spells_selected.length > 0 %>
-    <br>
+      </div><br>
+<% if @ch_spells_selected.length > 0 %>
+    
     <% tincw = 0 %>
     <div class="row">
       <div class="small-6 columns">
         <strong>Spells</strong><br>
-        <% @ch_spells_selected.strip.tr('*','').split("^").each do |spell| %>
-        <%= spell %>&nbsp;&nbsp;
+        <% if @ch_class.downcase == "wizard" %>
+            <% @ch_spells_selected.each do |spell| %>
+            <%= spell %>&nbsp;&nbsp;
             <% @spelllist_wizard1.each do |entry| %>
-            <% if entry[:name] == spell.strip || entry[:name] == spell.strip+"*" %>
-                <% tincw += 1 %>
-                <a data-dropdown="drop2_<%=tincw%>" aria-controls="drop2" aria-expanded="false" href="#">?</a>
-                <div id="drop2_<%=tincw%>" aria-hidden="true" data-dropdown-content class="medium content f-dropdown">
-                  <h3><%= entry[:name] %></h3><i><%= entry[:school] %></i><br>
-                  <b>Casting Time: </b><%= entry[:ct] %><br>
-                  <b>Range: </b><%= entry[:range] %></b><br>
-                <b>Components: </b><%= entry[:comp] %><br>
-                <b>Duration: </b><%= entry[:dur] %><br>
-                <b>Effect:</b> <div contenteditable="true"><%= entry[:text] if entry[:text] %></div>
-              </div>
+                <% if entry[:name] == spell.strip || entry[:name] == spell.strip+"*" %>
+                    <% tincw += 1 %>
+                    <a data-dropdown="drop2_<%=tincw%>" aria-controls="drop2" aria-expanded="false" href="#">?</a>
+                    <div id="drop2_<%=tincw%>" aria-hidden="true" data-dropdown-content class="medium content f-dropdown">
+                      <h3><%= entry[:name] %></h3><i><%= entry[:school] %></i><br>
+                      <b>Casting Time: </b><%= entry[:ct] %><br>
+                      <b>Range: </b><%= entry[:range] %></b><br>
+                    <b>Components: </b><%= entry[:comp] %><br>
+                    <b>Duration: </b><%= entry[:dur] %><br>
+                    <b>Effect:</b> <div contenteditable="true"><%= entry[:text] if entry[:text] %></div>
+                  </div>
+                <% end %>
+              <% end %><br>
             <% end %>
-          <% end %><br>
-        <% end %>
-      </div>
-     <div class="small-6 columns">
+       <% else %>
+            <% @ch_spells_selected.each do |spell| %>
+            <%= spell %>&nbsp;&nbsp;
+            <% @spelllist_cleric1.each do |entry| %>
+                <% if entry[:name] == spell.strip || entry[:name] == spell.strip+"*" %>
+                    <% tincw += 1 %>
+                    <a data-dropdown="drop2_<%=tincw%>" aria-controls="drop2" aria-expanded="false" href="#">?</a>
+                    <div id="drop2_<%=tincw%>" aria-hidden="true" data-dropdown-content class="medium content f-dropdown">
+                      <h3><%= entry[:name] %></h3><i><%= entry[:school] %></i><br>
+                      <b>Casting Time: </b><%= entry[:ct] %><br>
+                      <b>Range: </b><%= entry[:range] %></b><br>
+                    <b>Components: </b><%= entry[:comp] %><br>
+                    <b>Duration: </b><%= entry[:dur] %><br>
+                    <b>Effect:</b> <div contenteditable="true"><%= entry[:text] if entry[:text] %></div>
+                  </div>
+                <% end %>
+              <% end %><br>
+            <% end %>
+       <% end %>
+    </div>
+    <div class="small-6 columns">
        <strong>Cantrips</strong><br>
-        <% @ch_cantrips_selected.strip.tr('*','').split("^").each do |cantrip| %>
-        <%= cantrip %> <br>
-        <% end %>
+    <% if @ch_class.downcase == "cleric" %>
+      
+        <% @ch_cantrips_selected.each do |cantrip| %>
+            <%= cantrip %>&nbsp;&nbsp;
+            <% @spelllist_cleric0.each do |entry| %>
+              <% if entry[:name] == cantrip.strip || entry[:name] == cantrip.strip+"*" %>
+              <% tincw += 1 %>
+              <a data-dropdown="drop2_<%=tincw%>" aria-controls="drop2" aria-expanded="false" href="#">?</a>
+              <div id="drop2_<%=tincw%>" aria-hidden="true" data-dropdown-content class="medium content f-dropdown">
+                <h3><%= entry[:name] %></h3><i><%= entry[:school] %></i><br>
+                <b>Casting Time: </b><%= entry[:ct] %><br>
+                <b>Range: </b><%= entry[:range] %></b><br>
+              <b>Components: </b><%= entry[:comp] %><br>
+              <b>Duration: </b><%= entry[:dur] %><br>
+              <b>Effect:</b> <div contenteditable="true"><%= entry[:text] if entry[:text] %></div>
+              </div>
+              <% end %>
+           <% end %><br>
+       <% end %>
+    <% else %>
+        <% @ch_cantrips_selected.each do |cantrip| %>
+            <%= cantrip %>&nbsp;&nbsp;
+            <% @spelllist_wizard0.each do |entry| %>
+              <% if entry[:name] == cantrip.strip || entry[:name] == cantrip.strip+"*" %>
+              <% tincw += 1 %>
+              <a data-dropdown="drop2_<%=tincw%>" aria-controls="drop2" aria-expanded="false" href="#">?</a>
+              <div id="drop2_<%=tincw%>" aria-hidden="true" data-dropdown-content class="medium content f-dropdown">
+                <h3><%= entry[:name] %></h3><i><%= entry[:school] %></i><br>
+                <b>Casting Time: </b><%= entry[:ct] %><br>
+                <b>Range: </b><%= entry[:range] %></b><br>
+              <b>Components: </b><%= entry[:comp] %><br>
+              <b>Duration: </b><%= entry[:dur] %><br>
+              <b>Effect:</b> <div contenteditable="true"><%= entry[:text] if entry[:text] %></div>
+              </div>
+              <% end %>
+           <% end %><br>
+       <% end %>
+    <% end %>
       </div>
     </div>
-  <% end %>
+<% end %>
   </div>
 
     <div class="medium-4 columns">
@@ -386,9 +442,9 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
          <strong>Equipment</strong>
          <div contentEditable="true" id="equip"><%= @master_equip_list %></div>
           <br>
-         <strong>Race Features</strong><a id="ch_racefeat_add" class="li_adder"><span class="success label right">+</span></a>
+         <strong>Race Features</strong><a id="ch_racefeat_add" class="li_adder"><span class="label right">+</span></a>
         <ul id="ch_racefeat">
-          <% @ch_race_features.split("^").each do |feat| %>
+          <% @ch_race_features.each do |feat| %>
           <li contenteditable="true"><%= feat %></li>
           <% end %>
         </ul>
@@ -396,16 +452,16 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
       </div>
     </div>
     <div class="medium-4 columns">
-      <strong>Class Traits</strong> <a id="ch_traits_add" class="li_adder"><span class="success label right">+</span></a>
+      <strong>Class Traits</strong> <a id="ch_traits_add" class="li_adder"><span class="label right">+</span></a>
          <ul id="ch_traits">
-           <% @ch_classfeat.split("^").each do |feature| %>
-           <span class="list_item"contenteditable="true"><li><%= feature %></li></span>
+           <% @ch_classfeat.each do |feature| %>
+           <span contenteditable="true"><li><%= feature %></li></span>
            <% end %>
          </ul>
       <strong>Background Features</strong> <div contenteditable="true"><%= @ch_bg_features %></div><br>
-      <strong>Personality Traits</strong> <div contenteditable="true"><%if @ch_trait.length>0 %> <%= @ch_trait %> <% else %>Flaw info here!<% end %> </div><br>
-      <strong>Ideals</strong> <div contenteditable="true"><%if @ch_ideal.length>0 %> <%= @ch_ideal %> <% else %>Flaw info here!<% end %> </div><br>
-      <strong>Bonds</strong> <div contenteditable="true"><%if @ch_bond.length>0 %> <%= @ch_bond %> <% else %>Flaw info here!<% end %> </div><br>
+      <strong>Personality Traits</strong> <div contenteditable="true"><%if @ch_trait.length>0 %> <%= @ch_trait %> <% else %>Trait info here!<% end %> </div><br>
+      <strong>Ideals</strong> <div contenteditable="true"><%if @ch_ideal.length>0 %> <%= @ch_ideal %> <% else %>Ideal info here!<% end %> </div><br>
+      <strong>Bonds</strong> <div contenteditable="true"><%if @ch_bond.length>0 %> <%= @ch_bond %> <% else %>Bond info here!<% end %> </div><br>
       <strong>Flaws</strong> <div contenteditable="true"><%if @ch_flaw.length>0 %> <%= @ch_flaw %> <% else %>Flaw info here!<% end %> </div><br>
       
     </div>
@@ -430,25 +486,15 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
   <p><strong>How can I help?  </strong><br>
   You can help by taking the source and making something better (or just making something better, in general), or by buying the PHB through my <a href=<%= @amz_link %>>amazon referral link</a>.<br><br>
 </div>
-
-
+<br><br>
+<br><br>
 <div id="bottom_d"> </div>
-      
+    <script src="js/vendor/modernizr.js"></script>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/sheet.js"></script>
     <script>
       $(document).foundation();
-      $(document).ready(function() {
-        
-        $('#bottom').click(function() {
-          $('html, body').animate({
-              scrollTop: $('#bottom_d').offset().top+1000
-          }, 500);
-          return false;
-        });
-      
-      });
     </script>
   </body>
 </html>

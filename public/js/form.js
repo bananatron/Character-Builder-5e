@@ -16,19 +16,33 @@
 // This file manipulates the index.erb (main form page)
 // Reference sheet.js for the sheet.erb (results / sheet page)
 
+//HOW THIS WORKS
+// This is basicall a giant form with a lot of jquery selectors filling out hidden input elements as you select/change things. Because it's designed to factor all character
+// choices into the final page (race/class/bg bonuses, etc.), some of the race/class logic gets stupid/complicated (this is also due to the unique nature of how 5E
+// isn't very standardized (good for gameplay imo, bad for programming)). Adding/editing backgrounds and spells, however, should be much easier as they are 
+// generated in the erb files using ruby objects (usually hashes or arrays of hashes, etc.). They were made towards the end of the project, when I had more insight.
+
+//Sinatra takes the hidden form values(referenced in base.rb), which are populated based on user selection and hands them over to sheet.erb for the final output.
+
+// I try to use ^ as a delimeter where I can in strings, as commas get messy with long, already comm-filled strings. The exception to this is equipment because it's 
+// array based. In addition, window.x is used for global variables.
+
+// This is my first jquery/js heavy app so I'm sure a lot of this could be refactored/restructured.
+//
+// ~110 - Race Logic
+// ~400 - Class Logic
+// ~540 - Roll Generator 
+// ~640 - Point buy logic
+// ~800 - Alignment
+// ~850 - Background logic
+// ~900 - Skills
+// ~1000 - Spells
+// ~1050 - Form Validations
+
 //When DOM is ready
 $(document).ready(function(){
   
-
  //Starting globals
-  var weapon_prof = [];
-  var skill_prof = [];
-  var race_features = [];
-  var class_features = [];
-  var class_savingthrows = [];
-  var race_selection = "";
-  var class_equip = [];
-  var class_skills = [];
   window.bonus_str = 0;
   window.bonus_int = 0;
   window.bonus_wis = 0;
@@ -48,7 +62,8 @@ $(document).ready(function(){
     $("input#ch_hp").val(total_hp);
   }
   
-  //Reset class features before defining new features on class selection
+  //Reset class features before defining new features on class selection. 
+  //Call this before filling out class detail to prevent from having to redefine EVERY field
   function resetClass() {
     $("input#ch_classtool").val(""); //Default class tools
     $("input#ch_armp").val(""); //Armor  proficiency
@@ -76,7 +91,7 @@ $(document).ready(function(){
     getTotalHp();
   }
 
-  //Reset stats for race selection 
+  //Reset stats for race selection - Same idea as resetClass
   //Need to run on all main classes to clear bonuses from previous selections
   function resetRace(){
     window.bonus_str = 0;
@@ -94,7 +109,7 @@ $(document).ready(function(){
   }
   resetRace();
   
-  //Assign race features with delimeter of ^
+  //Assign race features with delimeter of ^ so the controller (base.rb) can split them into a meaningful array
   function assignRaceFeatures() {
     $("input#ch_race_features").val(race_features.join("^"));
   }
@@ -153,8 +168,7 @@ $(document).ready(function(){
     $("input#ch_size").val("Medium");
     $("input#ch_speed").val("30 ft.");
   });
-
-
+  
   //Dwarf racial preloads
   $("#panel_dwa").click(function(event){
     resetRace();
@@ -165,7 +179,6 @@ $(document).ready(function(){
     $("input#ch_size").val("Medium");
     $("input#ch_speed").val("25 ft.*");
     $("input#ch_race_weapon_prof").val("battleaxe^handaxe^throwing hammer^warhammer");
-
   });
 
   //Mountain Dwarf
@@ -229,7 +242,6 @@ $(document).ready(function(){
     $("input#ch_size").val("Medium");
     $("input#ch_speed").val("30 ft.");
     $("input#ch_race_skill_prof").val("Perception");
-
   });
 
   //High Elf
@@ -317,13 +329,11 @@ $(document).ready(function(){
     scrollToStats();
   }); 
 
-
   //Halfling racial preloads
   $("#panel_hal").click(function(event){
     resetRace();
     event.preventDefault();
     race_selection = "hal";
-
     window.bonus_dex = 2;
     $("input#ch_race_languages").val("Common^Halfling");
     $("input#ch_size").val("Small");
@@ -359,7 +369,6 @@ $(document).ready(function(){
     event.preventDefault();
     race_selection = "shal";
     $("input#ch_race").val("Halfling (Stout)");
-
     window.bonus_dex = 2;
     window.bonus_con = 1;
    //Adds features for normal half
@@ -388,14 +397,11 @@ $(document).ready(function(){
     $(".feature_"+ race_selection ).each(function(  ) {
      race_features.push( $(this).text());
     });
-    
     $("#attr_type").val(0); //Reset attr selection dropdown
     $(".name_wrap").hide(); //Hide attr so user knows to repick
-
     assignRaceFeatures();
     $("input#ch_race").val($(this).html()); //Fill in race value
     getTotalHp(); //Recalculate HP based on current stats - somewhat depreciated
-    
   });
 
 
@@ -437,7 +443,7 @@ $(document).ready(function(){
       $("input#ch_hd").val("1d8");
       $("input#ch_stp").val("Dexterity^Intelligence");
       $("input#ch_skillcount").val(4);
-      window.class_equip = "Leather Armor^Two Daggers^Thieve's Tools";
+      window.class_equip = "Leather Armor, Two Daggers^Thieve's Tools";
       $("input#ch_classequip").val(window.class_equip);
       $("input#ch_classfeat").val("Thieves' Cant: A secret language known only to thieves.^ Sneak Attack: Once per turn you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.");
       class_skills = ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation","Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"];
@@ -451,7 +457,7 @@ $(document).ready(function(){
       $("input#ch_armp").val("All armor, shields");
       $("input#ch_wepp").val("Simple weapons, martial weapons");
       $("input#ch_hd").val("1d10");
-      $("input#ch_stp").val(["Strength", "Constitution"]);
+      $("input#ch_stp").val("Strength^Constitution");
       $("input#ch_skillcount").val(2);
       $("input#ch_classfeat").val(window.fighter_features);
       class_skills = ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"];
@@ -463,14 +469,13 @@ $(document).ready(function(){
       getTotalHp();
       $("input#ch_wepp").val("Daggers^Darts^Slings^Quarterstaffs^Light Crossbows"); //Weapon proficiencies
       $("input#ch_hd").val("1d6"); //Hit die
-      $("input#ch_stp").val(["Wisdom", "Intelligence"]); //Saving throw proficiencies
+      $("input#ch_stp").val("Wisdom^Intelligence"); //Saving throw proficiencies
       $("input#ch_skillcount").val(2); //Skills allowed
       $("input#ch_spellcount").val(6); //1st level spells
       $("input#ch_cantripcount").val(3); //Cantrips @ 1st level
       $("input#ch_classfeat").val("Spellcasting: You have a spellbook containing six, 1st-level wizard spells. You know three wizard cantrips and two 1st level wizard spells of your choice.");
       class_skills = ["Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"];
     }
-
 
     //If cleric
     if ($("input#ch_class").val() == "Cleric") {
@@ -480,7 +485,7 @@ $(document).ready(function(){
       $("input#ch_armp").val("Light Armor^Medium Armor^Shields");
       $("input#ch_wepp").val("All Simple Weapons");
       $("input#ch_hd").val("1d8");
-      $("input#ch_stp").val(["Wisdom", "Charisma"]);
+      $("input#ch_stp").val("Wisdom^Charisma");
       $("input#ch_skillcount").val(2);
       clericSpellcount();
       //end cleric spell count
@@ -506,7 +511,6 @@ $(document).ready(function(){
     }
   });
 
-  
   //Cleric domain selection
   $("#cleric_desc").on("change",".ch_cleric_style[type='radio']", function(){
       $("input#ch_classfeat").val(window.cleric_features + "^" + $(this).val());
@@ -516,7 +520,6 @@ $(document).ready(function(){
     $("#fighter_desc").on("change",".ch_fighter_style[type='radio']", function(){
       $("input#ch_classfeat").val(window.fighter_features + "^" + $(this).val());
     });
-
 
   //Class Equipment adding
   $("#fighter_desc, #rogue_desc, #cleric_desc, #wizard_desc").on("change",".item_click[type='radio']", function(){
@@ -562,8 +565,6 @@ $(document).ready(function(){
 
 	// Hide stuff with the JavaScript. If JS is disabled, the form will still be usable.
 	$(".name_wrap").hide();
-  
-  
   
 	// When a dropdown selection is made
   function updateStats(sa) {
@@ -636,8 +637,6 @@ $(document).ready(function(){
 		}
     
 	});
-  
-
   
 /////////////////////////////////
 ////// BEGIN POINT-BUY STUFF /// 
@@ -798,9 +797,6 @@ $(document).ready(function(){
     updatepbStats();
   });
   
-  
-
-  
 /////////////////////////
 //// ALIGNMENT STUFF ///
 ///////////////////////
@@ -838,7 +834,6 @@ $(document).ready(function(){
     }
 
     $("input#ch_alignment").val(translation);
-
   });
   
   
@@ -880,7 +875,6 @@ $(".bond_click").click(function(event){
   click_id = $(this).attr('id');
   $("input#ch_bond").val($('label[for=' + click_id + ']').text());
 });  
-  
   
 //////////////////////////////////////
 //// SKILL VALIDATION / SELECTION ///
@@ -987,7 +981,6 @@ $("a.class_click").click(function(event){
         $('#ch_rogue_expertise').val( $('#ch_rogue_expertise').val() + $("label[for='"+$(this).attr("id")+"']").text() + "^" );
       });
     });
-    
       
   });
   
@@ -1040,7 +1033,6 @@ $("a.class_click").click(function(event){
     }); //Add selections to hidden form field
   });
   
-  //swal({   title: "Error!",   text: "Here's my error message!",   type: "error",   confirmButtonText: "Cool" });
   
 //////////////////////////////////////
 ////   SUBMIT FINAL VALIDATIONS   ///
@@ -1115,8 +1107,6 @@ $("a.class_click").click(function(event){
     else {
       $("#character_form").submit();
     }
-    
   });
-  
   
 });

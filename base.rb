@@ -24,9 +24,9 @@ post '/sheet' do
   @ch_size = params[:ch_size]
   @ch_speed = params[:ch_speed]
   @ch_race_languages = params[:ch_race_languages]
-  @ch_race_features = params[:ch_race_features]
+  @ch_race_features = params[:ch_race_features].split("^")
   @ch_race_armor_prof = params[:ch_race_armor_prof]
-  @ch_race_weapon_prof = params[:ch_race_weapon_prof]
+  @ch_race_weapon_prof = params[:ch_race_weapon_prof].split("^")
   @ch_race_skill_prof = params[:ch_race_skill_prof]
   @ch_race_langcount = params[:ch_race_langcount]
   
@@ -38,25 +38,29 @@ post '/sheet' do
   @ch_cha = params[:ch_cha]
   @ch_wis = params[:ch_wis]
   
+  #Skills and Spells
+  @ch_class_skills = params[:ch_class_skills]
+  @ch_rogue_exp = params[:ch_rogue_expertise].split("^")
+  
   #Class stuff
   @ch_class = params[:ch_class]
   @ch_hp = params[:ch_hp] #Hit points
   @ch_hd = params[:ch_hd] #Hit die
-  @ch_stp = params[:ch_stp] #Saving throw prof.
+  @ch_stp = params[:ch_stp].split("^") #Saving throw prof.
   @ch_armp = params[:ch_armp] #Armor prof.
   @ch_wepp = params[:ch_wepp] # Weapon prof.
   @ch_classtool = params[:ch_classtool] #Class tool prof.
   #@ch_spellcount = params[:ch_spellcount]
   @ch_skillcount = params[:ch_skillcount]
   @ch_classequip = params[:ch_classequip]
-  @ch_classfeat = params[:ch_classfeat]
+  @ch_classfeat = params[:ch_classfeat].split("^")
+  @ch_classfeat << "Expertise: Double your proficiency bonus when using #{@ch_rogue_exp.join(" and ")}" if @ch_rogue_exp.length != 0
+
   
   #Alignemnt
   @ch_alignment = params[:ch_alignment]
   
-  #Skills and Spells
-  @ch_class_skills = params[:ch_class_skills]
-  @ch_rogue_exp = params[:ch_rogue_expertise]
+
   
   #Background
   @ch_background = params[:ch_background] #Background name
@@ -85,8 +89,8 @@ post '/sheet' do
   @master_skill_list.each { |skill| skill.strip! }
   
   #Spells
-  @ch_cantrips_selected = params[:ch_cantrips_selected]
-  @ch_spells_selected = params[:ch_spells_selected]
+  @ch_cantrips_selected = params[:ch_cantrips_selected].strip.tr('*','').split("^")
+  @ch_spells_selected = params[:ch_spells_selected].strip.tr('*','').split("^")
   
   erb :sheet  #Load results onto sheet.erb
 end
