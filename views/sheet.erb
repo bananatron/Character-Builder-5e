@@ -180,7 +180,7 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
     <section class="top-bar-section">
       <!-- Left Nav Section -->
       <ul class="left">
-        <li class="hide-for-medium-up"><a href="#">Small Menu</a></li>
+        <li class="hide-for-medium-up"><a href="#"><b><%= @ch_name %></b>, the <%= @ch_class %></a></li>
         <li><a id="create" href="#">Create Another</a></li>
         <li><a id="bottom" href="#">Bottom</a></li>
       </ul>
@@ -208,10 +208,11 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
     <div class="medium-8 columns panel">
      <div class="row">
         <div class="small-4 columns">
-        <b>Level:</b> 1
+          <b>Class:</b> <span id="ch_class"><%= @ch_class %></span><br>
+          <b>Level:</b> <span contenteditable="true">1</span>
         </div>
         <div class="small-4 columns">
-          <b>Background:</b> <%= @ch_background %>
+          <b>Background:</b> <span contenteditable="true"><%= @ch_background %></span>
         </div>
         <div class="small-4 columns">
         <b>Player Name:</b> <input name="player_name" type="text">
@@ -220,10 +221,13 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
       <br>
       <div class="row">
         <div class="small-4 columns">
-          <b>Race:</b> <%= @ch_race %>
+          <b>Race:</b> <span id="ch_race"><%= @ch_race %></span><br>
+          <b>Height:</b> <span contenteditable="true"><span id="ch_height"><%= @ch_height %></span></span><br>
+          <b>Weight:</b> <span contenteditable="true"><span id="ch_weight"><% if @ch_weight.length>0 %><%= @ch_weight %><% else %> X <% end %></span> 
+          lbs.</span><br>
         </div>
         <div class="small-4 columns">
-          <b>Alignment:</b> <%= @ch_alignment %>
+          <b>Alignment:</b> <span contenteditable="true" id="ch_alignment"><%= @ch_alignment %></span>
         </div>
         <div class="small-4 columns">
         <b>XP:</b> <input name="xp" type="number">
@@ -309,24 +313,23 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
         <div class="small-6 columns">
             <strong>Skills</strong><br>
             <div class="skills">
-              
-              <small>(DEX)</small> <% if @master_skill_list.include?('Acrobatics') %><b><i>(T)</i> <% end %>Acrobatics</b> <br>
-              <small>(WIS)</small> <% if @master_skill_list.include?('Animal Handling') %><b><i>(T)</i> <% end %>Animal Handling</b> <br>
-              <small>(INT)</small> <% if @master_skill_list.include?('Arcana') %><b><i>(T)</i> <% end %>Arcana</b><br>
-              <small>(STR)</small> <% if @master_skill_list.include?('Athletics') %><b><i>(T)</i> <% end %>Athletics</b> <br>
-              <small>(CHA)</small> <% if @master_skill_list.include?('Deception') %><b><i>(T)</i> <% end %>Deception</b> <br>
-              <small>(INT)</small> <% if @master_skill_list.include?('History') %><b><i>(T)</i> <% end %>History</b><br>
-              <small>(WIS)</small> <% if @master_skill_list.include?('Insight') %><b><i>(T)</i> <% end %>Insight</b><br>
-              <small>(CHA)</small> <% if @master_skill_list.include?('Intimidation') %><b><i>(T)</i> <% end %>Intimidation</b> <br>
-              <small>(INT)</small> <% if @master_skill_list.include?('Medicine') %><b><i>(T)</i> <% end %>Medicine</b><br>
-              <small>(INT)</small> <% if @master_skill_list.include?('Nature') %><b><i>(T)</i> <% end %>Nature</b> <br>
-              <small>(WIS)</small> <% if @master_skill_list.include?('Perception') %><b><i>(T)</i> <% end %>Perception</b> <br>
-              <small>(CHA)</small> <% if @master_skill_list.include?('Performance') %><b><i>(T)</i> <% end %>Performance</b><br>
-              <small>(CHA)</small> <% if @master_skill_list.include?('Persuasion') %><b><i>(T)</i> <% end %>Persuasion</b> <br>
-              <small>(INT)</small> <% if @master_skill_list.include?('Religion') %><b><i>(T)</i> <% end %>Religion</b> <br>
-              <small>(DEX)</small> <% if @master_skill_list.include?('Sleight of Hand') %><b><i>(T)</i> <% end %>Sleight of Hand</b> <br>
-              <small>(DEX)</small> <% if @master_skill_list.include?('Stealth') %><b><i>(T)</i> <% end %>Stealth</b> <br>
-              <small>(WIS)</small> <% if @master_skill_list.include?('Survival') %><b><i>(T)</i> <% end %>Survival</b> <br>
+              <input type="checkbox"<% if @master_skill_list.include?('Acrobatics')%>checked<% end %> /> <small>(DEX)</small> Acrobatics<br>
+              <input type="checkbox"<% if @master_skill_list.include?('Animal Handling')%>checked<% end %>/> <small>(WIS)</small> Animal Handling <br>
+              <input type="checkbox"<% if @master_skill_list.include?('Arcana')%>checked<% end %>/> <small>(INT)</small> Arcana<br>
+              <input type="checkbox"<% if @master_skill_list.include?('Athletics')%>checked<% end %>/> <small>(STR)</small> Athletics<br>
+              <input type="checkbox"<% if @master_skill_list.include?('Deception')%>checked<% end %> /> <small>(CHA)</small> Deception <br>
+              <input type="checkbox"<% if @master_skill_list.include?('History')%>checked<% end %>/> <small>(INT)</small> History<br>
+              <input type="checkbox"<% if @master_skill_list.include?('Insight')%>checked<% end %>/> <small>(WIS)</small> Insight<br>
+              <input type="checkbox"<% if @master_skill_list.include?('Intimidation')%>checked<% end %>/> <small>(CHA)</small> Intimidation<br>
+              <input type="checkbox"<% if @master_skill_list.include?('Medicine')%>checked<% end %>/> <small>(INT)</small> Medicine<br>
+              <input type="checkbox"<% if @master_skill_list.include?('Nature')%>checked<% end %>/> <small>(INT)</small> Nature<br>
+              <input type="checkbox"<% if @master_skill_list.include?('Perception')%>checked<% end %>/> <small>(WIS)</small> Perception<br>
+              <input type="checkbox"<% if @master_skill_list.include?('Performance')%>checked<% end %>/> <small>(CHA)</small> Performance<br>
+              <input type="checkbox"<% if @master_skill_list.include?('Persuasion')%>checked<% end %>/> <small>(CHA)</small> Persuasion <br>
+              <input type="checkbox"<% if @master_skill_list.include?('Religion')%>checked<% end %>/> <small>(INT)</small> Religion <br>
+              <input type="checkbox"<% if @master_skill_list.include?('Sleight of Hand')%>checked<% end %>/> <small>(DEX)</small> Sleight of Hand <br>
+              <input type="checkbox"<% if @master_skill_list.include?('Stealth')%>checked<% end %>/> <small>(DEX)</small> Stealth <br>
+              <input type="checkbox"<% if @master_skill_list.include?('Survival')%>checked<% end %>/> <small>(WIS)</small> Survival <br>
               <% if @ch_rogue_exp.length != 0 %><br>If rogue, expert in: <%= @ch_rogue_exp %><% end %>
             </div>
         </div>
@@ -407,7 +410,7 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
       <strong>Class Traits</strong> 
          <ul>
            <% @ch_classfeat.split("^").each do |feature| %>
-           <li><%= feature %></li>
+           <span contenteditable="true"><li><%= feature %></li></span>
            <% end %>
          </ul>
       <strong>Background Features</strong> <div contenteditable="true"><%= @ch_bg_features %></div><br>

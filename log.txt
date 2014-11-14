@@ -1,15 +1,16 @@
 ##Add:
 
-Top nav bar on sheet and some info on front page
-class not displayed on sheet
-background unique properties (specialty, etc.)
-spells & descriptions on sheet
-editable jquery stats on sheet (STR DEX, etc)
 skills checkboxes
+
+Top nav bar on sheet and some info on front page
+
+background unique properties (specialty, etc.)
+spells & descriptions on sheet (cleric, etc)
+editable jquery stats on sheet (STR DEX, etc)
+
 styling
-hideable/editable sheet
 check on mending & other spells on phb!
-age / weight / height dont go on sheet
+
 
 fix light/detect magic (any duplicates) that (id is duplicated on wizard)
 
@@ -27,6 +28,8 @@ fix light/detect magic (any duplicates) that (id is duplicated on wizard)
 
 
 ##!DONE!
+class not displayed on sheet - FIXED
+age / weight / height dont go on sheet - FIXED
 add _blank to buy link - DONE
 changing race after class/stat selection won't update hp/stats accurately - FIXED
 draggable outside of range on mobile - FIXED
