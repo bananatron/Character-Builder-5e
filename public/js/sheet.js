@@ -21,8 +21,27 @@ $(document).ready(function(){
   
   //Escape the small container the spell dropdowns are constrained to
   $(".f-dropdown").prependTo( "#escaper" );
-  
-  
+
+  $( ".attr_value" ).bind( "input", function() {
+    //Prevent letters from being entered
+    $('.attr_value').keypress(function(key) {
+        if(key.charCode < 48 || key.charCode > 57) return false;
+    });
+    //Prevent you from removing all text from field
+    if ($(this).text() === "") {
+      $(this).text("10");
+    }
+    //Find the appropriate idnetifier for that skill
+    var attr_find = $(this).attr('id').replace("_value", "_mod")
+    //Change the modifier to the appropriate value based on your entry
+    if ( $(this).text().length < 3 ) {
+      $('#'+attr_find).text( Math.floor((parseInt($(this).text())-10)/2) ); 
+    }
+    //Don't allow big numbers
+    else {
+      $('#'+attr_find).text("X");
+    }
+  });
   
   
   
