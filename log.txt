@@ -5,15 +5,13 @@ equipment delimiter standardization ^ (check rogue equip)
 
 Top nav bar on sheet and some info on front page
 
-editable jquery stats on sheet (STR DEX, etc)
-
 background unique properties (specialty, etc.)
 spells & descriptions on sheet (cleric, etc)
 
 
 styling
 check on mending & other spells on phb!
-test rogue expertise
+
 
 fix light/detect magic (any duplicates) that (id is duplicated on wizard)
 
@@ -30,8 +28,9 @@ fix light/detect magic (any duplicates) that (id is duplicated on wizard)
 
 
 
-
 ##!DONE!
+test rogue expertise - DONE
+editable jquery stats on sheet (STR DEX, etc) - DONE
 skills checkboxes - DONE
 class not displayed on sheet - FIXED
 age / weight / height dont go on sheet - FIXED

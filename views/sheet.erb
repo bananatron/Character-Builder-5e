@@ -181,7 +181,7 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
       <!-- Left Nav Section -->
       <ul class="left">
         <li class="hide-for-medium-up"><a href="#"><b><%= @ch_name %></b>, the <%= @ch_class %></a></li>
-        <li><a id="create" href="#">Create Another</a></li>
+        <li><a id="create" target="_blank" href="http://d5b.herokuapp.com">Create Another</a></li>
         <li><a id="bottom" href="#">Bottom</a></li>
       </ul>
       <ul class="right">
@@ -309,8 +309,7 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
               <% end %>
             </div>
           <% if @ch_rogue_exp.length != 0 %><br><b>Rogue Expertise</b><br>
-          As a rogue, you get an addition +2 when using <%= @ch_rogue_exp.split("^").join(" and ") %>.
-
+           As a rogue, you double your proficiency bonus when using <%= @ch_rogue_exp.split("^").join(" and ") %>.
           <% end %>
         </div>
         
@@ -399,8 +398,8 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
          <strong>Equipment</strong>
          <div contentEditable="true" id="equip"><%= @master_equip_list %></div>
           <br>
-         <strong>Race Features</strong>
-        <ul>
+         <strong>Race Features</strong><a id="ch_racefeat_add" class="li_adder"><span class="success label right">+</span></a>
+        <ul id="ch_racefeat">
           <% @ch_race_features.split("^").each do |feat| %>
           <li contenteditable="true"><%= feat %></li>
           <% end %>
@@ -409,11 +408,10 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
       </div>
     </div>
     <div class="medium-4 columns">
-      <div class="show-for-small-only"><br></div>
-      <strong>Class Traits</strong> 
-         <ul>
+      <strong>Class Traits</strong> <a id="ch_traits_add" class="li_adder"><span class="success label right">+</span></a>
+         <ul id="ch_traits">
            <% @ch_classfeat.split("^").each do |feature| %>
-           <span contenteditable="true"><li><%= feature %></li></span>
+           <span class="list_item"contenteditable="true"><li><%= feature %></li></span>
            <% end %>
          </ul>
       <strong>Background Features</strong> <div contenteditable="true"><%= @ch_bg_features %></div><br>

@@ -22,6 +22,7 @@ $(document).ready(function(){
   //Escape the small container the spell dropdowns are constrained to
   $(".f-dropdown").prependTo( "#escaper" );
 
+  //Attribute editing and calculation
   $( ".attr_value" ).bind( "input", function() {
     //Prevent letters from being entered
     $('.attr_value').keypress(function(key) {
@@ -43,7 +44,21 @@ $(document).ready(function(){
     }
   });
   
+  //Remove li if it's empty
+  $( ".list_item" ).bind( "input", function() {
+    console.log( $(this).text() );
+    if ($(this).text() === "") {
+      $(this).remove();
+    }
+  });
   
+  //Add list item
+  $(".li_adder").click(function(){
+    var ul = $(this).attr('id').replace("_add", "")
+   console.log( ul );
+    $('#'+ul).append("<span contenteditable='true'><li class='list'>Something new.</li>")
+  });
   
+  //$(".list").parent().parent().append("<span contenteditable='true'><li class='list'>test list item</li>")
   
 });
