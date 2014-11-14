@@ -8,12 +8,11 @@ Top nav bar on sheet and some info on front page
 background unique properties (specialty, etc.)
 spells & descriptions on sheet (cleric, etc)
 
-
 styling
 check on mending & other spells on phb!
 
 
-fix light/detect magic (any duplicates) that (id is duplicated on wizard)
+
 
 
 ##Low Prior
@@ -29,6 +28,8 @@ fix light/detect magic (any duplicates) that (id is duplicated on wizard)
 
 
 ##!DONE!
+fix light/detect magic (any duplicates) that (id is duplicated on wizard) - DONE
+add/remove list elements - DONE
 test rogue expertise - DONE
 editable jquery stats on sheet (STR DEX, etc) - DONE
 skills checkboxes - DONE

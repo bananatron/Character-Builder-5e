@@ -174,28 +174,16 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
   </head>
   <body>
 
-  <div class="fixed">
-  <nav class="top-bar" data-topbar role="navigation">
-
-    <section class="top-bar-section">
-      <!-- Left Nav Section -->
-      <ul class="left">
-        <li class="hide-for-medium-up"><a href="#"><b><%= @ch_name %></b>, the <%= @ch_class %></a></li>
-        <li><a id="create" target="_blank" href="http://d5b.herokuapp.com">Create Another</a></li>
-        <li><a id="bottom" href="#">Bottom</a></li>
-      </ul>
-      <ul class="right">
-        <li><a href="#">About</a>
-        <li class="active"><a target="_blank" href="http://spensercoke.com">Author</a></li>
-      </ul>
-    </section>
-  </nav>
-  </div>
-  <br><br><br>
+    <ul class="breadcrumbs">
+      <li><b>D5B</b></li>
+      <li><a target="_blank" href="http://d5b.herokuapp.com">Create Another</a></li>
+      <li><a data-reveal-id="aboutBuilder" href="#">About</a>
+      <li><a data-reveal-id="faq" href="#">FAQ</a>
+      <li class="unavailable right"><a target="_blank" href="http://www.spensercoke.com">Author</a></li>
+    </ul>
     
   <!-- First row -->
   <div class="row">
-    <div class="panel">Almost done! Still a work in progress...</div>
     <div class="medium-4 columns">
       <strong>Character Name</strong><br>
       <span contenteditable="true"><%= @ch_name %></span>
@@ -419,11 +407,32 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
       <strong>Ideals</strong> <div contenteditable="true"><%if @ch_ideal.length>0 %> <%= @ch_ideal %> <% else %>Flaw info here!<% end %> </div><br>
       <strong>Bonds</strong> <div contenteditable="true"><%if @ch_bond.length>0 %> <%= @ch_bond %> <% else %>Flaw info here!<% end %> </div><br>
       <strong>Flaws</strong> <div contenteditable="true"><%if @ch_flaw.length>0 %> <%= @ch_flaw %> <% else %>Flaw info here!<% end %> </div><br>
+      
     </div>
-  </div>
+</div>
 
 
-  <div id="bottom_d"> </div>
+<div id="aboutBuilder" class="reveal-modal" data-reveal>
+  <center><img src="img/D5B.png" /></center><br>
+  <p>Everything available in this builder is available in the DND 5E Basic rules PDF, which can be found for free, <a href="http://dnd.wizards.com/articles/features/basicrules">here</a>. The text used was written and is maintained by Wizards of the Coast. For more rules and information, you can purchase the DND 5E Players Handbook from <a href="<%=@amz_link%>">amazon</a> or your friendly local book/game store.
+  <p>The source for this project can be found <a href="https://github.com/bananatron/Character-Builder-5e">on github</a>.
+</div>
+<div id="faq" class="reveal-modal" data-reveal>
+  <h2>FAQ</h2><br>
+   <p><strong>Why?</strong><br>
+   I think 5E is pretty nifty, but I couldn't find a good, responsive, 5E generator that I liked (and I wanted to learn jQuery). I wanted something I could link to friends and have them get a character made in minutes, with or without their phone. If you're a developer and you have functionality you want to add, grab <a href="https://github.com/bananatron/Character-Builder-5e">the source</a> and get going.
+  <p><strong>How do I save my character?</strong><br>
+   D5B is not currently connected to any database. As a result, there is no online storage of character data at this time. You can save the file from your browser and (if your browser gets all the dependancies) it should be viewable and editable locally.
+  <p><strong>What browsers are supported?</strong><br>
+    D5B is not being <i>supported</i>, but your best bet is to use a modern, non-IE, browser like Firefox or Chrome.
+  <p><strong>What tech was used to make D5B?</strong><br>
+  D5B's core front-end functionality comes from JS/jQuery on top of Foundation CSS. It uses Ruby and Sinatra to quickly generate HTML data with embedded Ruby and is hosted on Heroku.
+  <p><strong>How can I help?  </strong><br>
+  You can help by taking the source and making something better (or just making something better, in general), or by buying the PHB through my <a href=<%= @amz_link %>>amazon referral link</a>.<br><br>
+</div>
+
+
+<div id="bottom_d"> </div>
       
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
