@@ -13,6 +13,9 @@
 //         DND 5E Character Builder              //
 ///////////////////////////////////////////////////
 
+// This file manipulates the index.erb (main form page)
+// Reference sheet.js for the sheet.erb (results / sheet page)
+
 //When DOM is ready
 $(document).ready(function(){
   
