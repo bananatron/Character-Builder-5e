@@ -11,6 +11,8 @@
 </head>
 
 <body>
+  <% @amz_link = "http://www.amazon.com/gp/product/0786965606/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0786965606&linkCode=as2&tag=s0432c-20&linkId=DVQNDEKTCOBCER77" %>
+    <% @buy_text = "Not avilable in the basic rules." %>
   <% @spelllist_wizard0 = [
   {name:"Acid Splash", ct:"1 Action", range:"60 ft.", comp:"v, s", dur:"Instantaneous", school:"Conjuration", text:"You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage. <br><br><i>This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).</i>"},
   {name:"Blade Ward", ct:"1 Action", range:"Self", comp:"v, s", dur:"1 Round", school:"Abjuration", text:@buy_text},
@@ -339,10 +341,6 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
       <input name="ch_classfeat" id="ch_classfeat" type="hidden" readonly>
       <br>
 		</fieldset>
-      
-
-      <% @amz_link = "http://www.amazon.com/gp/product/0786965606/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=0786965606&linkCode=as2&tag=s0432c-20&linkId=DVQNDEKTCOBCER77" %>
-<% @buy_text = "Not avilable in the basic rules. Buy the PHB <a target='_blank' href='#{@amz_link}'><u>here</u></a>." %>
 
     <fieldset id="step_35">
       <legend>Step 3.5: Skills and Spells</legend>
