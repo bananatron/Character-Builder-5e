@@ -58,8 +58,9 @@ $(document).ready(function(){
     if ($("input#ch_class").val() == "Cleric") { base = 8; }
     if ($("input#ch_class").val() == "Wizard") { base = 6; }
     
-    var total_hp = (base + parseInt($("input#ch_con").val()) + window.bonus_hp);
+    var total_hp = (base + parseInt( ($("input#ch_con").val()-10)/2) + window.bonus_hp);
     $("input#ch_hp").val(total_hp);
+    console.log(total_hp);
   }
   
   //Reset class features before defining new features on class selection. 
