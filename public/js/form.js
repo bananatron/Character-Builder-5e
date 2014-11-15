@@ -650,7 +650,7 @@ $(document).ready(function(){
         $("#pb_total").text($("#pb_total").text()-2);
         $("#pb_str").text(parseInt($("#pb_str").text())+1);
       }
-      else if ($("#pb_str").html() > 7 && $("#pb_total").text()-1 >= 0 ) {
+      else if ($("#pb_str").html() > 7  && $("#pb_str").html() < 13 && $("#pb_total").text()-1 >= 0 ) {
         $("#pb_total").text($("#pb_total").text()-1);
         $("#pb_str").text(parseInt($("#pb_str").text())+1);
       }
@@ -671,11 +671,11 @@ $(document).ready(function(){
 	$("#pb_dex_plus").click(function(){
     if ($("#pb_dex").html() < 15 && $("#pb_total").html() > 0){
       
-      if ($("#pb_dex").html() > 12 && $("#pb_total").text()-2 >= 0) {
+      if ($("#pb_dex").text() > 12 && $("#pb_total").text()-2 >= 0) {
         $("#pb_total").text($("#pb_total").text()-2);
         $("#pb_dex").text(parseInt($("#pb_dex").text())+1);
       }
-      else if ($("#pb_dex").html() > 7 && $("#pb_total").text()-1 >= 0 ) {
+      else if ($("#pb_dex").html() > 7 && $("#pb_dex").html() < 13 && $("#pb_total").text()-1 >= 0 ) {
         $("#pb_total").text($("#pb_total").text()-1);
         $("#pb_dex").text(parseInt($("#pb_dex").text())+1);
       }
@@ -700,7 +700,7 @@ $(document).ready(function(){
         $("#pb_total").text($("#pb_total").text()-2);
         $("#pb_int").text(parseInt($("#pb_int").text())+1);
       }
-      else if ($("#pb_int").html() > 7 && $("#pb_total").text()-1 >= 0 ) {
+      else if ($("#pb_int").html() > 7  && $("#pb_int").html() < 13 && $("#pb_total").text()-1 >= 0 ) {
         $("#pb_total").text($("#pb_total").text()-1);
         $("#pb_int").text(parseInt($("#pb_int").text())+1);
       }
@@ -724,7 +724,7 @@ $(document).ready(function(){
         $("#pb_total").text($("#pb_total").text()-2);
         $("#pb_wis").text(parseInt($("#pb_wis").text())+1);
       }
-      else if ($("#pb_wis").html() > 7 && $("#pb_total").text()-1 >= 0 ) {
+      else if ($("#pb_wis").html() > 7  && $("#pb_wis").html() < 13 && $("#pb_total").text()-1 >= 0 ) {
         $("#pb_total").text($("#pb_total").text()-1);
         $("#pb_wis").text(parseInt($("#pb_wis").text())+1);
       }
@@ -751,7 +751,7 @@ $(document).ready(function(){
         $("#pb_total").text($("#pb_total").text()-2);
         $("#pb_cha").text(parseInt($("#pb_cha").text())+1);
       }
-      else if ($("#pb_cha").html() > 7 && $("#pb_total").text()-1 >= 0 ) {
+      else if ($("#pb_cha").html() > 7 && $("#pb_cha").html() < 13 && $("#pb_total").text()-1 >= 0 ) {
         $("#pb_total").text($("#pb_total").text()-1);
         $("#pb_cha").text(parseInt($("#pb_cha").text())+1);
       }
@@ -776,7 +776,7 @@ $(document).ready(function(){
         $("#pb_total").text($("#pb_total").text()-2);
         $("#pb_con").text(parseInt($("#pb_con").text())+1);
       }
-      else if ($("#pb_con").html() > 7 && $("#pb_total").text()-1 >= 0 ) {
+      else if ($("#pb_con").html() > 7 && $("#pb_con").html() < 13 && $("#pb_total").text()-1 >= 0 ) {
         $("#pb_total").text($("#pb_total").text()-1);
         $("#pb_con").text(parseInt($("#pb_con").text())+1);
       }
