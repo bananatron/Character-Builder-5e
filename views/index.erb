@@ -152,6 +152,7 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
     <li class="unavailable right"><a target="_blank" href="http://www.spensercoke.com">Author</a></li>
   </ul>
 <div class="row">
+  <div id="IEwarning"></div>
   <div class="large-12 columns">
     <div id="logo"><img src="img/D5B.png" /></div>
 
@@ -1041,6 +1042,19 @@ If the warded creature makes an attack or casts a spell that affects an enemy cr
   <script src="lib/sweet-alert.min.js"></script>
   <script>
   //When adding races, reference lightClassButton ~ 150 on form.js
+  var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+  // Opera 8.0+ (UA detection to detect Blink/v8-powered Opera)
+  var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
+  var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+  // At least Safari 3+: "[object HTMLElementConstructor]"
+  var isChrome = !!window.chrome && !isOpera; // Chrome 1+
+  var isIE = /*@cc_on!@*/false || !!document.documentMode; // At least IE6
+    
+  if (isIE == true) {
+    $("#IEwarning").append("Warning: You're using Internet Explorer. <a href='https://www.google.com/chrome/browser/'>Don't do that</a>.<br><b>This form may not work as intended.</b>")
+    $("#IEwarning").addClass("panel");
+  }
+    
   $("#dwarf_desc").load("dwarf.html");
   $("#elf_desc").load("elf.html");
   $("#human_desc").load("human.html");
